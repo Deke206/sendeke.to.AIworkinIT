@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14151B"/>
+      <stop offset="100%" stop-color="#07080A"/>
+    </linearGradient>
+    <linearGradient id="electricGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#2E9EFF"/>
+    </linearGradient>
+    <filter id="ledGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Outer Dark Squircle Container -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect x="6" y="6" width="500" height="500" rx="106" fill="none" stroke="rgba(255, 255, 255, 0.09)" stroke-width="4"/>
+
+  <!-- Forward-swept Aerodynamic Vehicle/Courier Shell -->
+  <path d="M112 144 H272 C356 144 412 194 412 258 C412 322 356 352 272 352 H112 V144 Z" fill="#FFFFFF"/>
+  
+  <!-- Aerodynamic Cockpit Cutout -->
+  <path d="M168 194 H262 C306 194 344 220 344 256 C344 290 306 306 262 306 H168 V194 Z" fill="#0A0B0E"/>
+
+  <!-- LED Bike Light Beam (Electric Cyan) -->
+  <path d="M96 250 H368" stroke="url(#electricGrad)" stroke-width="16" stroke-linecap="round" filter="url(#ledGlow)"/>
+
+  <!-- Rear Wheel (Left) with Mechanical & LED Accents -->
+  <circle cx="168" cy="386" r="46" fill="#FFFFFF"/>
+  <circle cx="168" cy="386" r="26" fill="#0A0B0E"/>
+  <circle cx="168" cy="386" r="11" fill="#00F0FF"/>
+
+  <!-- Front Wheel (Right) with Mechanical & LED Accents -->
+  <circle cx="344" cy="386" r="46" fill="#FFFFFF"/>
+  <circle cx="344" cy="386" r="26" fill="#0A0B0E"/>
+  <circle cx="344" cy="386" r="11" fill="#00F0FF"/>
+</svg>

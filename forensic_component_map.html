@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SenDeke.to Forensic Component Map | Live Review Stage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#06b6d4',
+              gold: '#f59e0b',
+              emerald: '#10b981',
+              dark: '#0f172a',
+              card: '#1e293b',
+              border: '#334155'
+            }
+          },
+          fontFamily: {
+            mono: ['Consolas', 'Courier New', 'monospace'],
+            sans: ['Inter', 'Segoe UI', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+  </style>
+</head>
+<body class="bg-[#0b0f19] text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- TOP HUD BAR -->
+  <header class="bg-[#111827] border-b border-slate-800 sticky top-0 z-50 px-4 py-3 shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-lg bg-cyan-950 border border-cyan-500/30 flex items-center justify-center font-mono font-bold text-cyan-400">
+          SDK
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-bold tracking-tight text-white font-mono">SENDEKE.TO // FORENSIC COMPONENT MAP</h1>
+            <span class="bg-cyan-500/10 text-cyan-400 text-xs px-2 py-0.5 rounded border border-cyan-500/30 font-mono">7 Pages Verified</span>
+          </div>
+          <p class="text-xs text-slate-400">Repository: <span class="text-slate-300 font-mono">bootstrap.sendeketo.com</span> • Zero Commission Livery & Courier Stack</p>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Pill Counter -->
+      <div class="flex items-center gap-2 overflow-x-auto text-xs font-mono">
+        <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-md flex items-center gap-2">
+          <span class="text-slate-400">TOTAL LINES:</span>
+          <span class="text-cyan-400 font-bold">4,089</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-md flex items-center gap-2">
+          <span class="text-slate-400">TOTAL BYTES:</span>
+          <span class="text-emerald-400 font-bold">215.5 KB</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-md flex items-center gap-2">
+          <span class="text-slate-400">DOM IDS:</span>
+          <span class="text-purple-400 font-bold">189 UNIQUE</span>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-md flex items-center gap-2">
+          <span class="text-slate-400">MODALS:</span>
+          <span class="text-amber-400 font-bold">6 DIALOGS</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE SELECTOR TABS -->
+  <nav class="bg-[#151c2e] border-b border-slate-800 px-4 py-2 sticky top-[61px] z-40">
+    <div class="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto pb-1" id="tab-container">
+      <button onclick="switchTab('menu')" id="tab-btn-menu" class="tab-btn px-3 py-1.5 rounded text-xs font-mono font-medium transition-colors bg-cyan-600 text-white shadow-sm flex items-center gap-1.5 whitespace-nowrap">
+        <span>🍱</span> menu.html <span class="bg-cyan-900/60 text-cyan-200 text-[10px] px-1.5 py-0.2 rounded">55.5 KB</span>
+      </button>
+      <button onclick="switchTab('index')" id="tab-btn-index" class="tab-btn px-3 py-1.5 rounded text-xs font-mono font-medium transition-colors bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 whitespace-nowrap">
+        <span>🏠</span> index.html <span class="bg-slate-900 text-slate-400 text-[10px] px-1.5 py-0.2 rounded">61.0 KB</span>
+      </button>
+      <button onclick="switchTab('admin')" id="tab-btn-admin" class="tab-btn px-3 py-1.5 rounded text-xs font-mono font-medium transition-colors bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 whitespace-nowrap">
+        <span>📡</span> admin.html <span class="bg-slate-900 text-slate-400 text-[10px] px-1.5 py-0.2 rounded">31.8 KB</span>
+      </button>
+      <button onclick="switchTab('driver')" id="tab-btn-driver" class="tab-btn px-3 py-1.5 rounded text-xs font-mono font-medium transition-colors bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 whitespace-nowrap">
+        <span>🚴</span> driver.html <span class="bg-slate-900 text-slate-400 text-[10px] px-1.5 py-0.2 rounded">26.1 KB</span>
+      </button>
+      <button onclick="switchTab('restaurant')" id="tab-btn-restaurant" class="tab-btn px-3 py-1.5 rounded text-xs font-mono font-medium transition-colors bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 whitespace-nowrap">
+        <span>👨‍🍳</span> restaurant.html <span class="bg-slate-900 text-slate-400 text-[10px] px-1.5 py-0.2 rounded">25.1 KB</span>
+      </button>
+      <button onclick="switchTab('track')" id="tab-btn-track" class="tab-btn px-3 py-1.5 rounded text-xs font-mono font-medium transition-colors bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 whitespace-nowrap">
+        <span>📍</span> track.html <span class="bg-slate-900 text-slate-400 text-[10px] px-1.5 py-0.2 rounded">9.4 KB</span>
+      </button>
+      <button onclick="switchTab('request')" id="tab-btn-request" class="tab-btn px-3 py-1.5 rounded text-xs font-mono font-medium transition-colors bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center gap-1.5 whitespace-nowrap">
+        <span>📝</span> request.html <span class="bg-slate-900 text-slate-400 text-[10px] px-1.5 py-0.2 rounded">6.6 KB</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main class="flex-1 max-w-7xl mx-auto w-full p-4 space-y-6">
+
+    <!-- ALERT BANNER FOR DEFECTS -->
+    <div class="bg-amber-950/40 border border-amber-500/40 rounded-lg p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-amber-200">
+      <div class="flex items-start gap-3">
+        <span class="text-xl">⚠️</span>
+        <div>
+          <h2 class="text-sm font-bold font-mono">2 OPERATIONAL DEFECTS IDENTIFIED DURING FORENSIC PASS</h2>
+          <p class="text-xs text-amber-300/80 mt-0.5">1. <code class="bg-amber-900/60 px-1 py-0.5 rounded text-amber-100 font-mono">menu.html</code> modal collision (offcanvas selector bug) • 2. <code class="bg-amber-900/60 px-1 py-0.5 rounded text-amber-100 font-mono">index.html</code> missing <code class="text-amber-100 font-mono">tacos.html</code> link.</p>
+        </div>
+      </div>
+      <button onclick="scrollToDefects()" class="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-black text-xs font-mono font-bold rounded transition-colors whitespace-nowrap">
+        VIEW FIXES &rarr;
+      </button>
+    </div>
+
+    <!-- DYNAMIC TAB PANELS -->
+
+    <!-- PANEL 1: menu.html -->
+    <div id="panel-menu" class="tab-panel space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <!-- Structural Identity Card -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">Catalog & Cart Stage</span>
+              <span class="text-[11px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/40 px-2 py-0.5 rounded">100% Gluten-Free</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">menu.html</h3>
+            <p class="text-xs text-slate-400 mt-1">Sweetfin Palms 34-Item poke & grain bowl catalog. Direct counter-to-door pass-through with guaranteed $10 flat courier fee in Palms 90034.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center font-mono text-xs">
+            <div class="bg-slate-950 p-2 rounded">
+              <div class="text-slate-400 text-[10px]">SIZE</div>
+              <div class="text-white font-bold">55.5 KB</div>
+            </div>
+            <div class="bg-slate-950 p-2 rounded">
+              <div class="text-slate-400 text-[10px]">LINES</div>
+              <div class="text-white font-bold">1,100</div>
+            </div>
+            <div class="bg-slate-950 p-2 rounded">
+              <div class="text-slate-400 text-[10px]">DOM IDS</div>
+              <div class="text-cyan-400 font-bold">37</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Header / Banner Row Card -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-purple-400 font-bold uppercase tracking-wider">Header & Banner Architecture</span>
+            <div class="mt-2 space-y-2 text-xs">
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-start gap-2">
+                <span class="text-amber-400">📌</span>
+                <div>
+                  <span class="font-mono font-semibold text-slate-200">Top Nav Permanently Removed:</span>
+                  <p class="text-slate-400 text-[11px]">Commented out per Comptroller directive to maximize vertical mobile viewport space for catalog scanning.</p>
+                </div>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-start gap-2">
+                <span class="text-cyan-400">🍞</span>
+                <div>
+                  <span class="font-mono font-semibold text-slate-200">Breadcrumb Bar:</span>
+                  <p class="text-slate-400 text-[11px]">sen[icon-192.png]eke.to &rarr; Palms (90034) / Culver City &rarr; Sweetfin Poke</p>
+                </div>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-start gap-2">
+                <span class="text-emerald-400">🏷️</span>
+                <div>
+                  <span class="font-mono font-semibold text-slate-200">#menu-hero-object:</span>
+                  <p class="text-slate-400 text-[11px]">Kitchen status badge, line: (323) 374-5787, 4 action buttons.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modals in menu.html -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">Modal Dialogs (3)</span>
+            <div class="mt-2 space-y-2 text-xs font-mono">
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="text-cyan-400 font-bold">#cartModal</div>
+                  <div class="text-slate-400 text-[10px]">Your Sweetfin Cart & Fee Calc</div>
+                </div>
+                <span class="text-emerald-400 text-xs">Trigger: 🛒 Button</span>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="text-cyan-400 font-bold">#phone-dialer-modal</div>
+                  <div class="text-slate-400 text-[10px]">AI Phone Order Simulator</div>
+                </div>
+                <span class="text-emerald-400 text-xs">Trigger: 📞 Call Button</span>
+              </div>
+              <div class="p-2 rounded bg-slate-950 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="text-cyan-400 font-bold">#receipt-modal</div>
+                  <div class="text-slate-400 text-[10px]">Printable Voucher (#printable-receipt-card)</div>
+                </div>
+                <span class="text-emerald-400 text-xs">Trigger: Checkout Btn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOM IDs Breakdown for menu.html -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Discrete DOM Component IDs (37 Total)</h4>
+        <div class="flex flex-wrap gap-1.5 font-mono text-xs">
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#html-root</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#menu-hero-object</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#nav-cart-counter-badge</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#menu-filters-object</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#catalog-search-input</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#menu-catalog-grid-object</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#menu-items-grid</span>
+          <span class="bg-slate-950 text-amber-300 border border-slate-800 px-2 py-1 rounded">#cartModal</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#cart-items-container</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#cart-subtotal</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#cart-courier-fee</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#cart-total</span>
+          <span class="bg-slate-950 text-emerald-300 border border-slate-800 px-2 py-1 rounded">#btn-generate-receipt</span>
+          <span class="bg-slate-950 text-amber-300 border border-slate-800 px-2 py-1 rounded">#phone-dialer-modal</span>
+          <span class="bg-slate-950 text-amber-300 border border-slate-800 px-2 py-1 rounded">#receipt-modal</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#printable-receipt-card</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#receipt-order-hash</span>
+          <span class="bg-slate-950 text-cyan-300 border border-slate-800 px-2 py-1 rounded">#receipt-table-body</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2: index.html -->
+    <div id="panel-index" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">Customer Portal</span>
+              <span class="text-[11px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded">Natural Language</span>
+            </div>
+            <h3 class="text-lg font-bold text-white font-mono">index.html</h3>
+            <p class="text-xs text-slate-400 mt-1">Direct local courier booking with instant natural language parser, living-wage calculator ($10 base + $2.50 tip = $12.50 take-home), and merchant stand showcases.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center font-mono text-xs">
+            <div class="bg-slate-950 p-2 rounded">
+              <div class="text-slate-400 text-[10px]">SIZE</div>
+              <div class="text-white font-bold">61.0 KB</div>
+            </div>
+            <div class="bg-slate-950 p-2 rounded">
+              <div class="text-slate-400 text-[10px]">LINES</div>
+              <div class="text-white font-bold">1,077</div>
+            </div>
+            <div class="bg-slate-950 p-2 rounded">
+              <div class="text-slate-400 text-[10px]">DOM IDS</div>
+              <div class="text-cyan-400 font-bold">66</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+          <span class="text-xs font-mono text-purple-400 font-bold uppercase tracking-wider">Header & Banner Architecture</span>
+          <div class="mt-2 space-y-2 text-xs">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <span class="font-mono font-semibold text-slate-200">#site-navigation-object (.navbar-floating):</span>
+              <p class="text-slate-400 text-[11px]">Brand SVG + Home, Sweetfin Catalog (34), Driver Cockpit, Kitchen Kiosk, Comptroller.</p>
+            </div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <span class="font-mono font-semibold text-slate-200">#hero-banner-object:</span>
+              <p class="text-slate-400 text-[11px]">Living-wage guarantee headline + Courier #04 live beacon (#live-courier-beacon).</p>
+            </div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <span class="font-mono font-semibold text-slate-200">#service-area-alert-object:</span>
+              <p class="text-slate-400 text-[11px]">Zone 90034 Palms / Culver City boundary enforcement indicator.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+          <span class="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">Modals (3)</span>
+          <div class="mt-2 space-y-2 text-xs font-mono">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#soapbox-pitch-modal</div>
+              <div class="text-slate-400 text-[10px]">Disrupt the Ride-Share Mafia Outreach Deck</div>
+            </div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#home-phone-dialer-modal</div>
+              <div class="text-slate-400 text-[10px]">AI Call-In Phone Order Simulator</div>
+            </div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#home-receipt-modal</div>
+              <div class="text-slate-400 text-[10px]">Courier Order Receipt & Voucher</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: admin.html -->
+    <div id="panel-admin" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+          <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">Fleet Comptroller</span>
+          <h3 class="text-lg font-bold text-white font-mono mt-1">admin.html</h3>
+          <p class="text-xs text-slate-400 mt-1">Executive command viewport. Leaflet driver radar map, live courier telemetry pins, and AI nearest courier dispatch query engine.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center font-mono text-xs">
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">SIZE</div><div class="text-white font-bold">31.8 KB</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">LINES</div><div class="text-white font-bold">574</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">DOM IDS</div><div class="text-cyan-400 font-bold">25</div></div>
+          </div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 col-span-2">
+          <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Primary Components</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#admin-metrics-object</div>
+              <div class="text-slate-400 text-[11px] mt-1">4 KPI Cards: Couriers on Duty, Pending Tickets, Courier Take-Home ($), Avg Delivery Time.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#admin-viewport-object</div>
+              <div class="text-slate-400 text-[11px] mt-1">Leaflet Driver Radar Map (#admin-live-map) with animated GPS markers in Palms 90034.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#ai-pickup-input & #btn-ai-query-closest</div>
+              <div class="text-slate-400 text-[11px] mt-1">Autonomous nearest courier routing solver calculating distance & arrival ETA.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#fleet-roster-table</div>
+              <div class="text-slate-400 text-[11px] mt-1">Real-time driver roster with duty status, battery %, and current order allocation.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 4: driver.html -->
+    <div id="panel-driver" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+          <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">Driver Cockpit</span>
+          <h3 class="text-lg font-bold text-white font-mono mt-1">driver.html</h3>
+          <p class="text-xs text-slate-400 mt-1">Mobile-first bicycle courier cockpit. Full-screen Leaflet tracking map, duty online/offline switch, audio dispatch chimes, and 3-phase trip stepper.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center font-mono text-xs">
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">SIZE</div><div class="text-white font-bold">26.1 KB</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">LINES</div><div class="text-white font-bold">572</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">DOM IDS</div><div class="text-cyan-400 font-bold">37</div></div>
+          </div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 col-span-2">
+          <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Key Cockpit Operations</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#cockpit-duty-switch</div>
+              <div class="text-slate-400 text-[11px] mt-1">1-Tap Duty Toggle broadcasts ONLINE/OFFLINE across BroadcastChannel to customer index.html.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#btn-nav-merchant-biking & #btn-nav-customer-biking</div>
+              <div class="text-slate-400 text-[11px] mt-1">Deep links directly to Google Maps Bicycling turn-by-turn routing (<code class="text-cyan-300">travelmode=bicycling</code>).</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">3-Phase Execution Stepper</div>
+              <div class="text-slate-400 text-[11px] mt-1">1. At Merchant &rarr; 2. Order Bagged &rarr; 3. Delivered & Collect $15.00 Cash/Pre-Auth.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">Affiliate Link Generator</div>
+              <div class="text-slate-400 text-[11px] mt-1">Instant invite token generator (<code class="text-cyan-300">https://sendeke.to/?driver=deke</code>) for driver expansion.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 5: restaurant.html -->
+    <div id="panel-restaurant" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+          <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">Kitchen Kiosk</span>
+          <h3 class="text-lg font-bold text-white font-mono mt-1">restaurant.html</h3>
+          <p class="text-xs text-slate-400 mt-1">Palms partner kitchen terminal. Real-time expedite order board, audio arrival chimes, and instant 86/out-of-stock inventory switches.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center font-mono text-xs">
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">SIZE</div><div class="text-white font-bold">25.1 KB</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">LINES</div><div class="text-white font-bold">449</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">DOM IDS</div><div class="text-cyan-400 font-bold">8</div></div>
+          </div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 col-span-2">
+          <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Expedite Core Elements</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#kitchen-queue-object</div>
+              <div class="text-slate-400 text-[11px] mt-1">Reactive ticket cards (#SDK-101) with 1-click 'Mark Ready' and 'Courier Picked Up'.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#btn-sound-chime</div>
+              <div class="text-slate-400 text-[11px] mt-1">Dual-tone Web Audio API doorbell chime (587.33Hz &rarr; 880Hz) alerting cook line on new ticket.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#kitchen-stock-object</div>
+              <div class="text-slate-400 text-[11px] mt-1">86/Stock board allowing line cooks to pause items without touching admin panels.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">BroadcastChannel Receiver</div>
+              <div class="text-slate-400 text-[11px] mt-1">Zero-latency peer sync with customer order submissions from index.html and menu.html.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 6: track.html -->
+    <div id="panel-track" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+          <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">Live Tracking</span>
+          <h3 class="text-lg font-bold text-white font-mono mt-1">track.html</h3>
+          <p class="text-xs text-slate-400 mt-1">Customer-facing live delivery telemetry view. Moving bicycle vector icon on Leaflet map with real-time ETA calculation.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center font-mono text-xs">
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">SIZE</div><div class="text-white font-bold">9.4 KB</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">LINES</div><div class="text-white font-bold">193</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">DOM IDS</div><div class="text-cyan-400 font-bold">6</div></div>
+          </div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 col-span-2">
+          <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Tracking Telemetry Components</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#track-card-object</div>
+              <div class="text-slate-400 text-[11px] mt-1">Active Ticket voucher displaying courier bio (Deke #04) and estimated ETA.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#live-telemetry-map</div>
+              <div class="text-slate-400 text-[11px] mt-1">Embedded Leaflet container animating bicycle coordinates from Palms kitchen to dropoff.</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800 col-span-2">
+              <div class="text-cyan-400 font-bold">4-Stage Progress Stepper</div>
+              <div class="text-slate-400 text-[11px] mt-1">Order Placed &rarr; Kitchen Prepping &rarr; Courier In Transit &rarr; Delivered & Verified.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 7: request.html -->
+    <div id="panel-request" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4">
+          <span class="text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">Direct Courier Intake</span>
+          <h3 class="text-lg font-bold text-white font-mono mt-1">request.html</h3>
+          <p class="text-xs text-slate-400 mt-1">Pure semantic HTML form for high-reliability low-bandwidth courier requests. Submits directly to track.html.</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 grid grid-cols-3 gap-2 text-center font-mono text-xs">
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">SIZE</div><div class="text-white font-bold">6.6 KB</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">LINES</div><div class="text-white font-bold">124</div></div>
+            <div class="bg-slate-950 p-2 rounded"><div class="text-slate-400 text-[10px]">DOM IDS</div><div class="text-cyan-400 font-bold">10</div></div>
+          </div>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 rounded-lg p-4 col-span-2">
+          <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">Form Target Fields</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#req-pickup-input</div>
+              <div class="text-slate-400 text-[10px]">Pickup Address</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#req-dropoff-input</div>
+              <div class="text-slate-400 text-[10px]">Dropoff Address</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#req-phone-input</div>
+              <div class="text-slate-400 text-[10px]">Contact Mobile</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#req-items-input</div>
+              <div class="text-slate-400 text-[10px]">Item Description</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-cyan-400 font-bold">#req-notes-input</div>
+              <div class="text-slate-400 text-[10px]">Gate/Apt Notes</div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-950 border border-slate-800">
+              <div class="text-emerald-400 font-bold">action="track.html"</div>
+              <div class="text-slate-400 text-[10px]">Submit Route</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REMEDIATION ACTIONS CARD -->
+    <section id="defects-section" class="bg-slate-900 border border-slate-800 rounded-lg p-5 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🛠️</span>
+          <h3 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Forensic Defect Remediation Console</h3>
+        </div>
+        <span class="text-xs font-mono text-cyan-400">Ready for Instant Patch</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Defect 1 -->
+        <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-amber-400">DEFECT 01: menu.html</span>
+            <span class="text-[10px] font-mono bg-amber-950 text-amber-300 px-2 py-0.5 rounded border border-amber-800/40">Modal Collision</span>
+          </div>
+          <p class="text-xs text-slate-300">
+            Line 1087 attempts to hide <code class="text-cyan-300 font-mono">#menu-cart-object</code> via Offcanvas API, but cart was refactored into <code class="text-cyan-300 font-mono">#cartModal</code>.
+          </p>
+          <div class="bg-[#0b0f19] p-2.5 rounded text-[11px] font-mono border border-slate-800 text-slate-300 overflow-x-auto">
+            <span class="text-red-400">- var offcanvasEl = document.getElementById('menu-cart-object');</span><br>
+            <span class="text-red-400">- bootstrap.Offcanvas.getInstance(offcanvasEl).hide();</span><br>
+            <span class="text-emerald-400">+ var cartModal = document.getElementById('cartModal');</span><br>
+            <span class="text-emerald-400">+ bootstrap.Modal.getOrCreateInstance(cartModal).hide();</span>
+          </div>
+        </div>
+
+        <!-- Defect 2 -->
+        <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold text-amber-400">DEFECT 02: index.html</span>
+            <span class="text-[10px] font-mono bg-amber-950 text-amber-300 px-2 py-0.5 rounded border border-amber-800/40">Missing File 404</span>
+          </div>
+          <p class="text-xs text-slate-300">
+            Line 366 links to <code class="text-cyan-300 font-mono">href="tacos.html"</code> for Taquería El Cachetón, but <code class="text-cyan-300 font-mono">tacos.html</code> does not yet exist.
+          </p>
+          <div class="bg-[#0b0f19] p-2.5 rounded text-[11px] font-mono border border-slate-800 text-slate-300 overflow-x-auto">
+            <span class="text-slate-400">// Recommended Action:</span><br>
+            <span class="text-emerald-400">Generate tacos.html catalog using sweetfin_menu_clean template,</span><br>
+            <span class="text-emerald-400">or route link to index.html#courier-intake-object.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#111827] border-t border-slate-800 px-4 py-3 text-center text-xs text-slate-500 font-mono">
+    SenDeke.to Sovereign Hyperlocal Transportation Infrastructure • Palms (90034) & West Adams (90016) • Audited 2026-10-28
+  </footer>
+
+  <script>
+    function switchTab(pageKey) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+      const targetPanel = document.getElementById('panel-' + pageKey);
+      if (targetPanel) targetPanel.classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-cyan-600', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-300');
+      });
+      const activeBtn = document.getElementById('tab-btn-' + pageKey);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+        activeBtn.classList.add('bg-cyan-600', 'text-white');
+      }
+    }
+
+    function scrollToDefects() {
+      const el = document.getElementById('defects-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

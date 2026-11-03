@@ -1,0 +1,1440 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Kitchen Expedite Kiosk | SenDeke Sovereign Corridor</title>
+  
+  <!-- Authentic Favicons & Manifest -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <!-- Local Pure Bootstrap 5.3.3 and Site Standards Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <style>
+    /* =========================================================================
+       THERMAL RECEIPT PRINT ENGINE (80mm & 58mm ESC/POS CALIBRATED)
+       ========================================================================= */
+    @media print {
+      body * {
+        visibility: hidden !important;
+      }
+      #thermal-receipt-printable, #thermal-receipt-printable * {
+        visibility: visible !important;
+      }
+      #thermal-receipt-printable {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 80mm !important;
+        margin: 0 !important;
+        padding: 2mm 3mm !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-family: 'Courier New', Courier, monospace !important;
+        font-size: 11pt !important;
+        line-height: 1.25 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .thermal-cut-line {
+        border-top: 2px dashed #000000 !important;
+        margin: 8px 0 !important;
+      }
+      .receipt-pickup-pin {
+        font-size: 24pt !important;
+        font-weight: 900 !important;
+        text-align: center !important;
+        border: 3px solid #000000 !important;
+        padding: 6px !important;
+        margin: 8px 0 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .print-tag-hot {
+        border: 1.5px solid #000000 !important;
+        padding: 1px 4px !important;
+        font-weight: 900 !important;
+      }
+      .print-tag-cold {
+        border: 1px dashed #000000 !important;
+        padding: 1px 4px !important;
+      }
+      @page {
+        size: 80mm auto;
+        margin: 0;
+      }
+    }
+
+    /* Thermal Paper Screen Preview */
+    .thermal-paper-slip {
+      width: 80mm;
+      max-width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      color: #0f172a;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 12px;
+      line-height: 1.35;
+      padding: 16px 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+    }
+    .thermal-paper-slip .receipt-pickup-pin {
+      font-size: 26px;
+      font-weight: 900;
+      text-align: center;
+      border: 3px solid #0f172a;
+      padding: 6px;
+      margin: 10px 0;
+      letter-spacing: 2px;
+      background: #f8fafc;
+    }
+    .thermal-cut-line {
+      border-top: 2px dashed #64748b;
+      margin: 10px 0;
+    }
+
+    /* Hot / Cold Item Tags */
+    .temp-badge-hot {
+      background-color: #dc2626 !important;
+      color: #ffffff !important;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .temp-badge-cold {
+      background-color: #2563eb !important;
+      color: #ffffff !important;
+      font-weight: 800;
+      font-size: 0.72rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    /* White Footer Standard */
+    .kiosk-footer-white {
+      background-color: #ffffff !important;
+      color: #1e293b !important;
+      border-top: 1px solid #e2e8f0 !important;
+    }
+
+    /* CMS Modal Styling */
+    .cms-item-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+    .cms-item-card:hover {
+      border-color: #cbd5e1;
+    }
+  </style>
+</head>
+<body class="bg-body text-body">
+
+  <!-- =========================================================================
+       MAIN KITCHEN VIEWPORT
+       ========================================================================= -->
+  <main class="py-3">
+    <div class="container-xl">
+
+      <!-- KITCHEN TERMINAL HEADER PANE -->
+      <div class="card border-secondary-subtle bg-body-tertiary mb-3 p-3 d-flex flex-row justify-content-between align-items-center flex-wrap gap-3">
+        <div class="d-flex align-items-center flex-wrap gap-2">
+          <span class="fw-bold text-dark fs-5 sendeke-brand-lockup">Sen<svg class="brand-d-wheels-svg" xmlns="http://www.w3.org/2000/svg" viewBox="42 56 142 134" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M72 150 A17 17 0 1 0 72 184 A17 17 0 1 0 72 150 Z M72 159 A8 8 0 1 1 72 175 A8 8 0 1 1 72 159 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M148 150 A17 17 0 1 0 148 184 A17 17 0 1 0 148 150 Z M148 159 A8 8 0 1 1 148 175 A8 8 0 1 1 148 159 Z"/></svg>eke 2</span>
+          <span class="badge bg-warning text-dark font-mono" id="lbl-kiosk-badge">KITCHEN EXPEDITE KIOSK</span>
+          
+          <!-- Corridor Merchant Switcher -->
+          <div class="d-flex align-items-center gap-1 ms-1">
+            <span class="small font-mono text-secondary">📍</span>
+            <select class="form-select form-select-sm font-mono fw-bold" id="merchant-selector" style="min-width: 250px; cursor: pointer;">
+              <option value="sweetfin" selected>Sweetfin Ivy Station (8900 Venice Blvd #107)</option>
+              <option value="el-cacheton">Taquería El Cachetón (10500 Venice Blvd)</option>
+              <option value="lokal">Lokal Sandwich Shop (10433 National Blvd #1A)</option>
+              <option value="doughroom">The Doughroom (3409 Overland Ave)</option>
+              <option value="simpang">Simpang Asia (10433 National Blvd #2)</option>
+              <option value="mizlala">Mizlala West Adams (5400 W Adams Blvd)</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Controls: Volume + Chime + Lang Toggle + CMS Button + Status -->
+        <div class="d-flex align-items-center flex-wrap gap-2 ms-auto">
+          <!-- Volume Slider -->
+          <div class="d-flex align-items-center gap-1.5 px-2 py-1 rounded bg-body border border-secondary-subtle">
+            <span class="small font-mono text-secondary">🔔 Vol:</span>
+            <input type="range" class="form-range" id="bell-volume-slider" min="0" max="2" step="0.05" value="1" style="width: 80px; cursor: pointer;">
+            <span id="bell-vol-val" class="small font-mono fw-bold text-warning" style="min-width: 38px;">100%</span>
+          </div>
+          
+          <!-- Chime Bell -->
+          <button class="btn btn-sm btn-outline-warning font-mono fw-bold px-2.5 d-flex align-items-center gap-1" type="button" id="btn-sound-chime">
+            <span>🛎️ <span id="lbl-chime-bell">Ring Bell</span></span>
+          </button>
+
+          <!-- English / Spanish Bilingual Toggle -->
+          <button class="btn btn-sm btn-outline-secondary font-mono fw-bold px-2.5" type="button" id="btn-lang-toggle" title="Toggle English / Español">
+            <span id="lbl-lang-flag">🇲🇽 ES</span>
+          </button>
+
+          <!-- Merchant CMS / Menu & Brand Editor Button -->
+          <button class="btn btn-sm btn-primary font-mono fw-bold px-2.5 d-flex align-items-center gap-1" type="button" id="btn-open-cms" data-bs-toggle="modal" data-bs-target="#modal-merchant-cms">
+            <span>⚙️ <span id="lbl-btn-cms">Merchant CMS</span></span>
+          </button>
+
+          <!-- Store Menu Deep-Link Button -->
+          <a href="menu.html" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark font-mono px-2.5" id="btn-store-menu-link">
+            <span>📖 <span id="lbl-btn-menu">Store Menu</span></span>
+          </a>
+
+          <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 font-mono" id="lbl-orders-online">ORDERS ONLINE</span>
+        </div>
+      </div>
+
+      <!-- OBJECT 2: EXPEDITE METRICS DECK -->
+      <section class="row g-2 mb-3" id="kitchen-metrics-object">
+        <div class="col-12 col-md-4">
+          <div class="card border-secondary-subtle bg-body-tertiary">
+            <div class="card-body p-2 px-3">
+              <div class="small text-body-secondary fw-semibold font-mono" id="lbl-metric-active-prep">ACTIVE PREP ORDERS</div>
+              <div class="h4 fw-bold text-warning font-mono mb-0" id="kpi-active-prep">0 Active</div>
+              <div class="small text-secondary font-mono" id="kpi-prep-status">Radar listening for orders</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card border-secondary-subtle bg-body-tertiary">
+            <div class="card-body p-2 px-3">
+              <div class="small text-body-secondary fw-semibold font-mono" id="lbl-metric-courier-radar">COURIER STAGING RADAR</div>
+              <div class="h4 fw-bold text-success font-mono mb-0" id="kpi-courier-name">Comptroller Dispatch (#04)</div>
+              <div class="small text-secondary font-mono" id="kpi-courier-eta">Westside Corridor Staged</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="card border-secondary-subtle">
+            <div class="card-body p-2 px-3">
+              <div class="small text-body-secondary fw-semibold font-mono" id="lbl-metric-inventory">STATION INVENTORY</div>
+              <div class="h4 fw-bold text-dark font-mono mb-0" id="kpi-station-inventory">Loading Menu...</div>
+              <div class="small text-secondary font-mono" id="kpi-inventory-subtext">Real-time counter sync</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TWO-COLUMN WORKFLOW: TICKET QUEUE + 86 EDITOR -->
+      <div class="row g-3 mb-4">
+        
+        <!-- OBJECT 3: LIVE TICKET QUEUE BOARD -->
+        <div class="col-12 col-lg-8">
+          <div class="card border-secondary-subtle" id="kitchen-queue-object">
+            <div class="card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2">
+              <h2 class="h6 fw-bold mb-0 text-dark" id="lbl-queue-heading">Incoming Expedite Order Queue</h2>
+              <div class="d-flex align-items-center gap-2">
+                <button class="btn btn-sm btn-outline-primary font-mono py-0 px-2" type="button" id="btn-simulate-ticket" title="Inject simulated test ticket for active merchant">
+                  + Test Order
+                </button>
+                <span class="badge bg-warning-subtle text-warning font-mono" id="kitchen-radar-badge">● Radar Listening</span>
+              </div>
+            </div>
+
+            <div class="card-body p-2" id="kitchen-queue-card-body" style="min-height: 440px;">
+              <!-- Watermark Placeholder when Queue is Empty (Preset Height) -->
+              <div id="kitchen-queue-empty-watermark" class="d-flex flex-column align-items-center justify-content-center text-center p-4 rounded-3 border border-secondary-subtle" style="min-height: 410px; background: rgba(0, 0, 0, 0.02);">
+                <div class="fs-1 mb-2 opacity-75">🛎️</div>
+                <div class="h5 fw-bold text-dark mb-1" id="lbl-empty-queue-title">Incoming Expedite Order Queue</div>
+                <p class="small text-secondary mb-2" id="lbl-empty-queue-desc" style="max-width: 460px;">
+                  Active customer tickets and courier pickups will display here in real time.
+                </p>
+                <div class="badge bg-body-secondary text-secondary font-mono border border-secondary-subtle px-3 py-1.5" id="lbl-empty-queue-footer">
+                  Waiting for orders &bull; Brass bell rings automatically upon arrival
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OBJECT 4: 86 / OUT OF STOCK FAST EDITOR -->
+        <div class="col-12 col-lg-4">
+          <div class="card border-secondary-subtle" id="kitchen-stock-object">
+            <div class="card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2">
+              <h2 class="h6 fw-bold mb-0 text-dark" id="lbl-stock-heading">Quick 86 / Stock Toggles</h2>
+              <span class="badge bg-secondary-subtle text-secondary-emphasis font-mono">Instant Sync</span>
+            </div>
+            
+            <div class="card-body p-3">
+              <p class="small text-body-secondary mb-2" id="lbl-stock-subtext">Toggle off 86'd items. Customer catalog reflects changes immediately.</p>
+              
+              <div class="list-group list-group-flush border border-secondary-subtle rounded-2" id="stock-toggle-list" style="max-height: 480px; overflow-y: auto;">
+                <!-- Populated dynamically per active merchant JSON -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       OBJECT 5: APPLICATION FOOTER (WHITE BACKGROUND STANDARD)
+       ========================================================================= -->
+  <footer class="py-3 kiosk-footer-white mt-auto" id="kitchen-footer-object">
+    <div class="container-xl text-center small">
+      <div class="mb-1 fw-bold text-dark" id="footer-merchant-name">Sweetfin Ivy Station Kitchen Expedite Terminal</div>
+      <div class="mb-1 text-secondary font-mono" id="footer-merchant-address">8900 Venice Blvd #107 (Next to Health Nut #108) • Culver City / Palms Corridor</div>
+      <div class="mb-0 text-muted font-mono" style="font-size: 0.75rem;">
+        Powered by SenDeke • Direct Hyperlocal Livery &amp; Courier Dispatch • 100% Counter Price to Kitchen ($0 Platform Fees)
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       THERMAL RECEIPT MODAL & PRINTABLE SLIP CONTAINER
+       ========================================================================= -->
+  <div class="modal fade" id="modal-thermal-receipt" tabindex="-1" aria-labelledby="lbl-thermal-receipt-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header py-2 px-3 no-print">
+          <h5 class="modal-title fs-6 font-mono fw-bold" id="lbl-thermal-receipt-modal">🖨️ Thermal Kitchen Receipt Slip (80mm)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3 bg-light">
+          
+          <!-- PRINTABLE THERMAL SLIP (VISIBLE TO SCREEN & PRINT ENGINE) -->
+          <div id="thermal-receipt-printable" class="thermal-paper-slip">
+            <div class="text-center fw-bold fs-6" id="slip-merchant-name">SWEETFIN IVY STATION</div>
+            <div class="text-center" id="slip-merchant-address" style="font-size: 10px;">8900 Venice Blvd #107, Los Angeles, CA 90034</div>
+            <div class="text-center" id="slip-merchant-phone" style="font-size: 10px;">Tel: (310) 841-6800</div>
+            <div class="thermal-cut-line"></div>
+            
+            <div class="receipt-pickup-pin" id="slip-pickup-pin">
+              PICKUP CODE: #00000
+            </div>
+
+            <div class="d-flex justify-content-between font-mono" style="font-size: 11px;">
+              <span><strong>ORDER:</strong> <span id="slip-order-id">#SDK-000</span></span>
+              <span id="slip-order-time">Just now</span>
+            </div>
+            <div class="font-mono mt-1" style="font-size: 11px;">
+              <strong>CUSTOMER:</strong> <span id="slip-customer-name">Direct Customer</span><br>
+              <strong>PHONE:</strong> <span id="slip-customer-phone">(323) 374-5787</span><br>
+              <strong>DROPOFF:</strong> <span id="slip-dropoff-address">3645 Overland Ave, Los Angeles, CA 90034</span>
+            </div>
+
+            <div class="thermal-cut-line"></div>
+            <div class="fw-bold mb-1" style="font-size: 11px;">ITEMIZED KITCHEN MANIFEST:</div>
+            
+            <div id="slip-items-list" class="font-mono" style="font-size: 11px;">
+              <!-- Dynamic items with hot/cold indicators -->
+            </div>
+
+            <div class="thermal-cut-line"></div>
+            <div class="d-flex justify-content-between font-mono" style="font-size: 11px;">
+              <span>FOOD SUBTOTAL (100% TO KITCHEN):</span>
+              <strong id="slip-food-subtotal">$0.00</strong>
+            </div>
+            <div class="d-flex justify-content-between font-mono text-secondary" style="font-size: 10px;">
+              <span>COURIER DISPATCH + ESCROW:</span>
+              <span id="slip-courier-payout">$12.50</span>
+            </div>
+            <div class="d-flex justify-content-between font-mono fw-bold mt-1" style="font-size: 12px; border-top: 1px solid #000; padding-top: 2px;">
+              <span>TOTAL ESCROW PRE-AUTH:</span>
+              <span id="slip-grand-total">$0.00</span>
+            </div>
+
+            <div class="thermal-cut-line"></div>
+            <div class="text-center font-mono" style="font-size: 10px;">
+              STAPLE TO BAG FOR COURIER PICKUP<br>
+              COURIER MUST VERIFY 5-DIGIT PIN UPON HANDOFF<br>
+              Powered by SenDeke &bull; sendeke.to
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer py-2 px-3 no-print d-flex justify-content-between">
+          <button type="button" class="btn btn-sm btn-secondary font-mono" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-sm btn-warning font-mono fw-bold px-3" id="btn-print-slip-action">
+            🖨️ Print Slip (80mm)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MERCHANT CMS / MENU & BRAND EDITOR MODAL
+       ========================================================================= -->
+  <div class="modal fade" id="modal-merchant-cms" tabindex="-1" aria-labelledby="lbl-cms-modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white py-2 px-3">
+          <h5 class="modal-title fs-6 font-mono fw-bold" id="lbl-cms-modal">⚙️ Merchant CMS &amp; Brand Customizer</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3">
+          
+          <div class="alert alert-info py-2 small mb-3">
+            <strong>Store Ownership Rule:</strong> This storefront belongs to the merchant. SenDeke facilitates dispatch and order intake without charging merchant fees. Customize your hero layout, text alignment, and menu items below.
+          </div>
+
+          <!-- SECTION 1: HERO BANNER & BRAND LAYOUT -->
+          <div class="card mb-3 border-secondary-subtle">
+            <div class="card-header bg-body-tertiary fw-bold small font-mono">
+              🖼️ HERO BANNER &amp; DISPLAY ALIGNMENT
+            </div>
+            <div class="card-body p-3">
+              <div class="row g-2 mb-2">
+                <div class="col-12 col-md-8">
+                  <label class="form-label small fw-semibold">Hero Background Image URL:</label>
+                  <input type="url" class="form-control form-control-sm font-mono" id="cms-hero-bg-url" placeholder="https://... or assets/img/hero.jpg">
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-semibold">Wording Alignment:</label>
+                  <select class="form-select form-select-sm font-mono" id="cms-hero-alignment">
+                    <option value="left">Left Aligned (Showcase Center/Right)</option>
+                    <option value="center" selected>Centered Display</option>
+                    <option value="right">Right Aligned (Showcase Left/Center)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-2">
+                <label class="form-label small fw-semibold">Custom Headline / Tagline:</label>
+                <input type="text" class="form-control form-control-sm" id="cms-hero-tagline" placeholder="Authentic corridor specialties prepared fresh daily...">
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 align-items-center mt-2 pt-2 border-top small text-secondary font-mono">
+                <span>🔒 <strong>Menu Button:</strong> <span class="text-success">Intact &amp; Verified</span></span>
+                <span>•</span>
+                <span>🏃 <strong>Courier Runner Guy:</strong> <span class="text-success">Core System Active (Protected)</span></span>
+                <span>•</span>
+                <span>⚡ <strong>Footer Attribution:</strong> <span class="text-dark">"Powered by SenDeke" in footer</span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 2: MENU ITEMS MANAGER -->
+          <div class="card border-secondary-subtle">
+            <div class="card-header bg-body-tertiary d-flex justify-content-between align-items-center py-2">
+              <span class="fw-bold small font-mono">📋 MENU ITEMS, PRICES &amp; DESCRIPTOR IMAGES</span>
+              <button class="btn btn-xs btn-outline-success font-mono" type="button" id="btn-cms-add-item">+ Add New Item</button>
+            </div>
+            <div class="card-body p-3">
+              <div id="cms-items-container" style="max-height: 380px; overflow-y: auto;">
+                <!-- Populated dynamically for active merchant -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer py-2 px-3 d-flex justify-content-between bg-body-tertiary">
+          <button type="button" class="btn btn-sm btn-outline-secondary font-mono" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-sm btn-success font-mono fw-bold px-3" id="btn-cms-save-changes">
+            💾 Save &amp; Apply Storefront Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Official Local Bootstrap Bundle & Sovereign Engines -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script>
+    (function () {
+      const engine = window.SenDekeEngine;
+
+      // =========================================================================
+      // 0. THE 6 CORRIDOR RESTAURANT REGISTRY & VERIFIED GROUND TRUTH
+      // =========================================================================
+      const RESTAURANT_REGISTRY = {
+        'sweetfin': {
+          id: 'sweetfin',
+          name: 'Sweetfin Ivy Station',
+          address: '8900 Venice Blvd #107 (Next to Health Nut #108)',
+          cityZip: 'Los Angeles, CA 90034 (Culver City E-Line Station)',
+          phone: '(310) 841-6800',
+          menuFile: 'assets/data/sweetfin_menu.json',
+          heroTagline: 'Chef-driven 100% gluten-free poke, albacore, salmon & high-protein bowls.',
+          storeUrl: 'menu.html',
+          defaultTemp: 'COLD',
+          hotKeywords: ['grilled chicken', 'miso soup', 'hot tea', 'warm forbidden rice', 'teriyaki'],
+          coldKeywords: ['poke', 'bowl', 'salad', 'chips', 'seaweed', 'edamame', 'matcha', 'iced', 'raw', 'sashimi', 'tuna', 'salmon', 'albacore', 'ponzu']
+        },
+        'el-cacheton': {
+          id: 'el-cacheton',
+          name: 'Taquería El Cachetón',
+          address: '10500 Venice Blvd',
+          cityZip: 'Culver City / Palms, CA 90034',
+          phone: '(323) 536-4013',
+          menuFile: 'assets/data/taqueria_el_cacheton_menu.json',
+          heroTagline: 'Authentic handmade street tacos, mulitas, burritos & aguas frescas.',
+          storeUrl: 'tacos.html',
+          defaultTemp: 'HOT',
+          hotKeywords: ['taco', 'burrito', 'quesadilla', 'mulita', 'torta', 'asada', 'pastor', 'pollo', 'carnitas', 'consome', 'vampirito', 'quesataco'],
+          coldKeywords: ['horchata', 'jamaica', 'agua fresca', 'soda', 'coca cola', 'jarritos', 'guacamole', 'chips', 'salsa']
+        },
+        'lokal': {
+          id: 'lokal',
+          name: 'Lokal Sandwich Shop',
+          address: '10433 National Blvd #1A',
+          cityZip: 'Los Angeles, CA 90034 (Palms)',
+          phone: '(310) 836-5837',
+          menuFile: 'assets/data/lokal_sandwich_shop_menu.json',
+          heroTagline: 'Artisanal banh mi, breakfast baguettes & Vietnamese iced coffee.',
+          storeUrl: 'sandwiches.html',
+          defaultTemp: 'HOT',
+          hotKeywords: ['banh mi', 'breakfast sandwich', 'pork', 'panini', 'melt', 'egg', 'hot coffee', 'baguette'],
+          coldKeywords: ['vietnamese iced coffee', 'iced tea', 'spring roll', 'salad', 'cold brew', 'soda']
+        },
+        'doughroom': {
+          id: 'doughroom',
+          name: 'The Doughroom',
+          address: '3409 Overland Ave',
+          cityZip: 'Los Angeles, CA 90034 (Palms)',
+          phone: '(424) 258-6194',
+          menuFile: 'assets/data/the_doughroom_menu.json',
+          heroTagline: 'Rustic craft sourdough pizzas, house-made pastas & craft beer.',
+          storeUrl: 'doughroom.html',
+          defaultTemp: 'HOT',
+          hotKeywords: ['pizza', 'pasta', 'wings', 'sourdough', 'calzone', 'meatballs', 'margherita', 'mushroom', 'pepperoni'],
+          coldKeywords: ['caesar salad', 'burrata', 'beer', 'cider', 'soda', 'tiramisu', 'gelato', 'wine']
+        },
+        'simpang': {
+          id: 'simpang',
+          name: 'Simpang Asia',
+          address: '10433 National Blvd #2',
+          cityZip: 'Los Angeles, CA 90034 (Palms)',
+          phone: '(310) 815-9275',
+          menuFile: 'assets/data/simpang_asia_menu.json',
+          heroTagline: 'Authentic Indonesian street food, nasi goreng & mie tek tek noodles.',
+          storeUrl: 'simpang.html',
+          defaultTemp: 'HOT',
+          hotKeywords: ['nasi goreng', 'mie tek tek', 'rendang', 'satay', 'roti canai', 'curry', 'soup', 'ayam goreng'],
+          coldKeywords: ['es cendol', 'es teler', 'iced tea', 'indonesian coffee', 'salad', 'soda']
+        },
+        'mizlala': {
+          id: 'mizlala',
+          name: 'Mizlala West Adams',
+          address: '5400 W Adams Blvd',
+          cityZip: 'Los Angeles, CA 90016 (West Adams Corridor)',
+          phone: '(323) 433-4380',
+          menuFile: 'assets/data/mizlala_west_adams_menu.json',
+          heroTagline: 'Middle Eastern comfort food, wood-fired pitas, shawarma & falafel.',
+          storeUrl: 'mizlala.html',
+          defaultTemp: 'HOT',
+          hotKeywords: ['shawarma', 'falafel', 'kefta', 'schnitzel', 'pita', 'fries', 'chraime', 'roasted'],
+          coldKeywords: ['hummus', 'tahini', 'israeli salad', 'labneh', 'mint lemonade', 'babaganoush', 'pickles']
+        }
+      };
+
+      // Active state
+      const urlParams = new URLSearchParams(window.location.search);
+      let currentMerchantKey = urlParams.get('merchant') || localStorage.getItem('sendeke_active_merchant') || 'sweetfin';
+      if (!RESTAURANT_REGISTRY[currentMerchantKey]) currentMerchantKey = 'sweetfin';
+      let currentLang = localStorage.getItem('sendeke_kiosk_lang') || 'EN';
+      let activeMerchantItems = [];
+
+      // =========================================================================
+      // 1. BILINGUAL ENGLISH / SPANISH TRANSLATIONS DICTIONARY
+      // =========================================================================
+      const I18N = {
+        EN: {
+          kioskBadge: 'KITCHEN EXPEDITE KIOSK',
+          chimeBell: 'Ring Bell',
+          langFlag: '🇲🇽 ES',
+          btnCms: 'Merchant CMS',
+          btnMenu: 'Store Menu',
+          ordersOnline: 'ORDERS ONLINE',
+          metricActivePrep: 'ACTIVE PREP ORDERS',
+          metricCourierRadar: 'COURIER STAGING RADAR',
+          metricInventory: 'STATION INVENTORY',
+          queueHeading: 'Incoming Expedite Order Queue',
+          emptyQueueTitle: 'Incoming Expedite Order Queue',
+          emptyQueueDesc: 'Active customer tickets and courier pickups will display here in real time.',
+          emptyQueueFooter: 'Waiting for orders • Brass bell rings automatically upon arrival',
+          stockHeading: 'Quick 86 / Stock Toggles',
+          stockSubtext: 'Toggle off 86\'d items. Customer catalog reflects changes immediately.',
+          badgeAlmost: '🟡 CASI LISTO (~5m)',
+          badgeReady: '🟢 LISTO EN BARRA',
+          badgeHanded: '⚪ ENTREGADO',
+          btnAlmost: '🟡 Almost Ready (~5m)',
+          btnReady: '🟢 Ready at Counter',
+          btnHanded: '⚪ Handed to Courier',
+          btnPrint: '🖨️ Print Slip',
+          hotTag: '🔥 HOT',
+          coldTag: '❄️ COLD',
+          pickupCodeLabel: 'PICKUP CODE'
+        },
+        ES: {
+          kioskBadge: 'QUIOSCO DE COCINA Y EXPEDICIÓN',
+          chimeBell: 'Timbre de Barra',
+          langFlag: '🇺🇸 EN',
+          btnCms: 'CMS del Negocio',
+          btnMenu: 'Menú Público',
+          ordersOnline: 'ÓRDENES EN LÍNEA',
+          metricActivePrep: 'ÓRDENES EN PREPARACIÓN',
+          metricCourierRadar: 'RADAR DE REPARTIDORES',
+          metricInventory: 'INVENTARIO DE ESTACIÓN',
+          queueHeading: 'Cola de Pedidos Entrantes en Vivo',
+          emptyQueueTitle: 'Cola de Pedidos Entrantes',
+          emptyQueueDesc: 'Los pedidos activos de clientes y recogidas de repartidores aparecerán aquí en vivo.',
+          emptyQueueFooter: 'Esperando pedidos • El timbre sonará automáticamente al llegar una orden',
+          stockHeading: 'Agotados / Control de Menú (86)',
+          stockSubtext: 'Desactive ingredientes o platillos agotados. Se sincroniza de inmediato.',
+          badgeAlmost: '🟡 CASI LISTO (~5m)',
+          badgeReady: '🟢 LISTO EN BARRA',
+          badgeHanded: '⚪ ENTREGADO',
+          btnAlmost: '🟡 Casi Listo (~5m)',
+          btnReady: '🟢 Listo en Barra',
+          btnHanded: '⚪ Entregado a Courier',
+          btnPrint: '🖨️ Imprimir Recibo',
+          hotTag: '🔥 CALIENTE',
+          coldTag: '❄️ FRÍO',
+          pickupCodeLabel: 'CÓDIGO DE RECOGIDA'
+        }
+      };
+
+      function applyLanguage() {
+        const t = I18N[currentLang] || I18N.EN;
+        const setTxt = (id, txt) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = txt;
+        };
+        setTxt('lbl-kiosk-badge', t.kioskBadge);
+        setTxt('lbl-chime-bell', t.chimeBell);
+        setTxt('lbl-lang-flag', t.langFlag);
+        setTxt('lbl-btn-cms', t.btnCms);
+        setTxt('lbl-btn-menu', t.btnMenu);
+        setTxt('lbl-orders-online', t.ordersOnline);
+        setTxt('lbl-metric-active-prep', t.metricActivePrep);
+        setTxt('lbl-metric-courier-radar', t.metricCourierRadar);
+        setTxt('lbl-metric-inventory', t.metricInventory);
+        setTxt('lbl-queue-heading', t.queueHeading);
+        setTxt('lbl-empty-queue-title', t.emptyQueueTitle);
+        setTxt('lbl-empty-queue-desc', t.emptyQueueDesc);
+        setTxt('lbl-empty-queue-footer', t.emptyQueueFooter);
+        setTxt('lbl-stock-heading', t.stockHeading);
+        setTxt('lbl-stock-subtext', t.stockSubtext);
+        loadLiveQueue();
+      }
+
+      const langToggleBtn = document.getElementById('btn-lang-toggle');
+      if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', function () {
+          currentLang = (currentLang === 'EN') ? 'ES' : 'EN';
+          localStorage.setItem('sendeke_kiosk_lang', currentLang);
+          applyLanguage();
+        });
+      }
+
+      // =========================================================================
+      // 2. DYNAMIC BRASS COUNTER SERVICE BELL & VOLUME SLIDER
+      // =========================================================================
+      let audioCtx = null;
+      let bellGain = null;
+      let compressor = null;
+      let currentVol = parseFloat(localStorage.getItem('sendeke_bell_volume') || '1.0');
+
+      const volSlider = document.getElementById('bell-volume-slider');
+      const volVal = document.getElementById('bell-vol-val');
+      const chimeBtn = document.getElementById('btn-sound-chime');
+
+      if (volSlider && volVal) {
+        volSlider.value = currentVol;
+        volVal.textContent = Math.round(currentVol * 100) + '%';
+        volSlider.addEventListener('input', function () {
+          currentVol = parseFloat(this.value);
+          volVal.textContent = Math.round(currentVol * 100) + '%';
+          localStorage.setItem('sendeke_bell_volume', currentVol);
+          if (bellGain && audioCtx) {
+            bellGain.gain.setValueAtTime(currentVol, audioCtx.currentTime);
+          }
+        });
+      }
+
+      function initBellAudio() {
+        if (!audioCtx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          audioCtx = new AudioContext();
+          compressor = audioCtx.createDynamicsCompressor();
+          compressor.threshold.setValueAtTime(-14, audioCtx.currentTime);
+          compressor.knee.setValueAtTime(30, audioCtx.currentTime);
+          compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
+          compressor.attack.setValueAtTime(0.003, audioCtx.currentTime);
+          compressor.release.setValueAtTime(0.25, audioCtx.currentTime);
+
+          bellGain = audioCtx.createGain();
+          bellGain.gain.setValueAtTime(currentVol, audioCtx.currentTime);
+
+          bellGain.connect(compressor);
+          compressor.connect(audioCtx.destination);
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      function ringBrassServiceBell() {
+        try {
+          initBellAudio();
+          const now = audioCtx.currentTime;
+          const partials = [
+            { freq: 1760, gain: 0.70, decay: 1.5 },
+            { freq: 2640, gain: 0.45, decay: 1.2 },
+            { freq: 3520, gain: 0.35, decay: 0.8 },
+            { freq: 4400, gain: 0.22, decay: 0.6 },
+            { freq: 1765, gain: 0.35, decay: 1.4 }
+          ];
+          partials.forEach(p => {
+            const osc = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(p.freq, now);
+            g.gain.setValueAtTime(0.0001, now);
+            g.gain.linearRampToValueAtTime(p.gain, now + 0.002);
+            g.gain.exponentialRampToValueAtTime(0.0001, now + p.decay);
+            osc.connect(g);
+            g.connect(bellGain);
+            osc.start(now);
+            osc.stop(now + p.decay);
+          });
+        } catch (e) {
+          console.warn('Audio bell error:', e);
+        }
+      }
+
+      if (chimeBtn) chimeBtn.addEventListener('click', ringBrassServiceBell);
+
+      // =========================================================================
+      // 3. DETERMINISTIC 5-DIGIT RECEIPT PIN & TEMPERATURE CLASSIFIER
+      // =========================================================================
+      function getReceiptPin(ticket) {
+        if (!ticket) return '48201';
+        if (ticket.receipt_pin) return String(ticket.receipt_pin);
+        if (ticket.receiptPin) return String(ticket.receiptPin);
+        const digits = String(ticket.handshakePin || ticket.id || '').replace(/\D/g, '');
+        if (digits.length >= 5) {
+          return digits.slice(-5);
+        }
+        let hash = 0;
+        const str = String(ticket.id || 'TICKET');
+        for (let i = 0; i < str.length; i++) {
+          hash = (hash << 5) - hash + str.charCodeAt(i);
+          hash |= 0;
+        }
+        const pin = Math.abs(hash) % 90000 + 10000;
+        return String(pin);
+      }
+
+      function classifyTemperature(itemName, merchant) {
+        const lower = String(itemName || '').toLowerCase();
+        const m = merchant || RESTAURANT_REGISTRY[currentMerchantKey];
+        if (m.coldKeywords.some(kw => lower.includes(kw))) {
+          return 'COLD';
+        }
+        if (m.hotKeywords.some(kw => lower.includes(kw))) {
+          return 'HOT';
+        }
+        return m.defaultTemp || 'HOT';
+      }
+
+      // =========================================================================
+      // 4. THERMAL RECEIPT SLIP POPULATION & PRINT ENGINE
+      // =========================================================================
+      function populateAndPrintReceipt(ticket) {
+        if (!ticket) return;
+        const m = RESTAURANT_REGISTRY[currentMerchantKey];
+        const pin = getReceiptPin(ticket);
+
+        document.getElementById('slip-merchant-name').textContent = m.name.toUpperCase();
+        document.getElementById('slip-merchant-address').textContent = `${m.address}, ${m.cityZip}`;
+        document.getElementById('slip-merchant-phone').textContent = `Tel: ${m.phone}`;
+        document.getElementById('slip-pickup-pin').textContent = `PICKUP CODE: #${pin}`;
+        document.getElementById('slip-order-id').textContent = `#${ticket.id}`;
+        document.getElementById('slip-order-time').textContent = ticket.created_time || new Date().toLocaleTimeString();
+        document.getElementById('slip-customer-name').textContent = ticket.customer_name || ticket.customerName || 'Direct Customer';
+        document.getElementById('slip-customer-phone').textContent = ticket.customer_phone || ticket.customerPhone || '(323) 374-5787';
+        document.getElementById('slip-dropoff-address').textContent = ticket.dropoff_address || ticket.dropoffAddress || '3645 Overland Ave, Los Angeles, CA 90034';
+
+        // Itemized list with Hot/Cold Print Indicators
+        const itemsContainer = document.getElementById('slip-items-list');
+        itemsContainer.innerHTML = '';
+        let subtotal = 0;
+
+        const items = Array.isArray(ticket.items) && ticket.items.length > 0 ? ticket.items : [
+          { name: ticket.originalAsk || 'Corridor Menu Order', qty: 1, price: 15.00 }
+        ];
+
+        items.forEach(it => {
+          const qty = it.qty || it.quantity || 1;
+          const price = parseFloat(it.price || 0) * qty;
+          subtotal += price;
+          const temp = classifyTemperature(it.name, m);
+          const tempClass = temp === 'HOT' ? 'print-tag-hot' : 'print-tag-cold';
+          const tempLabel = temp === 'HOT' ? '[HOT]' : '[COLD]';
+
+          const row = document.createElement('div');
+          row.className = 'd-flex justify-content-between align-items-center my-1';
+          row.innerHTML = `
+            <span>
+              <strong>${qty}x</strong> ${it.name} <span class="${tempClass}" style="font-size:9px;">${tempLabel}</span>
+              ${it.notes ? `<br><small style="font-style:italic;">* ${it.notes}</small>` : ''}
+            </span>
+            <span>$${price.toFixed(2)}</span>
+          `;
+          itemsContainer.appendChild(row);
+        });
+
+        const courierFee = ticket.courierFee || 10.00;
+        const tip = ticket.tip || 2.50;
+        const grandTotal = subtotal + courierFee + tip;
+
+        document.getElementById('slip-food-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('slip-courier-payout').textContent = `$${(courierFee + tip).toFixed(2)}`;
+        document.getElementById('slip-grand-total').textContent = `$${grandTotal.toFixed(2)}`;
+
+        // Open modal & trigger native print
+        const modalEl = document.getElementById('modal-thermal-receipt');
+        if (modalEl && window.bootstrap) {
+          const bsModal = bootstrap.Modal.getOrCreateInstance(modalEl);
+          bsModal.show();
+        }
+      }
+
+      document.getElementById('btn-print-slip-action')?.addEventListener('click', function () {
+        window.print();
+      });
+
+      // =========================================================================
+      // 5. LIVE QUEUE WATERMARK & TICKET MANAGEMENT
+      // =========================================================================
+      const queueBody = document.getElementById('kitchen-queue-card-body');
+      const emptyWatermark = document.getElementById('kitchen-queue-empty-watermark');
+
+      function syncWatermarkVisibility() {
+        if (!queueBody || !emptyWatermark) return;
+        const activeCards = queueBody.querySelectorAll('.kitchen-ticket-card:not(.ticket-handed)');
+        if (activeCards.length === 0) {
+          emptyWatermark.classList.remove('d-none');
+          emptyWatermark.classList.add('d-flex');
+        } else {
+          emptyWatermark.classList.remove('d-flex');
+          emptyWatermark.classList.add('d-none');
+        }
+      }
+
+      function updatePrepCounter() {
+        const kpiEl = document.getElementById('kpi-active-prep');
+        const kpiStatus = document.getElementById('kpi-prep-status');
+        if (!queueBody) return;
+        const activeCards = queueBody.querySelectorAll('.kitchen-ticket-card:not(.ticket-handed)');
+        if (kpiEl) {
+          kpiEl.textContent = `${activeCards.length} ${currentLang === 'ES' ? 'Activas' : 'Active'}`;
+        }
+        if (kpiStatus) {
+          kpiStatus.textContent = activeCards.length === 0
+            ? (currentLang === 'ES' ? 'Radar esperando órdenes en vivo' : 'Radar listening for orders')
+            : `${activeCards.length} ${currentLang === 'ES' ? 'ticket(s) en preparación' : 'ticket(s) on line'}`;
+        }
+        syncWatermarkVisibility();
+      }
+
+      // =========================================================================
+      // 6. COMPLETE TICKET CARD RENDERER (5-DIGIT PIN + HOT/COLD + LISTO EN BARRA)
+      // =========================================================================
+      function renderLiveKitchenTicket(ticket) {
+        if (!ticket || !ticket.id || !queueBody) return;
+
+        const m = RESTAURANT_REGISTRY[currentMerchantKey];
+        const t = I18N[currentLang] || I18N.EN;
+        const domId = 'kitchen-ticket-' + String(ticket.id).replace(/[^a-zA-Z0-9_-]/g, '');
+        let card = document.getElementById(domId);
+
+        const st = String(ticket.status || 'ESCROW_AUTHORIZED').toUpperCase();
+        const isAlmost = st === 'ALMOST_READY';
+        const isReady = st === 'READY_FOR_PICKUP';
+        const isHanded = ['HANDED_TO_COURIER', 'ORDER_COLLECTED', 'DELIVERED_AND_CAPTURED'].includes(st);
+
+        let badgeClass = 'badge bg-warning text-dark font-mono';
+        let badgeText = currentLang === 'ES' ? '🟡 EN PREPARACIÓN' : '🟡 IN PREP';
+
+        if (isAlmost) {
+          badgeClass = 'badge bg-warning text-dark font-mono fw-bold';
+          badgeText = t.badgeAlmost;
+        } else if (isReady) {
+          badgeClass = 'badge bg-success text-white font-mono fw-bold';
+          badgeText = t.badgeReady;
+        } else if (isHanded) {
+          badgeClass = 'badge bg-secondary-subtle text-secondary font-mono';
+          badgeText = t.badgeHanded;
+        }
+
+        const pin = getReceiptPin(ticket);
+        const customerName = ticket.customer_name || ticket.customerName || ticket.name || 'Customer Walk-in';
+        const customerPhone = ticket.customer_phone || ticket.customerPhone || ticket.phone || '(323) 374-5787';
+        const customerPhoneClean = customerPhone.replace(/[^0-9+]/g, '');
+        const deliveryAddress = ticket.dropoff_address || ticket.destination || ticket.address || '3645 Overland Ave, Los Angeles, CA 90034';
+        const courierAssigned = ticket.courier_name || ticket.courierName || 'Comptroller Direct (#04)';
+
+        // Itemized List with HOT / COLD Badges
+        let itemsHtml = '';
+        if (Array.isArray(ticket.items) && ticket.items.length > 0) {
+          itemsHtml = '<div class="list-group list-group-flush border border-secondary-subtle rounded-2 mb-3">';
+          ticket.items.forEach(function (it) {
+            const qty = it.qty || it.quantity || 1;
+            const price = parseFloat(it.price || 0) * qty;
+            const notes = it.notes ? `<div class="small fst-italic text-secondary mt-0.5">${it.notes}</div>` : '';
+            const temp = classifyTemperature(it.name, m);
+            const tempBadge = temp === 'HOT'
+              ? `<span class="temp-badge-hot ms-1">${t.hotTag}</span>`
+              : `<span class="temp-badge-cold ms-1">${t.coldTag}</span>`;
+
+            itemsHtml += `
+              <div class="list-group-item bg-body d-flex justify-content-between align-items-center py-1.5 px-3">
+                <div>
+                  <span class="text-dark fw-semibold">
+                    <strong class="badge bg-warning text-dark font-mono me-1.5">${qty}x</strong>${it.name}
+                  </span>
+                  ${tempBadge}
+                  ${notes}
+                </div>
+                <span class="small font-mono text-dark fw-bold">$${price.toFixed(2)}</span>
+              </div>
+            `;
+          });
+          itemsHtml += '</div>';
+        } else {
+          itemsHtml = `<div class="p-2 mb-3 rounded bg-body-tertiary border small font-mono text-dark">📋 "${ticket.originalAsk || 'Direct Corridor Kitchen Order'}"</div>`;
+        }
+
+        if (!card) {
+          card = document.createElement('div');
+          card.id = domId;
+          card.className = 'card border-warning bg-body mb-3 shadow-sm kitchen-ticket-card';
+          queueBody.insertBefore(card, emptyWatermark);
+        }
+
+        if (isHanded) {
+          card.classList.add('ticket-handed', 'opacity-75');
+        } else {
+          card.classList.remove('ticket-handed', 'opacity-75');
+        }
+
+        card.innerHTML = `
+          <!-- TICKET HEADER: ID + 5-DIGIT PIN + BADGE -->
+          <div class="card-header border-warning d-flex justify-content-between align-items-center bg-transparent py-2 px-3 flex-wrap gap-2">
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <span class="fw-bold text-dark font-mono fs-6">#${ticket.id}</span>
+              <span class="badge bg-dark text-warning font-mono fs-6 px-2.5 py-1 border border-warning" style="letter-spacing:1px;">
+                ${t.pickupCodeLabel}: #${pin}
+              </span>
+              <span class="${badgeClass}">${badgeText}</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="small font-mono fw-bold text-warning">${ticket.created_time || 'Just now'}</span>
+              <button class="btn btn-xs btn-outline-secondary font-mono btn-print-receipt-slip" data-ticket-id="${ticket.id}" type="button" title="Print 80mm Receipt">
+                🖨️ ${t.btnPrint}
+              </button>
+            </div>
+          </div>
+
+          <div class="card-body p-3">
+            <!-- CUSTOMER DOSSIER -->
+            <div class="p-2.5 rounded-2 bg-body-tertiary border border-secondary-subtle mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1.5 flex-wrap gap-1">
+                <div class="fw-bold text-dark fs-6 d-flex align-items-center gap-1.5">
+                  <span>👤</span>
+                  <span>${customerName}</span>
+                </div>
+                <a href="tel:${customerPhoneClean}" class="badge bg-warning text-dark font-mono text-decoration-none fw-bold px-2 py-1">
+                  📞 ${customerPhone}
+                </a>
+              </div>
+              <div class="small font-mono text-dark">
+                <span class="text-secondary fw-semibold">📍 ${currentLang === 'ES' ? 'Destino' : 'Destination'}:</span> ${deliveryAddress}
+              </div>
+            </div>
+
+            <!-- ITEMIZED FOOD CONTENTS -->
+            ${itemsHtml}
+
+            <!-- STAGING CONTROLS & PRINT ACTION -->
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top border-secondary-subtle">
+              <div class="small text-secondary font-mono">
+                <span class="fw-bold text-dark">Dispatch:</span> ${courierAssigned}
+              </div>
+              <div class="d-flex gap-1.5 flex-wrap">
+                <button class="btn btn-sm btn-outline-warning font-mono fw-bold px-2.5 py-1 btn-stage-almost" data-ticket-id="${ticket.id}" type="button" ${isAlmost || isReady || isHanded ? 'disabled' : ''}>
+                  ${t.btnAlmost}
+                </button>
+                <button class="btn btn-sm btn-warning font-mono fw-bold px-2.5 py-1 btn-stage-ready" data-ticket-id="${ticket.id}" type="button" ${isReady || isHanded ? 'disabled' : ''}>
+                  ${t.btnReady}
+                </button>
+                <button class="btn btn-sm btn-outline-success font-mono px-2.5 py-1 btn-stage-handed" data-ticket-id="${ticket.id}" type="button" ${isHanded ? 'disabled' : ''}>
+                  ${t.btnHanded}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // Wire Action Handlers
+        const btnPrint = card.querySelector('.btn-print-receipt-slip');
+        const btnAlmost = card.querySelector('.btn-stage-almost');
+        const btnReady = card.querySelector('.btn-stage-ready');
+        const btnHanded = card.querySelector('.btn-stage-handed');
+
+        if (btnPrint) {
+          btnPrint.addEventListener('click', () => populateAndPrintReceipt(ticket));
+        }
+
+        if (btnAlmost) {
+          btnAlmost.addEventListener('click', function () {
+            const tid = this.getAttribute('data-ticket-id');
+            ringBrassServiceBell();
+            if (engine && typeof engine.updateTicketStatus === 'function') {
+              engine.updateTicketStatus(tid, 'ALMOST_READY', {
+                comptroller_alert: `Order #${tid} for ${customerName} is ALMOST READY (~5m). Dispatch driver to stage curbside.`
+              });
+            }
+            ticket.status = 'ALMOST_READY';
+            renderLiveKitchenTicket(ticket);
+            notifyComptroller(tid, 'ALMOST_READY', customerName, deliveryAddress);
+          });
+        }
+
+        if (btnReady) {
+          btnReady.addEventListener('click', function () {
+            const tid = this.getAttribute('data-ticket-id');
+            ringBrassServiceBell();
+            
+            // Trigger 80mm thermal receipt printing automatically upon marking Ready at Counter
+            populateAndPrintReceipt(ticket);
+            setTimeout(() => { window.print(); }, 400);
+
+            if (engine && typeof engine.updateTicketStatus === 'function') {
+              engine.updateTicketStatus(tid, 'READY_FOR_PICKUP', {
+                comptroller_alert: `Order #${tid} for ${customerName} is BAGGED & READY AT COUNTER. Receipt PIN: #${pin}`
+              });
+            }
+            ticket.status = 'READY_FOR_PICKUP';
+            ticket.receipt_pin = pin;
+            renderLiveKitchenTicket(ticket);
+            notifyComptroller(tid, 'READY_FOR_PICKUP', customerName, deliveryAddress);
+          });
+        }
+
+        if (btnHanded) {
+          btnHanded.addEventListener('click', function () {
+            const tid = this.getAttribute('data-ticket-id');
+            if (engine && typeof engine.updateTicketStatus === 'function') {
+              engine.updateTicketStatus(tid, 'HANDED_TO_COURIER', {
+                comptroller_alert: `Order #${tid} collected by courier. Receipt PIN #${pin} verified. En route to ${deliveryAddress}.`
+              });
+            }
+            ticket.status = 'HANDED_TO_COURIER';
+            renderLiveKitchenTicket(ticket);
+            notifyComptroller(tid, 'HANDED_TO_COURIER', customerName, deliveryAddress);
+          });
+        }
+
+        updatePrepCounter();
+      }
+
+      function notifyComptroller(ticketId, stage, name, dest) {
+        console.log(`[COMPTROLLER DISPATCH ALERT]: Ticket #${ticketId} reached state ${stage} -> Dest: ${dest}`);
+        if (window.location.protocol !== 'file:') {
+          fetch('/api/dispatch/status', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ticketId: ticketId,
+              status: stage,
+              updated_at: new Date().toISOString()
+            })
+          }).catch(e => console.log('Edge sync status fallback to bus:', e));
+        }
+      }
+
+      // =========================================================================
+      // 7. INITIALIZE QUEUE FROM LOCALSTORAGE & REMOTE D1 EDGE
+      // =========================================================================
+      function loadLiveQueue() {
+        if (!queueBody) return;
+        const existingCards = queueBody.querySelectorAll('.kitchen-ticket-card');
+        existingCards.forEach(c => c.remove());
+
+        if (engine && typeof engine.getTickets === 'function') {
+          const tickets = engine.getTickets();
+          if (Array.isArray(tickets) && tickets.length > 0) {
+            tickets.slice().reverse().forEach(renderLiveKitchenTicket);
+          }
+        }
+        updatePrepCounter();
+      }
+
+      // Test order injector for active merchant
+      document.getElementById('btn-simulate-ticket')?.addEventListener('click', function () {
+        const m = RESTAURANT_REGISTRY[currentMerchantKey];
+        const sampleItems = activeMerchantItems.slice(0, 2).map(it => ({
+          name: it.name,
+          price: parseFloat(it.price || 12),
+          qty: 1
+        }));
+        if (sampleItems.length === 0) {
+          sampleItems.push({ name: `${m.name} House Special`, price: 16.50, qty: 1 });
+        }
+        const foodSub = sampleItems.reduce((acc, cur) => acc + (cur.price * cur.qty), 0);
+        const testTicket = {
+          id: 'SDK-' + Math.floor(1000 + Math.random() * 9000),
+          customerName: 'Marcus Vance',
+          customerPhone: '(310) 925-4819',
+          pickupLocation: `${m.name} (${m.address})`,
+          dropoffAddress: '3750 Main St, Culver City, CA 90232',
+          items: sampleItems,
+          foodSubtotal: foodSub,
+          courierFee: 10.00,
+          tip: 3.50,
+          grandTotal: foodSub + 13.50,
+          handshakePin: '925374',
+          receipt_pin: String(Math.floor(10000 + Math.random() * 90000)),
+          status: 'ESCROW_AUTHORIZED',
+          created_time: new Date().toLocaleTimeString()
+        };
+
+        if (engine && typeof engine.saveTicket === 'function') {
+          engine.saveTicket(testTicket);
+        }
+        ringBrassServiceBell();
+        renderLiveKitchenTicket(testTicket);
+      });
+
+      // =========================================================================
+      // 8. DYNAMIC 86 STOCK TOGGLES (REAL ACTIVE MERCHANT JSON LOADER)
+      // =========================================================================
+      async function loadMerchantInventory() {
+        const m = RESTAURANT_REGISTRY[currentMerchantKey];
+        const container = document.getElementById('stock-toggle-list');
+        const invEl = document.getElementById('kpi-station-inventory');
+        if (!container) return;
+
+        container.innerHTML = '<div class="p-3 text-center text-secondary small font-mono">Loading corridor catalog...</div>';
+
+        try {
+          const res = await fetch(m.menuFile);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          let items = await res.json();
+          if (Array.isArray(items)) {
+            activeMerchantItems = items;
+          }
+        } catch (e) {
+          console.warn('Failed to load menu JSON, applying fallback seeds:', e);
+          activeMerchantItems = [
+            { name: `${m.name} Signature Item #1`, price: 14.50 },
+            { name: `${m.name} Signature Item #2`, price: 16.00 },
+            { name: `${m.name} Beverage / Side`, price: 4.50 }
+          ];
+        }
+
+        // Apply CMS overrides if saved
+        try {
+          const cmsData = JSON.parse(localStorage.getItem(`sendeke_cms_${currentMerchantKey}`) || 'null');
+          if (cmsData && Array.isArray(cmsData.items) && cmsData.items.length > 0) {
+            activeMerchantItems = cmsData.items;
+          }
+        } catch (e) {}
+
+        // Render 86 Switch Rows
+        container.innerHTML = '';
+        const savedStockKey = `sendeke_kitchen_stock_${currentMerchantKey}`;
+        let savedStock = {};
+        try { savedStock = JSON.parse(localStorage.getItem(savedStockKey) || '{}'); } catch (e) {}
+
+        let eightySixedCount = 0;
+        activeMerchantItems.forEach((it, idx) => {
+          const isAvailable = savedStock[it.name] !== false;
+          if (!isAvailable) eightySixedCount++;
+
+          const row = document.createElement('div');
+          row.className = 'list-group-item bg-body d-flex justify-content-between align-items-center py-2 px-2.5';
+          row.innerHTML = `
+            <div class="d-flex flex-column pe-2">
+              <span class="${isAvailable ? 'small text-dark' : 'small text-danger text-decoration-line-through'} item-name-label">
+                ${it.name}
+              </span>
+              <span class="text-secondary font-mono" style="font-size:0.7rem;">$${parseFloat(it.price || 0).toFixed(2)} &bull; ${it.category || 'Kitchen Item'}</span>
+            </div>
+            <div class="form-check form-switch mb-0">
+              <input class="form-check-input stock-switch" type="checkbox" role="switch" ${isAvailable ? 'checked' : ''} data-item-name="${it.name}">
+            </div>
+          `;
+          container.appendChild(row);
+        });
+
+        if (invEl) {
+          invEl.textContent = `${activeMerchantItems.length - eightySixedCount} Active / ${eightySixedCount} "86'd"`;
+        }
+
+        // Wire toggle events
+        container.querySelectorAll('.stock-switch').forEach(sw => {
+          sw.addEventListener('change', function () {
+            const name = this.getAttribute('data-item-name');
+            const checked = this.checked;
+            savedStock[name] = checked;
+            localStorage.setItem(savedStockKey, JSON.stringify(savedStock));
+            
+            const label = this.closest('.list-group-item').querySelector('.item-name-label');
+            if (label) {
+              label.className = checked ? 'small text-dark item-name-label' : 'small text-danger text-decoration-line-through item-name-label';
+            }
+            const current86 = Object.values(savedStock).filter(v => v === false).length;
+            if (invEl) {
+              invEl.textContent = `${activeMerchantItems.length - current86} Active / ${current86} "86'd"`;
+            }
+          });
+        });
+      }
+
+      // =========================================================================
+      // 9. MERCHANT SWITCHER CONTROLLER
+      // =========================================================================
+      const merchantSelector = document.getElementById('merchant-selector');
+      function switchMerchant(key) {
+        if (!RESTAURANT_REGISTRY[key]) return;
+        currentMerchantKey = key;
+        localStorage.setItem('sendeke_active_merchant', key);
+        if (merchantSelector) merchantSelector.value = key;
+
+        const m = RESTAURANT_REGISTRY[key];
+        document.title = `Kitchen Terminal | ${m.name}`;
+        
+        // Update Footer and deep links
+        const fName = document.getElementById('footer-merchant-name');
+        const fAddr = document.getElementById('footer-merchant-address');
+        const menuLink = document.getElementById('btn-store-menu-link');
+
+        if (fName) fName.textContent = `${m.name} Kitchen Expedite Terminal`;
+        if (fAddr) fAddr.textContent = `${m.address} • ${m.cityZip}`;
+        if (menuLink) menuLink.href = m.storeUrl;
+
+        loadMerchantInventory();
+        populateCmsModal();
+        loadLiveQueue();
+      }
+
+      if (merchantSelector) {
+        merchantSelector.value = currentMerchantKey;
+        merchantSelector.addEventListener('change', function () {
+          switchMerchant(this.value);
+        });
+      }
+
+      // =========================================================================
+      // 10. CONTENT MANAGEMENT SYSTEM (CMS) MODAL & LAYOUT CONTROLLER
+      // =========================================================================
+      function populateCmsModal() {
+        const m = RESTAURANT_REGISTRY[currentMerchantKey];
+        const heroBgInput = document.getElementById('cms-hero-bg-url');
+        const heroAlignSelect = document.getElementById('cms-hero-alignment');
+        const heroTaglineInput = document.getElementById('cms-hero-tagline');
+        const itemsContainer = document.getElementById('cms-items-container');
+
+        let cmsData = {};
+        try {
+          cmsData = JSON.parse(localStorage.getItem(`sendeke_cms_${currentMerchantKey}`) || '{}');
+        } catch (e) {}
+
+        if (heroBgInput) heroBgInput.value = cmsData.heroBgUrl || '';
+        if (heroAlignSelect) heroAlignSelect.value = cmsData.heroAlignment || 'center';
+        if (heroTaglineInput) heroTaglineInput.value = cmsData.heroTagline || m.heroTagline;
+
+        if (itemsContainer) {
+          itemsContainer.innerHTML = '';
+          const itemsToRender = (cmsData.items && cmsData.items.length > 0) ? cmsData.items : activeMerchantItems;
+
+          itemsToRender.forEach((it, idx) => {
+            const card = document.createElement('div');
+            card.className = 'cms-item-card';
+            card.innerHTML = `
+              <div class="row g-2 align-items-center mb-1">
+                <div class="col-2 col-sm-1">
+                  <label class="form-label text-muted font-mono" style="font-size:0.65rem;">#SEQ</label>
+                  <input type="number" class="form-control form-control-sm font-mono cms-item-seq" value="${it.seq || (idx + 1)}" min="1">
+                </div>
+                <div class="col-6 col-sm-5">
+                  <label class="form-label text-muted font-mono" style="font-size:0.65rem;">ITEM NAME</label>
+                  <input type="text" class="form-control form-control-sm font-bold cms-item-name" value="${it.name || ''}">
+                </div>
+                <div class="col-4 col-sm-3">
+                  <label class="form-label text-muted font-mono" style="font-size:0.65rem;">PRICE ($)</label>
+                  <input type="number" step="0.25" class="form-control form-control-sm font-mono cms-item-price" value="${parseFloat(it.price || 0).toFixed(2)}">
+                </div>
+                <div class="col-12 col-sm-3 text-sm-end">
+                  <label class="form-label text-muted font-mono d-none d-sm-block" style="font-size:0.65rem;">ACTION</label>
+                  <button type="button" class="btn btn-xs btn-outline-danger font-mono w-100 btn-cms-delete-item">🗑️ Delete</button>
+                </div>
+              </div>
+              <div class="row g-2">
+                <div class="col-12 col-sm-6">
+                  <input type="text" class="form-control form-control-sm cms-item-desc" placeholder="Descriptor / Ingredients (e.g. Avocado, ponzu...)" value="${it.description || ''}">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="url" class="form-control form-control-sm font-mono cms-item-img" placeholder="Descriptor Background Image URL (optional)" value="${it.image_url || it.local_image || ''}">
+                </div>
+              </div>
+            `;
+
+            card.querySelector('.btn-cms-delete-item').addEventListener('click', () => {
+              card.remove();
+            });
+
+            itemsContainer.appendChild(card);
+          });
+        }
+      }
+
+      // Add New Item in CMS
+      document.getElementById('btn-cms-add-item')?.addEventListener('click', function () {
+        const itemsContainer = document.getElementById('cms-items-container');
+        if (!itemsContainer) return;
+        const currentCount = itemsContainer.querySelectorAll('.cms-item-card').length;
+
+        const card = document.createElement('div');
+        card.className = 'cms-item-card';
+        card.innerHTML = `
+          <div class="row g-2 align-items-center mb-1">
+            <div class="col-2 col-sm-1">
+              <label class="form-label text-muted font-mono" style="font-size:0.65rem;">#SEQ</label>
+              <input type="number" class="form-control form-control-sm font-mono cms-item-seq" value="${currentCount + 1}" min="1">
+            </div>
+            <div class="col-6 col-sm-5">
+              <label class="form-label text-muted font-mono" style="font-size:0.65rem;">ITEM NAME</label>
+              <input type="text" class="form-control form-control-sm font-bold cms-item-name" placeholder="New Corridor Specialty">
+            </div>
+            <div class="col-4 col-sm-3">
+              <label class="form-label text-muted font-mono" style="font-size:0.65rem;">PRICE ($)</label>
+              <input type="number" step="0.25" class="form-control form-control-sm font-mono cms-item-price" value="12.00">
+            </div>
+            <div class="col-12 col-sm-3 text-sm-end">
+              <label class="form-label text-muted font-mono d-none d-sm-block" style="font-size:0.65rem;">ACTION</label>
+              <button type="button" class="btn btn-xs btn-outline-danger font-mono w-100 btn-cms-delete-item">🗑️ Delete</button>
+            </div>
+          </div>
+          <div class="row g-2">
+            <div class="col-12 col-sm-6">
+              <input type="text" class="form-control form-control-sm cms-item-desc" placeholder="Descriptor / Ingredients">
+            </div>
+            <div class="col-12 col-sm-6">
+              <input type="url" class="form-control form-control-sm font-mono cms-item-img" placeholder="Descriptor Background Image URL">
+            </div>
+          </div>
+        `;
+        card.querySelector('.btn-cms-delete-item').addEventListener('click', () => card.remove());
+        itemsContainer.prepend(card);
+      });
+
+      // Save CMS Changes
+      document.getElementById('btn-cms-save-changes')?.addEventListener('click', function () {
+        const heroBgUrl = document.getElementById('cms-hero-bg-url')?.value.trim() || '';
+        const heroAlignment = document.getElementById('cms-hero-alignment')?.value || 'center';
+        const heroTagline = document.getElementById('cms-hero-tagline')?.value.trim() || '';
+        const itemsContainer = document.getElementById('cms-items-container');
+
+        const savedItems = [];
+        if (itemsContainer) {
+          itemsContainer.querySelectorAll('.cms-item-card').forEach(card => {
+            const name = card.querySelector('.cms-item-name')?.value.trim();
+            const price = parseFloat(card.querySelector('.cms-item-price')?.value || 0);
+            const seq = parseInt(card.querySelector('.cms-item-seq')?.value || 1, 10);
+            const desc = card.querySelector('.cms-item-desc')?.value.trim() || '';
+            const img = card.querySelector('.cms-item-img')?.value.trim() || '';
+
+            if (name) {
+              savedItems.push({
+                seq: seq,
+                name: name,
+                price: price,
+                description: desc,
+                image_url: img,
+                category: 'Merchant Specialty'
+              });
+            }
+          });
+        }
+
+        savedItems.sort((a, b) => a.seq - b.seq);
+
+        const payload = {
+          merchantId: currentMerchantKey,
+          heroBgUrl: heroBgUrl,
+          heroAlignment: heroAlignment,
+          heroTagline: heroTagline,
+          items: savedItems,
+          updatedAt: new Date().toISOString()
+        };
+
+        localStorage.setItem(`sendeke_cms_${currentMerchantKey}`, JSON.stringify(payload));
+
+        // Close Modal
+        const modalEl = document.getElementById('modal-merchant-cms');
+        if (modalEl && window.bootstrap) {
+          bootstrap.Modal.getInstance(modalEl)?.hide();
+        }
+
+        // Reload inventory
+        loadMerchantInventory();
+        alert(`✓ Storefront and Menu updated for ${RESTAURANT_REGISTRY[currentMerchantKey].name}!\nHero alignment set to "${heroAlignment}". Runner guy engine remains 100% active.`);
+      });
+
+      // =========================================================================
+      // 11. EVENT BUS & STORAGE SYNC
+      // =========================================================================
+      if (engine && typeof engine.onMessage === 'function') {
+        engine.onMessage(function (msg) {
+          if (['TICKET_CREATED', 'TICKET_UPDATED', 'TICKET_CAPTURED', 'STORAGE_UPDATE'].includes(msg.type)) {
+            if (msg.ticket) {
+              if (msg.type === 'TICKET_CREATED') ringBrassServiceBell();
+              renderLiveKitchenTicket(msg.ticket);
+            } else {
+              loadLiveQueue();
+            }
+          }
+        });
+      }
+
+      window.addEventListener('storage', function (e) {
+        if (e.key === 'sendeke_tickets' || e.key === 'sendeke_active_ticket') {
+          loadLiveQueue();
+        }
+      });
+
+      // Boot terminal
+      switchMerchant(currentMerchantKey);
+      applyLanguage();
+    })();
+  </script>
+</body>
+</html>

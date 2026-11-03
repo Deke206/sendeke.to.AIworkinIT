@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>The Doughroom | SenDeke 2</title>
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/sendeketo-icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <!-- Schema.org Semantic Structured Data for AI Crawlers -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "name": "The Doughroom Catalog",
+  "description": "Direct local ordering from The Doughroom in Palms (90034) • Overland Ave. Flat $10 courier delivery by SENDEKETO.COM.",
+  "url": "https://sendeketo.com/doughroom.html",
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Artisanal Pizzas",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "The Classic Pizza (12\")",
+          "description": "Crushed San Marzano tomato sauce, fresh whole milk mozzarella, torn basil, extra virgin olive oil.",
+          "offers": {
+            "@type": "Offer",
+            "price": "18.50",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Flying Pig Pizza (12\")",
+          "description": "House-made fennel sausage, sweet piquillo peppers, caramelized red onions, crushed tomato, mozzarella.",
+          "offers": {
+            "@type": "Offer",
+            "price": "22.50",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "She's My Cherry Tomato Pie (12\")",
+          "description": "Blistered sweet cherry tomatoes, roasted garlic cloves, creamy burrata cheese, fresh basil, olive oil drizzle.",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Sausage Party Pizza (12\")",
+          "description": "Crispy pepperoni, crumbled Italian sausage, spicy sopressata, crushed tomato sauce, mozzarella.",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.50",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Bird is the Word (12\")",
+          "description": "Smoked BBQ chicken breast, roasted cremini mushrooms, pickled red onions, cilantro, smoked mozzarella.",
+          "offers": {
+            "@type": "Offer",
+            "price": "24.00",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Bianco White Pie (12\")",
+          "description": "Sautéed baby spinach, whole milk ricotta, fresh roasted garlic, sea salt, extra virgin olive oil (no red sauce).",
+          "offers": {
+            "@type": "Offer",
+            "price": "22.00",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Starters & Greens",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Overland Chopped Salad",
+          "description": "Crisp romaine, radicchio, chickpeas, salami, provolone, cherry tomatoes, house oregano vinaigrette.",
+          "offers": {
+            "@type": "Offer",
+            "price": "14.50",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Wood-Fired Garlic Knots (6pc)",
+          "description": "Fresh pizza dough tossed in roasted garlic butter, parmesan reggiano, and chopped parsley, side warm marinara.",
+          "offers": {
+            "@type": "Offer",
+            "price": "9.50",
+            "priceCurrency": "USD"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  
+  <!-- Compiled Bootstrap 5.3.3 and Site Standards Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/courier-ebike.css">
+  <style>
+    html, #html-root, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    .fuchsia-num-badge {
+      background-color: #ff007f !important;
+      color: #ffe600 !important;
+      font-weight: 800 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.2 !important;
+      padding: 0.35rem 0.65rem !important;
+      border-radius: 6px !important;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 4px rgba(255, 0, 127, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .price-num-badge {
+      font-size: 0.95rem !important;
+      line-height: 1.2 !important;
+      padding: 0.35rem 0.65rem !important;
+      border-radius: 6px !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .store-hero-banner {
+      border-radius: 12px;
+      max-width: 100%;
+    }
+    .menu-item-action-row {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+    }
+    .menu-item-card {
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .menu-item-card:hover {
+      border-color: rgba(37, 99, 235, 0.35) !important;
+    }
+  </style>
+</head>
+<body class="bg-body text-body">
+
+  <main class="py-3">
+    <div class="container-xl">
+
+      <!-- STORE HERO BANNER -->
+      <section class="p-4 p-md-5 mb-4 rounded-3 hero-pane-glass store-hero-banner text-center" id="store-hero">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis mb-2 font-mono">PALMS (90034) &bull; 3409 OVERLAND AVE</span>
+        <h1 class="display-6 fw-bold text-dark mb-2" aria-label="SenDeke 2 The Doughroom 🍕">
+          <span class="sendeke-brand-lockup">Sen<svg class="brand-d-wheels-svg" xmlns="http://www.w3.org/2000/svg" viewBox="42 56 142 134" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M72 150 A17 17 0 1 0 72 184 A17 17 0 1 0 72 150 Z M72 159 A8 8 0 1 1 72 175 A8 8 0 1 1 72 159 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M148 150 A17 17 0 1 0 148 184 A17 17 0 1 0 148 150 Z M148 159 A8 8 0 1 1 148 175 A8 8 0 1 1 148 159 Z"/></svg>eke 2</span>
+          <span class="text-secondary fw-normal mx-1">|</span>
+          <span>The Doughroom 🍕</span>
+        </h1>
+        <p class="text-body-secondary small mx-auto mb-3" style="max-width: 680px;">
+          Scratch-Made Artisanal Pizza, Fresh Pasta &amp; Craft Pairings. Flat $10 courier pass-through &bull; Direct Line: (310) 559-7800.
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="dropdown hero-menu-dropdown">
+            <button class="btn btn-primary dropdown-toggle fw-bold font-mono px-4 py-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              MENU
+            </button>
+            <ul class="dropdown-menu text-center start-50 translate-middle-x">
+              <li><a class="dropdown-item text-center font-mono" href="index.html">Home</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-center font-mono" href="menu.html">Sweetfin Menu</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="tacos.html">Taquería El Cachetón</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="sandwiches.html">Lokal Sandwich Shop</a></li>
+              <li><a class="dropdown-item active text-center font-mono" href="doughroom.html">The Doughroom</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="simpang.html">Simpang Asia</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="mizlala.html">Mizlala West Adams</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY FILTER BAR -->
+      <section class="d-flex flex-wrap align-items-center gap-2 mb-3 p-2 border border-secondary-subtle rounded-2 bg-body-tertiary" id="store-filters">
+        <button class="btn btn-sm active filter-tab-btn" data-category="ALL">All (8)</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Artisanal Pizzas">Artisanal Pizzas (6)</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Starters & Greens">Starters & Greens (2)</button>
+              <div class="ms-auto d-flex flex-wrap align-items-center gap-2">
+          <a href="tel:(310) 559-7800" class="btn btn-sm btn-outline-warning font-mono fw-semibold px-3">
+            📞 Call in Order
+          </a>
+          <button class="btn btn-sm btn-primary text-white fw-bold px-3 d-flex align-items-center gap-2 shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <img src="assets/brand/sendeke-food-bag-icon.svg" alt="Cart" width="16" height="16">
+            <span>Cart (<span id="nav-cart-counter-badge">0 items</span>)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ITEM CATALOG GRID -->
+      <section class="mb-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="store-items-grid">
+          
+            <div class="col menu-card-wrapper" data-category="Artisanal Pizzas">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#01</span>
+                  <span class="badge bg-secondary font-mono small">Artisanal Pizzas</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">The Classic Pizza (12")</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  Crushed San Marzano tomato sauce, fresh whole milk mozzarella, torn basil, extra virgin olive oil.
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$18.50</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-1" 
+                          data-name="The Classic Pizza (12&quot;)" 
+                          data-price="18.5" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col menu-card-wrapper" data-category="Artisanal Pizzas">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#02</span>
+                  <span class="badge bg-secondary font-mono small">Artisanal Pizzas</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">Flying Pig Pizza (12")</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  House-made fennel sausage, sweet piquillo peppers, caramelized red onions, crushed tomato, mozzarella.
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$22.50</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-2" 
+                          data-name="Flying Pig Pizza (12&quot;)" 
+                          data-price="22.5" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col menu-card-wrapper" data-category="Artisanal Pizzas">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#03</span>
+                  <span class="badge bg-secondary font-mono small">Artisanal Pizzas</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">She's My Cherry Tomato Pie (12")</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  Blistered sweet cherry tomatoes, roasted garlic cloves, creamy burrata cheese, fresh basil, olive oil drizzle.
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$24.00</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-3" 
+                          data-name="She's My Cherry Tomato Pie (12&quot;)" 
+                          data-price="24" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col menu-card-wrapper" data-category="Artisanal Pizzas">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#04</span>
+                  <span class="badge bg-secondary font-mono small">Artisanal Pizzas</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">Sausage Party Pizza (12")</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  Crispy pepperoni, crumbled Italian sausage, spicy sopressata, crushed tomato sauce, mozzarella.
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$24.50</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-4" 
+                          data-name="Sausage Party Pizza (12&quot;)" 
+                          data-price="24.5" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col menu-card-wrapper" data-category="Artisanal Pizzas">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#05</span>
+                  <span class="badge bg-secondary font-mono small">Artisanal Pizzas</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">Bird is the Word (12")</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  Smoked BBQ chicken breast, roasted cremini mushrooms, pickled red onions, cilantro, smoked mozzarella.
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$24.00</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-5" 
+                          data-name="Bird is the Word (12&quot;)" 
+                          data-price="24" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col menu-card-wrapper" data-category="Artisanal Pizzas">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#06</span>
+                  <span class="badge bg-secondary font-mono small">Artisanal Pizzas</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">Bianco White Pie (12")</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  Sautéed baby spinach, whole milk ricotta, fresh roasted garlic, sea salt, extra virgin olive oil (no red sauce).
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$22.00</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-6" 
+                          data-name="Bianco White Pie (12&quot;)" 
+                          data-price="22" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col menu-card-wrapper" data-category="Starters & Greens">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#07</span>
+                  <span class="badge bg-secondary font-mono small">Starters & Greens</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">Overland Chopped Salad</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  Crisp romaine, radicchio, chickpeas, salami, provolone, cherry tomatoes, house oregano vinaigrette.
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$14.50</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-7" 
+                          data-name="Overland Chopped Salad" 
+                          data-price="14.5" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col menu-card-wrapper" data-category="Starters & Greens">
+              <div class="card h-100 shadow-sm border border-secondary-subtle bg-body-tertiary p-3 rounded-3 menu-item-card">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="fuchsia-num-badge">#08</span>
+                  <span class="badge bg-secondary font-mono small">Starters & Greens</span>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-1">Wood-Fired Garlic Knots (6pc)</h3>
+                <p class="text-secondary small mb-3 flex-grow-1" style="min-height: 40px; font-size: 0.85rem; line-height: 1.4;">
+                  Fresh pizza dough tossed in roasted garlic butter, parmesan reggiano, and chopped parsley, side warm marinara.
+                </p>
+                <div class="menu-item-action-row pt-2 border-top border-secondary-subtle">
+                  <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$9.50</span>
+                  <button class="btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn" 
+                          data-id="doughroom-8" 
+                          data-name="Wood-Fired Garlic Knots (6pc)" 
+                          data-price="9.5" 
+                          data-merchant="The Doughroom">
+                    + Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <!-- FOOTER (WHITE BACKGROUND STANDARD) -->
+      <footer class="mt-4 p-3 bg-white border border-secondary-subtle rounded-3 text-center text-dark small shadow-sm" style="background-color: #ffffff !important; color: #111113 !important;">
+        <div class="fw-bold text-dark mb-1" style="color: #111113 !important; font-size: 0.95rem;">The Doughroom &bull; Palms (90034) • Overland Ave</div>
+        <div class="font-mono mb-1 text-secondary">3409 Overland Ave, Los Angeles, CA 90034 • Direct Counter Pickup &amp; Courier Pass-Through</div>
+        <div class="text-secondary" style="font-size: 0.8rem;">
+          Powered by SenDeke • Direct Hyperlocal Livery &amp; Courier Dispatch
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- CART MODAL -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content bg-body text-dark border border-secondary-subtle">
+        <div class="modal-header border-secondary-subtle">
+          <h5 class="modal-title font-mono fw-bold" id="cartModalLabel">🛒 Your Cumulative Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="cart-items-container" class="mb-3">
+            <p class="text-secondary text-center my-4 font-mono">Your cart is currently empty.</p>
+          </div>
+          <div class="border-top border-secondary-subtle pt-3">
+            <div class="d-flex justify-content-between small text-secondary mb-1">
+              <span>Food Subtotal:</span>
+              <span id="cart-subtotal" class="font-mono text-dark fw-bold">$0.00</span>
+            </div>
+            <div class="d-flex justify-content-between small text-secondary mb-1">
+              <span>Courier Delivery (90034 Flat):</span>
+              <span class="font-mono text-dark fw-bold">$10.00</span>
+            </div>
+            <div class="d-flex justify-content-between fw-bold fs-5 text-success border-top border-secondary-subtle pt-2 mt-2">
+              <span>Estimated Total:</span>
+              <span id="cart-grand-total" class="font-mono">$10.00</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-secondary-subtle d-flex justify-content-between">
+          <button type="button" class="btn btn-sm btn-outline-secondary font-mono" id="btn-clear-cart">Clear Cart</button>
+          <a href="checkout.html" class="btn btn-primary fw-bold font-mono px-4">
+            Proceed to Checkout &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script src="assets/js/webmcp.js"></script>
+  <script src="assets/js/courier-ebike.js"></script>
+  <script>
+    (function() {
+      var engine = window.SenDekeEngine;
+      var cart = (engine && typeof engine.getCart === 'function') ? engine.getCart() : JSON.parse(localStorage.getItem('sendeke_cart') || '[]');
+
+      function persistCart() {
+        if (engine && typeof engine.syncCart === 'function') {
+          cart = engine.syncCart(cart, 'The Doughroom').cart;
+        } else {
+          localStorage.setItem('sendeke_cart', JSON.stringify(cart));
+        }
+      }
+      
+      function updateCartUI() {
+        var count = cart.reduce(function(sum, item) { return sum + item.quantity; }, 0);
+        var badge = document.getElementById('nav-cart-counter-badge');
+        if (badge) badge.textContent = count + (count === 1 ? ' item' : ' items');
+
+        var container = document.getElementById('cart-items-container');
+        var subtotalEl = document.getElementById('cart-subtotal');
+        var grandTotalEl = document.getElementById('cart-grand-total');
+
+        if (!container) return;
+
+        if (cart.length === 0) {
+          container.innerHTML = '<p class="text-secondary text-center my-4 font-mono">Your cart is currently empty.</p>';
+          if (subtotalEl) subtotalEl.textContent = '$0.00';
+          if (grandTotalEl) grandTotalEl.textContent = '$10.00';
+          return;
+        }
+
+        var html = '<ul class="list-group list-group-flush bg-transparent">';
+        var subtotal = 0;
+        cart.forEach(function(item, idx) {
+          var itemTotal = item.price * item.quantity;
+          subtotal += itemTotal;
+          html += '<li class="list-group-item bg-transparent text-dark border-secondary-subtle d-flex justify-content-between align-items-center py-2 px-0">' +
+                    '<div>' +
+                      '<div class="fw-bold">' + item.name + '</div>' +
+                      '<div class="text-secondary font-mono small">$' + item.price.toFixed(2) + ' &times; ' + item.quantity + ' (' + (item.merchant || 'The Doughroom') + ')</div>' +
+                    '</div>' +
+                    '<div class="d-flex align-items-center gap-2">' +
+                      '<span class="font-mono fw-bold">$' + itemTotal.toFixed(2) + '</span>' +
+                      '<button class="btn btn-sm btn-outline-danger py-0 px-2 btn-remove-item" data-index="' + idx + '">&times;</button>' +
+                    '</div>' +
+                  '</li>';
+        });
+        html += '</ul>';
+        container.innerHTML = html;
+
+        if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+        if (grandTotalEl) grandTotalEl.textContent = '$' + (subtotal + 10.00).toFixed(2);
+      }
+
+      // Add to cart click
+      document.querySelectorAll('.add-to-cart-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = this.getAttribute('data-id');
+          var name = this.getAttribute('data-name');
+          var price = parseFloat(this.getAttribute('data-price'));
+          var merchant = this.getAttribute('data-merchant');
+
+          var existing = cart.find(function(i) { return i.id === id || i.name === name; });
+          if (existing) {
+            existing.quantity = (existing.quantity || existing.qty || 1) + 1;
+            existing.qty = existing.quantity;
+          } else {
+            cart.push({ id: id, num: id.split('-').pop() || '01', name: name, price: price, merchant: merchant, quantity: 1, qty: 1 });
+          }
+
+          persistCart();
+          updateCartUI();
+
+          // Quick button feedback
+          var origText = this.textContent;
+          this.textContent = '✓ Added!';
+          this.classList.remove('btn-primary');
+          this.classList.add('btn-success');
+          var that = this;
+          setTimeout(function() {
+            that.textContent = origText;
+            that.classList.remove('btn-success');
+            that.classList.add('btn-primary');
+          }, 800);
+        });
+      });
+
+      // Remove item click
+      document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('btn-remove-item')) {
+          var idx = parseInt(e.target.getAttribute('data-index'), 10);
+          cart.splice(idx, 1);
+          persistCart();
+          updateCartUI();
+        }
+      });
+
+      // Clear cart
+      var clearBtn = document.getElementById('btn-clear-cart');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+          cart = [];
+          if (engine && typeof engine.clearCart === 'function') engine.clearCart();
+          updateCartUI();
+        });
+      }
+
+      // Filter tabs
+      document.querySelectorAll('.filter-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          var cat = this.getAttribute('data-category');
+          document.querySelectorAll('.menu-card-wrapper').forEach(function(card) {
+            if (cat === 'ALL' || card.getAttribute('data-category') === cat) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      updateCartUI();
+    })();
+  </script>
+</body>
+</html>

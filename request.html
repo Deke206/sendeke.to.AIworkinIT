@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Direct Courier Request | SenDeke 2</title>
+  
+  <!-- Authentic Favicons & Manifest -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <!-- Local Pure Bootstrap 5.3.3 and Site Standards Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/courier-ebike.css">
+</head>
+<body class="bg-body text-body">
+
+  
+
+  <!-- =========================================================================
+       MAIN INTAKE VIEWPORT
+       ========================================================================= -->
+  <main class="py-3">
+    <div class="container-xl">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          
+          <!-- HERO PANE -->
+          <section class="p-4 mb-3 rounded-3 hero-pane-glass text-center" id="hero-banner-object">
+            <h1 class="h3 fw-bold text-dark mb-2" aria-label="SenDeke 2">
+              <span class="sendeke-brand-lockup">Sen<svg class="brand-d-wheels-svg" xmlns="http://www.w3.org/2000/svg" viewBox="42 56 142 134" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M72 150 A17 17 0 1 0 72 184 A17 17 0 1 0 72 150 Z M72 159 A8 8 0 1 1 72 175 A8 8 0 1 1 72 159 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M148 150 A17 17 0 1 0 148 184 A17 17 0 1 0 148 150 Z M148 159 A8 8 0 1 1 148 175 A8 8 0 1 1 148 159 Z"/></svg>eke 2</span>
+            </h1>
+            <p class="small text-body-secondary mb-3">Direct Local Courier Request &bull; Zone 90034</p>
+            <div class="d-flex justify-content-center">
+          <div class="dropdown hero-menu-dropdown">
+            <button class="btn btn-primary dropdown-toggle fw-bold font-mono px-4 py-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              MENU
+            </button>
+            <ul class="dropdown-menu text-center start-50 translate-middle-x">
+              <li><a class="dropdown-item text-center font-mono" href="index.html">Home</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-center font-mono" href="menu.html">Sweetfin Menu</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="tacos.html">Taquería El Cachetón</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="sandwiches.html">Lokal Sandwich Shop</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="doughroom.html">The Doughroom</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="simpang.html">Simpang Asia</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="mizlala.html">Mizlala West Adams</a></li>
+            </ul>
+          </div>
+        </div>
+          </section>
+
+          <!-- OBJECT 2: DIRECT INTAKE FORM CARD -->
+          <div class="card border-secondary-subtle bg-body-tertiary" id="request-intake-object">
+            <div class="card-header border-secondary-subtle py-2 bg-transparent text-center">
+              <span class="badge bg-primary-subtle text-primary mb-1 font-mono">ZONE 90034 DIRECT DISPATCH</span>
+              <h2 class="h5 fw-bold text-dark mb-1">Request Local Courier Delivery</h2>
+              <p class="small text-body-secondary mb-0">Flat $10 courier fee &bull; Zero app markups</p>
+            </div>
+
+            <div class="card-body p-3">
+              <form id="direct-request-form" action="track.html" method="get">
+                <div class="mb-2">
+                  <label for="req-pickup-input" class="form-label small fw-semibold text-body-secondary">Pickup Merchant / Location</label>
+                  <input type="text" class="form-control form-control-sm" id="req-pickup-input" value="Sweetfin Palms (3105 Overland Ave)" required>
+                </div>
+
+                <div class="mb-2">
+                  <label for="req-dropoff-input" class="form-label small fw-semibold text-body-secondary">Delivery Destination Address</label>
+                  <input type="text" class="form-control form-control-sm" id="req-dropoff-input" value="3645 Overland Ave, Los Angeles, CA 90034" placeholder="e.g. 3645 Overland Ave, Los Angeles, CA 90034" required>
+                </div>
+
+                <div class="row g-2 mb-2">
+                  <div class="col-12 col-sm-6">
+                    <label for="req-phone-input" class="form-label small fw-semibold text-body-secondary">Phone Number</label>
+                    <input type="tel" class="form-control form-control-sm" id="req-phone-input" value="(323) 374-5787" placeholder="(323) 374-5787" required>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <label for="req-items-input" class="form-label small fw-semibold text-body-secondary">Order Summary</label>
+                    <input type="text" class="form-control form-control-sm" id="req-items-input" placeholder="e.g. 2x Spicy Tuna Poke Bowls" required>
+                  </div>
+                </div>
+
+                <div class="mb-2">
+                  <label for="req-notes-input" class="form-label small fw-semibold text-body-secondary">Gate / Door Notes</label>
+                  <textarea class="form-control form-control-sm" id="req-notes-input" rows="2" placeholder="Gate code, apartment number"></textarea>
+                </div>
+
+                <div class="p-2 px-3 mb-3 border border-secondary-subtle rounded-2 bg-body font-mono">
+                  <div class="d-flex justify-content-between small text-body-secondary mb-1">
+                    <span>Estimated Kitchen Food Subtotal</span>
+                    <span class="text-dark fw-bold" id="req-est-food">$0.00</span>
+                  </div>
+                  <div class="d-flex justify-content-between small text-body-secondary mb-1">
+                    <span>Courier Pass-Through Fee (+ $2.50 Min Tip)</span>
+                    <span class="text-dark fw-bold">$12.50</span>
+                  </div>
+                  <div class="d-flex justify-content-between small text-body-secondary">
+                    <span>Platform Fee</span>
+                    <span class="text-success fw-bold">$0.00 (Zero App Markup)</span>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <button type="submit" class="btn btn-primary btn-sm px-4 fw-semibold flex-grow-1" id="submit-ticket-btn">Submit Courier Ticket &rarr;</button>
+                  <button type="button" class="btn btn-success btn-sm px-3 fw-semibold" id="btn-request-escrow">🔒 Pay via Stripe Escrow &rarr;</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       OBJECT 3: APPLICATION FOOTER
+       ========================================================================= -->
+  <footer class="py-3 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto" id="request-footer-object">
+    <div class="container-xl text-center small">
+      <div class="mb-1 fw-semibold text-dark">SenDeke 2 — Local Courier &amp; Community Livery</div>
+      <div class="mb-0 text-body-secondary font-mono">90034 Palms / Culver City • Designed by DeacStudio</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script src="assets/js/courier-ebike.js"></script>
+  <script>
+    (function () {
+      const engine = window.SenDekeEngine;
+      if (!engine) return;
+
+      const itemsInput = document.getElementById('req-items-input');
+      const pickupInput = document.getElementById('req-pickup-input');
+      const dropoffInput = document.getElementById('req-dropoff-input');
+      const phoneInput = document.getElementById('req-phone-input');
+      const notesInput = document.getElementById('req-notes-input');
+      const estFoodEl = document.getElementById('req-est-food');
+
+      itemsInput?.addEventListener('input', function () {
+        const parsed = engine.parseCustomerAsk(this.value);
+        if (estFoodEl) {
+          estFoodEl.textContent = parsed.estimatedFoodSubtotal > 0
+            ? `$${parsed.estimatedFoodSubtotal.toFixed(2)}`
+            : 'Counter Receipt';
+        }
+        if (parsed.matchedItems.length > 0 && pickupInput && pickupInput.value.includes('Sweetfin')) {
+          pickupInput.value = parsed.suggestedMerchant;
+        }
+      });
+
+      document.getElementById('direct-request-form')?.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const rawAsk = (itemsInput?.value || '').trim() || 'Direct Corridor Pickup';
+        const parsed = engine.parseCustomerAsk(rawAsk);
+        const pickup = (pickupInput?.value || '').trim() || parsed.suggestedMerchant || 'Sweetfin Palms (3105 Overland Ave)';
+        const dropoff = (dropoffInput?.value || '').trim() || '3645 Overland Ave, Los Angeles, CA 90034';
+        const phone = (phoneInput?.value || '').trim() || '(323) 374-5787';
+        const notes = (notesInput?.value || '').trim();
+
+        const ticket = engine.createTicket({
+          customerName: 'Neighbor Customer',
+          customerPhone: phone,
+          pickupLocation: pickup,
+          dropoffAddress: dropoff,
+          deliveryNotes: notes,
+          rawOrderText: rawAsk,
+          matchedItems: parsed.matchedItems,
+          foodSubtotal: parsed.estimatedFoodSubtotal > 0 ? parsed.estimatedFoodSubtotal : 16.90,
+          tipAmount: 2.50,
+          paymentMethod: 'DIRECT_DISPATCH_TICKET',
+          status: 'DISPATCH_PENDING'
+        });
+
+        window.location.href = `track.html?receipt=${encodeURIComponent(ticket.id)}`;
+      });
+
+      document.getElementById('btn-request-escrow')?.addEventListener('click', function () {
+        const rawAsk = (itemsInput?.value || '').trim() || '1x Spicy Tuna Poke Bowl';
+        const parsed = engine.parseCustomerAsk(rawAsk);
+        const pickup = (pickupInput?.value || '').trim() || parsed.suggestedMerchant || 'Sweetfin Palms (3105 Overland Ave)';
+        const dropoff = (dropoffInput?.value || '').trim() || '3645 Overland Ave, Los Angeles, CA 90034';
+
+        if (parsed.matchedItems.length > 0) {
+          engine.syncCart(parsed.matchedItems, pickup, 2.50, dropoff);
+        } else {
+          try {
+            localStorage.setItem('sendeke_pending_ask', rawAsk);
+            localStorage.setItem('sendeke_pending_pickup', pickup);
+            localStorage.setItem('sendeke_pending_subtotal', '16.90');
+            localStorage.setItem('sendeke_pending_dropoff', dropoff);
+          } catch (err) {}
+        }
+        window.location.href = 'checkout.html';
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sendeke",
+  "main": "workers/index.js",
+  "compatibility_date": "2026-10-31",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    { "pattern": "sendeketo.com/*", "zone_name": "sendeketo.com" },
+    { "pattern": "www.sendeketo.com/*", "zone_name": "sendeketo.com" }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sendeke-production-d1",
+      "database_id": "940a3773-4899-45b1-9d38-f64061b47c5f"
+    }
+  ],
+  "vars": {
+    "STRIPE_SECRET_KEY": "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",
+    "STRIPE_PUBLISHABLE_KEY": "pk_live_51UMDqqI2soUb8x6t59tKP3JVa4dKT19DsZp1yCvkR2nqZxirXF9oPl6VrnQoUWjesaMmLtTc5HjO99vbI3FR600Q00lyc8K4cI",
+    "STRIPE_ACCOUNT_ID": "acct_1UMDqqI2soUb8x6t",
+    "GOOGLE_MAPS_API_KEY": "AIzaSyDFTisAwcr8piPj-xB46qH1tKQDvDW_Ong",
+    "MAP_PROVIDER_KEY": "AIzaSyDFTisAwcr8piPj-xB46qH1tKQDvDW_Ong",
+    "AGENTMAIL_API_KEY": "am_us_6bf9421a86a6dd4aeb0c4a50aaea627bad26e042ae8885ac7933b3dbd688ddc3",
+    "FCM_VAPID_KEY": "BMy_u7ud4tn82KkiXoTmgaOdKsTXG_G11pvfyJE1TkWwKx4EST7CH42IZVmNmsgG7wRF8y90LrtRkPztn4Cx1PU",
+    "DISPATCH_PHONE": "(323) 374-5787"
+  }
+}

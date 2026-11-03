@@ -1,0 +1,32 @@
+# SENDEKETO.COM - Autonomous Agent & Search Engine Directives
+# Purpose: Open indexing for AI agentic dispatch, search synthesis & local discovery
+
+User-agent: *
+Allow: /
+
+# Explicit AI Agent & Web Crawler Permissions
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Agentic Knowledge Files
+Sitemap: https://sendeketo.com/sitemap.xml
+LLM-Data: https://sendeketo.com/llms.txt
+Agent-Feed: https://sendeketo.com/assets/data/agent-feed.json
+WebMCP-Tool-Registry: https://sendeketo.com/assets/js/webmcp.js
+
+Corridor-Directory: https://sendeketo.com/assets/seo/corridor-90034-directory.txt

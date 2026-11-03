@@ -1,0 +1,1408 @@
+{
+  "index.html": {
+    "title": "SENDEKETO.COM | Direct Local Courier &amp; Community Livery",
+    "sizeBytes": 68469,
+    "lineCount": 1196,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": null,
+        "inlineLength": 1240
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/webmcp.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 18609
+      }
+    ],
+    "headerBanners": [
+      "<header class=\"navbar-floating\" id=\"site-navigation-object\">",
+      "<nav class=\"navbar navbar-expand-lg py-2\" aria-label=\"Primary navigation\">",
+      "<div class=\"collapse navbar-collapse\" id=\"nav-collapse-target\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2\">",
+      "<div class=\"offcanvas-header border-bottom border-secondary-subtle py-2\">",
+      "<div class=\"modal-header border-secondary-subtle py-2\">",
+      "<div class=\"modal-header border-secondary-subtle py-2\">",
+      "<div class=\"modal-header border-secondary-subtle py-2\">"
+    ],
+    "modals": [
+      {
+        "id": "home-phone-dialer-modal",
+        "title": "AI CONCIERGE\n            Call-In Phone Order Simulator"
+      },
+      {
+        "id": "home-receipt-modal",
+        "title": "Courier Order Receipt"
+      },
+      {
+        "id": "soapbox-pitch-modal",
+        "title": "RENEGADE COURIER\n            Disrupt the Ride-Share Mafia &bull; Partner Outreach Pitch"
+      }
+    ],
+    "totalIds": 66,
+    "uniqueIds": 66,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "site-navigation-object",
+      "nav-collapse-target",
+      "nav-cart-counter",
+      "hero-banner-object",
+      "service-area-alert-object",
+      "courier-intake-object",
+      "order-intake-form",
+      "agent-match-indicator",
+      "raw-order-text-input",
+      "matched-items-badge-container",
+      "matched-items-list",
+      "matched-food-subtotal",
+      "pickup-address-input",
+      "dropoff-address-input",
+      "customer-phone-input",
+      "delivery-notes-input",
+      "tip-selector-group",
+      "tip-min",
+      "tip-mid",
+      "tip-high",
+      "form-courier-takehome",
+      "form-grand-total",
+      "submit-ticket-btn",
+      "quick-track-object",
+      "beacon-duty-badge",
+      "share-link-input",
+      "btn-copy-share-link",
+      "lookup-ticket-input",
+      "btn-track-now",
+      "featured-taco-spotlight",
+      "todays-specials-object",
+      "catalog-preview-object",
+      "cart-drawer-object",
+      "cart-title",
+      "cart-items-container",
+      "cart-val-subtotal",
+      "cart-val-delivery",
+      "cart-val-total",
+      "cart-checkout-btn",
+      "home-phone-dialer-modal",
+      "home-dialer-title",
+      "home-dialer-item-input",
+      "home-dialer-dest-input",
+      "btn-home-submit-phone",
+      "home-receipt-modal",
+      "home-receipt-title",
+      "home-receipt-time",
+      "home-receipt-num",
+      "home-receipt-dest",
+      "home-receipt-items-list",
+      "home-receipt-food",
+      "home-receipt-total",
+      "receipt-email-input",
+      "btn-send-receipt-email",
+      "email-sent-feedback",
+      "soapbox-pitch-modal",
+      "soapbox-pitch-title",
+      "pitch-email-input",
+      "pitch-subject-input",
+      "btn-copy-pitch",
+      "pitch-letter-body",
+      "copy-pitch-feedback",
+      "btn-copy-pitch-bottom",
+      "btn-launch-mailto",
+      "site-footer-object"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeke-d-wheels.svg",
+        "alt": "SenDeke 2"
+      },
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Bag"
+      },
+      {
+        "src": "assets/img/tacos-platter.jpg",
+        "alt": "Taquería El Cachetón Tacos al Carbón"
+      },
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Spicy Tuna Bowl"
+      },
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Yuzu Salmon Bowl"
+      },
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Chicken Banh Mi Bowl"
+      },
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Bag"
+      },
+      {
+        "src": "assets/img/menu-live-screenshot.png",
+        "alt": "SenDeke Sweetfin 34-Item Web Ordering App Live Screenshot"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [
+      {
+        "id": "order-intake-form",
+        "action": "none"
+      }
+    ],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_cart",
+      "sendeke_cart_items",
+      "sendeke_pending_ticket_id"
+    ]
+  },
+  "menu.html": {
+    "title": "Sweetfin Menu | sendeketo.com",
+    "sizeBytes": 63294,
+    "lineCount": 1293,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": null,
+        "inlineLength": 3031
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/webmcp.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 33910
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      }
+    ],
+    "headerBanners": [
+      "<div class=\"modal-header border-secondary-subtle py-2\">",
+      "<div class=\"modal-header border-secondary-subtle py-2\">",
+      "<div class=\"modal-header border-secondary-subtle py-2\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">"
+    ],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "Your Sweetfin Cart"
+      },
+      {
+        "id": "phone-dialer-modal",
+        "title": "AI CONCIERGE\n            Call-In Phone Order Simulator"
+      },
+      {
+        "id": "receipt-modal",
+        "title": "Order Receipt &amp; Voucher"
+      }
+    ],
+    "totalIds": 39,
+    "uniqueIds": 39,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "menu-hero-object",
+      "nav-cart-counter-badge",
+      "menu-filters-object",
+      "menu-catalog-grid-object",
+      "menu-items-grid",
+      "cartModal",
+      "cartModalTitle",
+      "cartModalSubtitle",
+      "cartModalAllotmentCount",
+      "cartItemsCountText",
+      "clearCartBtn",
+      "cart-items-container",
+      "cart-val-subtotal",
+      "cart-val-delivery",
+      "cartTipTakeHomeLabel",
+      "cart-val-total",
+      "cart-delivery-address",
+      "btn-generate-receipt",
+      "btn-text-order-deke",
+      "btn-stripe-pay-sweetfin",
+      "phone-dialer-modal",
+      "dialer-title",
+      "dialer-item-input",
+      "dialer-address-input",
+      "dialer-preview-box",
+      "dialer-preview-list",
+      "btn-submit-phone-order",
+      "receipt-modal",
+      "receipt-title",
+      "printable-receipt-card",
+      "receipt-timestamp",
+      "receipt-number-display",
+      "receipt-dest-display",
+      "receipt-items-table-body",
+      "receipt-food-subtotal",
+      "receipt-grand-total",
+      "receipt-track-btn",
+      "menu-footer-object"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Cart"
+      },
+      {
+        "src": "assets/brand/food-delivery-animated.gif",
+        "alt": "SenDeke Express Courier"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [
+      "assets/data/sweetfin_menu_clean.json"
+    ],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_cart",
+      "sendeke_cart_items",
+      "sendeke_active_tickets"
+    ]
+  },
+  "tacos.html": {
+    "title": "Taquería El Cachetón Menu | sendeketo.com",
+    "sizeBytes": 70544,
+    "lineCount": 1232,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": null,
+        "inlineLength": 1617
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/webmcp.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 20110
+      }
+    ],
+    "headerBanners": [
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">",
+      "<div class=\"modal-header py-2\" style=\"border-bottom: 1px solid var(--taco-yellow-pin) !important;\">",
+      "<div class=\"modal-header py-2\" style=\"border-bottom: 1px solid var(--taco-yellow-pin) !important;\">",
+      "<div class=\"modal-header py-2\" style=\"border-bottom: 1px solid var(--taco-yellow-pin) !important;\">",
+      "<div class=\"card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center\">"
+    ],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "Your Taco Cart"
+      },
+      {
+        "id": "phone-dialer-modal",
+        "title": "AI CONCIERGE\n            Call-In Phone Order Simulator"
+      },
+      {
+        "id": "receipt-modal",
+        "title": "Order Receipt &amp; Voucher"
+      }
+    ],
+    "totalIds": 34,
+    "uniqueIds": 34,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "tacos-hero-object",
+      "nav-cart-counter-badge",
+      "tacos-filters-object",
+      "tacos-catalog-grid-object",
+      "tacos-items-grid",
+      "cartModal",
+      "cartModalTitle",
+      "cartItemsCountText",
+      "clearCartBtn",
+      "cart-items-container",
+      "cart-food-subtotal",
+      "cart-courier-fee",
+      "cart-tip-amount",
+      "cart-grand-total",
+      "cart-delivery-address",
+      "btn-text-order-deke",
+      "btn-stripe-pay-tacos",
+      "phone-dialer-modal",
+      "dialer-title",
+      "dialer-item-input",
+      "dialer-address-input",
+      "dialer-preview-box",
+      "dialer-preview-list",
+      "btn-submit-phone-order",
+      "receipt-modal",
+      "receipt-title",
+      "printable-receipt-card",
+      "receipt-timestamp",
+      "receipt-number-display",
+      "receipt-dest-display",
+      "receipt-items-table-body",
+      "receipt-food-subtotal",
+      "receipt-grand-total"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Cart"
+      },
+      {
+        "src": "assets/brand/food-delivery-animated.gif",
+        "alt": "Courier"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [
+      "assets/data/taqueria_el_cacheton_menu.json"
+    ],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_cart",
+      "sendeke_cart_items",
+      "sendeke_active_tickets"
+    ]
+  },
+  "sandwiches.html": {
+    "title": "Lokal Sandwich Shop | sendeketo.com",
+    "sizeBytes": 37482,
+    "lineCount": 706,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": null,
+        "inlineLength": 4799
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/webmcp.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 5278
+      }
+    ],
+    "headerBanners": [
+      "<div class=\"modal-header border-secondary-subtle\">"
+    ],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart"
+      }
+    ],
+    "totalIds": 22,
+    "uniqueIds": 22,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "store-hero",
+      "nav-cart-counter-badge",
+      "store-filters",
+      "store-items-grid",
+      "lokal-01",
+      "lokal-02",
+      "lokal-03",
+      "lokal-04",
+      "lokal-05",
+      "lokal-06",
+      "lokal-07",
+      "lokal-08",
+      "lokal-09",
+      "lokal-10",
+      "lokal-11",
+      "cartModal",
+      "cartModalLabel",
+      "cart-items-container",
+      "cart-subtotal",
+      "cart-grand-total",
+      "btn-clear-cart"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Cart"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_cart"
+    ]
+  },
+  "doughroom.html": {
+    "title": "The Doughroom | sendeketo.com",
+    "sizeBytes": 30957,
+    "lineCount": 603,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": null,
+        "inlineLength": 3406
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/webmcp.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 5266
+      }
+    ],
+    "headerBanners": [
+      "<div class=\"modal-header border-secondary-subtle\">"
+    ],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart"
+      }
+    ],
+    "totalIds": 19,
+    "uniqueIds": 19,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "store-hero",
+      "nav-cart-counter-badge",
+      "store-filters",
+      "store-items-grid",
+      "doughroom-1",
+      "doughroom-2",
+      "doughroom-3",
+      "doughroom-4",
+      "doughroom-5",
+      "doughroom-6",
+      "doughroom-7",
+      "doughroom-8",
+      "cartModal",
+      "cartModalLabel",
+      "cart-items-container",
+      "cart-subtotal",
+      "cart-grand-total",
+      "btn-clear-cart"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Cart"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_cart"
+    ]
+  },
+  "simpang.html": {
+    "title": "Simpang Asia | sendeketo.com",
+    "sizeBytes": 35224,
+    "lineCount": 681,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": null,
+        "inlineLength": 4328
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/webmcp.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 5264
+      }
+    ],
+    "headerBanners": [
+      "<div class=\"modal-header border-secondary-subtle\">"
+    ],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart"
+      }
+    ],
+    "totalIds": 21,
+    "uniqueIds": 21,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "store-hero",
+      "nav-cart-counter-badge",
+      "store-filters",
+      "store-items-grid",
+      "simpang-1",
+      "simpang-2",
+      "simpang-3",
+      "simpang-4",
+      "simpang-5",
+      "simpang-6",
+      "simpang-7",
+      "simpang-8",
+      "simpang-9",
+      "simpang-10",
+      "cartModal",
+      "cartModalLabel",
+      "cart-items-container",
+      "cart-subtotal",
+      "cart-grand-total",
+      "btn-clear-cart"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Cart"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_cart"
+    ]
+  },
+  "mizlala.html": {
+    "title": "Mizlala West Adams | sendeketo.com",
+    "sizeBytes": 27657,
+    "lineCount": 546,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": null,
+        "inlineLength": 2897
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/webmcp.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 5276
+      }
+    ],
+    "headerBanners": [
+      "<div class=\"modal-header border-secondary-subtle\">"
+    ],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart"
+      }
+    ],
+    "totalIds": 17,
+    "uniqueIds": 17,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "store-hero",
+      "nav-cart-counter-badge",
+      "store-filters",
+      "store-items-grid",
+      "mizlala-1",
+      "mizlala-2",
+      "mizlala-3",
+      "mizlala-4",
+      "mizlala-5",
+      "mizlala-6",
+      "cartModal",
+      "cartModalLabel",
+      "cart-items-container",
+      "cart-subtotal",
+      "cart-grand-total",
+      "btn-clear-cart"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeke-food-bag-icon.svg",
+        "alt": "Cart"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_cart"
+    ]
+  },
+  "checkout.html": {
+    "title": "Sweetfin Palms | Live Escrow Checkout & Transmitted Receipt",
+    "sizeBytes": 41391,
+    "lineCount": 889,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "https://js.stripe.com/v3/",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 18943
+      }
+    ],
+    "headerBanners": [],
+    "modals": [],
+    "totalIds": 38,
+    "uniqueIds": 38,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "btn-back-storefront",
+      "top-merchant-badge",
+      "order-merchant-title",
+      "order-zone-badge",
+      "checkout-items-list",
+      "primary-item-name",
+      "primary-item-desc",
+      "primary-item-price",
+      "displayFoodSubtotal",
+      "displayTipAmount",
+      "displayGrandTotal",
+      "tip-btn-group",
+      "tip250",
+      "tip400",
+      "tip500",
+      "tip750",
+      "payment-request-button",
+      "payment-request-divider",
+      "stripe-escrow-form",
+      "cust-name-input",
+      "cust-phone-input",
+      "cust-dropoff-input",
+      "card-element",
+      "card-errors",
+      "cust-zip-input",
+      "submit-escrow-btn",
+      "btn-text",
+      "btn-spinner",
+      "escrow-success-stage",
+      "handshake-pin-display",
+      "success-ticket-id",
+      "success-stripe-pm",
+      "success-track-link",
+      "success-receipt-link",
+      "local-card-num",
+      "local-card-exp",
+      "local-card-cvc"
+    ],
+    "images": [
+      {
+        "src": "assets/img/sweetfin/spicy_tuna_poke_bowl.jpg",
+        "alt": "Sweetfin Poke"
+      },
+      {
+        "src": "${it.image}",
+        "alt": "${it.name}"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [
+      {
+        "id": "stripe-escrow-form",
+        "action": "none"
+      }
+    ],
+    "fetchEndpoints": [
+      "/api/escrow/authorize"
+    ],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_pending_subtotal",
+      "sendeke_pending_ask",
+      "sendeke_pending_pickup",
+      "sendeke_pending_tip",
+      "sendeke_pending_dropoff"
+    ]
+  },
+  "receipt.html": {
+    "title": "Sweetfin Palms | Transmitted Customer Receipt & Escrow Proof",
+    "sizeBytes": 16529,
+    "lineCount": 400,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 5980
+      }
+    ],
+    "headerBanners": [
+      "<div class=\"receipt-header\">"
+    ],
+    "modals": [],
+    "totalIds": 22,
+    "uniqueIds": 22,
+    "duplicateIds": [],
+    "idList": [
+      "receipt-emblem",
+      "receipt-merchant-title",
+      "receipt-merchant-sub",
+      "receipt-merchant-addr",
+      "receipt-status-badge",
+      "receipt-timestamp",
+      "receipt-handshake-pin",
+      "receipt-items-container",
+      "receipt-food-subtotal",
+      "receipt-courier-fee",
+      "receipt-tip-amount",
+      "receipt-total-label",
+      "receipt-grand-total",
+      "stage-1",
+      "stage-2",
+      "stage-3",
+      "stage-4",
+      "receipt-ticket-id",
+      "receipt-payment-method",
+      "receipt-courier-name",
+      "receipt-destination",
+      "receipt-track-btn"
+    ],
+    "images": [],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_active_ticket"
+    ]
+  },
+  "request.html": {
+    "title": "Direct Courier Request | SenDeke.to",
+    "sizeBytes": 10768,
+    "lineCount": 204,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 3244
+      }
+    ],
+    "headerBanners": [
+      "<header class=\"navbar-floating\" id=\"request-nav-object\">",
+      "<nav class=\"navbar navbar-expand-lg py-2\" aria-label=\"Request navigation\">",
+      "<div class=\"collapse navbar-collapse\" id=\"request-nav-collapse\">",
+      "<div class=\"card-header border-secondary-subtle py-2 bg-transparent text-center\">"
+    ],
+    "modals": [],
+    "totalIds": 14,
+    "uniqueIds": 14,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "request-nav-object",
+      "request-nav-collapse",
+      "request-intake-object",
+      "direct-request-form",
+      "req-pickup-input",
+      "req-dropoff-input",
+      "req-phone-input",
+      "req-items-input",
+      "req-notes-input",
+      "req-est-food",
+      "submit-ticket-btn",
+      "btn-request-escrow",
+      "request-footer-object"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeketo-logo-vector.svg",
+        "alt": "SenDeke"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [
+      {
+        "id": "direct-request-form",
+        "action": "track.html"
+      }
+    ],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_pending_ask",
+      "sendeke_pending_pickup",
+      "sendeke_pending_subtotal",
+      "sendeke_pending_dropoff"
+    ]
+  },
+  "track.html": {
+    "title": "Track Courier Ticket | SenDeke.to",
+    "sizeBytes": 16731,
+    "lineCount": 305,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/courier-ebike.css",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/courier-ebike.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 7935
+      }
+    ],
+    "headerBanners": [
+      "<header class=\"navbar-floating\" id=\"track-nav-object\">",
+      "<nav class=\"navbar navbar-expand-lg py-2\" aria-label=\"Tracking navigation\">",
+      "<div class=\"collapse navbar-collapse\" id=\"track-nav-collapse\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2 flex-wrap gap-2\">"
+    ],
+    "modals": [],
+    "totalIds": 26,
+    "uniqueIds": 26,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "track-nav-object",
+      "track-nav-collapse",
+      "track-card-object",
+      "track-ticket-id",
+      "track-pin-badge",
+      "track-status-badge",
+      "live-telemetry-map",
+      "track-step-1",
+      "track-step-1-icon",
+      "track-step-1-sub",
+      "track-step-1-badge",
+      "track-step-2",
+      "track-step-2-icon",
+      "track-step-2-sub",
+      "track-step-2-badge",
+      "track-step-3",
+      "track-step-3-icon",
+      "track-step-3-sub",
+      "track-step-3-badge",
+      "track-origin-text",
+      "track-dest-text",
+      "track-ask-text",
+      "track-courier-text",
+      "track-view-receipt-btn",
+      "track-footer-object"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeketo-logo-vector.svg",
+        "alt": "SenDeke"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": []
+  },
+  "driver.html": {
+    "title": "Driver Cockpit &amp; Bicycle Dispatch | SenDeke.to",
+    "sizeBytes": 34925,
+    "lineCount": 735,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 16433
+      }
+    ],
+    "headerBanners": [
+      "<header class=\"navbar-floating\">",
+      "<nav class=\"navbar navbar-expand-lg py-2 border-bottom border-secondary-subtle\">"
+    ],
+    "modals": [],
+    "totalIds": 42,
+    "uniqueIds": 41,
+    "duplicateIds": [
+      "trip-customer-phone"
+    ],
+    "idList": [
+      "html-root",
+      "cockpit-duty-switch",
+      "cockpit-duty-label",
+      "driver-map",
+      "hud-wallet-total",
+      "hud-trip-status",
+      "btn-recenter-driver-map",
+      "driver-cockpit-accordion",
+      "heading-active-trip",
+      "accordion-trip-title",
+      "collapse-active-trip",
+      "trip-payout-val",
+      "trip-original-ask",
+      "trip-pickup-name",
+      "trip-pickup-addr",
+      "btn-bike-nav-pickup",
+      "trip-customer-name",
+      "trip-customer-phone",
+      "trip-dropoff-addr",
+      "btn-bike-nav-dropoff",
+      "trip-food-subtotal",
+      "trip-items-list",
+      "trip-pin-hint",
+      "handshake-pin-input",
+      "btn-nfc-fistbump",
+      "driver-step-feedback",
+      "btn-step-pickup",
+      "btn-step-collected",
+      "btn-step-delivered",
+      "heading-dispatch-queue",
+      "queue-count-badge",
+      "collapse-dispatch-queue",
+      "btn-refresh-queue",
+      "dispatch-queue-container",
+      "heading-alliance",
+      "collapse-alliance",
+      "input-driver-invite",
+      "btn-copy-driver-link",
+      "heading-card",
+      "collapse-card",
+      "trip-customer-phone",
+      "${t.id}"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeketo-logo-vector.svg",
+        "alt": "SenDeke"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_driver_wallet"
+    ]
+  },
+  "driver-settings.html": {
+    "title": "Driver Operations &amp; Fleet Settings | SenDeke.to",
+    "sizeBytes": 26141,
+    "lineCount": 518,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 7213
+      }
+    ],
+    "headerBanners": [
+      "<header class=\"navbar-floating\">",
+      "<nav class=\"navbar navbar-expand-lg py-2\" aria-label=\"Fleet settings navigation\">"
+    ],
+    "modals": [],
+    "totalIds": 29,
+    "uniqueIds": 29,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "navDriverStatusDot",
+      "navDriverStatusText",
+      "driverSignOutBtn",
+      "driverAuthGate",
+      "googleSignInBtn",
+      "passcodeForm",
+      "passcodeInput",
+      "authErrorMsg",
+      "settingsMainContent",
+      "topSaveBtn",
+      "availabilityBadge",
+      "settingsOnlineSwitch",
+      "settingsGpsPill",
+      "settingsGpsToggle",
+      "settingsGpsTelemetryInfo",
+      "settingsGpsCoords",
+      "settingsGpsAccuracy",
+      "settingsCapacitySelect",
+      "settingsActiveCount",
+      "settingsAreaInput",
+      "checkBattery",
+      "checkBag",
+      "checkMount",
+      "checkHelmet",
+      "checkLocks",
+      "saveSettingsBtn",
+      "settingsToast",
+      "settingsToastMessage"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeketo-logo-vector.svg",
+        "alt": "SenDeke"
+      }
+    ],
+    "svgCount": 1,
+    "forms": [
+      {
+        "id": "passcodeForm",
+        "action": "none"
+      }
+    ],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_preflight_checks"
+    ]
+  },
+  "restaurant.html": {
+    "title": "Kitchen Expedite Terminal | Sweetfin Palms",
+    "sizeBytes": 30762,
+    "lineCount": 567,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 8026
+      }
+    ],
+    "headerBanners": [
+      "<header class=\"navbar-floating\" id=\"kitchen-nav-object\">",
+      "<nav class=\"navbar navbar-expand-lg py-2\" aria-label=\"Kitchen terminal navigation\">",
+      "<div class=\"collapse navbar-collapse\" id=\"kitchen-nav-collapse\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2\">",
+      "<div class=\"card-header border-warning d-flex justify-content-between align-items-center bg-transparent py-1 px-2\">"
+    ],
+    "modals": [],
+    "totalIds": 13,
+    "uniqueIds": 13,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "kitchen-nav-object",
+      "kitchen-nav-collapse",
+      "btn-sound-chime",
+      "kitchen-metrics-object",
+      "kpi-active-prep",
+      "kpi-courier-name",
+      "kpi-courier-eta",
+      "kpi-station-inventory",
+      "kitchen-queue-object",
+      "kitchen-stock-object",
+      "kitchen-footer-object",
+      "${ticket.id}"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeketo-logo-vector.svg",
+        "alt": "SenDeke"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": [
+      "sendeke_kitchen_stock"
+    ]
+  },
+  "admin.html": {
+    "title": "Fleet Comptroller &amp; Driver Tracker Portal | SenDeke.to",
+    "sizeBytes": 37573,
+    "lineCount": 684,
+    "cssMatches": [
+      "assets/css/bootstrap.min.css",
+      "assets/css/site.css",
+      "assets/css/admin.css",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    ],
+    "scriptMatches": [
+      {
+        "src": "assets/js/bootstrap.bundle.min.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+        "inlineLength": 0
+      },
+      {
+        "src": "assets/js/dispatch-engine.js",
+        "inlineLength": 0
+      },
+      {
+        "src": null,
+        "inlineLength": 11553
+      }
+    ],
+    "headerBanners": [
+      "<header class=\"navbar-floating\" id=\"admin-nav-object\">",
+      "<nav class=\"navbar navbar-expand-lg py-2\" aria-label=\"Admin comptroller navigation\">",
+      "<div class=\"collapse navbar-collapse\" id=\"admin-nav-collapse\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2 px-3\">",
+      "<div class=\"card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2 px-3\">"
+    ],
+    "modals": [],
+    "totalIds": 32,
+    "uniqueIds": 32,
+    "duplicateIds": [],
+    "idList": [
+      "html-root",
+      "admin-body",
+      "admin-nav-object",
+      "admin-nav-collapse",
+      "btn-open-fullscreen-tracker",
+      "admin-metrics-object",
+      "admin-gmv-val",
+      "admin-passthrough-val",
+      "admin-fleet-val",
+      "admin-escrow-val",
+      "admin-escrow-badge",
+      "admin-viewport-object",
+      "ai-pickup-input",
+      "btn-ai-query-closest",
+      "ai-match-result",
+      "ai-match-driver",
+      "ai-match-dist",
+      "ai-match-eta",
+      "ai-match-batt",
+      "ai-deadhead-tag",
+      "btn-instant-dispatch-match",
+      "btn-recenter-comptroller",
+      "comptroller-fleet-map",
+      "dossier-count-badge",
+      "dossier-cards-container",
+      "DRV-104",
+      "DRV-101",
+      "DRV-102",
+      "DRV-103",
+      "admin-footer-object",
+      "adminToast",
+      "adminToastBody"
+    ],
+    "images": [
+      {
+        "src": "assets/brand/sendeketo-logo-vector.svg",
+        "alt": "SenDeke"
+      }
+    ],
+    "svgCount": 0,
+    "forms": [],
+    "fetchEndpoints": [],
+    "workerEndpoints": [],
+    "localStorageKeys": []
+  }
+}

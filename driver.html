@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Driver Cockpit &amp; Bicycle Dispatch | SenDeke.to</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <!-- Bootstrap 5.3.3 and Leaflet CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  
+  <style>
+    :root {
+      --cockpit-bg: #090a0f;
+      --cockpit-panel: #131722;
+      --cockpit-border: rgba(255, 255, 255, 0.12);
+      --accent-green: #10B981;
+      --accent-blue: #3B82F6;
+      --accent-gold: #F59E0B;
+    }
+    body {
+      color: var(--ink-body);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .driver-map-stage {
+      position: relative;
+      width: 100%;
+      height: 48vh;
+      min-height: 320px;
+      border-bottom: 1px solid var(--cockpit-border);
+      background-color: #0d1117;
+    }
+    #driver-map {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    /* Floating Map Overlays */
+    .map-overlay-top-left {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .map-overlay-top-right {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+    .map-overlay-bottom-right {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      z-index: 1000;
+    }
+    .hud-chip {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(4, 28, 36, 0.16);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem;
+      color: #041C24;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: rgba(59, 130, 246, 0.15);
+      color: #60A5FA;
+    }
+    .accordion-item {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      border-color: var(--glass-header-border);
+    }
+    .customer-ask-box {
+      background-color: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--accent-gold);
+      padding: 10px 14px;
+      border-radius: 4px;
+      font-style: italic;
+      color: #041C24;
+    }
+    .btn-nav-bicycle {
+      background: linear-gradient(180deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      border: none;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+    .btn-nav-bicycle:hover {
+      background: linear-gradient(180deg, #059669 0%, #047857 100%);
+      color: #FFFFFF;
+    }
+    .fleet-virtual-card {
+      background: linear-gradient(135deg, #18181B 0%, #27272A 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <!-- MOBILE TACTICAL DISPATCH HEADER (ZERO EMBEDDED MAP // GOOGLE MAPS INTENT) -->
+  <section class="p-3 mb-2 bg-dark border-bottom border-secondary" aria-label="Tactical Status Header">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2 font-mono">
+      <div class="d-flex align-items-center gap-2">
+        <div class="form-check form-switch mb-0">
+          <input class="form-check-input" type="checkbox" role="switch" id="cockpit-duty-switch" checked>
+          <label class="form-check-label small fw-bold text-success font-mono" for="cockpit-duty-switch" id="cockpit-duty-label">ONLINE</label>
+        </div>
+        <span class="badge bg-warning text-dark font-mono">● LIVE COURIER #04 (DEKE)</span>
+        <span class="text-secondary small">Zone 90034 Palms &bull; E-Bike Livery</span>
+      </div>
+      <div class="text-end">
+        <span class="text-success fw-bold fs-6 font-mono" id="hud-wallet-total">$15.00 Living Wage Target</span>
+      </div>
+    </div>
+
+    <!-- Live GPS & Battery Telemetry Readout -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center p-2 rounded bg-black border border-secondary font-mono" style="font-size: 0.75rem;">
+      <div class="d-flex align-items-center gap-2">
+        <span class="text-info fw-bold"><i class="bi bi-broadcast"></i> GPS Precision:</span>
+        <strong class="text-info" id="hud-gps-precision">&plusmn;3.1m</strong>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <span class="text-secondary">Speed:</span>
+        <strong class="text-warning" id="hud-gps-speed">14 mph</strong>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <span class="text-secondary">Status:</span>
+        <strong class="text-success" id="hud-trip-status">Available for Runs</strong>
+      </div>
+      <div>
+        <a href="driver-settings.html" class="badge bg-info-subtle text-dark text-decoration-none font-mono">⚙️ Config</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCORDION CONTROLS (FULL WIDTH / UNDERNEATH MAP) -->
+  <main class="container-fluid px-3 py-3 flex-grow-1">
+    
+    <div class="accordion" id="driver-cockpit-accordion">
+      
+      <!-- ACCORDION 1: ACTIVE TRIP & BICYCLE NAVIGATION (DEFAULT OPEN) -->
+      <div class="accordion-item mb-2 rounded-2 overflow-hidden">
+        <h2 class="accordion-header" id="heading-active-trip">
+          <button class="accordion-button py-2 fw-bold font-mono" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-active-trip" aria-expanded="true" aria-controls="collapse-active-trip">
+            <span class="me-2">🚴</span>
+            <span id="accordion-trip-title">Active Assignment: Sweetfin Palms (#SDK-101)</span>
+          </button>
+        </h2>
+        <div id="collapse-active-trip" class="accordion-collapse collapse show" aria-labelledby="heading-active-trip" data-bs-parent="#driver-cockpit-accordion">
+          <div class="accordion-body p-3">
+            
+            <!-- PAYOUT & GUARANTEE STRIP -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center p-2 mb-3 rounded bg-body-tertiary border border-secondary-subtle font-mono">
+              <div>
+                <span class="text-secondary small">NET COURIER PAYOUT:</span>
+                <span class="text-success fw-bold fs-5 ms-1" id="trip-payout-val">$15.00</span>
+                <span class="badge bg-success-subtle text-success ms-2 font-mono" style="font-size:0.7rem;">100% PASS-THROUGH</span>
+              </div>
+              <div class="small text-secondary">
+                $10.00 Base + $2.50 Min Tip + Zone Allowance
+              </div>
+            </div>
+
+            <!-- CUSTOMER'S ORIGINAL ASK (VERBATIM PROMPT) -->
+            <div class="mb-3">
+              <label class="small text-secondary fw-semibold font-mono mb-1">CUSTOMER'S ORIGINAL ASK (RAW INPUT):</label>
+              <div class="customer-ask-box font-monospace small" id="trip-original-ask">
+                "2 Spicy Salmon Bowls, extra ginger, sweet potato chips from Sweetfin Palms or anywhere on Overland"
+              </div>
+            </div>
+
+            <!-- PARSED ITEMS & INSTRUCTIONS -->
+            <div class="row g-2 mb-3">
+              <div class="col-12 col-md-6">
+                <div class="p-2 border border-secondary-subtle rounded bg-body-tertiary h-100">
+                  <div class="small text-secondary font-mono fw-semibold mb-1">PICKUP LOCATION:</div>
+                  <div class="fw-bold text-dark" id="trip-pickup-name">Sweetfin Palms</div>
+                  <div class="small text-secondary mb-2" id="trip-pickup-addr">3110 Main St, Palms, CA 90034</div>
+                  
+                  <!-- 1-TAP BICYCLE GOOGLE MAPS NAVIGATION -->
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=3110+Main+St+Palms+CA&travelmode=bicycling" target="_blank" class="btn btn-sm btn-nav-bicycle w-100 py-2 d-flex align-items-center justify-content-center gap-2" id="btn-bike-nav-pickup">
+                    <span>🚴</span>
+                    <span>Navigate Bicycle to Merchant (Google Maps)</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="p-2 border border-secondary-subtle rounded bg-body-tertiary h-100">
+                  <div class="small text-secondary font-mono fw-semibold mb-1">DROPOFF DESTINATION:</div>
+                  <div class="fw-bold text-dark" id="trip-customer-name">Neighbor Customer &bull; <a href="tel:3233745787" class="text-info text-decoration-none font-mono" id="trip-customer-phone">(323) 374-5787</a></div>
+                  <div class="small text-secondary mb-2" id="trip-dropoff-addr">3645 Overland Ave, Los Angeles, CA 90034</div>
+                  
+                  <!-- 1-TAP BICYCLE GOOGLE MAPS NAVIGATION -->
+                  <a href="https://www.google.com/maps/dir/?api=1&destination=3645+Overland+Ave+Los+Angeles+CA+90034&travelmode=bicycling" target="_blank" class="btn btn-sm btn-nav-bicycle w-100 py-2 d-flex align-items-center justify-content-center gap-2" id="btn-bike-nav-dropoff">
+                    <span>🚴</span>
+                    <span>Navigate Bicycle to Customer (Google Maps)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PARSED ITEM BREAKDOWN -->
+            <div class="p-2 border border-secondary-subtle rounded bg-body-tertiary mb-3 font-mono small">
+              <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-1 mb-1">
+                <span class="text-secondary fw-semibold">Parsed Catalog Checklist:</span>
+                <span class="text-warning" id="trip-food-subtotal">Estimated Food Cost: $31.25</span>
+              </div>
+              <div id="trip-items-list" class="text-dark">
+                <div>&bull; 2&times; Spicy Yuzu Salmon Bowl ($15.75 ea)</div>
+                <div>&bull; 1&times; Sweet Potato / Taro Chips ($4.50)</div>
+              </div>
+            </div>
+
+            <!-- STEP 2: KITCHEN BAG RECEIPT PIN VERIFICATION -->
+            <div class="p-2 px-3 border border-warning rounded bg-body-tertiary mb-3 font-mono" id="step2-receipt-pin-container">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <div>
+                  <span class="badge bg-warning text-dark fw-bold me-1">STEP 2 VERIFICATION</span>
+                  <span class="small text-dark fw-semibold">Kitchen Paper Bag Receipt PIN</span>
+                </div>
+                <span class="small text-secondary" id="receipt-pin-hint">Enter 5-digit PICKUP CODE on bag slip</span>
+              </div>
+              <div class="row g-2 align-items-center">
+                <div class="col-12 col-sm-7">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-body-tertiary border-secondary text-secondary">RECEIPT PIN</span>
+                    <input type="text" inputmode="numeric" maxlength="5" class="form-control font-mono fw-bold letter-spacing-1" id="kitchen-receipt-pin-input" placeholder="Enter 5-digit code (e.g. 48201)">
+                  </div>
+                </div>
+                <div class="col-12 col-sm-5">
+                  <button type="button" class="btn btn-sm btn-warning w-100 font-mono py-1 fw-bold" id="btn-verify-receipt-pin">
+                    🧾 Verify Bag &amp; Load Cargo
+                  </button>
+                </div>
+              </div>
+              <div id="receipt-pin-feedback" class="small mt-2 d-none" role="status"></div>
+            </div>
+
+            <!-- DOORSTEP MUTUAL HANDSHAKE VERIFICATION BAR -->
+            <div class="p-2 px-3 border border-info-subtle rounded bg-body-tertiary mb-3 font-mono">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                <div>
+                  <span class="badge bg-info text-dark fw-bold me-1">MUTUAL HANDSHAKE</span>
+                  <span class="small text-dark fw-semibold">6-Digit Doorstep Escrow Release</span>
+                </div>
+                <span class="small text-warning" id="trip-pin-hint">Customer + Driver Prefix PIN</span>
+              </div>
+              <div class="row g-2 align-items-center">
+                <div class="col-12 col-sm-7">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-body-tertiary border-secondary text-secondary">PIN</span>
+                    <input type="text" inputmode="numeric" maxlength="6" class="form-control font-mono fw-bold letter-spacing-1" id="handshake-pin-input" placeholder="Enter 6-digit PIN (e.g. 374374)">
+                  </div>
+                </div>
+                <div class="col-12 col-sm-5">
+                  <button type="button" class="btn btn-sm btn-outline-info w-100 font-mono py-1" id="btn-nfc-fistbump">
+                    📲 NFC Digital Fist-Bump
+                  </button>
+                </div>
+              </div>
+              <div id="driver-step-feedback" class="small mt-2 d-none" role="status"></div>
+            </div>
+
+            <!-- 3-STAGE DISPATCH STEPPER -->
+            <div class="d-flex flex-wrap gap-2">
+              <button class="btn btn-sm btn-outline-primary font-mono py-2 px-3 flex-grow-1" id="btn-step-pickup" type="button">
+                1. Arrived at Merchant
+              </button>
+              <button class="btn btn-sm btn-outline-warning font-mono py-2 px-3 flex-grow-1" id="btn-step-collected" type="button">
+                2. Order In Hand &amp; Bagged
+              </button>
+              <button class="btn btn-sm btn-success font-mono py-2 px-3 flex-grow-1 fw-bold" id="btn-step-delivered" type="button">
+                3. Verify PIN &amp; Collect $12.50
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCORDION 2: LIVE DISPATCH QUEUE & RADAR -->
+      <div class="accordion-item mb-2 rounded-2 overflow-hidden">
+        <h2 class="accordion-header" id="heading-dispatch-queue">
+          <button class="accordion-button collapsed py-2 fw-bold font-mono" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-dispatch-queue" aria-expanded="false" aria-controls="collapse-dispatch-queue">
+            <span class="me-2">⚡</span>
+            <span>Live Dispatch Stacking Queue &bull; Zone 90034</span>
+            <span class="badge bg-primary ms-2 font-mono" id="queue-count-badge">1 Run</span>
+          </button>
+        </h2>
+        <div id="collapse-dispatch-queue" class="accordion-collapse collapse" aria-labelledby="heading-dispatch-queue" data-bs-parent="#driver-cockpit-accordion">
+          <div class="accordion-body p-3 font-mono">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="small text-secondary">Incoming direct customer and merchant runs:</span>
+              <button class="btn btn-xs btn-outline-secondary font-mono py-0 px-2" style="font-size:0.75rem;" id="btn-refresh-queue">↻ Refresh</button>
+            </div>
+            
+            <div id="dispatch-queue-container">
+              <!-- Queue items dynamically injected -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCORDION 3: SOVEREIGN DRIVER ALLIANCE -->
+      <div class="accordion-item mb-2 rounded-2 overflow-hidden">
+        <h2 class="accordion-header" id="heading-alliance">
+          <button class="accordion-button collapsed py-2 fw-bold font-mono" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-alliance" aria-expanded="false" aria-controls="collapse-alliance">
+            <span class="me-2">🤝</span>
+            <span>Sovereign Driver Network &bull; Build Your Own Fleet</span>
+          </button>
+        </h2>
+        <div id="collapse-alliance" class="accordion-collapse collapse" aria-labelledby="heading-alliance" data-bs-parent="#driver-cockpit-accordion">
+          <div class="accordion-body p-3 font-mono small">
+            <p class="text-secondary mb-2">
+              Have trusted peers, livery chauffeurs, or reliable couriers? Onboard them directly with their own vehicle tier. Zero commissions, zero algorithm games.
+            </p>
+            <div class="input-group input-group-sm mb-2">
+              <input type="text" class="form-control font-mono" id="input-driver-invite" value="https://sendeke.to/driver.html?affiliate=zone90034" readonly>
+              <button class="btn btn-outline-success font-mono" type="button" id="btn-copy-driver-link">Copy Link</button>
+            </div>
+            <div class="text-success small">✓ Share this link with any driver you trust to join the active zone queue.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACCORDION 4: VIRTUAL FLEET PURCHASING CARD -->
+      <div class="accordion-item mb-2 rounded-2 overflow-hidden">
+        <h2 class="accordion-header" id="heading-card">
+          <button class="accordion-button collapsed py-2 fw-bold font-mono" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-card" aria-expanded="false" aria-controls="collapse-card">
+            <span class="me-2">💳</span>
+            <span>Wholesale Counter Purchasing Card (Stripe Issuing)</span>
+          </button>
+        </h2>
+        <div id="collapse-card" class="accordion-collapse collapse" aria-labelledby="heading-card" data-bs-parent="#driver-cockpit-accordion">
+          <div class="accordion-body p-3 font-mono">
+            <div class="fleet-virtual-card mb-2">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small text-secondary">STRIPE ISSUING // FLEET CARD</span>
+                <span class="badge bg-warning text-dark" style="font-size:0.65rem;">TAP AT COUNTER</span>
+              </div>
+              <div class="fs-5 fw-bold text-dark mb-1">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; 4242</div>
+              <div class="d-flex justify-content-between text-secondary small">
+                <div>HOLDER: <span class="text-dark fw-bold">DEKE ALEXANDER</span></div>
+                <div>EXP: <span class="text-dark">12/28</span> &bull; CVV: <span class="text-dark">891</span></div>
+                <div>FUNDS: <span class="text-success fw-bold" id="card-allocated-funds">$15.00</span></div>
+              </div>
+            </div>
+
+            <!-- Add to Google Wallet Button -->
+            <div class="d-flex justify-content-between align-items-center p-2 rounded bg-black border border-secondary mt-2">
+              <div class="small text-secondary">Google Wallet Tap-to-Pay:</div>
+              <button class="btn btn-sm btn-dark border border-secondary text-white font-mono d-inline-flex align-items-center gap-1.5 py-1 px-2.5" type="button" onclick="navigator.clipboard?.writeText('4242424242424242 12/28 891 DEKE ALEXANDER'); alert('[GOOGLE WALLET ADD INITIATED]\\nCard details copied to clipboard. Adding to Google Wallet pass...'); window.open('https://pay.google.com/gp/v/save/pass', '_blank');">
+                <span>📲 Add to Google Wallet</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+
+  <script>
+    (function () {
+      const engine = window.SenDekeEngine;
+      if (!engine) return;
+
+      // 1. Ghost Recon Telemetry Broadcast Channel
+      let ghostReconChannel = null;
+      try { ghostReconChannel = new BroadcastChannel('ghostrecon_fleet_telemetry'); } catch (_) {}
+
+      // Default Coordinates (Palms 90034)
+      const defaultCoords = [34.0259, -118.3965];
+      let currentLat = defaultCoords[0];
+      let currentLng = defaultCoords[1];
+      let currentSpeed = 14;
+
+      function broadcastCourierTelemetry() {
+        const payload = {
+          type: 'DRIVER_TELEMETRY',
+          driverId: 'DRV-107',
+          name: 'SenDeke Courier #04 (Deke)',
+          phone: '(323) 374-5787',
+          status: (dutySwitch && dutySwitch.checked) ? 'online' : 'offline',
+          lat: currentLat,
+          lng: currentLng,
+          speed: currentSpeed,
+          heading: 270,
+          tripId: activeTicket?.id || 'SDK-101',
+          timestamp: new Date().toISOString()
+        };
+        try { ghostReconChannel?.postMessage(payload); } catch (_) {}
+        try { localStorage.setItem('gr_driver_telemetry_DRV-107', JSON.stringify(payload)); } catch (_) {}
+      }
+
+      // 2. High-Precision Geolocation Tracking (Direct Google Maps Intent, Zero In-App Map Lag)
+      if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(
+          function (pos) {
+            currentLat = pos.coords.latitude;
+            currentLng = pos.coords.longitude;
+            currentSpeed = Math.round((pos.coords.speed || 0) * 2.23694) || 12;
+
+            const precEl = document.getElementById('hud-gps-precision');
+            const spdEl = document.getElementById('hud-gps-speed');
+            if (precEl) precEl.textContent = `±${Math.round(pos.coords.accuracy)}m`;
+            if (spdEl) spdEl.textContent = `${currentSpeed} mph`;
+
+            engine.setDriverStatus({ lat: currentLat, lng: currentLng, isOnline: true });
+            broadcastCourierTelemetry();
+          },
+          function (err) {
+            broadcastCourierTelemetry();
+          },
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 30000 }
+        );
+      } else {
+        broadcastCourierTelemetry();
+      }
+
+      // Duty switch
+      const savedDriver = engine.getDriverStatus();
+      const dutySwitch = document.getElementById('cockpit-duty-switch');
+      const dutyLabel = document.getElementById('cockpit-duty-label');
+      if (dutySwitch) {
+        dutySwitch.checked = savedDriver.isOnline !== false;
+        if (dutyLabel) {
+          dutyLabel.textContent = dutySwitch.checked ? 'ONLINE' : 'OFFLINE';
+          dutyLabel.className = dutySwitch.checked
+            ? 'form-check-label small fw-bold text-success font-mono'
+            : 'form-check-label small fw-bold text-secondary font-mono';
+        }
+      }
+      dutySwitch?.addEventListener('change', function () {
+        const isOnline = this.checked;
+        if (dutyLabel) {
+          dutyLabel.textContent = isOnline ? 'ONLINE' : 'OFFLINE';
+          dutyLabel.className = isOnline ? 'form-check-label small fw-bold text-success font-mono' : 'form-check-label small fw-bold text-secondary font-mono';
+        }
+        engine.setDriverStatus({ isOnline });
+      });
+
+      let activeTicket = null;
+      let driverCoords = { lat: defaultCoords[0], lng: defaultCoords[1] };
+
+      function getWalletBalance() {
+        try {
+          return parseFloat(localStorage.getItem('sendeke_driver_wallet') || '0') || 0;
+        } catch (e) {
+          return 0;
+        }
+      }
+
+      function addWalletBalance(amount) {
+        const updated = parseFloat((getWalletBalance() + (parseFloat(amount) || 0)).toFixed(2));
+        try { localStorage.setItem('sendeke_driver_wallet', updated.toFixed(2)); } catch (e) {}
+        updateHudWallet();
+        return updated;
+      }
+
+      function updateHudWallet() {
+        const walletEl = document.getElementById('hud-wallet-total');
+        if (!walletEl) return;
+        const earned = getWalletBalance();
+        walletEl.textContent = earned > 0
+          ? `Wallet: $${earned.toFixed(2)} Earned`
+          : '$12.50+ Living Wage Floor';
+      }
+
+      function showStepFeedback(message, tone = 'info') {
+        const fb = document.getElementById('driver-step-feedback');
+        if (!fb) return;
+        const clsMap = {
+          success: 'small mt-2 p-2 rounded border border-success bg-success-subtle text-success fw-semibold',
+          danger: 'small mt-2 p-2 rounded border border-danger bg-danger-subtle text-danger fw-semibold',
+          warning: 'small mt-2 p-2 rounded border border-warning bg-warning-subtle text-warning fw-semibold',
+          info: 'small mt-2 p-2 rounded border border-info bg-info-subtle text-info fw-semibold'
+        };
+        fb.className = clsMap[tone] || clsMap.info;
+        fb.textContent = message;
+      }
+
+      // 3. Render Active Ticket Function
+      function renderActiveTicket(ticket) {
+        if (!ticket) return;
+        activeTicket = ticket;
+
+        const titleEl = document.getElementById('accordion-trip-title');
+        const payoutEl = document.getElementById('trip-payout-val');
+        const askEl = document.getElementById('trip-original-ask');
+        const pickupName = document.getElementById('trip-pickup-name');
+        const pickupAddr = document.getElementById('trip-pickup-addr');
+        const custName = document.getElementById('trip-customer-name');
+        const dropoffAddr = document.getElementById('trip-dropoff-addr');
+        const itemsList = document.getElementById('trip-items-list');
+        const foodSubtotal = document.getElementById('trip-food-subtotal');
+        const bikePickup = document.getElementById('btn-bike-nav-pickup');
+        const bikeDropoff = document.getElementById('btn-bike-nav-dropoff');
+        const hudStatus = document.getElementById('hud-trip-status');
+        const pinHint = document.getElementById('trip-pin-hint');
+        const btnPickup = document.getElementById('btn-step-pickup');
+        const btnCollected = document.getElementById('btn-step-collected');
+        const btnDelivered = document.getElementById('btn-step-delivered');
+
+        const takeHome = (ticket.pricing?.courierTakeHome ?? 12.50).toFixed(2);
+
+        if (titleEl) titleEl.textContent = `Active Assignment: ${ticket.pickupLocation} (#${ticket.id})`;
+        if (payoutEl) payoutEl.textContent = `$${takeHome}`;
+        if (askEl) askEl.textContent = ticket.originalAsk ? `"${ticket.originalAsk}"` : '"Standard Catalog Order"';
+        if (pickupName) pickupName.textContent = ticket.pickupLocation;
+        if (pickupAddr) pickupAddr.textContent = ticket.pickupLocation;
+
+        if (custName) {
+          const cleanDigits = String(ticket.customerPhone || '3233745787').replace(/[^0-9]/g, '');
+          custName.innerHTML = `${ticket.customerName || 'Neighbor Customer'} &bull; <a href="tel:${cleanDigits}" class="text-info text-decoration-none font-mono" id="trip-customer-phone">${ticket.customerPhone || '(323) 374-5787'}</a>`;
+        }
+        if (dropoffAddr) dropoffAddr.textContent = ticket.dropoffAddress;
+
+        if (bikePickup) bikePickup.href = engine.getBicycleNavUrl(ticket.pickupLocation);
+        if (bikeDropoff) bikeDropoff.href = engine.getBicycleNavUrl(ticket.dropoffAddress);
+
+        if (foodSubtotal) {
+          foodSubtotal.textContent = `Estimated Food Cost: $${(ticket.pricing?.foodSubtotal ?? ticket.foodSubtotal ?? 0).toFixed(2)}`;
+        }
+
+        if (itemsList && Array.isArray(ticket.items) && ticket.items.length > 0) {
+          itemsList.innerHTML = ticket.items.map(it => `<div>&bull; ${it.qty || 1}&times; ${it.name} ($${parseFloat(it.price || 0).toFixed(2)})</div>`).join('');
+        } else if (itemsList) {
+          itemsList.innerHTML = `<div>&bull; ${ticket.originalAsk || 'Custom Order: See Customer Ask above'}</div>`;
+        }
+
+        if (pinHint) {
+          pinHint.textContent = `Ticket #${ticket.id} • Status: ${ticket.status || 'DISPATCH_PENDING'}`;
+        }
+
+        const st = String(ticket.status || 'DISPATCH_PENDING').toUpperCase();
+        if (hudStatus) {
+          hudStatus.textContent = st === 'DELIVERED_AND_CAPTURED'
+            ? `✓ #${ticket.id} Settled`
+            : `Active: #${ticket.id} (${st.replace(/_/g, ' ')})`;
+        }
+
+        if (btnPickup) {
+          const done1 = ['AT_MERCHANT', 'READY_FOR_PICKUP', 'HANDED_TO_COURIER', 'ORDER_COLLECTED', 'DELIVERED_AND_CAPTURED'].includes(st);
+          btnPickup.className = done1
+            ? 'btn btn-sm btn-primary font-mono py-2 px-3 flex-grow-1 fw-bold'
+            : 'btn btn-sm btn-outline-primary font-mono py-2 px-3 flex-grow-1';
+          btnPickup.textContent = done1 ? '✓ 1. At Merchant' : '1. Arrived at Merchant';
+        }
+
+        if (btnCollected) {
+          const done2 = ['ORDER_COLLECTED', 'DELIVERED_AND_CAPTURED'].includes(st);
+          btnCollected.className = done2
+            ? 'btn btn-sm btn-warning font-mono py-2 px-3 flex-grow-1 fw-bold text-dark'
+            : 'btn btn-sm btn-outline-warning font-mono py-2 px-3 flex-grow-1';
+          btnCollected.textContent = done2 ? '✓ 2. Order Bagged & Loaded' : '2. Order In Hand & Bagged';
+        }
+
+        if (btnDelivered) {
+          const done2 = ['ORDER_COLLECTED', 'DELIVERED_AND_CAPTURED'].includes(st);
+          const done3 = st === 'DELIVERED_AND_CAPTURED';
+          btnDelivered.className = 'btn btn-sm btn-success font-mono py-2 px-3 flex-grow-1 fw-bold';
+          btnDelivered.textContent = done3
+            ? `✓ Delivered & $${takeHome} Captured`
+            : `3. Verify PIN & Collect $${takeHome}`;
+          btnDelivered.disabled = done3 || !done2;
+        }
+      }
+
+      // 4. Remote Cloudflare Worker D1 Ticket Ingestion & Queue Rendering
+      async function fetchRemoteD1Tickets() {
+        try {
+          const res = await fetch('/api/dispatch/tickets');
+          if (res.ok) {
+            const data = await res.json();
+            if (data && Array.isArray(data.tickets)) {
+              data.tickets.forEach(row => {
+                const totalCents = Number(row.total_cents) || 0;
+                const courierFeeCents = Number(row.courier_fee_cents) || 1000;
+                const tipCents = Number(row.tip_cents) || 250;
+                const foodSub = Math.max(0, (totalCents - courierFeeCents - tipCents) / 100);
+                const courierTakeHome = (courierFeeCents + tipCents) / 100;
+
+                const d1Ticket = {
+                  id: row.id,
+                  customerName: row.customer_name || 'Corridor Customer',
+                  customerPhone: row.customer_phone || '(323) 374-5787',
+                  dropoffAddress: row.dropoff_address || 'Palms / Westside Corridor',
+                  pickupLocation: row.pickup_location || 'Merchant Corridor',
+                  originalAsk: row.original_ask || 'Corridor Delivery Order',
+                  total_cents: totalCents,
+                  courier_fee_cents: courierFeeCents,
+                  tip_cents: tipCents,
+                  stripe_intent_id: row.stripe_intent_id || '',
+                  stripeIntentId: row.stripe_intent_id || '',
+                  handshake_pin: row.handshake_pin || '',
+                  handshakePin: row.handshake_pin || '',
+                  status: row.status || 'ESCROW_AUTHORIZED',
+                  foodSubtotal: foodSub,
+                  pricing: {
+                    foodSubtotal: foodSub,
+                    baseCourierFee: courierFeeCents / 100,
+                    appliedTip: tipCents / 100,
+                    grandTotal: totalCents / 100,
+                    courierTakeHome: courierTakeHome
+                  },
+                  items: row.items_json ? (typeof row.items_json === 'string' ? JSON.parse(row.items_json) : row.items_json) : []
+                };
+
+                // Merge into local engine if ESCROW_AUTHORIZED or active dispatch status
+                if (['ESCROW_AUTHORIZED', 'DISPATCH_PENDING', 'ACCEPTED', 'AT_MERCHANT', 'ORDER_COLLECTED'].includes(row.status)) {
+                  engine.saveTicket(d1Ticket);
+                }
+              });
+            }
+          }
+        } catch (err) {
+          console.warn('[D1 Polling Notice]: Remote D1 tickets unreachable, using local cache.', err);
+        }
+      }
+
+      async function renderTickets() {
+        await fetchRemoteD1Tickets();
+        renderQueue();
+      }
+
+      function renderQueue() {
+        const tickets = engine.getTickets();
+        const container = document.getElementById('dispatch-queue-container');
+        const badge = document.getElementById('queue-count-badge');
+        const openCount = tickets.filter(t => t.status !== 'DELIVERED_AND_CAPTURED').length;
+        if (badge) badge.textContent = `${openCount} Active / ${tickets.length} Total`;
+
+        if (!container) return;
+        if (tickets.length === 0) {
+          container.innerHTML = `<div class="text-secondary small py-2">No pending runs in Zone 90034. System is actively listening...</div>`;
+          return;
+        }
+
+        container.innerHTML = tickets.map(t => {
+          const settled = t.status === 'DELIVERED_AND_CAPTURED';
+          const totalCents = t.total_cents ?? Math.round((t.pricing?.grandTotal ?? 0) * 100);
+          const feeCents = t.courier_fee_cents ?? Math.round((t.pricing?.baseCourierFee ?? 10) * 100);
+          const tipCents = t.tip_cents ?? Math.round((t.pricing?.appliedTip ?? 2.5) * 100);
+          const stripeIntent = t.stripe_intent_id || t.stripeIntentId || '';
+          const pinVal = t.handshake_pin || t.handshakePin || '';
+
+          return `
+            <div class="p-2 border ${settled ? 'border-success' : 'border-secondary-subtle'} rounded bg-body-tertiary mb-2 d-flex justify-content-between align-items-center flex-wrap gap-2">
+              <div>
+                <div class="fw-bold text-dark">#${t.id} &bull; ${t.pickupLocation} <span class="badge ${settled ? 'bg-success' : 'bg-secondary'} ms-1">${t.status}</span></div>
+                <div class="small text-secondary">Dropoff: ${t.dropoffAddress} &bull; Customer: ${t.customerName || 'Customer'} (${t.customerPhone})</div>
+                <div class="small text-muted font-mono" style="font-size:0.7rem;">Total: $${(totalCents / 100).toFixed(2)} &bull; Fee: $${(feeCents / 100).toFixed(2)} &bull; Tip: $${(tipCents / 100).toFixed(2)}${pinVal ? ` &bull; PIN: ${pinVal}` : ''}</div>
+                ${stripeIntent ? `<div class="small text-muted font-mono" style="font-size:0.65rem;">Stripe: ${stripeIntent}</div>` : ''}
+                <div class="text-warning small fst-italic">"${t.originalAsk || 'Catalog run'}"</div>
+              </div>
+              <div class="text-end">
+                <div class="text-success fw-bold fs-6">$${(t.pricing?.courierTakeHome ?? 12.50).toFixed(2)}</div>
+                <button class="btn btn-sm ${settled ? 'btn-outline-secondary' : 'btn-outline-success'} font-mono py-0 px-2 btn-claim-run" data-id="${t.id}" type="button" style="font-size:0.75rem;">
+                  ${settled ? 'Inspect' : 'Accept Run &rarr;'}
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        container.querySelectorAll('.btn-claim-run').forEach(btn => {
+          btn.addEventListener('click', function () {
+            const id = this.getAttribute('data-id');
+            const target = tickets.find(x => x.id === id);
+            if (target) {
+              engine.saveTicket(target);
+              renderActiveTicket(target);
+              engine.playDispatchAlertSound();
+              const collapseEl = document.getElementById('collapse-active-trip');
+              if (collapseEl && window.bootstrap) {
+                bootstrap.Collapse.getOrCreateInstance(collapseEl).show();
+              }
+            }
+          });
+        });
+      }
+
+      // 5. Action Steppers & Mutual Handshake Verification
+      document.getElementById('btn-step-pickup')?.addEventListener('click', function () {
+        if (!activeTicket) return;
+        const updated = engine.updateTicketStatus(activeTicket.id, 'AT_MERCHANT');
+        if (updated) renderActiveTicket(updated);
+        renderQueue();
+        engine.playDispatchAlertSound();
+        showStepFeedback(`Arrived at ${activeTicket.pickupLocation}. Customer & kitchen notified.`, 'info');
+      });
+
+      function getExpectedReceiptPin(ticket) {
+        if (!ticket) return '';
+        if (ticket.receipt_pin) return String(ticket.receipt_pin);
+        if (ticket.receiptPin) return String(ticket.receiptPin);
+        const digits = String(ticket.handshakePin || ticket.id || '').replace(/\D/g, '');
+        if (digits.length >= 5) {
+          return digits.slice(-5);
+        }
+        let hash = 0;
+        const str = String(ticket.id || 'TICKET');
+        for (let i = 0; i < str.length; i++) {
+          hash = (hash << 5) - hash + str.charCodeAt(i);
+          hash |= 0;
+        }
+        return String(Math.abs(hash) % 90000 + 10000);
+      }
+
+      function verifyBagReceiptPin() {
+        if (!activeTicket) return false;
+        const inputEl = document.getElementById('kitchen-receipt-pin-input');
+        const feedbackEl = document.getElementById('receipt-pin-feedback');
+        const entered = inputEl ? inputEl.value.trim() : '';
+        const expected = getExpectedReceiptPin(activeTicket);
+
+        if (!entered || entered !== expected) {
+          if (feedbackEl) {
+            feedbackEl.className = 'small mt-2 alert alert-danger py-1 px-2 font-mono';
+            feedbackEl.textContent = `❌ INVALID RECEIPT PIN: "${entered || 'empty'}". Must match 5-digit PICKUP CODE on kitchen paper bag slip (e.g. #${expected}).`;
+            feedbackEl.classList.remove('d-none');
+          }
+          showStepFeedback(`Step 2 Blocked: Receipt PIN mismatch. Verify 5-digit code on kitchen bag.`, 'danger');
+          return false;
+        }
+
+        if (feedbackEl) {
+          feedbackEl.className = 'small mt-2 alert alert-success py-1 px-2 font-mono';
+          feedbackEl.textContent = `✓ RECEIPT PIN VERIFIED (#${entered}): Bag matched and sealed in thermal cargo.`;
+          feedbackEl.classList.remove('d-none');
+        }
+
+        const updated = engine.updateTicketStatus(activeTicket.id, 'ORDER_COLLECTED');
+        if (updated) {
+          updated.receipt_pin = entered;
+          activeTicket = updated;
+          renderActiveTicket(updated);
+        }
+        renderQueue();
+        engine.playDispatchAlertSound();
+        showStepFeedback(`Order #${activeTicket.id} loaded in cargo. Proceed to customer at ${activeTicket.dropoffAddress}.`, 'warning');
+        return true;
+      }
+
+      document.getElementById('btn-verify-receipt-pin')?.addEventListener('click', verifyBagReceiptPin);
+
+      document.getElementById('btn-step-collected')?.addEventListener('click', function () {
+        if (!activeTicket) return;
+        const st = String(activeTicket.status || '').toUpperCase();
+        if (['ORDER_COLLECTED', 'DELIVERED_AND_CAPTURED'].includes(st)) {
+          showStepFeedback(`Order #${activeTicket.id} is already verified and bagged.`, 'warning');
+          return;
+        }
+        const success = verifyBagReceiptPin();
+        if (!success) {
+          document.getElementById('kitchen-receipt-pin-input')?.focus();
+        }
+      });
+
+      async function completeHandshake(nfcTouch) {
+        if (!activeTicket) return;
+        if (!['ORDER_COLLECTED', 'DELIVERED_AND_CAPTURED'].includes(activeTicket.status)) {
+          showStepFeedback(`Cannot collect doorstep payment: Complete Step 2 by verifying 5-digit kitchen bag PIN first.`, 'danger');
+          document.getElementById('kitchen-receipt-pin-input')?.focus();
+          return;
+        }
+        if (activeTicket.status === 'DELIVERED_AND_CAPTURED') {
+          showStepFeedback(`Ticket #${activeTicket.id} is already captured and settled.`, 'success');
+          return;
+        }
+        const pinInput = document.getElementById('handshake-pin-input');
+        const enteredPin = pinInput ? pinInput.value.trim() : '';
+        driverCoords = { lat: currentLat, lng: currentLng };
+
+        const res = await engine.captureTicketWithHandshake(activeTicket.id, enteredPin, driverCoords, { nfcTouch });
+        if (!res.success) {
+          showStepFeedback(`${res.message} ${res.expectedHint ? '— ' + res.expectedHint : ''}`, 'danger');
+          return;
+        }
+
+        const totalEarned = addWalletBalance(res.courierTakeHome);
+        if (pinInput) pinInput.value = '';
+        renderActiveTicket(res.ticket);
+        renderQueue();
+        showStepFeedback(`✓ ${res.message} +$${res.courierTakeHome.toFixed(2)} credited (Shift Total: $${totalEarned.toFixed(2)}).`, 'success');
+
+        // Broadcast trip settlement to Ghost Recon Orchestrator
+        try {
+          ghostReconChannel?.postMessage({
+            type: 'TRIP_COMPLETED_AND_CAPTURED',
+            driverId: 'DRV-107',
+            tripId: activeTicket.id,
+            payoutNet: res.courierTakeHome,
+            timestamp: new Date().toISOString()
+          });
+        } catch (_) {}
+      }
+
+      document.getElementById('btn-step-delivered')?.addEventListener('click', function () {
+        completeHandshake(false);
+      });
+
+      document.getElementById('btn-nfc-fistbump')?.addEventListener('click', async function () {
+        showStepFeedback('📲 NFC Active! Touch phones to confirm doorstep handshake...', 'info');
+        if ('NDEFReader' in window) {
+          try {
+            const ndef = new NDEFReader();
+            await ndef.scan();
+            ndef.onreading = () => completeHandshake(true);
+            return;
+          } catch (_) {}
+        }
+        completeHandshake(true);
+      });
+
+      // 6. Copy Driver Link
+      document.getElementById('btn-copy-driver-link')?.addEventListener('click', function () {
+        const inp = document.getElementById('input-driver-invite');
+        if (inp) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(inp.value).catch(function () {});
+          }
+          this.textContent = 'Copied ✓';
+          setTimeout(() => { this.textContent = 'Copy Link'; }, 2000);
+        }
+      });
+
+      document.getElementById('btn-refresh-queue')?.addEventListener('click', function () {
+        const btn = this;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status"></span>Syncing...';
+        renderTickets().finally(() => {
+          btn.disabled = false;
+          btn.textContent = 'Refresh Queue';
+        });
+      });
+
+      // Initialize HUD & existing or baseline ticket
+      updateHudWallet();
+      renderTickets().then(() => {
+        const tickets = engine.getTickets();
+        if (tickets.length > 0) {
+          renderActiveTicket(tickets[0]);
+        } else {
+          const defaultTicket = engine.createTicket({
+            customerName: 'Neighbor Customer',
+            customerPhone: '(323) 374-5787',
+            pickupLocation: 'Sweetfin Palms (3105 Overland Ave)',
+            dropoffAddress: '3645 Overland Ave, Los Angeles, CA 90034',
+            rawOrderText: '2 Spicy Salmon Bowls, extra ginger, taro chips from Sweetfin Palms',
+            foodSubtotal: 38.30,
+            tipAmount: 2.50
+          });
+          renderActiveTicket(defaultTicket);
+        }
+      });
+
+      // 30-Second Cross-Device Polling Interval for Remote D1 Orders
+      const d1PollingTimer = setInterval(renderTickets, 30000);
+
+      // Listen for incoming orders & cross-tab updates in real-time
+      engine.onMessage(function (msg) {
+        if (['TICKET_CREATED', 'TICKET_UPDATED', 'TICKET_CAPTURED', 'STORAGE_UPDATE'].includes(msg.type)) {
+          const latest = engine.getTickets();
+          if (msg.type === 'TICKET_CREATED' && msg.ticket) {
+            renderActiveTicket(msg.ticket);
+          } else if (activeTicket) {
+            const refreshed = latest.find(t => t.id === activeTicket.id) || latest[0];
+            if (refreshed) renderActiveTicket(refreshed);
+          }
+          renderQueue();
+          if (msg.type === 'TICKET_CREATED') {
+            engine.playDispatchAlertSound();
+            showStepFeedback(`⚡ Incoming Run #${msg.ticket?.id || ''} from ${msg.ticket?.pickupLocation || 'Corridor'}!`, 'info');
+          }
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

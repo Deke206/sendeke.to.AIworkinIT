@@ -1,0 +1,19 @@
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+.cache/
+*.log
+firebase-debug.log*
+.firebase/
+
+# Secret credentials and OAuth tokens
+client_secret*.json
+**/client_secret*.json
+*.secret.json
+stripe-agent-config.json
+**/stripe-agent-config.json
+
