@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Taquería El Cachetón Menu | SenDeke 2</title>
+  
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/sendeketo-icon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="help" type="text/plain" href="llms.txt" title="LLM Agent Directives">
+  <link rel="alternate" type="application/json" href="assets/data/agent-feed.json" title="Machine-Readable Agent Feed">
+  <link rel="model-context-protocol" href="assets/js/webmcp.js" title="WebMCP Tool Registry">
+
+  <!-- Schema.org Semantic Structured Data for AI Crawlers & Local SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Taquería El Cachetón (Direct Courier Storefront)",
+    "servesCuisine": ["Mexican", "Street Tacos", "Burritos", "Tortas"],
+    "telephone": "+1-323-536-4013",
+    "priceRange": "$3.00 - $17.00",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10500 Venice Blvd",
+      "addressLocality": "Los Angeles",
+      "addressRegion": "CA",
+      "postalCode": "90034",
+      "addressCountry": "US"
+    },
+    "hasMenu": {
+      "@type": "Menu",
+      "name": "Taquería El Cachetón Street Menu",
+      "url": "https://sendeketo.com/tacos.html",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Street Tacos & Specialties",
+          "hasMenuItem": [
+            { "@type": "MenuItem", "name": "Street Taco (Asada, Pastor, Pollo, Carnitas, Tripa, Lengua)", "description": "Authentic double warm corn tortilla, fresh cilantro, diced onions, radishes, lime, house salsa.", "offers": { "@type": "Offer", "price": "3.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Quesataco con Queso Dorado", "description": "Crispy griddled corn tortilla with melted golden cheese, choice of prime meat, guacamole, and salsa.", "offers": { "@type": "Offer", "price": "6.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Mulita Especial", "description": "Two crispy corn tortillas stacked with melted cheese, choice of seasoned meat, onion, cilantro, and guacamole.", "offers": { "@type": "Offer", "price": "8.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "El Cachetón Classic Burrito", "description": "Large warm flour tortilla, choice of meat, seasoned pinto beans, Mexican rice, cilantro, onions, and salsa.", "offers": { "@type": "Offer", "price": "14.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Mexican Telera Torta", "description": "Toasted telera bread, choice of meat, refried beans, mayo, lettuce, tomato, pickled jalapeño, and avocado.", "offers": { "@type": "Offer", "price": "12.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Quesadilla Gigante", "description": "Large handmade tortilla stuffed with melted Oaxaca cheese and grilled filling.", "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Gringa al Pastor con Piña", "description": "Flour tortilla with marinated pork al pastor, melted cheese, and grilled pineapple chunks.", "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Papa Rellena de Asada", "description": "Baked potato loaded with grilled carne asada, melted cheese, Mexican crema, and butter.", "offers": { "@type": "Offer", "price": "13.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Platillo de Carne Asada Dinner Plate", "description": "Grilled marinated flank steak served with rice, beans, grilled onions, jalapeño toreado, and warm tortillas.", "offers": { "@type": "Offer", "price": "16.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Consomé de Birria Caliente", "description": "Rich savory spiced beef broth with onions and cilantro for dipping or sipping.", "offers": { "@type": "Offer", "price": "5.00", "priceCurrency": "USD" } },
+            { "@type": "MenuItem", "name": "Aguas Frescas Artesanales (Horchata / Jamaica)", "description": "Freshly made traditional Mexican rice horchata or hibiscus tea.", "offers": { "@type": "Offer", "price": "4.00", "priceCurrency": "USD" } }
+          ]
+        }
+      ]
+    },
+    "potentialAction": {
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://sendeketo.com/checkout.html",
+        "inLanguage": "en-US"
+      }
+    }
+  }
+  </script>
+  
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/courier-ebike.css">
+  <style>
+    :root {
+      --taco-amber: #B45309;
+      --taco-amber-border: rgba(217, 119, 6, 0.35);
+      --taco-amber-bg: rgba(245, 158, 11, 0.12);
+    }
+    body {
+      background-color: #09090b !important;
+      background-image: url('assets/img/Gemini_Generated_Image_w54rklw54rklw54r.jfif') !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      background-attachment: fixed !important;
+      background-repeat: no-repeat !important;
+      color: var(--ink-body) !important;
+    }
+    .tacos-hero-banner {
+      border-radius: 12px;
+      max-width: 100%;
+    }
+    .item-thumbnail {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--taco-amber-border);
+      background: #f8fafc;
+      flex-shrink: 0;
+    }
+    .menu-item-card {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--taco-amber-border) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+      overflow: hidden;
+    }
+    .menu-item-card:hover {
+      transform: translateY(-3px);
+      border-color: #D97706 !important;
+      box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.22), 0 0 12px rgba(245, 158, 11, 0.15) !important;
+    }
+    .btn-black-yellow {
+      background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 55%, #D97706 100%) !important;
+      color: #0F172A !important;
+      border: 1px solid rgba(217, 119, 6, 0.65) !important;
+      font-weight: 700 !important;
+      transition: all 0.15s ease;
+    }
+    .btn-black-yellow:hover, .btn-black-yellow:focus {
+      background: linear-gradient(180deg, #FCD34D 0%, #FBBF24 55%, #F59E0B 100%) !important;
+      color: #09090B !important;
+    }
+    .taco-num-badge {
+      background-color: #92400E !important;
+      color: #FEF3C7 !important;
+      font-weight: 800 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.2 !important;
+      padding: 0.35rem 0.65rem !important;
+      border-radius: 6px !important;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .price-num-badge {
+      background-color: rgba(16, 185, 129, 0.14) !important;
+      color: #065F46 !important;
+      border: 1px solid rgba(16, 185, 129, 0.35) !important;
+      font-size: 0.95rem !important;
+      line-height: 1.2 !important;
+      padding: 0.35rem 0.65rem !important;
+      border-radius: 6px !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pin-panel {
+      background: var(--glass-header-bg) !important;
+      border: 1px solid var(--taco-amber-border) !important;
+    }
+    /* Modal Header Dark Design - Top Card Only */
+    .modal-content {
+      background: rgba(255, 255, 255, 0.97) !important;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .modal-header {
+      background: #09090b !important;
+      color: #f8fafc !important;
+      border-bottom: 1px solid rgba(217, 119, 6, 0.45) !important;
+    }
+    .modal-header .modal-title {
+      color: #f8fafc !important;
+    }
+    .modal-header .btn-close {
+      filter: invert(1) grayscale(100%) brightness(200%);
+    }
+  </style>
+</head>
+<body class="bg-body text-body">
+
+  <main class="py-3">
+    <div class="container-xl">
+
+      <!-- HERO BANNER -->
+      <section class="p-4 p-md-5 mb-4 rounded-3 hero-pane-glass tacos-hero-banner text-center" id="tacos-hero-object">
+        <span class="badge bg-warning text-dark mb-2 font-mono fw-bold">PALMS &bull; 10500 VENICE BLVD &bull; TAQUERÍA EL CACHETÓN</span>
+        <h1 class="display-6 fw-bold text-dark mb-2" aria-label="SenDeke 2 Taquería El Cachetón">
+          <span class="sendeke-brand-lockup">Sen<svg class="brand-d-wheels-svg" xmlns="http://www.w3.org/2000/svg" viewBox="42 56 142 134" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M72 150 A17 17 0 1 0 72 184 A17 17 0 1 0 72 150 Z M72 159 A8 8 0 1 1 72 175 A8 8 0 1 1 72 159 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M148 150 A17 17 0 1 0 148 184 A17 17 0 1 0 148 150 Z M148 159 A8 8 0 1 1 148 175 A8 8 0 1 1 148 159 Z"/></svg>eke 2</span>
+          <span class="text-secondary fw-normal mx-1">|</span>
+          <span style="color: #B45309;">Taquería El Cachetón 🌮</span>
+        </h1>
+        <p class="text-body-secondary small mx-auto mb-3" style="max-width: 680px;">
+          Authentic handmade street tacos, vampiritos, mulitas, burritos &amp; fresh horchata. Flat $10 courier pass-through &bull; Order Line: (323) 374-5787.
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="dropdown hero-menu-dropdown">
+            <button class="btn btn-primary dropdown-toggle fw-bold font-mono px-4 py-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              MENU
+            </button>
+            <ul class="dropdown-menu text-center start-50 translate-middle-x">
+              <li><a class="dropdown-item text-center font-mono" href="index.html">Home</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-center font-mono" href="menu.html">Sweetfin Menu</a></li>
+              <li><a class="dropdown-item active text-center font-mono" href="tacos.html">Taquería El Cachetón</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="sandwiches.html">Lokal Sandwich Shop</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="doughroom.html">The Doughroom</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="simpang.html">Simpang Asia</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="mizlala.html">Mizlala West Adams</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORY FILTERS & CART TRIGGER -->
+      <section class="d-flex flex-wrap align-items-center gap-2 mb-3 p-2 rounded-2 pin-panel" id="tacos-filters-object">
+        <button class="btn btn-sm filter-tab-btn active" data-category="ALL">All Items</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Street Tacos">Street Tacos</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Burritos & Tortas">Burritos &amp; Tortas</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Quesadillas & Plates">Quesadillas &amp; Plates</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Beverages">Beverages</button>
+        <div class="ms-auto d-flex flex-wrap align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-warning font-mono fw-semibold px-3" type="button" data-bs-toggle="modal" data-bs-target="#phone-dialer-modal">
+            📞 Call in Order
+          </button>
+          <button class="btn btn-sm btn-primary text-white fw-bold px-3 d-flex align-items-center gap-2 shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <img src="assets/brand/sendeke-food-bag-icon.svg" alt="Cart" width="16" height="16">
+            <span>Taco Cart (<span id="nav-cart-counter-badge">0 items</span>)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- CATALOG GRID -->
+      <section id="tacos-catalog-grid-object" class="mb-4">
+        <div class="album py-2">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="tacos-items-grid">
+            <!-- Item 01 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#01</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="3.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $3.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_01_tacos.jpg" alt="Street Taco" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Street Taco (Asada, Pastor, Pollo, Carnitas)</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Street Tacos</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Authentic Street Taco</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Double warm corn tortilla, fresh cilantro, diced onions, lime, radishes, and house salsa.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="0">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 02 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#02</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="6.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $6.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_01_tacos.jpg" alt="Quesataco" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Quesataco</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Street Tacos</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">House Specialty</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Crispy griddled corn tortilla with melted cheese, choice of meat, guacamole, and salsa.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="1">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 03 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#03</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="3.50">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $3.50
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_08_mulitas.jpg" alt="Vampirito" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Vampirito</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Street Tacos</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Crispy Specialty</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Crunchy toasted corn tortilla, melted jack cheese, carne asada, cilantro, onions, and avocado salsa.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="2">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 04 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#04</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="8.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $8.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_08_mulitas.jpg" alt="Mulita" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Mulita</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Street Tacos</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Cheese Sandwich Taco</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Two crispy corn tortillas sandwiched with melted cheese, choice of meat, cilantro, onion, and guacamole.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="3">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 05 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#05</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="14.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $14.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_02_burritos.jpg" alt="Burrito" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">El Cachetón Classic Burrito</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Burritos & Tortas</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Handheld Burrito</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Large flour tortilla packed with choice of seasoned meat, Mexican rice, refried pinto beans, onions, and cilantro.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="4">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 06 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#06</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="15.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $15.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_02_burritos.jpg" alt="Burrito Mojado" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Burrito Mojado (Wet Burrito)</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Burritos & Tortas</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Wet Platter</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Classic meat and bean burrito smothered in rich red enchilada sauce, melted cheese, and crema.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="5">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 07 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#07</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="15.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $15.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_04_tortas.jpg" alt="Torta Tradicional" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Torta Tradicional</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Burritos & Tortas</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Mexican Sandwich</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Toasted Mexican telera roll, choice of meat, smashed avocado, refried beans, pickled jalapenos, tomato, and crema.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="6">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 08 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#08</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="15.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $15.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_03_quesadillas.jpg" alt="Quesadilla Gigante" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Quesadilla Gigante</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Quesadillas & Plates</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Large Quesadilla</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Large griddled flour tortilla stuffed with melted Monterrey jack cheese, choice of meat, and avocado salsa.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="7">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 09 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#09</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="17.00">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $17.00
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_07_platillos_carne_asada.jpg" alt="Platillo Carne Asada / Fajitas" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Fajitas Mixtas Platter</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Quesadillas & Plates</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Dinner Platter</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Sizzling seasoned steak and chicken strips with bell peppers and onions, served with rice, beans, and warm tortillas.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="8">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 10 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#10</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="4.50">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $4.50
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/img/elcacheton/item_06_papa_rellena.jpg" alt="Horchata Casera" class="item-thumbnail" onerror="this.src='assets/brand/sendeke-food-bag-icon.svg'">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Horchata Casera (32oz)</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Beverages</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Fresh Agua Fresca</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Authentic house-made cinnamon vanilla rice milk, cold and refreshing.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="9">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 11 -->
+            <div class="col" itemscope itemtype="https://schema.org/MenuItem">
+              <div class="card shadow-sm h-100 menu-item-card">
+                <div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
+                  <span class="badge font-mono taco-num-badge">#11</span>
+                  <span class="badge font-mono fw-bold price-num-badge" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="price" content="3.50">
+                    <meta itemprop="priceCurrency" content="USD">
+                    $3.50
+                  </span>
+                </div>
+                <div class="card-body d-flex flex-column p-3">
+                  <div class="d-flex align-items-start gap-2 mb-2">
+                    <img src="assets/brand/sendeke-food-bag-icon.svg" alt="Mexican Coca-Cola" class="item-thumbnail" style="padding: 10px; background: rgba(0,0,0,0.5);">
+                    <div>
+                      <h3 class="h6 fw-bold text-dark mb-1" itemprop="name">Mexican Coca-Cola (Glass Bottle)</h3>
+                      <div class="d-flex flex-wrap gap-1">
+                        <span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">Beverages</span>
+                        <span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">Cold Drink</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;" itemprop="description">Imported real cane sugar Mexican Coca-Cola in classic 12oz glass bottle.</p>
+                  <div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">
+                    <button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="10">+ Add to Taco Cart</button>
+                    <small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            <!-- FOOTER -->
+      <footer class="mt-4 p-3 bg-white border border-secondary-subtle rounded-3 text-center text-dark small shadow-sm" style="background-color: #ffffff !important; color: #111113 !important;">
+        <div class="fw-bold text-dark mb-1" style="color: #111113 !important; font-size: 0.95rem;">Taquería El Cachetón</div>
+        <div class="font-mono text-dark mb-1" style="color: #334155 !important;">10500 Venice Blvd / Palms &bull; Authentic Street Stand</div>
+        <div class="text-secondary font-mono" style="font-size: 0.8rem; color: #64748b !important;">
+          SenDeke 2 Autonomous Ground Dispatch &bull; Dedicated Line: (323) 374-5787
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- CART MODAL -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content border bg-body" style=" ">
+        <div class="modal-header py-2" style="">
+          <div class="d-flex align-items-center gap-2">
+            <span class="fs-4">🌮</span>
+            <div>
+              <h2 class="modal-title h6 fw-bold mb-0 text-white" id="cartModalTitle">Your Taco Cart</h2>
+              <div class="small font-mono" style="color: #B45309;">Consolidated order for direct 90034 courier delivery</div>
+            </div>
+          </div>
+          <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3 p-md-4">
+          <div class="d-flex align-items-center gap-3 p-3 rounded-3 mb-3" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(217, 119, 6, 0.3);">
+            <img src="assets/brand/food-delivery-animated.gif" alt="Courier" width="48" height="48" style="border-radius: 8px;">
+            <div class="flex-grow-1">
+              <div class="fw-bold small" style="color: #B45309;">Flat $10 Delivery • Real Stand Prices</div>
+              <div class="text-secondary small">Direct to Deke (Fleet #04) • Zero app markup</div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="small fw-semibold text-body-secondary mb-0">CART ITEMS (<span id="cartItemsCountText">0</span>)</div>
+            <button type="button" class="btn btn-sm btn-outline-danger py-0 px-2 small font-mono" id="clearCartBtn">🗑️ Clear Cart</button>
+          </div>
+          <div id="cart-items-container" class="mb-3"></div>
+
+          <div class="p-3 rounded-3 mb-3" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(217, 119, 6, 0.3);">
+            <div class="d-flex justify-content-between small text-body-secondary mb-1">
+              <span>Food Subtotal</span>
+              <span class="font-mono text-dark fw-bold" id="cart-food-subtotal">$0.00</span>
+            </div>
+            <div class="d-flex justify-content-between small text-body-secondary mb-1">
+              <span>Courier Delivery Fee (Flat)</span>
+              <span class="font-mono text-dark" id="cart-courier-fee">$10.00</span>
+            </div>
+            <div class="d-flex justify-content-between small text-body-secondary mb-2">
+              <span>Courier Tip (100% to Driver)</span>
+              <span class="font-mono text-success fw-bold" id="cart-tip-amount">$5.00</span>
+            </div>
+            <div class="btn-group w-100 btn-group-sm mb-2">
+              <button type="button" class="btn btn-outline-secondary cart-tip-btn" data-tip="3">+$3</button>
+              <button type="button" class="btn btn-outline-secondary cart-tip-btn active" data-tip="5">+$5 (Rec)</button>
+              <button type="button" class="btn btn-outline-secondary cart-tip-btn" data-tip="7">+$7</button>
+              <button type="button" class="btn btn-outline-secondary cart-tip-btn" data-tip="10">+$10</button>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pt-2 border-top" class="border-secondary-subtle">
+              <span class="fw-bold text-dark">Estimated Total:</span>
+              <span class="h5 fw-bold font-mono mb-0" style="color: #B45309;" id="cart-grand-total">$15.00</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="cart-delivery-address" class="form-label small fw-semibold text-body-secondary">Delivery Destination Address:</label>
+            <input type="text" class="form-control form-control-sm border-secondary font-mono " id="cart-delivery-address" value="3645 Overland Ave, Los Angeles, CA 90034">
+          </div>
+        </div>
+        <div class="modal-footer py-2 d-flex justify-content-between flex-wrap gap-2" style="">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Add More Tacos</button>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-sm btn-black-yellow px-3 d-flex align-items-center gap-1 font-mono" id="btn-text-order-deke">
+              <span>💬 1-Text to Deke</span>
+            </button>
+            <button type="button" class="btn btn-sm btn-black-yellow px-3 d-flex align-items-center gap-1 font-mono" id="btn-stripe-pay-tacos">
+              <span>🔒 Stripe Escrow &rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHONE DIALER MODAL (SYNCHRONIZED WITH SWEETFIN) -->
+  <div class="modal fade" id="phone-dialer-modal" tabindex="-1" aria-labelledby="dialer-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border" style=" ">
+        <div class="modal-header py-2" style="">
+          <h2 class="h6 modal-title fw-bold text-dark mb-0 d-flex align-items-center gap-2" id="dialer-title">
+            <span class="badge font-mono" style="background-color: #B45309; color: #000;">AI CONCIERGE</span>
+            <span>Call-In Phone Order Simulator</span>
+          </h2>
+          <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3">
+          <div class="p-2.5 rounded text-center mb-3" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(217, 119, 6, 0.3);">
+            <div class="small text-secondary font-mono">DEDICATED TACO DISPATCH LINE</div>
+            <div class="h4 fw-bold font-mono mb-0" style="color: #B45309;">(323) 374-5787</div>
+            <div class="small text-secondary font-mono">Taquería El Cachetón • 10500 Venice Blvd</div>
+          </div>
+
+          <p class="small text-body-secondary mb-2">
+            Customers can dial in and state taco item numbers directly: <em>"Give me item #01 and #03 to 3645 Overland Ave."</em>
+          </p>
+
+          <div class="mb-3">
+            <label for="dialer-item-input" class="form-label small fw-semibold text-secondary">Enter Item Numbers (e.g. #01, #03):</label>
+            <input type="text" class="form-control form-control-sm border-secondary font-mono " id="dialer-item-input" placeholder="#01, #03">
+          </div>
+
+          <div class="mb-3">
+            <label for="dialer-address-input" class="form-label small fw-semibold text-secondary">Delivery Destination Address:</label>
+            <input type="text" class="form-control form-control-sm border-secondary  font-mono" id="dialer-address-input" value="3645 Overland Ave, Los Angeles, CA 90034">
+          </div>
+
+          <div id="dialer-preview-box" class="p-2 border rounded bg-body-tertiary small font-mono d-none mb-2" class="border-secondary-subtle">
+            <div class="text-secondary mb-1">Recognized Items:</div>
+            <div id="dialer-preview-list" style="color: #B45309;"></div>
+          </div>
+        </div>
+        <div class="modal-footer py-2 d-flex justify-content-between" style="">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-sm btn-black-yellow px-3 font-mono" id="btn-submit-phone-order">
+            📞 Place Call-In Order &amp; Get Receipt
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINTABLE RECEIPT MODAL -->
+  <div class="modal fade" id="receipt-modal" tabindex="-1" aria-labelledby="receipt-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border" style=" ">
+        <div class="modal-header py-2" style="">
+          <h2 class="h6 modal-title fw-bold text-dark mb-0" id="receipt-title">Order Receipt &amp; Voucher</h2>
+          <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3">
+          <div class="p-3 rounded bg-body font-mono small text-dark" id="printable-receipt-card" style="border: 1px solid rgba(217, 119, 6, 0.3);">
+            <div class="text-center border-bottom pb-2 mb-2" class="border-secondary-subtle">
+              <div class="fw-bold fs-6" style="color: #B45309;">SENDEKE 2 DIRECT TACO COURIER</div>
+              <div class="text-secondary small">Taquería El Cachetón • 10500 Venice Blvd</div>
+              <div class="text-secondary small" id="receipt-timestamp"></div>
+              <div class="fw-bold small" style="color: #B45309;" id="receipt-number-display">RECEIPT #SDK-2026-90034</div>
+            </div>
+
+            <div class="mb-2">
+              <div class="text-secondary">Destination: <span class="text-dark fw-bold" id="receipt-dest-display">3645 Overland Ave, 90034</span></div>
+              <div class="text-secondary">Dispatch: <span class="text-dark">Direct Courier (Deke / Fleet #04)</span></div>
+            </div>
+
+            <table class="table table-sm mb-2" style="font-size: 0.78rem;">
+              <thead>
+                <tr class="border-secondary-subtle">
+                  <th>#</th>
+                  <th>Item</th>
+                  <th class="text-end">Price</th>
+                </tr>
+              </thead>
+              <tbody id="receipt-items-table-body">
+              </tbody>
+            </table>
+
+            <div class="border-top pt-2" class="border-secondary-subtle">
+              <div class="d-flex justify-content-between">
+                <span>Food Subtotal:</span>
+                <span class="text-dark fw-bold" id="receipt-food-subtotal">$0.00</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>Courier Pass-Through Fee:</span>
+                <span class="text-dark fw-bold">$10.00</span>
+              </div>
+              <div class="d-flex justify-content-between fw-bold fs-6 mt-1 border-top pt-1" style="border-color: var(--taco-yellow-pin) !important; color: #B45309;">
+                <span>Total Paid:</span>
+                <span id="receipt-grand-total">$10.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer py-2 d-flex justify-content-between" style="">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-sm btn-black-yellow px-3 font-mono" onclick="window.print()">
+            🖨️ Print Receipt
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script src="assets/js/webmcp.js"></script>
+  <script src="assets/js/courier-ebike.js"></script>
+  <script>
+    (function() {
+      var engine = window.SenDekeEngine;
+      var DEFAULT_TACOS_DATA = [
+        {
+          "category": "Street Tacos",
+          "name": "Street Taco (Asada, Pastor, Pollo, Carnitas)",
+          "description": "Double warm corn tortilla, fresh cilantro, diced onions, lime, radishes, and house salsa.",
+          "diet": "Authentic Street Taco",
+          "price": 3.00
+        },
+        {
+          "category": "Street Tacos",
+          "name": "Quesataco",
+          "description": "Crispy griddled corn tortilla with melted cheese, choice of meat, guacamole, and salsa.",
+          "diet": "House Specialty",
+          "price": 6.00
+        },
+        {
+          "category": "Street Tacos",
+          "name": "Vampirito",
+          "description": "Crunchy toasted corn tortilla, melted jack cheese, carne asada, cilantro, onions, and avocado salsa.",
+          "diet": "Crispy Specialty",
+          "price": 3.50
+        },
+        {
+          "category": "Street Tacos",
+          "name": "Mulita",
+          "description": "Two crispy corn tortillas sandwiched with melted cheese, choice of meat, cilantro, onion, and guacamole.",
+          "diet": "Cheese Sandwich Taco",
+          "price": 8.00
+        },
+        {
+          "category": "Burritos & Tortas",
+          "name": "El Cachetón Classic Burrito",
+          "description": "Large flour tortilla packed with choice of seasoned meat, Mexican rice, refried pinto beans, onions, and cilantro.",
+          "diet": "Handheld Burrito",
+          "price": 14.00
+        },
+        {
+          "category": "Burritos & Tortas",
+          "name": "Burrito Mojado (Wet Burrito)",
+          "description": "Classic meat and bean burrito smothered in rich red enchilada sauce, melted cheese, and crema.",
+          "diet": "Wet Platter",
+          "price": 15.00
+        },
+        {
+          "category": "Burritos & Tortas",
+          "name": "Torta Tradicional",
+          "description": "Toasted Mexican telera roll, choice of meat, smashed avocado, refried beans, pickled jalapenos, tomato, and crema.",
+          "diet": "Mexican Sandwich",
+          "price": 15.00
+        },
+        {
+          "category": "Quesadillas & Plates",
+          "name": "Quesadilla Gigante",
+          "description": "Large griddled flour tortilla stuffed with melted Monterrey jack cheese, choice of meat, and avocado salsa.",
+          "diet": "Large Quesadilla",
+          "price": 15.00
+        },
+        {
+          "category": "Quesadillas & Plates",
+          "name": "Fajitas Mixtas Platter",
+          "description": "Sizzling seasoned steak and chicken strips with bell peppers and onions, served with rice, beans, and warm tortillas.",
+          "diet": "Dinner Platter",
+          "price": 17.00
+        },
+        {
+          "category": "Beverages",
+          "name": "Horchata Casera (32oz)",
+          "description": "Authentic house-made cinnamon vanilla rice milk, cold and refreshing.",
+          "diet": "Fresh Agua Fresca",
+          "price": 4.50
+        },
+        {
+          "category": "Beverages",
+          "name": "Mexican Coca-Cola (Glass Bottle)",
+          "description": "Imported real cane sugar Mexican Coca-Cola in classic 12oz glass bottle.",
+          "diet": "Cold Drink",
+          "price": 3.50
+        }
+      ];
+
+      var catalogData = DEFAULT_TACOS_DATA;
+      var cart = (engine && typeof engine.getCart === 'function') ? engine.getCart() : [];
+      var courierFee = 10.00;
+      var tipAmount = 5.00;
+      var activeFilter = 'ALL';
+
+      function persistCart() {
+        var addrEl = document.getElementById('cart-delivery-address');
+        var addr = addrEl ? addrEl.value : '3645 Overland Ave, Los Angeles, CA 90034';
+        if (engine && typeof engine.syncCart === 'function') {
+          engine.syncCart(cart, 'Taquería El Cachetón', tipAmount, addr);
+        } else {
+          localStorage.setItem('sendeke_cart', JSON.stringify(cart));
+          localStorage.setItem('sendeke_cart_items', JSON.stringify(cart));
+        }
+      }
+
+      // Render immediately with 0ms delay & 0 network dependency
+      renderCatalog();
+
+      // Attempt live background sync over HTTP/HTTPS; gracefully ignore on file:///
+      if (window.location.protocol !== 'file:') {
+        fetch('assets/data/taqueria_el_cacheton_menu.json')
+          .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+          .then(function(data) {
+            if (Array.isArray(data) && data.length > 0) {
+              catalogData = data;
+              renderCatalog();
+            }
+          })
+          .catch(function(err) {
+            console.log('Using inlined authentic tacos catalog fallback:', err);
+          });
+      }
+
+      function renderCatalog() {
+        var grid = document.getElementById('tacos-items-grid');
+        if (!grid) return;
+
+        var filtered = catalogData.filter(function(item) {
+          if (activeFilter === 'ALL') return true;
+          return item.category === activeFilter;
+        });
+
+        var html = '';
+        for (var i = 0; i < filtered.length; i++) {
+          var item = filtered[i];
+          var itemIndex = catalogData.indexOf(item) + 1;
+          var itemNumStr = (itemIndex < 10 ? '0' : '') + itemIndex;
+
+          html += '<div class="col">' +
+            '<div class="card shadow-sm h-100 menu-item-card">' +
+              '<div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">' +
+                '<span class="badge font-mono taco-num-badge">#' + itemNumStr + '</span>' +
+                '<span class="badge font-mono fw-bold price-num-badge">$' + item.price.toFixed(2) + '</span>' +
+              '</div>' +
+              '<div class="card-body d-flex flex-column p-3">' +
+                '<div class="d-flex align-items-start gap-2 mb-2">' +
+                  '<span class="fs-4 flex-shrink-0 mt-1">🌮</span>' +
+                  '<div>' +
+                    '<h3 class="h6 fw-bold text-dark mb-1">' + item.name + '</h3>' +
+                    '<div class="d-flex flex-wrap gap-1">' +
+                      '<span class="badge bg-warning-subtle text-dark border border-warning-subtle" style="font-size:0.68rem;">' + item.category + '</span>' +
+                      '<span class="badge bg-secondary-subtle text-secondary-emphasis" style="font-size:0.68rem;">' + (item.diet || 'Authentic') + '</span>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+                '<p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.84rem; line-height: 1.4;">' + (item.description || '') + '</p>' +
+                '<div class="d-flex justify-content-between align-items-center pt-2.5 border-top border-secondary-subtle gap-2">' +
+                  '<button type="button" class="btn btn-sm btn-black-yellow px-3 py-1.5 flex-grow-1 add-to-cart-btn shadow-sm" data-item-idx="' + (itemIndex - 1) + '" data-name="' + item.name.replace(/"/g, '&quot;') + '" data-price="' + item.price.toFixed(2) + '" data-emoji="🌮">+ Add to Taco Cart</button>' +
+                  '<small class="font-mono flex-shrink-0 text-secondary" style="font-size: 0.75rem;">⚡ 15-20 min</small>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+        grid.innerHTML = html;
+      }
+
+      // Filter tabs
+      document.querySelectorAll('.filter-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeFilter = btn.getAttribute('data-category');
+          renderCatalog();
+        });
+      });
+
+      // Cart logic
+      function renderCart() {
+        var container = document.getElementById('cart-items-container');
+        var subtotalEl = document.getElementById('cart-food-subtotal');
+        var tipEl = document.getElementById('cart-tip-amount');
+        var totalEl = document.getElementById('cart-grand-total');
+        var itemsCountEl = document.getElementById('cartItemsCountText');
+        var navBadge = document.getElementById('nav-cart-counter-badge');
+
+        var totalCount = cart.reduce(function(sum, it) { return sum + it.qty; }, 0);
+        if (itemsCountEl) itemsCountEl.textContent = totalCount;
+        if (navBadge) navBadge.textContent = totalCount + (totalCount === 1 ? ' item' : ' items');
+
+        var subtotal = cart.reduce(function(sum, it) { return sum + (it.price * it.qty); }, 0);
+        if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+        if (tipEl) tipEl.textContent = '$' + tipAmount.toFixed(2);
+        var grandTotal = cart.length > 0 ? (subtotal + courierFee + tipAmount) : 0;
+        if (totalEl) totalEl.textContent = '$' + grandTotal.toFixed(2);
+
+        if (!container) return;
+        if (cart.length === 0) {
+          container.innerHTML = '<div class="text-center py-4 text-body-secondary small font-mono">Your taco cart is empty. Tap items to add!</div>';
+          return;
+        }
+
+        var html = '';
+        cart.forEach(function(item, idx) {
+          html += '<div class="d-flex align-items-center justify-content-between p-2 mb-2 rounded border border-secondary-subtle bg-body-tertiary">' +
+            '<div class="d-flex align-items-center gap-2">' +
+              '<span class="badge bg-secondary font-mono small">#' + item.num + '</span>' +
+              '<div>' +
+                '<div class="fw-bold small text-dark">' + item.name + '</div>' +
+                '<div class="text-secondary small font-mono">$' + item.price.toFixed(2) + ' each</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="d-flex align-items-center gap-2">' +
+              '<div class="btn-group btn-group-sm">' +
+                '<button type="button" class="btn btn-outline-secondary py-0 px-2 btn-cart-dec" data-idx="' + idx + '">-</button>' +
+                '<span class="btn btn-outline-secondary disabled py-0 px-2 font-mono text-dark fw-bold">' + item.qty + '</span>' +
+                '<button type="button" class="btn btn-outline-secondary py-0 px-2 btn-cart-inc" data-idx="' + idx + '">+</button>' +
+              '</div>' +
+              '<div class="fw-bold font-mono text-dark" style="min-width: 60px; text-align: right;">$' + (item.price * item.qty).toFixed(2) + '</div>' +
+            '</div>' +
+          '</div>';
+        });
+        container.innerHTML = html;
+
+        container.querySelectorAll('.btn-cart-inc').forEach(function(b) {
+          b.addEventListener('click', function() {
+            var i = parseInt(b.getAttribute('data-idx'));
+            cart[i].qty = (cart[i].qty || cart[i].quantity || 1) + 1;
+            cart[i].quantity = cart[i].qty;
+            persistCart();
+            renderCart();
+          });
+        });
+
+        container.querySelectorAll('.btn-cart-dec').forEach(function(b) {
+          b.addEventListener('click', function() {
+            var i = parseInt(b.getAttribute('data-idx'));
+            var q = cart[i].qty || cart[i].quantity || 1;
+            if (q > 1) { cart[i].qty = q - 1; cart[i].quantity = cart[i].qty; } else { cart.splice(i, 1); }
+            persistCart();
+            renderCart();
+          });
+        });
+      }
+
+      // Add to cart click
+      document.addEventListener('click', function(e) {
+        var addBtn = e.target.closest('.add-to-cart-btn');
+        if (addBtn) {
+          var idx = parseInt(addBtn.getAttribute('data-item-idx'));
+          var item = catalogData[idx];
+          if (!item) return;
+
+          var numStr = 'T' + ((idx + 1 < 10 ? '0' : '') + (idx + 1));
+          var existing = cart.find(function(it) { return it.name === item.name; });
+          if (existing) {
+            existing.qty = (existing.qty || existing.quantity || 1) + 1;
+            existing.quantity = existing.qty;
+          } else {
+            cart.push({ id: 'tacos-' + numStr, num: numStr, name: item.name, price: item.price, qty: 1, quantity: 1, merchant: 'Taquería El Cachetón' });
+          }
+          persistCart();
+          renderCart();
+        }
+      });
+
+      // Clear cart
+      var clearBtn = document.getElementById('clearCartBtn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+          cart = [];
+          if (engine && typeof engine.clearCart === 'function') engine.clearCart();
+          renderCart();
+        });
+      }
+
+      // Tip buttons
+      document.addEventListener('click', function(e) {
+        var tipBtn = e.target.closest('.cart-tip-btn');
+        if (tipBtn) {
+          document.querySelectorAll('.cart-tip-btn').forEach(function(b) { b.classList.remove('active'); });
+          tipBtn.classList.add('active');
+          tipAmount = parseFloat(tipBtn.getAttribute('data-tip')) || 0;
+          renderCart();
+        }
+      });
+
+      // 1-Text order to Deke
+      var textOrderBtn = document.getElementById('btn-text-order-deke');
+      if (textOrderBtn) {
+        textOrderBtn.addEventListener('click', function() {
+          if (cart.length === 0) {
+            alert('Your cart is empty. Add tacos first!');
+            return;
+          }
+          var addr = document.getElementById('cart-delivery-address').value || '3645 Overland Ave, Los Angeles, CA 90034';
+          var lines = cart.map(function(it) { return '#' + it.num + ' ' + it.name + ' x' + it.qty + ' ($' + (it.price * it.qty).toFixed(2) + ')'; });
+          var subtotal = cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
+          var total = subtotal + courierFee + tipAmount;
+
+          // Real-time dispatch broadcast
+          var ticket = {
+            id: 'SDK-' + Math.floor(100000 + Math.random() * 900000),
+            source: 'Taquería El Cachetón',
+            items: cart.slice(),
+            subtotal: subtotal,
+            courierFee: courierFee,
+            tip: tipAmount,
+            total: total,
+            destination: addr,
+            timestamp: new Date().toISOString()
+          };
+          try {
+            var existingTickets = JSON.parse(localStorage.getItem('sendeke_active_tickets') || '[]');
+            existingTickets.unshift(ticket);
+            localStorage.setItem('sendeke_active_tickets', JSON.stringify(existingTickets));
+            if (window.BroadcastChannel) {
+              var bus = new BroadcastChannel('sendeke_dispatch_network');
+              bus.postMessage({ type: 'TICKET_UPDATED', ticket: ticket });
+            }
+          } catch (e) {}
+
+          var msg = 'SENDEKETO TACO ORDER:\n' + lines.join('\n') + '\nFood: $' + subtotal.toFixed(2) + '\nCourier Fee: $10.00\nTip: $' + tipAmount.toFixed(2) + '\nTotal: $' + total.toFixed(2) + '\nDestination: ' + addr;
+          window.location.href = 'sms:13233745787?body=' + encodeURIComponent(msg);
+        });
+      }
+
+      // Live Stripe Escrow Checkout Bridge
+      var stripePayBtn = document.getElementById('btn-stripe-pay-tacos');
+      if (stripePayBtn) {
+        stripePayBtn.addEventListener('click', function() {
+          if (cart.length === 0) return;
+          persistCart();
+          window.location.href = 'checkout.html';
+        });
+      }
+
+      if (engine && typeof engine.onMessage === 'function') {
+        engine.onMessage(function(msg) {
+          if (msg.type === 'CART_UPDATED' && Array.isArray(msg.cart)) {
+            cart = msg.cart;
+            renderCart();
+          }
+        });
+      }
+      renderCart();
+
+      // Dialer input live recognition
+      var dialerInput = document.getElementById('dialer-item-input');
+      var dialerPreviewBox = document.getElementById('dialer-preview-box');
+      var dialerPreviewList = document.getElementById('dialer-preview-list');
+
+      if (dialerInput) {
+        dialerInput.addEventListener('input', function() {
+          var val = dialerInput.value;
+          var matches = val.match(/#?(\d+)/g);
+          if (!matches || matches.length === 0) {
+            dialerPreviewBox.classList.add('d-none');
+            return;
+          }
+
+          var foundItems = [];
+          matches.forEach(function(m) {
+            var num = parseInt(m.replace('#', ''), 10);
+            if (num >= 1 && num <= catalogData.length) {
+              foundItems.push({ num: num, item: catalogData[num - 1] });
+            }
+          });
+
+          if (foundItems.length > 0) {
+            dialerPreviewBox.classList.remove('d-none');
+            var previewHtml = '';
+            foundItems.forEach(function(f) {
+              previewHtml += '<div>#' + (f.num < 10 ? '0' : '') + f.num + ' &bull; ' + f.item.name + ' ($' + f.item.price.toFixed(2) + ')</div>';
+            });
+            dialerPreviewList.innerHTML = previewHtml;
+          } else {
+            dialerPreviewBox.classList.add('d-none');
+          }
+        });
+      }
+
+      // Submit Phone Order
+      var submitPhoneBtn = document.getElementById('btn-submit-phone-order');
+      if (submitPhoneBtn) {
+        submitPhoneBtn.addEventListener('click', function() {
+          var val = dialerInput ? dialerInput.value : '';
+          var matches = val.match(/#?(\d+)/g);
+          if (!matches || matches.length === 0) {
+            alert('Please enter at least one taco item number (e.g. #01)');
+            return;
+          }
+
+          cart = [];
+          matches.forEach(function(m) {
+            var num = parseInt(m.replace('#', ''), 10);
+            if (num >= 1 && num <= catalogData.length) {
+              var it = catalogData[num - 1];
+              var numStr = (num < 10 ? '0' : '') + num;
+              var existing = cart.find(function(c) { return c.name === it.name; });
+              if (existing) { existing.qty++; } else { cart.push({ num: numStr, name: it.name, price: it.price, qty: 1 }); }
+            }
+          });
+
+          renderCart();
+          var dialerModalEl = document.getElementById('phone-dialer-modal');
+          if (dialerModalEl && window.bootstrap) {
+            bootstrap.Modal.getInstance(dialerModalEl).hide();
+          }
+
+          var addrInput = document.getElementById('dialer-address-input');
+          showReceiptModal(addrInput ? addrInput.value : '');
+        });
+      }
+
+      // Show receipt modal
+      function showReceiptModal(address) {
+        var receiptModalEl = document.getElementById('receipt-modal');
+        var receiptTable = document.getElementById('receipt-items-table-body');
+        var subtotalEl = document.getElementById('receipt-food-subtotal');
+        var totalEl = document.getElementById('receipt-grand-total');
+        var destEl = document.getElementById('receipt-dest-display');
+        var timeEl = document.getElementById('receipt-timestamp');
+        var numEl = document.getElementById('receipt-number-display');
+
+        if (timeEl) timeEl.textContent = new Date().toLocaleString();
+        if (destEl) destEl.textContent = address || '3645 Overland Ave, Los Angeles, CA 90034';
+        if (numEl) numEl.textContent = 'RECEIPT #SDK-' + Math.floor(100000 + Math.random() * 900000);
+
+        var subtotal = 0;
+        var tableHtml = '';
+        cart.forEach(function(it) {
+          var lineTotal = it.price * it.qty;
+          subtotal += lineTotal;
+          tableHtml += '<tr>' +
+            '<td>#' + (it.num || '01') + '</td>' +
+            '<td>' + it.name + ' x' + it.qty + '</td>' +
+            '<td class="text-end">$' + lineTotal.toFixed(2) + '</td>' +
+          '</tr>';
+        });
+
+        if (receiptTable) receiptTable.innerHTML = tableHtml;
+        if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+        var grand = subtotal + courierFee;
+        if (totalEl) totalEl.textContent = '$' + grand.toFixed(2);
+
+        if (receiptModalEl && window.bootstrap) {
+          new bootstrap.Modal(receiptModalEl).show();
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

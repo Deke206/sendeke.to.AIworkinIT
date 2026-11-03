@@ -1,0 +1,58 @@
+[
+  {
+    "category": "Artisanal Pizzas",
+    "name": "The Classic Pizza (12\")",
+    "description": "Crushed San Marzano tomato sauce, fresh whole milk mozzarella, torn basil, extra virgin olive oil.",
+    "diet": "Vegetarian",
+    "price": 18.50
+  },
+  {
+    "category": "Artisanal Pizzas",
+    "name": "Flying Pig Pizza (12\")",
+    "description": "House-made fennel sausage, sweet piquillo peppers, caramelized red onions, crushed tomato, mozzarella.",
+    "diet": "House Favorite",
+    "price": 22.50
+  },
+  {
+    "category": "Artisanal Pizzas",
+    "name": "She's My Cherry Tomato Pie (12\")",
+    "description": "Blistered sweet cherry tomatoes, roasted garlic cloves, creamy burrata cheese, fresh basil, olive oil drizzle.",
+    "diet": "Vegetarian",
+    "price": 24.00
+  },
+  {
+    "category": "Artisanal Pizzas",
+    "name": "Sausage Party Pizza (12\")",
+    "description": "Crispy pepperoni, crumbled Italian sausage, spicy sopressata, crushed tomato sauce, mozzarella.",
+    "diet": "All-Meat",
+    "price": 24.50
+  },
+  {
+    "category": "Artisanal Pizzas",
+    "name": "Bird is the Word (12\")",
+    "description": "Smoked BBQ chicken breast, roasted cremini mushrooms, pickled red onions, cilantro, smoked mozzarella.",
+    "diet": "BBQ Specialty",
+    "price": 24.00
+  },
+  {
+    "category": "Artisanal Pizzas",
+    "name": "Bianco White Pie (12\")",
+    "description": "Sautéed baby spinach, whole milk ricotta, fresh roasted garlic, sea salt, extra virgin olive oil (no red sauce).",
+    "diet": "Vegetarian",
+    "price": 22.00
+  },
+  {
+    "category": "Starters & Greens",
+    "name": "Overland Chopped Salad",
+    "description": "Crisp romaine, radicchio, chickpeas, salami, provolone, cherry tomatoes, house oregano vinaigrette.",
+    "diet": "Gluten-Free Option",
+    "price": 14.50
+  },
+  {
+    "category": "Starters & Greens",
+    "name": "Wood-Fired Garlic Knots (6pc)",
+    "description": "Fresh pizza dough tossed in roasted garlic butter, parmesan reggiano, and chopped parsley, side warm marinara.",
+    "diet": "Vegetarian",
+    "price": 9.50
+  }
+]

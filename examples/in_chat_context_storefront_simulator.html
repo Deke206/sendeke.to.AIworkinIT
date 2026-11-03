@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SenDeke 2 // In-Chat Context Storefront Window Simulator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.2); }
+      50% { box-shadow: 0 0 25px rgba(56, 189, 248, 0.4); }
+    }
+    .modal-enter {
+      animation: modalSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes modalSlide {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-cyan-500 selection:text-black">
+
+  <!-- TOP SOVEREIGN BAR -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur px-6 py-3 flex items-center justify-between sticky top-0 z-40">
+    <div class="flex items-center space-x-3">
+      <div class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></div>
+      <div>
+        <h1 class="text-xs uppercase tracking-widest font-black text-cyan-400">SenDeke 2 // Sovereign WebMCP Context Engine</h1>
+        <p class="text-[10px] text-slate-400">In-Chat Micro-Storefront & Ambient Dispatch Simulator</p>
+      </div>
+    </div>
+    <div class="flex items-center space-x-2 text-xs">
+      <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono text-[11px]">Corridor: Palms 90034</span>
+      <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800 font-mono text-[11px]">WebMCP 2.0 Live</span>
+    </div>
+  </header>
+
+  <!-- WORKSPACE / CHAT SIMULATION CONTAINER -->
+  <main class="flex-1 max-w-4xl w-full mx-auto p-4 md:p-6 flex flex-col justify-between relative">
+    
+    <!-- CHAT HISTORY -->
+    <div id="chatHistory" class="space-y-4 mb-24">
+      
+      <!-- User Work Background Context -->
+      <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-4 text-xs text-slate-400 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-slate-500"></span>
+          <span>User working on <em>Q4 Logistics Financial Model.xlsx</em> in background...</span>
+        </div>
+        <span class="font-mono text-[10px] text-slate-500">12:44 PM</span>
+      </div>
+
+      <!-- Turn 1: User Request -->
+      <div class="flex items-start space-x-3 justify-end">
+        <div class="bg-blue-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-lg text-sm shadow-md">
+          <p class="font-medium">Hey, it's lunchtime and I haven't taken a break. Deploy an agent to find me something authentic I haven't eaten this week in Palms/Culver. Something hot, local, not standard corporate junk.</p>
+          <span class="block text-[10px] text-blue-200 mt-1 text-right font-mono">12:45 PM</span>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-blue-700 flex items-center justify-center text-xs font-black shrink-0">D</div>
+      </div>
+
+      <!-- Turn 2: Agent Tool Execution Beacon -->
+      <div class="flex items-start space-x-3">
+        <div class="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center text-xs font-black shrink-0 text-black">AI</div>
+        <div class="space-y-3 max-w-xl">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-sm p-4 text-sm shadow-lg space-y-2">
+            <div class="flex items-center space-x-2 text-cyan-400 text-xs font-mono">
+              <svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+              <span>WebMCP Beacon Queried: <code>sendeke.to/api/webmcp/store/el-cacheton</code></span>
+            </div>
+            <p class="text-slate-300">
+              I checked your lunch log for this week—you had poke on Tuesday and Thai yesterday. 
+              <strong>You haven't had authentic street tacos or vampiritos this week.</strong>
+            </p>
+            <p class="text-slate-400 text-xs">
+              I pulled the live verified inventory directly from <strong>Taquería El Cachetón</strong> on Venice Blvd. Zero middleman markup, $10 flat direct courier drop.
+            </p>
+            
+            <!-- Context Window Launch Trigger Banner -->
+            <div class="pt-2">
+              <button onclick="openContextWindow()" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold px-4 py-3 rounded-xl flex items-center justify-between text-sm transition-all shadow-lg hover:shadow-cyan-500/20 group">
+                <div class="flex items-center space-x-2 text-left">
+                  <span class="text-lg">🌮</span>
+                  <div>
+                    <div class="leading-tight font-black">Taquería El Cachetón — Live Interactive Menu</div>
+                    <div class="text-[11px] text-slate-900/80 font-normal">Click to launch contextual in-chat order window</div>
+                  </div>
+                </div>
+                <span class="bg-slate-950/20 text-slate-950 text-xs px-2 py-1 rounded font-mono font-bold group-hover:translate-x-0.5 transition-transform">OPEN CONTEXT WINDOW →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Streamed Updates Container (Dynamically appended on order) -->
+      <div id="statusStream" class="space-y-3"></div>
+
+    </div>
+
+    <!-- CHAT INPUT DOCK (Simulated) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-slate-900/90 backdrop-blur border-t border-slate-800 p-4 z-20">
+      <div class="max-w-4xl mx-auto flex items-center space-x-2">
+        <input type="text" placeholder="Chat with your assistant or type /lunch..." class="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 font-sans" disabled value="Ask agent to adjust order, ask ETA, or return to spreadsheet...">
+        <button onclick="openContextWindow()" class="bg-slate-800 hover:bg-slate-700 text-cyan-400 font-mono text-xs px-4 py-3 rounded-xl border border-cyan-800/40">
+          Re-Open Window
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- THE CONTEXTUAL WINDOW / OVERLAY STORE PRODUCER MODAL                     -->
+  <!-- ========================================================================= -->
+  <div id="contextModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 md:p-6">
+    <div class="bg-slate-900 border border-cyan-500/40 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden modal-enter flex flex-col max-h-[90vh]">
+      
+      <!-- Modal Header -->
+      <div class="bg-slate-950 px-5 py-3.5 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-sm">🌮</div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <h2 class="text-sm font-black text-white">Taquería El Cachetón</h2>
+              <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-mono font-bold">LIVE D1 FEED</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-mono">10500 Venice Blvd • 90034 • Courier Prep: 12-15m</p>
+          </div>
+        </div>
+        <button onclick="closeContextWindow()" class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body: Tabs & Items -->
+      <div class="p-5 overflow-y-auto flex-1 space-y-5">
+        
+        <!-- Personality Trait / Reason Callout -->
+        <div class="bg-cyan-950/40 border border-cyan-800/60 rounded-xl p-3 flex items-start space-x-2 text-xs text-cyan-200">
+          <span class="text-base">💡</span>
+          <div>
+            <strong>AI Context Insight:</strong> You logged 2,400 calories yesterday and mentioned craving savory heat. Vampiritos and Burrito Gigante are high-protein, made fresh upon courier check-in.
+          </div>
+        </div>
+
+        <!-- STAGE 1: INVENTORY MENU SELECTION -->
+        <div id="stageMenu" class="space-y-3">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono">Verified Physical Menu (0% App Markup)</div>
+
+          <!-- Item 1 -->
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between hover:border-slate-700 transition-colors">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="font-bold text-sm text-white">Vampirito de Asada</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 font-mono font-bold">$3.50</span>
+              </div>
+              <p class="text-xs text-slate-400">Crispy griddled tortilla, melted cheese, carne asada, guacamole, salsa roja.</p>
+            </div>
+            <div class="flex items-center space-x-2 shrink-0">
+              <button onclick="changeQty('vamp', -1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center justify-center text-sm">-</button>
+              <span id="qty-vamp" class="w-6 text-center font-mono font-bold text-sm text-cyan-400">2</span>
+              <button onclick="changeQty('vamp', 1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center justify-center text-sm">+</button>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between hover:border-slate-700 transition-colors">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="font-bold text-sm text-white">Burrito Gigante (Al Pastor)</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 font-mono font-bold">$14.00</span>
+              </div>
+              <p class="text-xs text-slate-400">Giant flour tortilla packed with pastor, rice, beans, onions, cilantro, and salsa.</p>
+            </div>
+            <div class="flex items-center space-x-2 shrink-0">
+              <button onclick="changeQty('burrito', -1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center justify-center text-sm">-</button>
+              <span id="qty-burrito" class="w-6 text-center font-mono font-bold text-sm text-cyan-400">1</span>
+              <button onclick="changeQty('burrito', 1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center justify-center text-sm">+</button>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 flex items-center justify-between hover:border-slate-700 transition-colors">
+            <div class="space-y-1 pr-3">
+              <div class="flex items-center space-x-2">
+                <span class="font-bold text-sm text-white">Horchata Casera (24oz)</span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 font-mono font-bold">$4.50</span>
+              </div>
+              <p class="text-xs text-slate-400">Authentic cinnamon rice milk, cold pressed in-house daily.</p>
+            </div>
+            <div class="flex items-center space-x-2 shrink-0">
+              <button onclick="changeQty('horchata', -1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center justify-center text-sm">-</button>
+              <span id="qty-horchata" class="w-6 text-center font-mono font-bold text-sm text-cyan-400">1</span>
+              <button onclick="changeQty('horchata', 1)" class="w-7 h-7 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold flex items-center justify-center text-sm">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAGE 2: AI CONVERSATIONAL HELPERS & DELIVERY FORM -->
+        <div class="bg-slate-950/80 border border-slate-800 rounded-xl p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 font-mono">Courier Destination & Escrow Contact</span>
+            <button onclick="autofillMemory()" class="text-[10px] font-mono text-cyan-400 hover:text-cyan-300 underline">
+              Auto-fill from Work Profile ⚡
+            </button>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div>
+              <label class="block text-slate-400 text-[10px] font-mono mb-1">DROP-OFF ADDRESS</label>
+              <input id="inpAddress" type="text" value="3645 Overland Ave, Palms, CA 90034" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200 focus:outline-none focus:border-cyan-500 font-mono text-xs">
+            </div>
+            <div>
+              <label class="block text-slate-400 text-[10px] font-mono mb-1">SMS CONTACT FOR PIN HANDSHAKE</label>
+              <input id="inpPhone" type="text" value="(310) 555-0194" class="w-full bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200 focus:outline-none focus:border-cyan-500 font-mono text-xs">
+            </div>
+          </div>
+        </div>
+
+        <!-- BILLING ESCROW BREAKDOWN -->
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 space-y-2 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Food Subtotal (100% to Taquería):</span>
+            <span id="txtSubtotal" class="text-slate-200">$25.50</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Local Sovereign Courier Wage (Living Base):</span>
+            <span class="text-emerald-400 font-bold">$10.00</span>
+          </div>
+          <div class="flex justify-between text-slate-400">
+            <span>Comptroller Autonomous Broker Spread:</span>
+            <span class="text-cyan-400">$4.00</span>
+          </div>
+          <div class="border-t border-slate-800 pt-2 flex justify-between text-sm font-bold text-white">
+            <span>Pre-Auth Escrow Lock:</span>
+            <span id="txtTotal" class="text-cyan-400">$39.50</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-slate-950 p-4 border-t border-slate-800 flex items-center justify-between">
+        <button onclick="closeContextWindow()" class="text-xs text-slate-400 hover:text-white font-mono px-3 py-2">
+          Cancel & Return to Work
+        </button>
+        <button onclick="executeEscrowOrder()" id="btnSubmit" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black text-xs px-6 py-3 rounded-xl flex items-center space-x-2 transition-all shadow-lg hover:shadow-cyan-500/20">
+          <span>AUTHORIZE ESCROW & DISPATCH</span>
+          <span class="font-mono" id="btnPriceTag">($39.50)</span>
+          <span>→</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT STATE ENGINE -->
+  <script>
+    const prices = { vamp: 3.50, burrito: 14.00, horchata: 4.50 };
+    const qtys = { vamp: 2, burrito: 1, horchata: 1 };
+    const courierFee = 10.00;
+    const brokerFee = 4.00;
+
+    function updateMath() {
+      const subtotal = (qtys.vamp * prices.vamp) + (qtys.burrito * prices.burrito) + (qtys.horchata * prices.horchata);
+      const total = subtotal + courierFee + brokerFee;
+      
+      document.getElementById('txtSubtotal').innerText = '$' + subtotal.toFixed(2);
+      document.getElementById('txtTotal').innerText = '$' + total.toFixed(2);
+      document.getElementById('btnPriceTag').innerText = '($' + total.toFixed(2) + ')';
+    }
+
+    function changeQty(item, delta) {
+      qtys[item] = Math.max(0, qtys[item] + delta);
+      document.getElementById('qty-' + item).innerText = qtys[item];
+      updateMath();
+    }
+
+    function openContextWindow() {
+      document.getElementById('contextModal').classList.remove('hidden');
+    }
+
+    function closeContextWindow() {
+      document.getElementById('contextModal').classList.add('hidden');
+    }
+
+    function autofillMemory() {
+      document.getElementById('inpAddress').value = "3645 Overland Ave, Palms, CA 90034";
+      document.getElementById('inpPhone').value = "(310) 849-0442";
+    }
+
+    function executeEscrowOrder() {
+      const btn = document.getElementById('btnSubmit');
+      btn.innerHTML = `<span class="animate-spin mr-2">⚙️</span> Securing Stripe Pre-Auth Hold...`;
+      btn.disabled = true;
+
+      setTimeout(() => {
+        closeContextWindow();
+        renderOrderProgress();
+      }, 1200);
+    }
+
+    function renderOrderProgress() {
+      const stream = document.getElementById('statusStream');
+      const pin = Math.floor(100000 + Math.random() * 900000);
+      const ticketId = 'SDK-' + Math.floor(1000 + Math.random() * 9000);
+
+      stream.innerHTML = `
+        <div class="flex items-start space-x-3">
+          <div class="w-8 h-8 rounded-full bg-cyan-600 flex items-center justify-center text-xs font-black shrink-0 text-black">AI</div>
+          <div class="space-y-2 max-w-xl w-full">
+            <div class="bg-slate-900 border border-emerald-500/50 rounded-2xl rounded-tl-sm p-4 text-xs shadow-lg space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span class="font-mono font-bold text-emerald-400 flex items-center space-x-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span>ESCROW PRE-AUTHORIZED // TICKET #${ticketId}</span>
+                </span>
+                <span class="text-[10px] text-slate-400 font-mono">12:47 PM</span>
+              </div>
+              
+              <p class="text-slate-300">
+                Stripe authorization hold locked (\$39.50). <strong>You can continue working on your spreadsheet</strong>—the contextual window has minimized and I will stream live courier milestones directly to this thread.
+              </p>
+
+              <!-- MUTUAL PIN DISPLAY -->
+              <div class="bg-slate-950 border border-slate-800 rounded-xl p-3 flex items-center justify-between">
+                <div>
+                  <div class="text-[10px] font-mono text-slate-400 uppercase">Doorstep Mutual Handshake PIN</div>
+                  <div class="text-xl font-mono font-black text-amber-400 tracking-widest">${pin.toString().slice(0,3)}-${pin.toString().slice(3)}</div>
+                </div>
+                <div class="text-right text-[10px] text-slate-400 font-mono">
+                  <div>Proximity Lock: <span class="text-emerald-400">&lt;= 50m</span></div>
+                  <div>Payment settles on PIN verify</div>
+                </div>
+              </div>
+
+              <!-- LIVE TELEMETRY CHIPS -->
+              <div class="space-y-1.5 pt-1" id="telemetrySteps">
+                <div class="flex items-center space-x-2 text-emerald-400 font-mono text-[11px]">
+                  <span>✓</span>
+                  <span>Order transmitted to Taquería El Cachetón kitchen window.</span>
+                </div>
+                <div class="flex items-center space-x-2 text-cyan-400 font-mono text-[11px]" id="stepCourier">
+                  <span class="animate-spin">⚙</span>
+                  <span>Courier #04 (Deke) alerted on Samsung S10+ HUD...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      // Step 2 Simulation (5 seconds)
+      setTimeout(() => {
+        const step = document.getElementById('stepCourier');
+        if (step) {
+          step.className = "flex items-center space-x-2 text-emerald-400 font-mono text-[11px]";
+          step.innerHTML = "<span>✓</span><span>Courier #04 accepted run. En route to 10500 Venice Blvd for pickup.</span>";
+        }
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+# SENDEKE (SENDEKETO.COM) // HYPERLOCAL CORRIDOR DIRECTORY & CRAWLER MATRIX
+# Primary Operational Theater: Los Angeles Westside & Mid-City Corridor
+# Core Anchor Postal Zones: Palms (90034), West Adams (90016), Culver City (90232/90230)
+# Full Crawlable Page Manifest & Hyperlocal Merchant Links
+
+# ==============================================================================
+# SECTION 1: MASTER STOREFRONT & DISPATCH MANIFEST
+# ==============================================================================
+https://sendeketo.com/index.html - SenDeke Hyperlocal Corridor Commerce | Autonomous Direct Merchant & Driver Dispatch Network Palms 90034
+https://sendeketo.com/tacos.html - Taquería El Cachetón | Authentic Street Tacos, Burritos, Quesadillas & Mulitas Palms / West Adams 90034
+https://sendeketo.com/menu.html - Sweetfin Palms | 34 Audited Custom Poke Bowls, Signature Salmon, Tuna & Vegan Bowls 90034
+https://sendeketo.com/sandwiches.html - Overland Artisan Sandwiches | Fresh Handcrafted Delicatessen, Paninis & Subs Palms Corridor 90034
+https://sendeketo.com/doughroom.html - The Doughroom Rustic Kitchen | Artisanal Wood-Fired Pizza, Handmade Pasta & Craft Kitchen Palms 90034
+https://sendeketo.com/mizlala.html - Mizlala West Adams | Mediterranean Street Food, Falafel, Chicken Shawarma, Kefta & Fresh Pita 90016
+https://sendeketo.com/simpang.html - Simpang Asia Palms | Authentic Indonesian Street Food, Mie Tek Tek & Nasi Goreng 90034
+https://sendeketo.com/checkout.html - SenDeke Sovereign Checkout | Zero Commission Merchant Ordering & Direct Stripe Escrow Payouts
+https://sendeketo.com/driver.html - Sovereign Courier Dispatch Deck | Idle-Hour Livery Drops, Fair $15-$25 Net Earnings & Instant Deposits
+https://sendeketo.com/track.html - Real-Time Courier GPS Tracking | Turn-by-Turn Route Telemetry & Live Order ETA
+https://sendeketo.com/admin.html - Comptroller Command Dashboard | Corridor Cash Ticker, Live Courier Radar & Merchant Auditing
+https://sendeketo.com/llms.txt - AI Crawler Semantic Feed | LLM-Readable Corridor Pricing, Menus, Geocoordinates & WebMCP Tools
+
+# ==============================================================================
+# SECTION 2: 90034 WESTSIDE & MID-CITY CORRIDOR POSTAL DIRECTORY
+# ==============================================================================
+https://sendeketo.com/tacos.html?zone=90034 - Palms (90034) Taquería El Cachetón Direct Delivery & Pickup
+https://sendeketo.com/menu.html?zone=90034 - Palms (90034) Sweetfin Poke Bowls & Healthy Dining Corridor
+https://sendeketo.com/doughroom.html?zone=90034 - Palms (90034) The Doughroom Artisan Pizza & Craft Dining
+https://sendeketo.com/sandwiches.html?zone=90034 - Palms (90034) Overland Ave Gourmet Deli & Artisan Sandwiches
+https://sendeketo.com/simpang.html?zone=90034 - Palms (90034) Simpang Asia Authentic Indonesian Food
+https://sendeketo.com/mizlala.html?zone=90016 - West Adams (90016) Mizlala Mediterranean Street Food Delivery
+https://sendeketo.com/tacos.html?zone=90016 - West Adams (90016) Street Tacos & Late Night Burrito Dispatch
+https://sendeketo.com/index.html?zone=90232 - Culver City Downtown (90232) Hyperlocal Restaurant Delivery & Courier Drops
+https://sendeketo.com/menu.html?zone=90232 - Culver City Arts District (90232) Sweetfin Healthy Poke Bowls
+https://sendeketo.com/index.html?zone=90230 - Culver City Fox Hills (90230) Corporate Lunch Orders & Local Merchant Drops
+https://sendeketo.com/index.html?zone=90035 - Beverlywood & Pico-Robertson (90035) Local Merchant Direct Delivery
+https://sendeketo.com/mizlala.html?zone=90019 - Mid-City Los Angeles (90019) Artisan Mediterranean Food & Local Delivery
+https://sendeketo.com/tacos.html?zone=90019 - Mid-City (90019) Taquería El Cachetón Tacos & Mulitas
+https://sendeketo.com/index.html?zone=90018 - Jefferson Park (90018) Hyperlocal Corridor Commerce & Delivery
+https://sendeketo.com/index.html?zone=90066 - Mar Vista (90066) Neighborhood Courier Dispatch & Local Menus
+https://sendeketo.com/index.html?zone=90291 - Venice (90291) Coastal Corridor Commerce & Artisan Food Delivery
+https://sendeketo.com/index.html?zone=90405 - Santa Monica Ocean Park (90405) Direct Merchant Network

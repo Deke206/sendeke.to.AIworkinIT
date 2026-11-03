@@ -1,0 +1,22 @@
+# Cloudflare Worker Edge Configuration for SENDEKETO.COM
+name = "sendeke-edge-broker"
+main = "escrow-broker.js"
+compatibility_date = "2026-10-01"
+account_id = "a7309d340cc7d985372a37166d4f3ea4"
+
+[vars]
+ENVIRONMENT = "production"
+SERVICE_ZIP = "90034"
+STRIPE_ACCOUNT_ID = "acct_1UMDqqI2soUb8x6t"
+
+# D1 Database Binding for Global Real-Time Ticket Dispatch
+[[d1_databases]]
+binding = "DB"
+database_name = "sendeke-production-d1"
+database_id = "f6a8e104-d759-42b8-89c1-sendeke-live"
+
+# Production Edge Routing (sendeketo.com custom domain)
+routes = [
+  { pattern = "api.sendeketo.com/api/*", zone_name = "sendeketo.com" },
+  { pattern = "sendeketo.com/api/*", zone_name = "sendeketo.com" }
+]

@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sendeke",
+  "main": "workers/index.js",
+  "compatibility_date": "2026-10-31",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    { "pattern": "sendeketo.com/*", "zone_name": "sendeketo.com" },
+    { "pattern": "www.sendeketo.com/*", "zone_name": "sendeketo.com" }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sendeke-production-d1",
+      "database_id": "940a3773-4899-45b1-9d38-f64061b47c5f"
+    }
+  ],
+  "vars": {
+    "STRIPE_ACCOUNT_ID": "acct_1UMDqqI2soUb8x6t",
+    "DISPATCH_PHONE": "(323) 374-5787"
+  }
+}

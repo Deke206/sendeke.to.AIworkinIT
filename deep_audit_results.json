@@ -1,0 +1,552 @@
+{
+  "index.html": {
+    "title": "SENDEKETO.COM | Direct Local Courier &amp; Community Livery",
+    "fileSizeBytes": 68469,
+    "lineCount": 1196,
+    "inlineStyleBytes": 170,
+    "inlineScriptBytes": 19863,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/webmcp.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 46,
+    "missingFiles": [],
+    "navBlocks": [
+      {
+        "tag": "<header class=\"navbar-floating\" id=\"site-navigation-object\">",
+        "textPreview": "SENDEKETO .COM Home Corridor Menus (6) 🍱 Sweetfin Palms (34) 🌮 Taquería El Cachetón 🥪 Lokal Sandwich Shop 🍕 The Doughroom 🍜 Simpang Asia 🥙 Mizla"
+      }
+    ],
+    "modals": [
+      {
+        "id": "home-phone-dialer-modal",
+        "title": "AI CONCIERGE\n            Call-In Phone Order Simulator",
+        "buttons": [
+          "",
+          "Close",
+          "📞 Place Call-In Order &amp; Get Receipt"
+        ],
+        "inputs": [
+          "home-dialer-item-input",
+          "home-dialer-dest-input"
+        ]
+      },
+      {
+        "id": "home-receipt-modal",
+        "title": "Courier Order Receipt",
+        "buttons": [
+          "",
+          "Send Link"
+        ],
+        "inputs": [
+          "receipt-email-input"
+        ]
+      },
+      {
+        "id": "soapbox-pitch-modal",
+        "title": "RENEGADE COURIER\n            Disrupt the Ride-Share Mafia &bull; Partner Outreach Pitch",
+        "buttons": [
+          "",
+          "📋 Copy Pitch Text"
+        ],
+        "inputs": [
+          "pitch-email-input",
+          "pitch-subject-input"
+        ]
+      }
+    ],
+    "totalDomIds": 66,
+    "uniqueDomIds": 66,
+    "jsReferencedIdsCount": 43,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeke-d-wheels.svg",
+      "assets/brand/sendeke-food-bag-icon.svg",
+      "assets/img/tacos-platter.jpg",
+      "assets/img/menu-live-screenshot.png"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "menu.html": {
+    "title": "Sweetfin Menu | sendeketo.com",
+    "fileSizeBytes": 63294,
+    "lineCount": 1293,
+    "inlineStyleBytes": 3312,
+    "inlineScriptBytes": 36955,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/webmcp.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 25,
+    "missingFiles": [],
+    "navBlocks": [],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "Your Sweetfin Cart",
+        "buttons": [],
+        "inputs": []
+      },
+      {
+        "id": "phone-dialer-modal",
+        "title": "AI CONCIERGE\n            Call-In Phone Order Simulator",
+        "buttons": [
+          ""
+        ],
+        "inputs": [
+          "dialer-item-input",
+          "dialer-address-input"
+        ]
+      },
+      {
+        "id": "receipt-modal",
+        "title": "Order Receipt &amp; Voucher",
+        "buttons": [
+          ""
+        ],
+        "inputs": []
+      }
+    ],
+    "totalDomIds": 39,
+    "uniqueDomIds": 39,
+    "jsReferencedIdsCount": 27,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeke-food-bag-icon.svg",
+      "assets/brand/food-delivery-animated.gif"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "tacos.html": {
+    "title": "Taquería El Cachetón Menu | sendeketo.com",
+    "fileSizeBytes": 70544,
+    "lineCount": 1232,
+    "inlineStyleBytes": 3653,
+    "inlineScriptBytes": 21741,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/webmcp.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 22,
+    "missingFiles": [],
+    "navBlocks": [],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "Your Taco Cart",
+        "buttons": [],
+        "inputs": []
+      },
+      {
+        "id": "phone-dialer-modal",
+        "title": "AI CONCIERGE\n            Call-In Phone Order Simulator",
+        "buttons": [
+          ""
+        ],
+        "inputs": [
+          "dialer-item-input",
+          "dialer-address-input"
+        ]
+      },
+      {
+        "id": "receipt-modal",
+        "title": "Order Receipt &amp; Voucher",
+        "buttons": [
+          ""
+        ],
+        "inputs": []
+      }
+    ],
+    "totalDomIds": 34,
+    "uniqueDomIds": 34,
+    "jsReferencedIdsCount": 24,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeke-food-bag-icon.svg",
+      "assets/brand/food-delivery-animated.gif"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "sandwiches.html": {
+    "title": "Lokal Sandwich Shop | sendeketo.com",
+    "fileSizeBytes": 37482,
+    "lineCount": 706,
+    "inlineStyleBytes": 1594,
+    "inlineScriptBytes": 10091,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/webmcp.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 19,
+    "missingFiles": [],
+    "navBlocks": [],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart",
+        "buttons": [
+          ""
+        ],
+        "inputs": []
+      }
+    ],
+    "totalDomIds": 22,
+    "uniqueDomIds": 22,
+    "jsReferencedIdsCount": 5,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeke-food-bag-icon.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "doughroom.html": {
+    "title": "The Doughroom | sendeketo.com",
+    "fileSizeBytes": 30957,
+    "lineCount": 603,
+    "inlineStyleBytes": 1593,
+    "inlineScriptBytes": 8686,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/webmcp.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 19,
+    "missingFiles": [],
+    "navBlocks": [],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart",
+        "buttons": [
+          ""
+        ],
+        "inputs": []
+      }
+    ],
+    "totalDomIds": 19,
+    "uniqueDomIds": 19,
+    "jsReferencedIdsCount": 5,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeke-food-bag-icon.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "simpang.html": {
+    "title": "Simpang Asia | sendeketo.com",
+    "fileSizeBytes": 35224,
+    "lineCount": 681,
+    "inlineStyleBytes": 1594,
+    "inlineScriptBytes": 9606,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/webmcp.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 19,
+    "missingFiles": [],
+    "navBlocks": [],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart",
+        "buttons": [
+          ""
+        ],
+        "inputs": []
+      }
+    ],
+    "totalDomIds": 21,
+    "uniqueDomIds": 21,
+    "jsReferencedIdsCount": 5,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeke-food-bag-icon.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "mizlala.html": {
+    "title": "Mizlala West Adams | sendeketo.com",
+    "fileSizeBytes": 27657,
+    "lineCount": 546,
+    "inlineStyleBytes": 1594,
+    "inlineScriptBytes": 8187,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/webmcp.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 19,
+    "missingFiles": [],
+    "navBlocks": [],
+    "modals": [
+      {
+        "id": "cartModal",
+        "title": "🛒 Your Cumulative Cart",
+        "buttons": [
+          ""
+        ],
+        "inputs": []
+      }
+    ],
+    "totalDomIds": 17,
+    "uniqueDomIds": 17,
+    "jsReferencedIdsCount": 5,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeke-food-bag-icon.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "checkout.html": {
+    "title": "Sweetfin Palms | Live Escrow Checkout & Transmitted Receipt",
+    "fileSizeBytes": 41391,
+    "lineCount": 889,
+    "inlineStyleBytes": 5537,
+    "inlineScriptBytes": 18951,
+    "externalScripts": [
+      "https://js.stripe.com/v3/",
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js"
+    ],
+    "referencedLocalFilesCount": 12,
+    "missingFiles": [
+      "${it.image}"
+    ],
+    "navBlocks": [],
+    "modals": [],
+    "totalDomIds": 38,
+    "uniqueDomIds": 38,
+    "jsReferencedIdsCount": 27,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/img/sweetfin/spicy_tuna_poke_bowl.jpg",
+      "${it.image}"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "receipt.html": {
+    "title": "Sweetfin Palms | Transmitted Customer Receipt & Escrow Proof",
+    "fileSizeBytes": 16529,
+    "lineCount": 400,
+    "inlineStyleBytes": 3823,
+    "inlineScriptBytes": 5988,
+    "externalScripts": [
+      "assets/js/dispatch-engine.js"
+    ],
+    "referencedLocalFilesCount": 5,
+    "missingFiles": [],
+    "navBlocks": [],
+    "modals": [],
+    "totalDomIds": 22,
+    "uniqueDomIds": 22,
+    "jsReferencedIdsCount": 18,
+    "orphanedIdsInJs": [],
+    "imgAssets": [],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "request.html": {
+    "title": "Direct Courier Request | SenDeke.to",
+    "fileSizeBytes": 10768,
+    "lineCount": 204,
+    "inlineStyleBytes": 0,
+    "inlineScriptBytes": 3252,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 15,
+    "missingFiles": [],
+    "navBlocks": [
+      {
+        "tag": "<header class=\"navbar-floating\" id=\"request-nav-object\">",
+        "textPreview": "SenDeke .to INTAKE Home Sweetfin Catalog Track Ticket"
+      }
+    ],
+    "modals": [],
+    "totalDomIds": 14,
+    "uniqueDomIds": 14,
+    "jsReferencedIdsCount": 8,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeketo-logo-vector.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "track.html": {
+    "title": "Track Courier Ticket | SenDeke.to",
+    "fileSizeBytes": 16731,
+    "lineCount": 305,
+    "inlineStyleBytes": 0,
+    "inlineScriptBytes": 7943,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+      "assets/js/dispatch-engine.js",
+      "assets/js/courier-ebike.js"
+    ],
+    "referencedLocalFilesCount": 17,
+    "missingFiles": [],
+    "navBlocks": [
+      {
+        "tag": "<header class=\"navbar-floating\" id=\"track-nav-object\">",
+        "textPreview": "SenDeke .to TRACKER Home Sweetfin Catalog Track Ticket"
+      }
+    ],
+    "modals": [],
+    "totalDomIds": 26,
+    "uniqueDomIds": 26,
+    "jsReferencedIdsCount": 14,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeketo-logo-vector.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "driver.html": {
+    "title": "Driver Cockpit &amp; Bicycle Dispatch | SenDeke.to",
+    "fileSizeBytes": 34925,
+    "lineCount": 735,
+    "inlineStyleBytes": 2689,
+    "inlineScriptBytes": 16441,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+      "assets/js/dispatch-engine.js"
+    ],
+    "referencedLocalFilesCount": 14,
+    "missingFiles": [],
+    "navBlocks": [
+      {
+        "tag": "<header class=\"navbar-floating\">",
+        "textPreview": "SenDeke .to DRIVER COCKPIT ONLINE"
+      }
+    ],
+    "modals": [],
+    "totalDomIds": 42,
+    "uniqueDomIds": 41,
+    "jsReferencedIdsCount": 29,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeketo-logo-vector.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "driver-settings.html": {
+    "title": "Driver Operations &amp; Fleet Settings | SenDeke.to",
+    "fileSizeBytes": 26141,
+    "lineCount": 518,
+    "inlineStyleBytes": 865,
+    "inlineScriptBytes": 7221,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js"
+    ],
+    "referencedLocalFilesCount": 14,
+    "missingFiles": [],
+    "navBlocks": [
+      {
+        "tag": "<header class=\"navbar-floating\">",
+        "textPreview": "SenDeke .to FLEET &amp; SETTINGS ◀ Flight Deck Comptroller ONLINE"
+      }
+    ],
+    "modals": [],
+    "totalDomIds": 29,
+    "uniqueDomIds": 29,
+    "jsReferencedIdsCount": 22,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeketo-logo-vector.svg"
+    ],
+    "svgIconsCount": 1,
+    "svgSampleClasses": [
+      "unclassed-svg"
+    ]
+  },
+  "restaurant.html": {
+    "title": "Kitchen Expedite Terminal | Sweetfin Palms",
+    "fileSizeBytes": 30762,
+    "lineCount": 567,
+    "inlineStyleBytes": 0,
+    "inlineScriptBytes": 8034,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "assets/js/dispatch-engine.js"
+    ],
+    "referencedLocalFilesCount": 15,
+    "missingFiles": [],
+    "navBlocks": [
+      {
+        "tag": "<header class=\"navbar-floating\" id=\"kitchen-nav-object\">",
+        "textPreview": "Sweetfin Palms EXPEDITE Home Sweetfin Catalog Driver Cockpit Kitchen Kiosk Comptroller Test Chime ORDERS ONLINE"
+      }
+    ],
+    "modals": [],
+    "totalDomIds": 13,
+    "uniqueDomIds": 13,
+    "jsReferencedIdsCount": 5,
+    "orphanedIdsInJs": [
+      "kitchen-queue-object > .card-body",
+      "kitchen-stock-object .list-group-item"
+    ],
+    "imgAssets": [
+      "assets/brand/sendeketo-logo-vector.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  },
+  "admin.html": {
+    "title": "Fleet Comptroller &amp; Driver Tracker Portal | SenDeke.to",
+    "fileSizeBytes": 37573,
+    "lineCount": 684,
+    "inlineStyleBytes": 0,
+    "inlineScriptBytes": 11561,
+    "externalScripts": [
+      "assets/js/bootstrap.bundle.min.js",
+      "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+      "assets/js/dispatch-engine.js"
+    ],
+    "referencedLocalFilesCount": 16,
+    "missingFiles": [],
+    "navBlocks": [
+      {
+        "tag": "<header class=\"navbar-floating\" id=\"admin-nav-object\">",
+        "textPreview": "SenDeke .to COMPTROLLER Home Sweetfin Catalog Driver Cockpit Kitchen Kiosk Comptroller MAPS API CONFIGURED ↗ FULLSCREEN"
+      }
+    ],
+    "modals": [],
+    "totalDomIds": 32,
+    "uniqueDomIds": 32,
+    "jsReferencedIdsCount": 17,
+    "orphanedIdsInJs": [],
+    "imgAssets": [
+      "assets/brand/sendeketo-logo-vector.svg"
+    ],
+    "svgIconsCount": 0,
+    "svgSampleClasses": []
+  }
+}

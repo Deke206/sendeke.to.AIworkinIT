@@ -1,0 +1,116 @@
+{
+  "merchant": {
+    "id": "lokal-sandwich-palms",
+    "name": "Lokal Sandwich Shop",
+    "address": "10433 National Blvd #1A, Los Angeles, CA 90034",
+    "corridor": "Palms (90034) • National Blvd",
+    "phone": "(310) 836-5837",
+    "cuisine": "Handcrafted Sandwiches, Vietnamese Banh Mi & Artisan Subs",
+    "hours": "7:30 AM - 5:00 PM Daily"
+  },
+  "categories": [
+    {
+      "name": "Banh Mi Sandwiches",
+      "items": [
+        {
+          "id": "lokal-01",
+          "name": "Old Skool Banh Mi",
+          "price": 14.45,
+          "category": "Banh Mi Sandwiches",
+          "description": "Classic cold cut Vietnamese sandwich with pork loaf, ham, head cheese, pate, cucumber, jalapeño, mayo, and pickled daikon/carrots on toasted French baguette.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-02",
+          "name": "Grilled Chicken Banh Mi",
+          "price": 16.45,
+          "category": "Banh Mi Sandwiches",
+          "description": "Marinated grilled chicken breast, fresh cilantro, jalapeño, cucumber, house mayo, and pickled vegetables on crispy baguette.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-03",
+          "name": "K-BBQ Beef Banh Mi",
+          "price": 17.00,
+          "category": "Banh Mi Sandwiches",
+          "description": "Korean bulgogi marinated ribeye, sweet soy glaze, pickled daikon, cucumber, cilantro, spicy sriracha mayo.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-04",
+          "name": "Lemongrass Tofu Banh Mi",
+          "price": 16.45,
+          "category": "Banh Mi Sandwiches",
+          "description": "Crispy organic tofu sautéed in fresh lemongrass and garlic, pickled carrots, cucumber, jalapeño, and vegan cilantro mayo.",
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "name": "Signature Subs & Melts",
+      "items": [
+        {
+          "id": "lokal-05",
+          "name": "Chimichurri Steak Sandwich",
+          "price": 17.45,
+          "category": "Signature Subs & Melts",
+          "description": "Tender grilled steak, scratch chimichurri herb sauce, grilled onions, fresh tomatoes, melted pepper jack, and garlic aioli on rustic ciabatta.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-06",
+          "name": "Italian Job 2.0 Sub",
+          "price": 16.45,
+          "category": "Signature Subs & Melts",
+          "description": "Genoa salami, mortadella, sweet capicola, ham, provolone, wild arugula, tomato, spicy pepperoncini, and deli mustard on ciabatta.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-07",
+          "name": "Albacore Tuna Melt",
+          "price": 17.45,
+          "category": "Signature Subs & Melts",
+          "description": "Line-caught wild albacore tuna salad, melted sharp cheddar, sliced avocado, and beefsteak tomatoes on toasted sourdough.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-08",
+          "name": "Turkey Bacon Pesto Ciabatta",
+          "price": 16.00,
+          "category": "Signature Subs & Melts",
+          "description": "Roasted turkey breast, applewood smoked bacon, basil pesto, melted provolone, and mixed greens on toasted ciabatta.",
+          "inStock": true
+        }
+      ]
+    },
+    {
+      "name": "All-Day Breakfast & Drinks",
+      "items": [
+        {
+          "id": "lokal-09",
+          "name": "Sunrise Breakfast Sandwich",
+          "price": 6.70,
+          "category": "All-Day Breakfast & Drinks",
+          "description": "Two fried eggs, melted cheddar cheese, house mayo, crisp lettuce, and ripe tomatoes on toasted ciabatta.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-10",
+          "name": "The Rustic Breakfast",
+          "price": 11.95,
+          "category": "All-Day Breakfast & Drinks",
+          "description": "Applewood bacon, over-easy egg, wild arugula, shaved parmesan, garlic aioli, sundried tomato, and pesto on rustic sourdough.",
+          "inStock": true
+        },
+        {
+          "id": "lokal-11",
+          "name": "Vietnamese Iced Coffee (Ca Phe Sua Da)",
+          "price": 5.75,
+          "category": "All-Day Breakfast & Drinks",
+          "description": "Slow-dripped dark roast Vietnamese coffee sweetened with rich condensed milk over crushed ice.",
+          "inStock": true
+        }
+      ]
+    }
+  ]
+}

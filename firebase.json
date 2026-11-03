@@ -1,0 +1,90 @@
+{
+  "firestore": {
+    "rules": "docs/Firebase & Google Cloud/firestore.rules",
+    "indexes": "docs/Firebase & Google Cloud/firestore.indexes.json"
+  },
+  "hosting": {
+    "site": "sendeke-to-web",
+    "public": ".",
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Cross-Origin-Opener-Policy",
+            "value": "same-origin-allow-popups"
+          }
+        ]
+      },
+      {
+        "source": "/__/auth/**",
+        "headers": [
+          {
+            "key": "Cross-Origin-Opener-Policy",
+            "value": "same-origin-allow-popups"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-store, no-cache, must-revalidate, max-age=0"
+          }
+        ]
+      },
+      {
+        "source": "/sw.js",
+        "headers": [
+          {
+            "key": "Service-Worker-Allowed",
+            "value": "/"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/firebase-messaging-sw.js",
+        "headers": [
+          {
+            "key": "Service-Worker-Allowed",
+            "value": "/"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(js|css)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-transform"
+          }
+        ]
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "docs/**",
+      "scripts/**",
+      "workers/**",
+      "driver app/**",
+      "driver-tracker10-20-26/**",
+      "scss/**",
+      "js/**",
+      "*.env*",
+      "**/.env*",
+      "*.code-workspace",
+      "*.md",
+      "**/*.md",
+      "*.log",
+      "**/*.log",
+      "**/*.mp4",
+      "**/*.map"
+    ]
+  }
+}

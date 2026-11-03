@@ -1,0 +1,221 @@
+/* ==========================================================================
+   SenDeke-2: Fleet Comptroller & AI Studio Driver Tracker Stylesheet
+   Standard: Pure Bootstrap 5.3.3 Modular Extension
+   Design Theme: AI Studio Cyber-Dossier (Light Phosphate Mineral Theme)
+   ========================================================================== */
+
+:root {
+  --admin-bg: #F4F4F5;
+  --admin-panel: rgba(255, 255, 255, 0.85);
+  --admin-ink: #18181B;
+  --admin-accent: #D97706;
+  --admin-border: rgba(0, 0, 0, 0.12);
+  --status-in-trip: #2563EB;
+  --status-in-queue: #D97706;
+  --status-online: #16A34A;
+  --status-idle: #64748B;
+  --status-offline: #94A3B8;
+}
+
+/* Base Body Styling */
+body#admin-body {
+  color: var(--admin-ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+[data-bs-theme="dark"] body#admin-body {
+  color: #E4E4E7;
+}
+
+/* Monospace & Eyebrow Labels */
+.font-mono,
+.dossier-label {
+  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+}
+
+.dossier-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.75;
+}
+
+/* Stat Pills */
+.admin-stat-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  color: var(--admin-ink);
+}
+
+/* Cyber Dossier Cards (Frosted Bathroom Plate Glass) */
+.dossier-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease-in-out;
+  color: var(--admin-ink);
+}
+
+.dossier-card:hover {
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+.dossier-card.selected-driver {
+  border-color: var(--admin-accent) !important;
+  box-shadow: 0 0 12px rgba(217, 119, 6, 0.25);
+}
+
+.dossier-card.pinned-driver {
+  border-left: 3px solid var(--admin-accent);
+}
+
+/* Driver Avatar Circle */
+.driver-avatar-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #E4E4E7;
+  color: var(--admin-ink);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--admin-border);
+}
+
+/* Interactive Map Canvas Container */
+#fleet-map-canvas-container {
+  background: #E2E8F0;
+  position: relative;
+  border: 1px solid var(--admin-border);
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 420px;
+}
+
+/* Map HUD Overlays */
+.map-hud-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--admin-border);
+  padding: 10px 14px;
+  border-radius: 4px;
+  pointer-events: none;
+  color: var(--admin-ink);
+}
+
+.map-controls-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  display: flex;
+  gap: 6px;
+}
+
+/* Custom Ping Pulse Animation on Map */
+@keyframes pingPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+.map-driver-ping {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(234, 179, 8, 0.4);
+  border: 2px solid var(--admin-accent);
+  animation: pingPulse 1.2s infinite ease-out;
+  pointer-events: none;
+}
+
+/* Custom Tactical Leaflet Tooltips */
+.tactical-tooltip {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #18181B !important;
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 4px !important;
+  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace !important;
+  font-size: 0.75rem !important;
+  padding: 4px 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.tactical-tooltip::before {
+  border-top-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Leaflet Attribution Bar Styling */
+.leaflet-control-attribution {
+  font-size: 0.65rem !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  color: #52525B !important;
+  padding: 2px 6px !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--status-in-trip) !important;
+  text-decoration: none;
+}
+
+/* Audio toggle indicator */
+.audio-live-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--status-online);
+}
+
+.audio-live-indicator.muted {
+  background-color: var(--status-offline);
+}
+
+/* Radio button group styling for status filters */
+.btn-check:checked + .btn-outline-warning {
+  background-color: var(--admin-accent);
+  color: #0F172A;
+  border-color: var(--admin-accent);
+}
+
+/* ==========================================================================
+   Admin Dashboard Spacing Optimizations (Metric Info Boxes & Quick Buttons)
+   ========================================================================== */
+
+/* Optimization for Metric Info Boxes */
+.row.text-center.small .col-3 {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  width: calc(25% - 8px) !important;
+  padding: 2px !important;
+}
+
+/* Optimization for Quick Destination Buttons */
+.col-12.col-md-auto.d-flex.gap-1 {
+  gap: 0.5rem !important; /* Increases space between buttons */
+}
+
+.quick-dest-btn {
+  padding-left: 4px !important;  /* Reduced from px-2 */
+  padding-right: 4px !important;
+}
+

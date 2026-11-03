@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Track Courier Ticket | SenDeke 2</title>
+  
+  <!-- Authentic Favicons & Manifest -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <!-- Local Pure Bootstrap 5.3.3 and Site Standards Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/courier-ebike.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+</head>
+<body class="bg-body text-body">
+
+  
+
+  <!-- =========================================================================
+       MAIN TRACKING VIEWPORT
+       ========================================================================= -->
+  <main class="py-3">
+    <div class="container-xl">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          
+          <!-- HERO PANE -->
+          <section class="p-4 mb-3 rounded-3 hero-pane-glass text-center" id="hero-banner-object">
+            <h1 class="h3 fw-bold text-dark mb-2" aria-label="SenDeke 2">
+              <span class="sendeke-brand-lockup">Sen<svg class="brand-d-wheels-svg" xmlns="http://www.w3.org/2000/svg" viewBox="42 56 142 134" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M72 150 A17 17 0 1 0 72 184 A17 17 0 1 0 72 150 Z M72 159 A8 8 0 1 1 72 175 A8 8 0 1 1 72 159 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M148 150 A17 17 0 1 0 148 184 A17 17 0 1 0 148 150 Z M148 159 A8 8 0 1 1 148 175 A8 8 0 1 1 148 159 Z"/></svg>eke 2</span>
+            </h1>
+            <p class="small text-body-secondary mb-3">Live Neighborhood Courier Radar &bull; Zone 90034</p>
+            <div class="d-flex justify-content-center">
+          <div class="dropdown hero-menu-dropdown">
+            <button class="btn btn-primary dropdown-toggle fw-bold font-mono px-4 py-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              MENU
+            </button>
+            <ul class="dropdown-menu text-center start-50 translate-middle-x">
+              <li><a class="dropdown-item text-center font-mono" href="index.html">Home</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-center font-mono" href="menu.html">Sweetfin Menu</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="tacos.html">Taquería El Cachetón</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="sandwiches.html">Lokal Sandwich Shop</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="doughroom.html">The Doughroom</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="simpang.html">Simpang Asia</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="mizlala.html">Mizlala West Adams</a></li>
+            </ul>
+          </div>
+        </div>
+          </section>
+
+          <!-- OBJECT 2: TICKET STATUS CARD -->
+          <div class="card border-secondary-subtle bg-body-tertiary mb-3" id="track-card-object">
+            <div class="card-header border-secondary-subtle d-flex justify-content-between align-items-center bg-transparent py-2 flex-wrap gap-2">
+              <div>
+                <span class="small text-body-secondary font-mono">TICKET NUMBER</span>
+                <h2 class="h6 fw-bold text-dark font-mono mb-0" id="track-ticket-id">#SDK-101</h2>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-dark border border-warning text-warning px-2 py-1 font-mono" id="track-pin-badge" title="Present this 6-digit PIN to Courier #04 upon arrival">PIN: 374374</span>
+                <span class="badge bg-success-subtle text-success px-2 py-1 font-mono" id="track-status-badge">● IN-TRANSIT</span>
+              </div>
+            </div>
+
+            <div class="card-body p-3">
+              <!-- Live Interactive Radar Map -->
+              <div id="live-telemetry-map" class="ratio ratio-16x9 border border-secondary-subtle rounded-2 mb-3" style="min-height: 280px; z-index: 1;"></div>
+
+              <!-- 3-Step Progress Stepper -->
+              <div class="list-group list-group-flush border border-secondary-subtle rounded-2 mb-3">
+                <div class="list-group-item bg-body d-flex align-items-center gap-2 py-2" id="track-step-1">
+                  <span class="badge bg-primary rounded-circle p-1 font-mono" id="track-step-1-icon">✓</span>
+                  <div class="flex-grow-1">
+                    <div class="small fw-semibold text-dark">Ticket Intake &amp; Kitchen Receipt</div>
+                    <div class="text-body-secondary small" id="track-step-1-sub">Confirmed at Sweetfin Palms</div>
+                  </div>
+                  <span class="badge bg-success-subtle text-success font-mono" id="track-step-1-badge">DONE</span>
+                </div>
+
+                <div class="list-group-item bg-body d-flex align-items-center gap-2 py-2" id="track-step-2">
+                  <span class="badge bg-primary rounded-circle p-1 font-mono" id="track-step-2-icon">2</span>
+                  <div class="flex-grow-1">
+                    <div class="small fw-semibold text-dark">Courier Picked Up Order</div>
+                    <div class="text-body-secondary small" id="track-step-2-sub">Courier #04 en route to pickup counter</div>
+                  </div>
+                  <span class="badge bg-warning-subtle text-warning font-mono" id="track-step-2-badge">ACTIVE</span>
+                </div>
+
+                <div class="list-group-item bg-body d-flex align-items-center gap-2 py-2" id="track-step-3">
+                  <span class="badge bg-secondary rounded-circle p-1 font-mono" id="track-step-3-icon">3</span>
+                  <div class="flex-grow-1">
+                    <div class="small fw-semibold text-dark">Direct Delivery &amp; Handshake PIN Capture</div>
+                    <div class="text-body-secondary small" id="track-step-3-sub">Destination: 3645 Overland Ave</div>
+                  </div>
+                  <span class="badge bg-secondary-subtle text-secondary font-mono" id="track-step-3-badge">PENDING</span>
+                </div>
+              </div>
+
+              <!-- Details Summary -->
+              <div class="p-2 px-3 border border-secondary-subtle rounded-2 bg-body small font-mono mb-3">
+                <div class="d-flex justify-content-between mb-1 flex-wrap gap-1">
+                  <span class="text-body-secondary">Origin:</span>
+                  <strong class="text-dark" id="track-origin-text">Sweetfin Palms (3105 Overland Ave)</strong>
+                </div>
+                <div class="d-flex justify-content-between mb-1 flex-wrap gap-1">
+                  <span class="text-body-secondary">Destination:</span>
+                  <strong class="text-dark" id="track-dest-text">3645 Overland Ave, Los Angeles, CA 90034</strong>
+                </div>
+                <div class="d-flex justify-content-between mb-1 flex-wrap gap-1">
+                  <span class="text-body-secondary">Order Summary:</span>
+                  <strong class="text-dark" id="track-ask-text">Signature Poke Run</strong>
+                </div>
+                <div class="d-flex justify-content-between flex-wrap gap-1">
+                  <span class="text-body-secondary">Livery:</span>
+                  <strong class="text-success" id="track-courier-text">Courier #04 (100% Pass-Through)</strong>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2">
+                <a href="receipt.html" id="track-view-receipt-btn" class="btn btn-sm btn-outline-light font-mono flex-grow-1">View Printable Receipt &rarr;</a>
+                <a href="request.html" class="btn btn-sm btn-primary font-mono">New Request</a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       OBJECT 3: APPLICATION FOOTER
+       ========================================================================= -->
+  <footer class="py-3 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto" id="track-footer-object">
+    <div class="container-xl text-center small">
+      <div class="mb-1 fw-semibold text-dark">SenDeke 2 — Local Courier &amp; Community Livery</div>
+      <div class="mb-0 text-body-secondary font-mono">90034 Palms / Culver City • Designed by DeacStudio</div>
+    </div>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script src="assets/js/courier-ebike.js"></script>
+  <script>
+    (function () {
+      const engine = window.SenDekeEngine;
+      const pickupCoords = [34.0252, -118.4112]; // Overland Ave Palms Corridor
+      const dropoffCoords = [34.0205, -118.4045]; // 3645 Overland Ave
+      let courierCoords = [34.0235, -118.4085];
+
+      let map = null;
+      let pickupMarker = null;
+      let dropoffMarker = null;
+      let courierMarker = null;
+
+      if (typeof window.L !== 'undefined') {
+        map = L.map('live-telemetry-map', {
+          zoomControl: true,
+          attributionControl: false
+        }).setView([34.023, -118.408], 14);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+          maxZoom: 19,
+          subdomains: 'abcd'
+        }).addTo(map);
+
+        const courierIcon = L.divIcon({
+          className: 'courier-custom-marker',
+          html: '<div style="background:#10B981; width:18px; height:18px; border-radius:50%; border:2px solid #ffffff; box-shadow:0 0 12px #10B981;"></div>',
+          iconSize: [18, 18],
+          iconAnchor: [9, 9]
+        });
+
+        pickupMarker = L.marker(pickupCoords).addTo(map)
+          .bindPopup('<strong style="color:#000;">Corridor Pickup</strong><br><span style="color:#333;">Sweetfin Palms</span>');
+
+        dropoffMarker = L.marker(dropoffCoords).addTo(map)
+          .bindPopup('<strong style="color:#000;">Destination</strong><br><span style="color:#333;">3645 Overland Ave</span>');
+
+        courierMarker = L.marker(courierCoords, { icon: courierIcon }).addTo(map)
+          .bindPopup('<strong style="color:#000;">Courier #04 (Deke)</strong><br><span style="color:#333;">Synch-2 E-Bike &bull; Zone 90034</span>')
+          .openPopup();
+
+        const route = L.polyline([pickupCoords, courierCoords, dropoffCoords], {
+          color: '#10B981',
+          weight: 4,
+          opacity: 0.9,
+          dashArray: '8, 8'
+        }).addTo(map);
+
+        map.fitBounds(route.getBounds(), { padding: [35, 35] });
+
+        let step = 0;
+        setInterval(function () {
+          step = (step + 1) % 10;
+          const lat = courierCoords[0] - (step * 0.00025);
+          const lng = courierCoords[1] + (step * 0.00035);
+          if (courierMarker) courierMarker.setLatLng([lat, lng]);
+        }, 3000);
+      }
+
+      function renderTicket() {
+        if (!engine) return;
+        const params = new URLSearchParams(window.location.search);
+        const requestedId = params.get('receipt') || params.get('ticket');
+        const ticket = engine.getTicketById(requestedId);
+        if (!ticket) return;
+
+        const idEl = document.getElementById('track-ticket-id');
+        const pinBadge = document.getElementById('track-pin-badge');
+        const statusBadge = document.getElementById('track-status-badge');
+        const originEl = document.getElementById('track-origin-text');
+        const destEl = document.getElementById('track-dest-text');
+        const askEl = document.getElementById('track-ask-text');
+        const receiptBtn = document.getElementById('track-view-receipt-btn');
+
+        const s1Sub = document.getElementById('track-step-1-sub');
+        const s2Icon = document.getElementById('track-step-2-icon');
+        const s2Sub = document.getElementById('track-step-2-sub');
+        const s2Badge = document.getElementById('track-step-2-badge');
+        const s3Icon = document.getElementById('track-step-3-icon');
+        const s3Sub = document.getElementById('track-step-3-sub');
+        const s3Badge = document.getElementById('track-step-3-badge');
+
+        const cleanId = String(ticket.id).startsWith('#') ? ticket.id : `#${ticket.id}`;
+        if (idEl) idEl.textContent = cleanId;
+        if (pinBadge && ticket.handshakePin) pinBadge.textContent = `PIN: ${ticket.handshakePin}`;
+        if (originEl) originEl.textContent = ticket.pickupLocation;
+        if (destEl) destEl.textContent = ticket.dropoffAddress;
+        if (askEl) {
+          askEl.textContent = ticket.originalAsk
+            || (Array.isArray(ticket.items) && ticket.items.length > 0
+              ? ticket.items.map(i => `${i.qty || 1}x ${i.name}`).join(', ')
+              : 'Direct Corridor Run');
+        }
+        if (receiptBtn) receiptBtn.href = `receipt.html?receipt=${encodeURIComponent(ticket.id)}`;
+        if (s1Sub) s1Sub.textContent = `Confirmed at ${ticket.pickupLocation}`;
+        if (s3Sub) s3Sub.textContent = `Destination: ${ticket.dropoffAddress}`;
+
+        if (pickupMarker) {
+          pickupMarker.setPopupContent(`<strong style="color:#000;">Pickup</strong><br><span style="color:#333;">${ticket.pickupLocation}</span>`);
+        }
+        if (dropoffMarker) {
+          dropoffMarker.setPopupContent(`<strong style="color:#000;">Destination</strong><br><span style="color:#333;">${ticket.dropoffAddress}</span>`);
+        }
+
+        const st = String(ticket.status || 'DISPATCH_PENDING').toUpperCase();
+        if (st === 'DELIVERED_AND_CAPTURED') {
+          if (statusBadge) {
+            statusBadge.className = 'badge bg-success text-white px-2 py-1 font-mono';
+            statusBadge.textContent = '✓ DELIVERED & CAPTURED';
+          }
+          if (s2Icon) { s2Icon.className = 'badge bg-primary rounded-circle p-1 font-mono'; s2Icon.textContent = '✓'; }
+          if (s2Badge) { s2Badge.className = 'badge bg-success-subtle text-success font-mono'; s2Badge.textContent = 'DONE'; }
+          if (s2Sub) s2Sub.textContent = 'Picked up & verified by Courier #04';
+          if (s3Icon) { s3Icon.className = 'badge bg-success rounded-circle p-1 font-mono'; s3Icon.textContent = '✓'; }
+          if (s3Badge) { s3Badge.className = 'badge bg-success text-white font-mono'; s3Badge.textContent = 'CAPTURED'; }
+        } else if (st === 'ORDER_COLLECTED' || st === 'HANDED_TO_COURIER') {
+          if (statusBadge) {
+            statusBadge.className = 'badge bg-success-subtle text-success px-2 py-1 font-mono';
+            statusBadge.textContent = '● EN ROUTE TO YOU';
+          }
+          if (s2Icon) { s2Icon.className = 'badge bg-primary rounded-circle p-1 font-mono'; s2Icon.textContent = '✓'; }
+          if (s2Badge) { s2Badge.className = 'badge bg-success-subtle text-success font-mono'; s2Badge.textContent = 'DONE'; }
+          if (s2Sub) s2Sub.textContent = 'Courier #04 in custody of insulated bag';
+          if (s3Icon) { s3Icon.className = 'badge bg-warning text-dark rounded-circle p-1 font-mono'; s3Icon.textContent = '3'; }
+          if (s3Badge) { s3Badge.className = 'badge bg-warning-subtle text-warning font-mono'; s3Badge.textContent = 'ACTIVE'; }
+        } else if (st === 'AT_MERCHANT' || st === 'READY_FOR_PICKUP') {
+          if (statusBadge) {
+            statusBadge.className = 'badge bg-info-subtle text-info px-2 py-1 font-mono';
+            statusBadge.textContent = '● AT KITCHEN COUNTER';
+          }
+          if (s2Badge) { s2Badge.className = 'badge bg-info-subtle text-info font-mono'; s2Badge.textContent = st === 'READY_FOR_PICKUP' ? 'ORDER READY' : 'AT COUNTER'; }
+          if (s2Sub) s2Sub.textContent = st === 'READY_FOR_PICKUP' ? 'Kitchen marked order ready for Courier #04' : 'Courier #04 arrived at merchant';
+        } else {
+          if (statusBadge) {
+            statusBadge.className = 'badge bg-warning-subtle text-warning px-2 py-1 font-mono';
+            statusBadge.textContent = st === 'ESCROW_AUTHORIZED' ? '🔒 ESCROW LOCKED' : '● DISPATCHED';
+          }
+        }
+      }
+
+      renderTicket();
+      if (engine) {
+        engine.onMessage(function (msg) {
+          if (['TICKET_CREATED', 'TICKET_UPDATED', 'TICKET_CAPTURED', 'DRIVER_STATUS_CHANGED', 'STORAGE_UPDATE'].includes(msg.type)) {
+            if (msg.type === 'DRIVER_STATUS_CHANGED' && msg.driver && msg.driver.lat && courierMarker) {
+              courierCoords = [msg.driver.lat, msg.driver.lng];
+              courierMarker.setLatLng(courierCoords);
+            }
+            renderTicket();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

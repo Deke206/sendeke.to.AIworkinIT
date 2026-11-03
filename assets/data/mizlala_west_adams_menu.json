@@ -1,0 +1,44 @@
+[
+  {
+    "category": "Fresh Stuffed Pitas",
+    "name": "Pita Falafel",
+    "description": "Warm fluffy pita packed with green herbaceous falafel, creamy tahina, tangy amba mango sauce, pickled cabbage, and fresh herbs.",
+    "diet": "Vegan / Plant-Based",
+    "price": 11.95
+  },
+  {
+    "category": "Fresh Stuffed Pitas",
+    "name": "Pita Shewarma",
+    "description": "Spit-roasted spiced chicken sliced thin, stuffed with tahina, amba, chopped Israeli salad, grilled onions, and roasted Anaheim chile.",
+    "diet": "House Signature",
+    "price": 12.95
+  },
+  {
+    "category": "Mediterranean Feast Plates",
+    "name": "Plate Falafel with Hummus & Mejadra",
+    "description": "Crisp green falafels, velvety house hummus, warm wood-fired pita, spiced mejadra rice with lentils, and chopped herb salad.",
+    "diet": "Vegetarian Feast",
+    "price": 20.95
+  },
+  {
+    "category": "Mediterranean Feast Plates",
+    "name": "Plate Chicken Shewarma with Hummus",
+    "description": "Slow spit-roasted chicken shawarma over creamy warm hummus, served with fresh pita, grilled Anaheim pepper, and Israeli salad.",
+    "diet": "High-Protein Platter",
+    "price": 21.95
+  },
+  {
+    "category": "Sides & Dips",
+    "name": "Warm Hummus with Fresh Pita",
+    "description": "Silky house-whipped chickpea hummus topped with whole warm chickpeas, olive oil, paprika, and 2 fresh warm pitas.",
+    "diet": "Vegan",
+    "price": 9.50
+  },
+  {
+    "category": "Sides & Dips",
+    "name": "Moroccan Harira Soup",
+    "description": "Traditional spiced tomato, chickpea, and lentil broth with fresh cilantro, lemon, and warm pita.",
+    "diet": "Vegetarian",
+    "price": 8.50
+  }
+]

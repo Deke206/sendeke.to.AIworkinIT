@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweetfin Palms | Transmitted Customer Receipt & Escrow Proof</title>
+  <link rel="icon" type="image/svg+xml" href="assets/brand/sendeketo-icon.svg">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --sweetfin-pink: #ff007f;
+      --sweetfin-soft-pink: #ff7b90;
+      --sweetfin-yellow: #ffe600;
+      --plate-bg: #ffffff;
+      --plate-text: #18181b;
+      --plate-subtext: #52525b;
+      --plate-border: rgba(255, 0, 127, 0.35);
+    }
+    body {
+      background-color: #09090b !important;
+      background-image: url('assets/img/Gemini_Generated_Image_w54rklw54rklw54r.jfif') !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      background-attachment: fixed !important;
+      background-repeat: no-repeat !important;
+      color: #082830;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      padding: 1.5rem 0.75rem;
+    }
+    /* White Plate Culinary Receipt */
+    .receipt-plate {
+      background: var(--plate-bg);
+      color: var(--plate-text);
+      border: 3px solid var(--sweetfin-pink);
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.65), 0 0 24px rgba(255, 0, 127, 0.25);
+      max-width: 580px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .receipt-header {
+      background: #ffffff;
+      border-bottom: 2px dashed rgba(255, 0, 127, 0.3);
+      padding: 1.5rem 1.25rem 1rem;
+      text-align: center;
+    }
+    .fish-emblem {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(255, 0, 127, 0.1);
+      border: 2px solid var(--sweetfin-pink);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .sweetfin-title {
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: #09090b;
+      margin-bottom: 0.15rem;
+      font-size: 1.35rem;
+    }
+    .sweetfin-sub {
+      color: var(--sweetfin-pink);
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    /* Handshake PIN Card */
+    .handshake-pin-box {
+      background: #fafafa;
+      border: 2px solid var(--sweetfin-pink);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      margin: 1.25rem 0;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+    }
+    .pin-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--plate-subtext);
+    }
+    .pin-digits {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 2.25rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      color: var(--sweetfin-pink);
+      line-height: 1.1;
+      margin: 0.25rem 0;
+    }
+    .receipt-body {
+      padding: 1.25rem;
+    }
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid #f4f4f5;
+      font-size: 0.9rem;
+    }
+    .receipt-row.bold-row {
+      border-bottom: 2px solid #e4e4e7;
+      font-weight: 700;
+      color: #09090b;
+    }
+    .receipt-row.total-hold-row {
+      border-top: 2px solid var(--sweetfin-pink);
+      border-bottom: none;
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--sweetfin-pink);
+      padding-top: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .font-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .lifecycle-stage {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.35rem;
+      color: var(--plate-subtext);
+    }
+    .lifecycle-stage.active {
+      color: var(--sweetfin-pink);
+      font-weight: 700;
+    }
+    .receipt-footer {
+      background: #fafafa;
+      border-top: 1px solid #e4e4e7;
+      padding: 1rem 1.25rem;
+      font-size: 0.75rem;
+      color: var(--plate-subtext);
+      text-align: center;
+    }
+    @media print {
+      body { background: #fff !important; background-image: none !important; padding: 0; }
+      .receipt-plate { border: 1px solid #000; box-shadow: none; max-width: 100%; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="receipt-plate" data-bs-theme="light">
+    <!-- Header -->
+    <div class="receipt-header">
+      <div class="fish-emblem" id="receipt-emblem">🐟</div>
+      <h2 class="sweetfin-title" id="receipt-merchant-title">SWEETFIN PALMS</h2>
+      <div class="sweetfin-sub" id="receipt-merchant-sub">100% Gluten-Free Scratch Kitchen • Corridor 90034</div>
+      <div class="text-muted small mt-1 font-mono" id="receipt-merchant-addr">3105 Overland Ave, Los Angeles, CA 90034</div>
+    </div>
+
+    <!-- Body -->
+    <div class="receipt-body">
+      <!-- Escrow Status & Lifecycle -->
+      <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-1">
+        <span class="badge" id="receipt-status-badge" style="background-color: var(--sweetfin-pink); color: #fff; font-size: 0.8rem; font-weight: 700;">
+          <i class="bi bi-shield-check"></i> ESCROW PRE-AUTH LOCKED
+        </span>
+        <span class="font-mono text-muted small" id="receipt-timestamp">Oct 29, 2026 • 5:12 PM</span>
+      </div>
+
+      <!-- Doorstep Handshake PIN Card -->
+      <div class="handshake-pin-box">
+        <div class="pin-label">Doorstep Mutual Handshake PIN</div>
+        <div class="pin-digits" id="receipt-handshake-pin">374374</div>
+        <div class="small text-muted" style="font-size: 0.78rem;">
+          Give this code to Courier #04 upon arrival or tap phones. Funds are held in Stripe Escrow until verified.
+        </div>
+      </div>
+
+      <!-- Itemized Order Manifest -->
+      <div class="small fw-bold text-uppercase mb-2 font-mono" style="color: var(--sweetfin-pink); letter-spacing: 0.05em;">
+        Itemized Culinary Manifest
+      </div>
+
+      <div id="receipt-items-container">
+        <div class="receipt-row bold-row">
+          <span>1x Spicy Yuzu Salmon Poke Bowl (Gluten-Free)</span>
+          <span class="font-mono">$16.90</span>
+        </div>
+        <div class="small text-muted mb-2 ps-2" style="font-size: 0.8rem;">
+          Bamboo Rice, Ponzu, Avocado, Edamame, Crispy Garlic, Furikake
+        </div>
+      </div>
+
+      <!-- Financial Ledger -->
+      <div class="receipt-row mt-3">
+        <span class="text-muted">Kitchen Food Subtotal (100% to Kitchen):</span>
+        <span class="font-mono text-dark fw-bold" id="receipt-food-subtotal">$16.90</span>
+      </div>
+
+      <div class="receipt-row">
+        <span class="text-muted">Direct Courier Living Wage Base:</span>
+        <span class="font-mono text-dark fw-bold" id="receipt-courier-fee">$10.00</span>
+      </div>
+
+      <div class="receipt-row">
+        <span class="text-muted">Courier Tip (100% Passthrough to Courier #04):</span>
+        <span class="font-mono" style="color: var(--sweetfin-pink); font-weight: 700;" id="receipt-tip-amount">$2.50</span>
+      </div>
+
+      <div class="receipt-row">
+        <span class="text-muted">App Middleman Commission:</span>
+        <span class="font-mono text-dark fw-bold">$0.00 <span class="badge bg-light text-dark border">ZERO APP TAX</span></span>
+      </div>
+
+      <!-- Total Pre-Auth Hold -->
+      <div class="receipt-row total-hold-row">
+        <span id="receipt-total-label">Total Pre-Authorization Hold:</span>
+        <span class="font-mono" id="receipt-grand-total">$29.40</span>
+      </div>
+
+      <!-- Transmitted Corridor Timeline -->
+      <div class="mt-4 p-3 rounded-3" style="background: #fdf2f6; border: 1px solid rgba(255, 0, 127, 0.2);">
+        <div class="small fw-bold text-uppercase mb-2 font-mono" style="color: var(--sweetfin-pink); font-size: 0.72rem;">
+          Live Transmission Status
+        </div>
+        <div class="lifecycle-stage active" id="stage-1">
+          <i class="bi bi-check-circle-fill"></i>
+          <span><strong>Stripe Escrow Pre-Auth:</strong> Held safely on card rails</span>
+        </div>
+        <div class="lifecycle-stage active" id="stage-2">
+          <i class="bi bi-broadcast"></i>
+          <span><strong>Kitchen Expediter:</strong> Order transmitted directly to kitchen</span>
+        </div>
+        <div class="lifecycle-stage" id="stage-3">
+          <i class="bi bi-circle"></i>
+          <span><strong>Courier #04 Dispatch:</strong> Pick-up en route along corridor</span>
+        </div>
+        <div class="lifecycle-stage" id="stage-4">
+          <i class="bi bi-circle"></i>
+          <span><strong>Hand-to-Hand Capture:</strong> Completed upon doorstep PIN validation</span>
+        </div>
+      </div>
+
+      <!-- Payment & Dispatch Meta -->
+      <div class="mt-3 p-2 rounded bg-light border small font-mono" style="font-size: 0.75rem; color: #52525b;">
+        <div class="d-flex justify-content-between flex-wrap gap-1">
+          <span>Ticket ID: <strong class="text-dark" id="receipt-ticket-id">SDK-90034</strong></span>
+          <span>Payment: <strong class="text-dark" id="receipt-payment-method">Stripe Live Escrow</strong></span>
+        </div>
+        <div class="d-flex justify-content-between mt-1 flex-wrap gap-1">
+          <span>Courier: <strong class="text-dark" id="receipt-courier-name">Courier #04 (Deke)</strong></span>
+          <span>Destination: <strong class="text-dark" id="receipt-destination">3645 Overland Ave, Palms</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="receipt-footer">
+      <div>Delivered by <strong>SenDeke 2 Sovereign Delivery Network</strong> • Direct Corridor Livery</div>
+      <div class="mt-1">Zero platform cuts from merchant kitchens. Fair pay for sovereign couriers.</div>
+      <div class="mt-2 d-flex flex-wrap justify-content-center gap-2 no-print">
+        <a href="index.html" class="btn btn-sm btn-outline-secondary font-mono">
+          <i class="bi bi-house-door"></i> Home
+        </a>
+        <a href="track.html" id="receipt-track-btn" class="btn btn-sm btn-dark font-mono">
+          <i class="bi bi-geo-alt-fill"></i> Track Live Radar &rarr;
+        </a>
+        <button onclick="window.print()" class="btn btn-sm btn-outline-dark font-mono" type="button">
+          <i class="bi bi-printer"></i> Print / Save PDF Receipt
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script>
+    (function () {
+      const engine = window.SenDekeEngine;
+
+      function renderReceipt() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const requestedId = params.get('receipt') || params.get('ticket');
+          const ticket = engine
+            ? engine.getTicketById(requestedId)
+            : JSON.parse(localStorage.getItem('sendeke_active_ticket') || 'null');
+
+          if (!ticket) return;
+
+          const idEl = document.getElementById('receipt-ticket-id');
+          const pinEl = document.getElementById('receipt-handshake-pin');
+          const tsEl = document.getElementById('receipt-timestamp');
+          const merchTitle = document.getElementById('receipt-merchant-title');
+          const merchSub = document.getElementById('receipt-merchant-sub');
+          const merchAddr = document.getElementById('receipt-merchant-addr');
+          const itemsContainer = document.getElementById('receipt-items-container');
+          const foodEl = document.getElementById('receipt-food-subtotal');
+          const courierFeeEl = document.getElementById('receipt-courier-fee');
+          const tipEl = document.getElementById('receipt-tip-amount');
+          const grandEl = document.getElementById('receipt-grand-total');
+          const totalLabelEl = document.getElementById('receipt-total-label');
+          const pmEl = document.getElementById('receipt-payment-method');
+          const destEl = document.getElementById('receipt-destination');
+          const statusBadge = document.getElementById('receipt-status-badge');
+          const trackBtn = document.getElementById('receipt-track-btn');
+
+          if (idEl && ticket.id) idEl.textContent = ticket.id;
+          if (pinEl && ticket.handshakePin) pinEl.textContent = ticket.handshakePin;
+          if (tsEl && ticket.createdAt) {
+            const d = new Date(ticket.createdAt);
+            if (!Number.isNaN(d.getTime())) {
+              tsEl.textContent = d.toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' }) + ' • ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            }
+          }
+
+          if (ticket.pickupLocation) {
+            if (merchTitle) merchTitle.textContent = ticket.pickupLocation.split('(')[0].trim().toUpperCase();
+            if (merchSub) merchSub.textContent = 'Direct Sovereign Corridor Kitchen • Zero App Markup';
+            if (merchAddr) merchAddr.textContent = ticket.pickupLocation;
+          }
+
+          if (itemsContainer) {
+            if (Array.isArray(ticket.items) && ticket.items.length > 0) {
+              itemsContainer.innerHTML = ticket.items.map(it => {
+                const qty = it.qty || it.quantity || 1;
+                const price = parseFloat(it.price || 0);
+                return `
+                  <div class="receipt-row bold-row">
+                    <span>${qty}&times; ${it.name} ${it.merchant ? '<small class="text-muted fw-normal">(' + it.merchant + ')</small>' : ''}</span>
+                    <span class="font-mono">$${(price * qty).toFixed(2)}</span>
+                  </div>
+                `;
+              }).join('');
+            } else if (ticket.originalAsk) {
+              itemsContainer.innerHTML = `
+                <div class="receipt-row bold-row">
+                  <span>${ticket.originalAsk}</span>
+                  <span class="font-mono">$${parseFloat(ticket.foodSubtotal || 0).toFixed(2)}</span>
+                </div>
+              `;
+            }
+          }
+
+          const foodSub = parseFloat(ticket.foodSubtotal ?? ticket.pricing?.foodSubtotal ?? 16.90);
+          const baseFee = parseFloat(ticket.courierFee ?? ticket.pricing?.baseCourierFee ?? 10.00);
+          const tipVal = parseFloat(ticket.tip ?? ticket.pricing?.appliedTip ?? 2.50);
+          const grandVal = parseFloat(ticket.grandTotal ?? ticket.pricing?.grandTotal ?? (foodSub + baseFee + tipVal));
+
+          if (foodEl) foodEl.textContent = `$${foodSub.toFixed(2)}`;
+          if (courierFeeEl) courierFeeEl.textContent = `$${baseFee.toFixed(2)}`;
+          if (tipEl) tipEl.textContent = `$${tipVal.toFixed(2)}`;
+          if (grandEl) grandEl.textContent = `$${grandVal.toFixed(2)}`;
+
+          if (pmEl) {
+            pmEl.textContent = ticket.cardLast4
+              ? `${ticket.cardBrand || 'CARD'} •••• ${ticket.cardLast4}`
+              : (ticket.paymentMethod || 'Stripe Live Escrow');
+          }
+          if (destEl && ticket.dropoffAddress) destEl.textContent = ticket.dropoffAddress;
+          if (trackBtn && ticket.id) trackBtn.href = `track.html?receipt=${encodeURIComponent(ticket.id)}`;
+
+          // Lifecycle stage highlighting
+          const st = String(ticket.status || '').toUpperCase();
+          const s3 = document.getElementById('stage-3');
+          const s4 = document.getElementById('stage-4');
+          if (['AT_MERCHANT', 'READY_FOR_PICKUP', 'HANDED_TO_COURIER', 'ORDER_COLLECTED', 'DELIVERED_AND_CAPTURED'].includes(st) && s3) {
+            s3.classList.add('active');
+            s3.querySelector('i').className = 'bi bi-check-circle-fill';
+          }
+          if (st === 'DELIVERED_AND_CAPTURED') {
+            if (s4) {
+              s4.classList.add('active');
+              s4.querySelector('i').className = 'bi bi-check-circle-fill';
+            }
+            if (statusBadge) {
+              statusBadge.style.backgroundColor = '#10B981';
+              statusBadge.innerHTML = '<i class="bi bi-check2-all"></i> DELIVERED &amp; ESCROW CAPTURED';
+            }
+            if (totalLabelEl) totalLabelEl.textContent = 'Total Settled & Captured:';
+          }
+        } catch (e) {
+          console.warn('Receipt ticket hydrate notice', e);
+        }
+      }
+
+      renderReceipt();
+      if (engine) {
+        engine.onMessage(function (msg) {
+          if (['TICKET_UPDATED', 'TICKET_CAPTURED', 'STORAGE_UPDATE'].includes(msg.type)) {
+            renderReceipt();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* ==========================================================================
+   SenDeke-2: Driver Cockpit HUD Stylesheet
+   Component: section#driver-metrics-row (2x2 Compact Rectangular Grid)
+   Standard: Bootstrap 5.3.3 Modular Extension
+   ========================================================================== */
+
+/* Container: Compact flex container fitting 2 cards per row */
+section#driver-metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  max-width: 328px;
+}
+
+/* Metric Column Card wrapper: 2x2 layout, responsive up to 160px max width */
+section#driver-metrics-row > div,
+section#driver-metrics-row .metric-col {
+  flex: 1 1 calc(50% - 4px);
+  max-width: 160px;
+  min-width: 120px;
+}
+
+/* Compact Card Body */
+section#driver-metrics-row .card-body {
+  padding: 6px 8px;
+  min-height: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Text styling: 2-line compact rectangular look with ellipsis overflow protection */
+section#driver-metrics-row .card-body div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+}
+
+/* First line: Metric Label (0.65rem) */
+section#driver-metrics-row .card-body div:nth-child(1),
+section#driver-metrics-row .card-body .metric-label {
+  font-size: 0.65rem;
+}
+
+/* Second line: Metric Value (0.85rem) */
+section#driver-metrics-row .card-body div:nth-child(2),
+section#driver-metrics-row .card-body .metric-value {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}

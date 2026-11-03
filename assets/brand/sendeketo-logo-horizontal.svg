@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="280" viewBox="0 0 840 280">
+  <defs>
+    <linearGradient id="bgH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14151B"/>
+      <stop offset="100%" stop-color="#07080A"/>
+    </linearGradient>
+    <linearGradient id="cyanH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#2E9EFF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Emblem (220x220) -->
+  <g transform="translate(30, 30)">
+    <rect width="220" height="220" rx="48" fill="url(#bgH)"/>
+    <rect x="3" y="3" width="214" height="214" rx="45" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="2"/>
+    <path d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z" fill="#FFFFFF"/>
+    <path d="M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z" fill="#0A0B0E"/>
+    <path d="M41 107 H158" stroke="url(#cyanH)" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="72" cy="166" r="20" fill="#FFFFFF"/>
+    <circle cx="72" cy="166" r="11" fill="#0A0B0E"/>
+    <circle cx="72" cy="166" r="5" fill="#00F0FF"/>
+    <circle cx="148" cy="166" r="20" fill="#FFFFFF"/>
+    <circle cx="148" cy="166" r="11" fill="#0A0B0E"/>
+    <circle cx="148" cy="166" r="5" fill="#00F0FF"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(280, 75)">
+    <text x="0" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="78" font-weight="900" letter-spacing="3" fill="#FFFFFF">SENDEKETO</text>
+    <rect x="0" y="96" width="530" height="4" rx="2" fill="url(#cyanH)"/>
+    <text x="2" y="128" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="700" letter-spacing="4" fill="#A0A5B5">LOCAL DISPATCH &bull; DIRECT COURIER &bull; ZERO COMMISSIONS</text>
+  </g>
+</svg>

@@ -1,0 +1,308 @@
+[
+  {
+    "category": "Sides & Salads",
+    "name": "Sesame Crunch Chicken  Salad",
+    "description": "Grilled chicken, sesame dressing, crunchy chow mein noodles, napa cabbage, red cabbage, chili, oranges, almonds, carrots, scallions and sesame seeds.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/sesame_crunch_chicken_salad.jpg",
+    "price": 13.5
+  },
+  {
+    "category": "Chicken Bowls",
+    "name": "Chicken Banh Mi Bowl",
+    "description": "Grilled chicken, spicy garlic lemongrass ponzu, pickled carrots, cucumbers, cilantro, market radish, sliced jalapenos, topped with truffle sriracha mayo drizzle and daikon sprouts over sushi rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/chicken_banh_mi_bowl.jpg",
+    "price": 15.75
+  },
+  {
+    "category": "Chicken Bowls",
+    "name": "B.Y.O.B Chicken Bowl",
+    "description": "Build your own chicken bowl with your choice of base, sauce and toppings.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/b_y_o_b_chicken_bowl.jpg",
+    "price": 15.5
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Yuzu Salmon Poke Bowl",
+    "description": "Salmon, yuzu kosho sauce, avocado, edamame, cilantro, jicama, cucumber.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/yuzu_salmon_poke_bowl.jpg",
+    "price": 16.95
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Truffled Yuzu Albacore Poke Bowl",
+    "description": "Albacore, yuzu kosho sauce, white truffle oil, avocado, shimeji mushrooms, pickled ginger, daikon sprouts.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/truffled_yuzu_albacore_poke_bowl.jpg",
+    "price": 17.25
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Sriracha Tuna Poke Bowl",
+    "description": "Yellowfin tuna, sriracha ponzu sauce, avocado, asparagus, cilantro, sundried tomatoes, crispy onions.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/sriracha_tuna_poke_bowl.jpg",
+    "price": 16.5
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Spicy Tuna Poke Bowl",
+    "description": "Yellowfin tuna, spicy mayo sauce, hijiki, avocado, edamame, cucumber, crispy onion.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/spicy_tuna_poke_bowl.jpg",
+    "price": 16.5
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Mango Albacore Poke Bowl",
+    "description": "Albacore, mango, ponzu lime sauce, macadamia nuts, pickled ginger, napa cabbage, edamame.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/mango_albacore_poke_bowl.jpg",
+    "price": 16.75
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Gochujang Salmon Poke Bowl",
+    "description": "Salmon, black garlic gochujang sauce, asparagus, shiitake, bean sprouts, crispy garlic.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/gochujang_salmon_poke_bowl.jpg",
+    "price": 16.95
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Classic Tuna Poke Bowl",
+    "description": "Yellowfin tuna, miso sesame shoyu sauce, red onion, togarashi, avocado, seaweed salad, bean sprouts, and pickled ginger.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/classic_tuna_poke_bowl.jpg",
+    "price": 16.25
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "Sweet Potato Ponzu Lime Poke Bowl",
+    "description": "Sweet potato, ponzu lime sauce, avocado, carrots, edamame, cucumbers, napa cabbage.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/sweet_potato_ponzu_lime_poke_bowl.jpg",
+    "price": 14.25
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "Shiitake Chile Tofu Poke Bowl",
+    "description": "Classic sauce, chile oil, cilantro, sautéed kale, tofu, shiitake mushrooms, pickled Fresno.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/shiitake_chile_tofu_poke_bowl.jpg",
+    "price": 14.5
+  },
+  {
+    "category": "Health Goal Bowls",
+    "name": "Keto Bowl",
+    "description": "Salmon, avocado, cucumber, jicama, kale, cilantro, macadamia nuts, creamy togarashi sauce over cauliflower rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/keto_bowl.jpg",
+    "price": 16.95
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "High Protein Plant-Based Bowl",
+    "description": "Sweet potato, edamame, asparagus, bean sprouts, avocado, sautéed kale, carrots, crispy garlic, miso sesame shoyu sauce with forbidden rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/high_protein_plant_based_bowl.jpg",
+    "price": 14.95
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "B.Y.O.B. - Tofu",
+    "description": "Build your own tofu bowl.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/b_y_o_b_tofu.jpg",
+    "price": 14.25
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "B.Y.O.B Poke Bowl",
+    "description": "Build your own bowl.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/b_y_o_b_poke_bowl.jpg",
+    "price": 16.95
+  },
+  {
+    "category": "Burritos",
+    "name": "Spicy Tuna Burrito",
+    "description": "Yellowfin tuna, bamboo rice, avocado, cucumber, cilantro, crispy onions, seaweed salad, and spicy mayo wrapped in a tortilla. Served with a side of crunchy garlic chili oil.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/spicy_tuna_burrito.jpg",
+    "price": 16.5
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Citrus Kale Salad",
+    "description": "Citrus kale salad, avocado, carrots, sesame seeds, topped with pepitas.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/citrus_kale_salad.jpg",
+    "price": 6.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Seaweed Salad",
+    "description": "Seaweed, sesame oil, seasoning.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/seaweed_salad.jpg",
+    "price": 5.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Kelp Noodles Slaw",
+    "description": "Kelp noodles, carrots, cucumbers, sesame seeds, napa cabbage, salt, with sesame mayo sauce.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/kelp_noodles_slaw.jpg",
+    "price": 5.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Surimi Salad",
+    "description": "100% gluten-free \"krab salad\".",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/surimi_salad.jpg",
+    "price": 6.5
+  },
+  {
+    "category": "Taro Chips",
+    "name": "BBQ Flavored Taro Chips",
+    "description": "Taro root, BBQ seasoning, coconut oil.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/bbq_flavored_taro_chips.jpg",
+    "price": 4.25
+  },
+  {
+    "category": "Taro Chips",
+    "name": "Chili Lime Taro Chips",
+    "description": "Taro root, chili lime seasoning, coconut oil.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/chili_lime_taro_chips.jpg",
+    "price": 4.25
+  },
+  {
+    "category": "Kids' Bowls",
+    "name": "Kid's - Grasshopper",
+    "description": "Ponzu lime, edamame, carrot, avocado.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/kid_s_grasshopper.jpg",
+    "price": 8.95
+  },
+  {
+    "category": "Kids' Bowls",
+    "name": "Kid's - Lil' Fish",
+    "description": "Miso sesame shoyu sauce, tuna or salmon, mango, pickled ginger.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/kid_s_lil_fish.jpg",
+    "price": 9.5
+  },
+  {
+    "category": "Taro Chips",
+    "name": "Taro Chips",
+    "description": "Taro root, wasabi furikake, coconut oil",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/taro_chips.jpg",
+    "price": 4.25
+  },
+  {
+    "category": "Beverages",
+    "name": "Hibiscus Iced Tea",
+    "description": "Hibiscus tea",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/hibiscus_iced_tea.jpg",
+    "price": 3.95
+  },
+  {
+    "category": "Beverages",
+    "name": "Sparkling Water",
+    "description": "None",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/sparkling_water.jpg",
+    "price": 3.5
+  },
+  {
+    "category": "Beverages",
+    "name": "Bottled Water",
+    "description": "None",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/bottled_water.jpg",
+    "price": 2.95
+  },
+  {
+    "category": "Beverages",
+    "name": "Guava Lemonade",
+    "description": "Guava, lemon.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64608b6fddc53c25e6cf117f/6460a34c215f1e351341aa4f_Icon.svg",
+    "local_image": "assets/img/sweetfin/guava_lemonade.jpg",
+    "price": 4.5
+  },
+  {
+    "category": "Chicken Bowls",
+    "name": "Spicy Chicken Grain Bowl",
+    "description": "Grilled chicken, forbidden rice base, spicy garlic lemongrass ponzu, sliced jalapenos, carrots, crunchy cashews, mint, chili oil, and sesame seeds.",
+    "diet": "100% Gluten-Free",
+    "image_url": "",
+    "local_image": "",
+    "price": 15.75
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Sesame Crunch Chicken Salad",
+    "description": "Grilled chicken, sesame dressing, crunchy chow mein noodles, napa cabbage, red cabbage, chili, oranges, almonds, carrots, scallions, and sesame seeds.",
+    "diet": "100% Gluten-Free",
+    "image_url": "",
+    "local_image": "",
+    "price": 13.5
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "The Brooke Schofield Bowl",
+    "description": "Line-caught yellowfin, Persian cucumbers, edamame, fresh mango, sliced jalapeños, avocado, Zab's Hot Honey Ponzu, Hot Honey Wasabi Mayo drizzle, and crispy onions over sushi rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "",
+    "local_image": "",
+    "price": 17.5
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "Miso Eggplant and Mushroom Poke Bowl",
+    "description": "Miso sesame shoyu sauce, Japanese eggplant, shimeji mushroom, sundried tomato, and market radish.",
+    "diet": "100% Gluten-Free",
+    "image_url": "",
+    "local_image": "",
+    "price": 14.5
+  }
+]
