@@ -1,0 +1,924 @@
+/* ==========================================================================
+   SenDeke-2: Master Visual Architecture & Mobile Viewport Protection
+   Theme: Gemini Generated Background with Deep Teal Undertone,
+          Dark Smoked Privacy Plate Glass Modules,
+          Tactile Raised Radiant Cobalt Blue Controls,
+          and Full Bootstrap 5.3 Dark Mode Alignment.
+   Standard: Bootstrap 5.3.3 Modular Layer
+   ========================================================================== */
+
+/* 1. COLOR SCHEME & DYNAMIC DUAL-THEMING TOKENS (LIGHT FROSTED GLASS DEFAULT) */
+:root {
+ 
+  /* Base Neutral Dark Canvas */
+  --site-bg: #09090b;
+
+  /* Typography Tokens (Deep Midnight Turquoise Blue for Maximum Punch & Legibility) */
+  --ink-heading: #041C24;
+  --ink-body: #082830;
+  --ink-muted: #134E5E;
+
+  /* Frosted Bathroom Plate Glass Modules (Crisp Translucent White Privacy Glass + 2 More Lightness) */
+  --glass-bg: rgba(255, 255, 255, 0.94);
+  --glass-border: rgba(255, 255, 255, 0.98);
+  --glass-shadow: 0 14px 36px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 1);
+  --glass-header-bg: rgba(255, 255, 255, 0.82);
+  --glass-header-border: rgba(4, 28, 36, 0.12);
+  --glass-footer-bg: rgba(240, 246, 248, 0.82);
+
+  /* Navigation & Overlays */
+  --nav-bg: rgba(255, 255, 255, 0.94);
+  --nav-border: rgba(4, 28, 36, 0.12);
+  --nav-link: #0E3D48;
+  --nav-link-hover: #041C24;
+  --modal-bg: rgba(255, 255, 255, 0.97);
+  --modal-border: rgba(255, 255, 255, 0.98);
+
+  /* Form Controls */
+  --input-bg: rgba(255, 255, 255, 0.96);
+  --input-border: rgba(4, 28, 36, 0.22);
+  --input-text: #082830;
+}
+
+/* Explicit data-bs-theme="dark" Support */
+[data-bs-theme="dark"] {
+  --ink-heading: #F8F7F4;
+  --ink-body: #E4E4E7;
+  --ink-muted: #A1A1AA;
+
+  --glass-bg: rgba(18, 22, 28, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  --glass-header-bg: rgba(255, 255, 255, 0.06);
+  --glass-header-border: rgba(255, 255, 255, 0.12);
+  --glass-footer-bg: rgba(0, 0, 0, 0.28);
+
+  --nav-bg: rgba(18, 22, 28, 0.88);
+  --nav-border: rgba(255, 255, 255, 0.14);
+  --nav-link: #A1A1AA;
+  --nav-link-hover: #F8F7F4;
+  --modal-bg: rgba(20, 24, 30, 0.95);
+  --modal-border: rgba(255, 255, 255, 0.18);
+
+  --input-bg: rgba(18, 22, 28, 0.82);
+  --input-border: rgba(255, 255, 255, 0.2);
+  --input-text: #F8F7F4;
+
+  --bs-body-color: #E4E4E7;
+  --bs-body-bg: transparent;
+  --bs-emphasis-color: #F8F7F4;
+  --bs-secondary-color: #A1A1AA;
+  --bs-tertiary-bg: rgba(255, 255, 255, 0.06);
+  --bs-border-color: rgba(255, 255, 255, 0.15);
+  --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+}
+
+[data-bs-theme="dark"] .text-dark {
+  color: var(--ink-heading) !important;
+}
+[data-bs-theme="dark"] .text-secondary,
+[data-bs-theme="dark"] .text-body-secondary {
+  color: var(--ink-muted) !important;
+}
+[data-bs-theme="dark"] .border-secondary-subtle {
+  border-color: var(--glass-header-border) !important;
+}
+[data-bs-theme="dark"] .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+[data-bs-theme="dark"] .bg-body {
+  background-color: var(--glass-header-bg) !important;
+  color: var(--ink-body) !important;
+}
+
+/* Explicit data-bs-theme="light" Support */
+[data-bs-theme="light"] {
+  --ink-heading: #09090B;
+  --ink-body: #18181B;
+  --ink-muted: #52525B;
+
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.92);
+  --glass-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  --glass-header-bg: rgba(255, 255, 255, 0.65);
+  --glass-header-border: rgba(0, 0, 0, 0.08);
+  --glass-footer-bg: rgba(244, 244, 245, 0.65);
+
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-link: #3F3F46;
+  --nav-link-hover: #09090B;
+  --modal-bg: rgba(255, 255, 255, 0.96);
+  --modal-border: rgba(255, 255, 255, 0.95);
+
+  --input-bg: rgba(255, 255, 255, 0.95);
+  --input-border: rgba(0, 0, 0, 0.18);
+  --input-text: #18181B;
+}
+
+/* 2. VIEWPORT & OVERFLOW DISCIPLINE: ZERO HORIZONTAL SCROLL */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Master Foundation: Original Marble Table Surface Across All Pages (Zero Floating Navbar) */
+body, body.bg-body {
+  padding-top: 0 !important;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #09090b !important;
+  background-image: url('../img/Gemini_Generated_Image_w54rklw54rklw54r.jfif') !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  color: var(--ink-body);
+}
+
+/* Transparent SenDeke 2 Inline Emblem & Centered Hero Menu Dropdown */
+.sendeke-brand-lockup {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.brand-d-wheels-svg {
+  display: inline-block;
+  width: 1.05em;
+  height: 0.98em;
+  vertical-align: -0.14em;
+  margin: 0 0.02em;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.hero-pane-glass,
+#hero-banner-object,
+#menu-hero-object,
+#tacos-hero-object,
+#store-hero {
+  position: relative;
+  z-index: 30;
+  overflow: visible !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  color: var(--ink-body) !important;
+}
+
+.hero-menu-dropdown .dropdown-menu {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(4, 28, 36, 0.16) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18) !important;
+  min-width: 240px;
+  text-align: center !important;
+  z-index: 1055;
+}
+
+.hero-menu-dropdown .dropdown-item {
+  color: var(--ink-heading) !important;
+  text-align: center !important;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.hero-menu-dropdown .dropdown-item:hover,
+.hero-menu-dropdown .dropdown-item:focus,
+.hero-menu-dropdown .dropdown-item.active {
+  background: rgba(37, 99, 235, 0.12) !important;
+  color: #1D4ED8 !important;
+}
+
+/* Crisp Category Filter Tabs on Light Frosted Glass */
+.filter-tab-btn {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(4, 28, 36, 0.18) !important;
+  color: var(--ink-heading) !important;
+  font-weight: 600;
+}
+
+.filter-tab-btn:hover {
+  background: rgba(37, 99, 235, 0.12) !important;
+  border-color: #2563EB !important;
+  color: #1D4ED8 !important;
+}
+
+.filter-tab-btn.active {
+  background: linear-gradient(180deg, #3B82F6 0%, #2563EB 60%, #1D4ED8 100%) !important;
+  border-color: #1D4ED8 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+}
+
+/* Structural Stacking */
+main {
+  flex: 1 0 auto;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+footer {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+main > .container-xl,
+main > .container-fluid {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-top: 0.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* 3. FLOATING NAVIGATION BAR: FROSTED PRIVACY PLATE GLASS */
+.navbar-floating {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1030;
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid var(--nav-border) !important;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-floating .navbar-brand,
+.navbar-floating .navbar-brand span {
+  color: var(--ink-heading) !important;
+}
+
+.navbar-floating .nav-link {
+  color: var(--nav-link) !important;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.navbar-floating .nav-link:hover,
+.navbar-floating .nav-link.active {
+  color: var(--ink-heading) !important;
+  font-weight: 600;
+}
+
+/* 4. TYPOGRAPHY & CONTRAST DISCIPLINE */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 0;
+  color: var(--ink-heading);
+}
+
+.text-dark {
+  color: var(--ink-heading) !important;
+}
+
+body,
+.text-body {
+  color: var(--ink-body) !important;
+}
+
+.text-secondary,
+.text-body-secondary {
+  color: var(--ink-muted) !important;
+}
+
+p, .lead {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   5. STOREFRONT GLASS DISPLAY PLATTER (CULINARY MARBLE & BEVELED EPOXY CASING)
+   Features:
+     - Wide Server Platter framing the storefront showcase
+     - Polished pencil-width etched perimeter bevel with 3D crystal depth
+     - Translucent Carrara marble vein undertone under glossy epoxy finish
+     - Wide sweeping specular sunlight / headlight glint beam
+   ========================================================================== */
+
+.storefront-glass-platter {
+  position: relative;
+  background: 
+    radial-gradient(ellipse at 15% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(235, 246, 248, 0.6) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(248, 252, 253, 0.90) 45%, rgba(240, 247, 249, 0.95) 100%) !important;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem 2rem 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  
+  /* Multi-Tier Etched Pencil Bevel & Platter Shadow Depth */
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.92),
+    0 0 0 6px rgba(255, 255, 255, 0.32),
+    0 0 0 8px rgba(4, 28, 36, 0.12),
+    0 24px 56px rgba(0, 0, 0, 0.18),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 5px rgba(4, 28, 36, 0.08);
+  overflow: hidden;
+}
+
+/* Wide Sweeping Specular Light Glint Beam */
+.platter-glint-beam {
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 280px;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.08) 20%,
+    rgba(255, 255, 255, 0.6) 45%,
+    rgba(255, 255, 255, 0.98) 50%,
+    rgba(255, 255, 255, 0.6) 55%,
+    rgba(255, 255, 255, 0.08) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  will-change: transform, left, opacity;
+}
+
+/* Compression Arm Door Sweep Animation: Enters fast, long majestic slow glide across the platter, dissipates softly */
+@keyframes sweepGlintDoorArm {
+  0% {
+    left: -350px;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.95;
+  }
+  30% {
+    left: 20%;
+    opacity: 0.9;
+  }
+  75% {
+    left: 75%;
+    opacity: 0.75;
+  }
+  92% {
+    left: 92%;
+    opacity: 0.35;
+  }
+  100% {
+    left: 108%;
+    opacity: 0;
+  }
+}
+
+.platter-glint-beam.active {
+  animation: sweepGlintDoorArm 3.4s cubic-bezier(0.12, 0.85, 0.18, 1) forwards;
+}
+
+/* Individual Hors D'oeuvre Cards on Wax Paper Base */
+.card {
+  border-radius: 8px;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  color: var(--ink-body);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.badge.bg-secondary-subtle {
+  background: rgba(4, 28, 36, 0.08) !important;
+  color: var(--ink-heading) !important;
+  border: 1px solid rgba(4, 28, 36, 0.14) !important;
+}
+
+.badge.bg-secondary {
+  background: #041C24 !important;
+  color: #F8FAFC !important;
+}
+
+.card-header {
+  padding: 0.65rem 0.85rem;
+  background: var(--glass-header-bg) !important;
+  border-bottom: 1px solid var(--glass-header-border) !important;
+  color: var(--ink-heading);
+}
+
+.card-footer {
+  padding: 0.65rem 0.85rem;
+  background: var(--glass-footer-bg) !important;
+  border-top: 1px solid var(--glass-header-border) !important;
+  color: var(--ink-muted);
+}
+
+.card-body {
+  padding: 0.85rem;
+  color: var(--ink-body);
+}
+
+/* Modals & Offcanvas Plate Glass */
+.modal-content, .offcanvas {
+  background: var(--modal-bg) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--modal-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  color: var(--ink-body) !important;
+}
+
+/* Sub-containers, Hero & Modules: Ensure Clean Frosted Glass Without Dark Background */
+section.bg-body-tertiary,
+.card.bg-body-tertiary,
+.card-body .bg-body,
+.modal-body .bg-body {
+  background: var(--glass-header-bg) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  color: var(--ink-body) !important;
+}
+
+.modal-header, .offcanvas-header {
+  border-bottom: 1px solid var(--glass-header-border);
+  color: var(--ink-heading);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--glass-header-border);
+}
+
+/* 6. TACTILE RAISED CONTROLS & RADIANT BLUE HUE BUTTONS */
+.btn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  padding: 0.45rem 0.95rem;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-sm {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.65rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Radiant Cobalt Blue Hue Target Buttons (Add to Cart, Checkout, Action) */
+.btn-primary {
+  background: linear-gradient(180deg, #3B82F6 0%, #2563EB 55%, #1D4ED8 100%) !important;
+  border: 1px solid rgba(191, 219, 254, 0.6) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    0 4px 14px rgba(37, 99, 235, 0.42),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.25) !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #60A5FA 0%, #3B82F6 55%, #2563EB 100%) !important;
+  box-shadow: 
+    0 8px 22px rgba(37, 99, 235, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+}
+
+.btn-primary:active {
+  box-shadow: 
+    0 2px 6px rgba(37, 99, 235, 0.3),
+    inset 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Success Buttons with Physical Depth */
+.btn-success {
+  background: linear-gradient(180deg, #10B981 0%, #059669 55%, #047857 100%) !important;
+  border: 1px solid rgba(167, 243, 208, 0.6) !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 
+    0 4px 14px rgba(16, 185, 129, 0.38),
+    0 1px 3px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn-success:hover {
+  background: linear-gradient(180deg, #34D399 0%, #10B981 55%, #059669 100%) !important;
+  box-shadow: 
+    0 8px 20px rgba(16, 185, 129, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+}
+
+.btn-success:active {
+  box-shadow: 
+    0 2px 6px rgba(16, 185, 129, 0.3),
+    inset 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Warning Buttons with Physical Depth */
+.btn-warning {
+  background: linear-gradient(180deg, #FBBF24 0%, #F59E0B 55%, #D97706 100%) !important;
+  border: 1px solid rgba(254, 243, 199, 0.7) !important;
+  color: #0F172A !important;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 4px 14px rgba(245, 158, 11, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.65),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(180deg, #FCD34D 0%, #FBBF24 55%, #F59E0B 100%) !important;
+  box-shadow: 
+    0 8px 20px rgba(245, 158, 11, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn-warning:active {
+  box-shadow: 
+    0 2px 6px rgba(245, 158, 11, 0.3),
+    inset 0 1px 3px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Raised Controls with Blue Tint/Glow */
+.btn-outline-light {
+  background: var(--glass-header-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--ink-heading) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+}
+
+.btn-outline-light:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: #3B82F6 !important;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+  color: #1D4ED8 !important;
+}
+
+.btn-outline-secondary {
+  background: var(--glass-header-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  color: var(--ink-body) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+}
+
+.btn-outline-secondary:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: #3B82F6 !important;
+  color: #1D4ED8 !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn-outline-warning {
+  background: rgba(245, 158, 11, 0.16) !important;
+  border: 1px solid #D97706 !important;
+  color: #92400E !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 3px 8px rgba(217, 119, 6, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+.btn-outline-warning:hover {
+  background: rgba(245, 158, 11, 0.28) !important;
+  color: #78350F !important;
+  box-shadow: 0 6px 14px rgba(217, 119, 6, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.65) !important;
+}
+
+.btn-secondary {
+  background: linear-gradient(180deg, #334155 0%, #1E293B 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(180deg, #475569 0%, #334155 100%) !important;
+  box-shadow: 0 7px 16px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+}
+
+.btn-dark {
+  background: linear-gradient(180deg, #27272A 0%, #18181B 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+}
+
+.btn-dark:hover {
+  background: linear-gradient(180deg, #3F3F46 0%, #27272A 100%) !important;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+}
+
+@media (min-width: 576px) {
+  .btn-responsive-auto {
+    width: auto !important;
+  }
+}
+
+/* 7. TACTILE RAISED ALERTS & CALLOUTS */
+.alert {
+  position: relative;
+  border-radius: 6px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 
+    0 6px 18px rgba(0, 0, 0, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid var(--glass-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alert:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 8px 22px rgba(0, 0, 0, 0.35),
+    0 2px 5px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+}
+
+.alert-primary {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border-left: 4px solid #3B82F6 !important;
+  color: var(--ink-heading) !important;
+}
+
+.alert-success {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-left: 4px solid #10B981 !important;
+  color: var(--ink-heading) !important;
+}
+
+.alert-warning {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border-left: 4px solid #F59E0B !important;
+  color: var(--ink-heading) !important;
+}
+
+.alert-info {
+  background: rgba(6, 182, 212, 0.2) !important;
+  border-left: 4px solid #06B6D4 !important;
+  color: var(--ink-heading) !important;
+}
+
+.alert-secondary, .alert-dark {
+  background: var(--glass-header-bg) !important;
+  border-left: 4px solid var(--ink-muted) !important;
+  color: var(--ink-heading) !important;
+}
+
+/* 8. FORM CONTROLS & INPUTS (FROSTED HARMONY) */
+.form-control, .form-select {
+  background-color: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  color: var(--input-text) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: #FFFFFF !important;
+  border-color: #3B82F6 !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25), inset 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  color: var(--ink-heading) !important;
+}
+
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus {
+  background-color: rgba(18, 22, 28, 0.96) !important;
+  border-color: #3B82F6 !important;
+  color: #F8F7F4 !important;
+}
+
+.input-group-text {
+  background-color: var(--glass-header-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  color: var(--ink-muted) !important;
+}
+
+/* 9. ASSET & TABLE OVERFLOW PROTECTION */
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.table-responsive {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 10. BRAND COLORS & MONOSPACE TELEMETRY */
+.text-brand {
+  color: var(--ink-heading);
+}
+
+.text-subtle {
+  color: var(--ink-muted);
+}
+
+.border-subtle {
+  border-color: var(--glass-header-border) !important;
+}
+
+.font-mono {
+  font-family: "SF Mono", "JetBrains Mono", Consolas, monospace;
+}
+
+/* ==========================================================================
+   11. KITCHEN EXPEDITE TERMINAL: 1x3 METRICS & 3x3 ORDER GRID
+   ========================================================================== */
+
+/* Layout Optimization: Kitchen Metrics Object (Uniform 1x3 Horizontal Deck) */
+#kitchen-metrics-object {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  gap: 10px;
+}
+
+#kitchen-metrics-object > .col-12,
+#kitchen-metrics-object > [class*="col-"] {
+  display: flex;
+  flex: 1 1 0;
+  width: auto !important;
+  max-width: none !important;
+}
+
+#kitchen-metrics-object .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#kitchen-metrics-object .card-body {
+  font-size: 0.8rem;
+}
+
+#kitchen-metrics-object .h4 {
+  font-size: 1.1rem !important;
+}
+
+/* UI Transformation: 3x3 Expedite Order Grid */
+#kitchen-queue-object > .card-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px;
+}
+
+@media (max-width: 767.98px) {
+  #kitchen-queue-object > .card-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+#kitchen-queue-object .card {
+  font-size: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+}
+
+#kitchen-queue-object .card-header {
+  padding: 4px 8px !important;
+}
+
+#kitchen-queue-object .card-body {
+  padding: 6px 8px !important;
+}
+
+#kitchen-queue-object .list-group-item {
+  padding: 2px 4px !important;
+  font-size: 0.72rem;
+}
+
+#kitchen-queue-object .btn-expedite {
+  font-size: 0.68rem;
+  padding: 1px 6px;
+  line-height: 1.25;
+}
+
+/* ==========================================================================
+   12. AMBIENT SUN TABLE ROLL (ORGANIC REFRACTION & SPECULAR GLINT)
+   Emulates natural sunlight streaming through an open door and rolling
+   gently across the table at a 20-degree tilt toward the sun (left-to-right).
+   Broken multi-stop glint illuminates faint background typography and 
+   catches foreground frosted glass edges without being a solid beam.
+   ========================================================================== */
+body::after {
+  content: '';
+  position: fixed;
+  top: -40%;
+  left: -80%;
+  width: 260vw;
+  height: 180vh;
+  z-index: 999;
+  pointer-events: none;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 252, 240, 0.0) 41%,
+    rgba(255, 248, 220, 0.035) 43.5%,  /* soft ambient leading edge */
+    rgba(255, 255, 255, 0.09) 45%,    /* first broken glint */
+    rgba(255, 245, 215, 0.02) 46.2%,  /* broken dispersion valley */
+    rgba(255, 255, 255, 0.18) 47.8%,  /* striking sun specular peak */
+    rgba(255, 250, 235, 0.08) 49%,    /* warm secondary reflection */
+    rgba(255, 255, 255, 0.025) 51%,   /* broken dispersion gap */
+    rgba(255, 252, 242, 0.07) 52.5%,  /* trailing soft tertiary glint */
+    rgba(255, 255, 255, 0.015) 54%,   /* trailing falloff */
+    transparent 57%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  animation: sunTableRoll 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes sunTableRoll {
+  0% {
+    transform: translate3d(-60%, 0, 0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(15%, 0, 0);
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(85%, 0, 0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+    opacity: 0.3;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+

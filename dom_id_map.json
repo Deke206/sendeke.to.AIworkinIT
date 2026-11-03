@@ -1,0 +1,2202 @@
+{
+  "index.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "header",
+      "id": "site-navigation-object",
+      "cls": "navbar-floating"
+    },
+    {
+      "tag": "div",
+      "id": "nav-collapse-target",
+      "cls": "collapse navbar-collapse"
+    },
+    {
+      "tag": "span",
+      "id": "nav-cart-counter",
+      "cls": "badge bg-primary text-white ms-1"
+    },
+    {
+      "tag": "section",
+      "id": "hero-banner-object",
+      "cls": "p-3 p-md-4 mb-3 rounded-3 border border-secondary-subtle bg-body-tertiary"
+    },
+    {
+      "tag": "section",
+      "id": "service-area-alert-object",
+      "cls": "alert alert-secondary border-secondary-subtle d-flex align-items-center justify-content-between p-2 px-3 mb-3"
+    },
+    {
+      "tag": "div",
+      "id": "courier-intake-object",
+      "cls": "card h-100 border-secondary-subtle"
+    },
+    {
+      "tag": "form",
+      "id": "order-intake-form",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "agent-match-indicator",
+      "cls": "text-primary font-mono small fw-normal"
+    },
+    {
+      "tag": "textarea",
+      "id": "raw-order-text-input",
+      "cls": "form-control font-monospace border-secondary-subtle"
+    },
+    {
+      "tag": "div",
+      "id": "matched-items-badge-container",
+      "cls": "mb-3 p-2 rounded bg-body-tertiary border border-secondary-subtle d-none"
+    },
+    {
+      "tag": "div",
+      "id": "matched-items-list",
+      "cls": "small font-mono text-dark mb-1"
+    },
+    {
+      "tag": "div",
+      "id": "matched-food-subtotal",
+      "cls": "small text-success font-mono fw-bold"
+    },
+    {
+      "tag": "input",
+      "id": "pickup-address-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "input",
+      "id": "dropoff-address-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "input",
+      "id": "customer-phone-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "input",
+      "id": "delivery-notes-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "div",
+      "id": "tip-selector-group",
+      "cls": "btn-group btn-group-sm"
+    },
+    {
+      "tag": "input",
+      "id": "tip-min",
+      "cls": "btn-check"
+    },
+    {
+      "tag": "input",
+      "id": "tip-mid",
+      "cls": "btn-check"
+    },
+    {
+      "tag": "input",
+      "id": "tip-high",
+      "cls": "btn-check"
+    },
+    {
+      "tag": "span",
+      "id": "form-courier-takehome",
+      "cls": "text-success font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "form-grand-total",
+      "cls": "text-dark fw-bold"
+    },
+    {
+      "tag": "button",
+      "id": "submit-ticket-btn",
+      "cls": "btn btn-primary btn-sm px-4 fw-bold flex-grow-1"
+    },
+    {
+      "tag": "div",
+      "id": "quick-track-object",
+      "cls": "card h-100 border-secondary-subtle"
+    },
+    {
+      "tag": "span",
+      "id": "beacon-duty-badge",
+      "cls": "badge bg-success text-dark font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "share-link-input",
+      "cls": "form-control font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-copy-share-link",
+      "cls": "btn btn-outline-primary font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "lookup-ticket-input",
+      "cls": "form-control font-mono"
+    },
+    {
+      "tag": "a",
+      "id": "btn-track-now",
+      "cls": "btn btn-primary font-mono fw-semibold"
+    },
+    {
+      "tag": "section",
+      "id": "featured-taco-spotlight",
+      "cls": "mb-4"
+    },
+    {
+      "tag": "section",
+      "id": "todays-specials-object",
+      "cls": "mb-4"
+    },
+    {
+      "tag": "section",
+      "id": "catalog-preview-object",
+      "cls": "mb-4"
+    },
+    {
+      "tag": "aside",
+      "id": "cart-drawer-object",
+      "cls": "offcanvas offcanvas-end border-start border-secondary-subtle"
+    },
+    {
+      "tag": "h2",
+      "id": "cart-title",
+      "cls": "h6 offcanvas-title fw-bold text-dark d-flex align-items-center gap-2 mb-0"
+    },
+    {
+      "tag": "div",
+      "id": "cart-items-container",
+      "cls": "flex-grow-1 overflow-y-auto"
+    },
+    {
+      "tag": "span",
+      "id": "cart-val-subtotal",
+      "cls": "text-dark fw-semibold font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "cart-val-delivery",
+      "cls": "text-dark fw-semibold font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "cart-val-total",
+      "cls": "text-success font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "cart-checkout-btn",
+      "cls": "btn btn-primary btn-sm px-4 fw-semibold"
+    },
+    {
+      "tag": "div",
+      "id": "home-phone-dialer-modal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "home-dialer-title",
+      "cls": "h6 modal-title fw-bold text-dark mb-0 d-flex align-items-center gap-2"
+    },
+    {
+      "tag": "input",
+      "id": "home-dialer-item-input",
+      "cls": "form-control form-control-sm border-secondary font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "home-dialer-dest-input",
+      "cls": "form-control form-control-sm border-secondary"
+    },
+    {
+      "tag": "button",
+      "id": "btn-home-submit-phone",
+      "cls": "btn btn-sm btn-success px-3 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "home-receipt-modal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "home-receipt-title",
+      "cls": "h6 modal-title fw-bold text-dark mb-0"
+    },
+    {
+      "tag": "div",
+      "id": "home-receipt-time",
+      "cls": "text-secondary small"
+    },
+    {
+      "tag": "div",
+      "id": "home-receipt-num",
+      "cls": "text-warning fw-bold small"
+    },
+    {
+      "tag": "span",
+      "id": "home-receipt-dest",
+      "cls": "text-dark fw-bold"
+    },
+    {
+      "tag": "div",
+      "id": "home-receipt-items-list",
+      "cls": "border-top border-secondary-subtle pt-2 mb-2"
+    },
+    {
+      "tag": "span",
+      "id": "home-receipt-food",
+      "cls": "text-dark fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "home-receipt-total",
+      "cls": ""
+    },
+    {
+      "tag": "input",
+      "id": "receipt-email-input",
+      "cls": "form-control form-control-sm font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-send-receipt-email",
+      "cls": "btn btn-outline-success font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "email-sent-feedback",
+      "cls": "small text-success mt-1 d-none font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "soapbox-pitch-modal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "soapbox-pitch-title",
+      "cls": "h6 modal-title fw-bold text-dark mb-0 d-flex align-items-center gap-2"
+    },
+    {
+      "tag": "input",
+      "id": "pitch-email-input",
+      "cls": "form-control form-control-sm font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "pitch-subject-input",
+      "cls": "form-control form-control-sm font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-copy-pitch",
+      "cls": "btn btn-sm btn-outline-primary font-mono py-0 px-2"
+    },
+    {
+      "tag": "textarea",
+      "id": "pitch-letter-body",
+      "cls": "form-control form-control-sm font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "copy-pitch-feedback",
+      "cls": "small text-success mt-1 d-none font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-copy-pitch-bottom",
+      "cls": "btn btn-sm btn-outline-primary font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-launch-mailto",
+      "cls": "btn btn-sm btn-primary px-3 font-mono fw-bold"
+    },
+    {
+      "tag": "footer",
+      "id": "site-footer-object",
+      "cls": "py-3 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto"
+    }
+  ],
+  "menu.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "menu-hero-object",
+      "cls": "p-3 p-md-5 mb-4 rounded-3 sweetfin-hero-banner"
+    },
+    {
+      "tag": "span",
+      "id": "nav-cart-counter-badge",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "menu-filters-object",
+      "cls": "d-flex flex-wrap gap-2 mb-3 p-2 border border-secondary-subtle rounded-2 bg-body-tertiary"
+    },
+    {
+      "tag": "section",
+      "id": "menu-catalog-grid-object",
+      "cls": "mb-4"
+    },
+    {
+      "tag": "div",
+      "id": "menu-items-grid",
+      "cls": "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
+    },
+    {
+      "tag": "div",
+      "id": "cartModal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "cartModalTitle",
+      "cls": "modal-title h6 fw-bold mb-0 text-dark"
+    },
+    {
+      "tag": "div",
+      "id": "cartModalSubtitle",
+      "cls": "small text-secondary"
+    },
+    {
+      "tag": "span",
+      "id": "cartModalAllotmentCount",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "cartItemsCountText",
+      "cls": ""
+    },
+    {
+      "tag": "button",
+      "id": "clearCartBtn",
+      "cls": "btn btn-sm btn-outline-danger py-0 px-2 small font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "cart-items-container",
+      "cls": "mb-3"
+    },
+    {
+      "tag": "span",
+      "id": "cart-val-subtotal",
+      "cls": "text-dark fw-semibold font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "cart-val-delivery",
+      "cls": "text-dark fw-semibold font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "cartTipTakeHomeLabel",
+      "cls": "small text-secondary font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "cart-val-total",
+      "cls": "text-success font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "cart-delivery-address",
+      "cls": "form-control form-control-sm border-secondary font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-generate-receipt",
+      "cls": "btn btn-outline-primary btn-sm px-3 fw-semibold font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-text-order-deke",
+      "cls": "btn btn-success btn-sm px-3 fw-semibold font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-stripe-pay-sweetfin",
+      "cls": "btn btn-primary btn-sm px-3 fw-bold font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "phone-dialer-modal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "dialer-title",
+      "cls": "h6 modal-title fw-bold text-dark mb-0 d-flex align-items-center gap-2"
+    },
+    {
+      "tag": "input",
+      "id": "dialer-item-input",
+      "cls": "form-control form-control-sm border-secondary font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "dialer-address-input",
+      "cls": "form-control form-control-sm border-secondary"
+    },
+    {
+      "tag": "div",
+      "id": "dialer-preview-box",
+      "cls": "p-2 border border-secondary-subtle rounded bg-body small font-mono d-none mb-2"
+    },
+    {
+      "tag": "div",
+      "id": "dialer-preview-list",
+      "cls": ""
+    },
+    {
+      "tag": "button",
+      "id": "btn-submit-phone-order",
+      "cls": "btn btn-sm btn-success px-3 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-modal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "receipt-title",
+      "cls": "h6 modal-title fw-bold text-dark mb-0"
+    },
+    {
+      "tag": "div",
+      "id": "printable-receipt-card",
+      "cls": "p-3 border border-secondary-subtle rounded bg-body font-mono small"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-timestamp",
+      "cls": "text-secondary small"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-number-display",
+      "cls": "text-warning fw-bold small"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-dest-display",
+      "cls": "text-dark fw-bold"
+    },
+    {
+      "tag": "tbody",
+      "id": "receipt-items-table-body",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "receipt-food-subtotal",
+      "cls": "text-dark fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-grand-total",
+      "cls": ""
+    },
+    {
+      "tag": "a",
+      "id": "receipt-track-btn",
+      "cls": "btn btn-sm btn-outline-success px-3 font-mono"
+    },
+    {
+      "tag": "footer",
+      "id": "menu-footer-object",
+      "cls": "py-3 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto"
+    }
+  ],
+  "tacos.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "tacos-hero-object",
+      "cls": "p-4 p-md-5 mb-4 rounded-3 tacos-hero-banner"
+    },
+    {
+      "tag": "span",
+      "id": "nav-cart-counter-badge",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "tacos-filters-object",
+      "cls": "d-flex flex-wrap gap-2 mb-3 p-2.5 rounded-2 pin-panel"
+    },
+    {
+      "tag": "section",
+      "id": "tacos-catalog-grid-object",
+      "cls": "mb-4"
+    },
+    {
+      "tag": "div",
+      "id": "tacos-items-grid",
+      "cls": "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
+    },
+    {
+      "tag": "div",
+      "id": "cartModal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "cartModalTitle",
+      "cls": "modal-title h6 fw-bold mb-0 text-white"
+    },
+    {
+      "tag": "span",
+      "id": "cartItemsCountText",
+      "cls": ""
+    },
+    {
+      "tag": "button",
+      "id": "clearCartBtn",
+      "cls": "btn btn-sm btn-outline-danger py-0 px-2 small font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "cart-items-container",
+      "cls": "mb-3"
+    },
+    {
+      "tag": "span",
+      "id": "cart-food-subtotal",
+      "cls": "font-mono text-light fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "cart-courier-fee",
+      "cls": "font-mono text-light"
+    },
+    {
+      "tag": "span",
+      "id": "cart-tip-amount",
+      "cls": "font-mono text-success fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "cart-grand-total",
+      "cls": "h5 fw-bold font-mono mb-0"
+    },
+    {
+      "tag": "input",
+      "id": "cart-delivery-address",
+      "cls": "form-control form-control-sm border-secondary font-mono bg-dark text-light"
+    },
+    {
+      "tag": "button",
+      "id": "btn-text-order-deke",
+      "cls": "btn btn-sm btn-black-yellow px-3 d-flex align-items-center gap-1 font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-stripe-pay-tacos",
+      "cls": "btn btn-sm btn-black-yellow px-3 d-flex align-items-center gap-1 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "phone-dialer-modal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "dialer-title",
+      "cls": "h6 modal-title fw-bold text-white mb-0 d-flex align-items-center gap-2"
+    },
+    {
+      "tag": "input",
+      "id": "dialer-item-input",
+      "cls": "form-control form-control-sm border-secondary font-mono bg-dark text-light"
+    },
+    {
+      "tag": "input",
+      "id": "dialer-address-input",
+      "cls": "form-control form-control-sm border-secondary bg-dark text-light font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "dialer-preview-box",
+      "cls": "p-2 border rounded bg-dark small font-mono d-none mb-2"
+    },
+    {
+      "tag": "div",
+      "id": "dialer-preview-list",
+      "cls": ""
+    },
+    {
+      "tag": "button",
+      "id": "btn-submit-phone-order",
+      "cls": "btn btn-sm btn-black-yellow px-3 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-modal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h2",
+      "id": "receipt-title",
+      "cls": "h6 modal-title fw-bold text-white mb-0"
+    },
+    {
+      "tag": "div",
+      "id": "printable-receipt-card",
+      "cls": "p-3 rounded bg-dark font-mono small text-light"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-timestamp",
+      "cls": "text-secondary small"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-number-display",
+      "cls": "fw-bold small"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-dest-display",
+      "cls": "text-light fw-bold"
+    },
+    {
+      "tag": "tbody",
+      "id": "receipt-items-table-body",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "receipt-food-subtotal",
+      "cls": "text-light fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-grand-total",
+      "cls": ""
+    }
+  ],
+  "sandwiches.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-hero",
+      "cls": "p-3 p-md-5 mb-4 rounded-3 store-hero-banner"
+    },
+    {
+      "tag": "span",
+      "id": "nav-cart-counter-badge",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-filters",
+      "cls": "d-flex flex-wrap gap-2 mb-3 p-2 border border-secondary-subtle rounded-2 bg-dark"
+    },
+    {
+      "tag": "div",
+      "id": "store-items-grid",
+      "cls": "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-01",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-02",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-03",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-04",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-05",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-06",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-07",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-08",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-09",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-10",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "lokal-11",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "div",
+      "id": "cartModal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h5",
+      "id": "cartModalLabel",
+      "cls": "modal-title font-mono fw-bold"
+    },
+    {
+      "tag": "div",
+      "id": "cart-items-container",
+      "cls": "mb-3"
+    },
+    {
+      "tag": "span",
+      "id": "cart-subtotal",
+      "cls": "font-mono text-light fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "cart-grand-total",
+      "cls": "font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-clear-cart",
+      "cls": "btn btn-sm btn-outline-secondary font-mono"
+    }
+  ],
+  "doughroom.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-hero",
+      "cls": "p-3 p-md-5 mb-4 rounded-3 store-hero-banner"
+    },
+    {
+      "tag": "span",
+      "id": "nav-cart-counter-badge",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-filters",
+      "cls": "d-flex flex-wrap gap-2 mb-3 p-2 border border-secondary-subtle rounded-2 bg-dark"
+    },
+    {
+      "tag": "div",
+      "id": "store-items-grid",
+      "cls": "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-1",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-2",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-3",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-4",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-5",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-6",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-7",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "doughroom-8",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "div",
+      "id": "cartModal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h5",
+      "id": "cartModalLabel",
+      "cls": "modal-title font-mono fw-bold"
+    },
+    {
+      "tag": "div",
+      "id": "cart-items-container",
+      "cls": "mb-3"
+    },
+    {
+      "tag": "span",
+      "id": "cart-subtotal",
+      "cls": "font-mono text-light fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "cart-grand-total",
+      "cls": "font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-clear-cart",
+      "cls": "btn btn-sm btn-outline-secondary font-mono"
+    }
+  ],
+  "simpang.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-hero",
+      "cls": "p-3 p-md-5 mb-4 rounded-3 store-hero-banner"
+    },
+    {
+      "tag": "span",
+      "id": "nav-cart-counter-badge",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-filters",
+      "cls": "d-flex flex-wrap gap-2 mb-3 p-2 border border-secondary-subtle rounded-2 bg-dark"
+    },
+    {
+      "tag": "div",
+      "id": "store-items-grid",
+      "cls": "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-1",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-2",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-3",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-4",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-5",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-6",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-7",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-8",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-9",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "simpang-10",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "div",
+      "id": "cartModal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h5",
+      "id": "cartModalLabel",
+      "cls": "modal-title font-mono fw-bold"
+    },
+    {
+      "tag": "div",
+      "id": "cart-items-container",
+      "cls": "mb-3"
+    },
+    {
+      "tag": "span",
+      "id": "cart-subtotal",
+      "cls": "font-mono text-light fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "cart-grand-total",
+      "cls": "font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-clear-cart",
+      "cls": "btn btn-sm btn-outline-secondary font-mono"
+    }
+  ],
+  "mizlala.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-hero",
+      "cls": "p-3 p-md-5 mb-4 rounded-3 store-hero-banner"
+    },
+    {
+      "tag": "span",
+      "id": "nav-cart-counter-badge",
+      "cls": ""
+    },
+    {
+      "tag": "section",
+      "id": "store-filters",
+      "cls": "d-flex flex-wrap gap-2 mb-3 p-2 border border-secondary-subtle rounded-2 bg-dark"
+    },
+    {
+      "tag": "div",
+      "id": "store-items-grid",
+      "cls": "row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
+    },
+    {
+      "tag": "button",
+      "id": "mizlala-1",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "mizlala-2",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "mizlala-3",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "mizlala-4",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "mizlala-5",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "button",
+      "id": "mizlala-6",
+      "cls": "btn btn-sm btn-primary fw-bold text-white px-3 add-to-cart-btn"
+    },
+    {
+      "tag": "div",
+      "id": "cartModal",
+      "cls": "modal fade"
+    },
+    {
+      "tag": "h5",
+      "id": "cartModalLabel",
+      "cls": "modal-title font-mono fw-bold"
+    },
+    {
+      "tag": "div",
+      "id": "cart-items-container",
+      "cls": "mb-3"
+    },
+    {
+      "tag": "span",
+      "id": "cart-subtotal",
+      "cls": "font-mono text-light fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "cart-grand-total",
+      "cls": "font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-clear-cart",
+      "cls": "btn btn-sm btn-outline-secondary font-mono"
+    }
+  ],
+  "checkout.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "a",
+      "id": "btn-back-storefront",
+      "cls": "btn btn-sm btn-outline-light d-flex align-items-center gap-2"
+    },
+    {
+      "tag": "span",
+      "id": "top-merchant-badge",
+      "cls": "sweetfin-badge text-nowrap"
+    },
+    {
+      "tag": "h4",
+      "id": "order-merchant-title",
+      "cls": "fw-bold mb-0 text-white d-flex align-items-center gap-2 flex-wrap"
+    },
+    {
+      "tag": "span",
+      "id": "order-zone-badge",
+      "cls": "badge border font-mono text-nowrap"
+    },
+    {
+      "tag": "div",
+      "id": "checkout-items-list",
+      "cls": "list-group list-group-flush mb-3"
+    },
+    {
+      "tag": "strong",
+      "id": "primary-item-name",
+      "cls": "d-block text-white"
+    },
+    {
+      "tag": "small",
+      "id": "primary-item-desc",
+      "cls": "text-muted d-block"
+    },
+    {
+      "tag": "span",
+      "id": "primary-item-price",
+      "cls": "fw-bold font-mono text-nowrap"
+    },
+    {
+      "tag": "span",
+      "id": "displayFoodSubtotal",
+      "cls": "font-mono text-white fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "displayTipAmount",
+      "cls": "fw-bold font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "displayGrandTotal",
+      "cls": "font-mono total-amount"
+    },
+    {
+      "tag": "div",
+      "id": "tip-btn-group",
+      "cls": "btn-group w-100 flex-wrap"
+    },
+    {
+      "tag": "input",
+      "id": "tip250",
+      "cls": "btn-check"
+    },
+    {
+      "tag": "input",
+      "id": "tip400",
+      "cls": "btn-check"
+    },
+    {
+      "tag": "input",
+      "id": "tip500",
+      "cls": "btn-check"
+    },
+    {
+      "tag": "input",
+      "id": "tip750",
+      "cls": "btn-check"
+    },
+    {
+      "tag": "div",
+      "id": "payment-request-button",
+      "cls": "mb-3"
+    },
+    {
+      "tag": "div",
+      "id": "payment-request-divider",
+      "cls": "position-relative text-center my-3"
+    },
+    {
+      "tag": "form",
+      "id": "stripe-escrow-form",
+      "cls": ""
+    },
+    {
+      "tag": "input",
+      "id": "cust-name-input",
+      "cls": "form-control bg-black text-white border-secondary"
+    },
+    {
+      "tag": "input",
+      "id": "cust-phone-input",
+      "cls": "form-control bg-black text-white border-secondary font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "cust-dropoff-input",
+      "cls": "form-control bg-black text-white border-secondary"
+    },
+    {
+      "tag": "div",
+      "id": "card-element",
+      "cls": "stripe-element-container"
+    },
+    {
+      "tag": "div",
+      "id": "card-errors",
+      "cls": "text-danger small mt-2 font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "cust-zip-input",
+      "cls": "form-control bg-black text-white border-secondary font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "submit-escrow-btn",
+      "cls": "btn-checkout mb-2"
+    },
+    {
+      "tag": "span",
+      "id": "btn-text",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "btn-spinner",
+      "cls": "spinner-border spinner-border-sm ms-2"
+    },
+    {
+      "tag": "div",
+      "id": "escrow-success-stage",
+      "cls": "tactile-card mt-3 text-center"
+    },
+    {
+      "tag": "span",
+      "id": "handshake-pin-display",
+      "cls": "fs-1 fw-bold font-mono letter-spacing-2 d-block my-1"
+    },
+    {
+      "tag": "strong",
+      "id": "success-ticket-id",
+      "cls": "text-white"
+    },
+    {
+      "tag": "strong",
+      "id": "success-stripe-pm",
+      "cls": ""
+    },
+    {
+      "tag": "a",
+      "id": "success-track-link",
+      "cls": "btn btn-checkout btn-sm w-100 font-mono d-flex align-items-center justify-content-center gap-2"
+    },
+    {
+      "tag": "a",
+      "id": "success-receipt-link",
+      "cls": "btn btn-outline-light btn-sm mt-2 w-100 font-mono d-flex align-items-center justify-content-center gap-2"
+    },
+    {
+      "tag": "input",
+      "id": "local-card-num",
+      "cls": "form-control form-control-sm bg-black text-white border-secondary font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "local-card-exp",
+      "cls": "form-control form-control-sm bg-black text-white border-secondary font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "local-card-cvc",
+      "cls": "form-control form-control-sm bg-black text-white border-secondary font-mono"
+    }
+  ],
+  "receipt.html": [
+    {
+      "tag": "div",
+      "id": "receipt-emblem",
+      "cls": "fish-emblem"
+    },
+    {
+      "tag": "h2",
+      "id": "receipt-merchant-title",
+      "cls": "sweetfin-title"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-merchant-sub",
+      "cls": "sweetfin-sub"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-merchant-addr",
+      "cls": "text-muted small mt-1 font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-status-badge",
+      "cls": "badge"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-timestamp",
+      "cls": "font-mono text-muted small"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-handshake-pin",
+      "cls": "pin-digits"
+    },
+    {
+      "tag": "div",
+      "id": "receipt-items-container",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "receipt-food-subtotal",
+      "cls": "font-mono text-dark fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-courier-fee",
+      "cls": "font-mono text-dark fw-bold"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-tip-amount",
+      "cls": "font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "receipt-total-label",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "receipt-grand-total",
+      "cls": "font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "stage-1",
+      "cls": "lifecycle-stage active"
+    },
+    {
+      "tag": "div",
+      "id": "stage-2",
+      "cls": "lifecycle-stage active"
+    },
+    {
+      "tag": "div",
+      "id": "stage-3",
+      "cls": "lifecycle-stage"
+    },
+    {
+      "tag": "div",
+      "id": "stage-4",
+      "cls": "lifecycle-stage"
+    },
+    {
+      "tag": "strong",
+      "id": "receipt-ticket-id",
+      "cls": "text-dark"
+    },
+    {
+      "tag": "strong",
+      "id": "receipt-payment-method",
+      "cls": "text-dark"
+    },
+    {
+      "tag": "strong",
+      "id": "receipt-courier-name",
+      "cls": "text-dark"
+    },
+    {
+      "tag": "strong",
+      "id": "receipt-destination",
+      "cls": "text-dark"
+    },
+    {
+      "tag": "a",
+      "id": "receipt-track-btn",
+      "cls": "btn btn-sm btn-dark font-mono"
+    }
+  ],
+  "request.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "header",
+      "id": "request-nav-object",
+      "cls": "navbar-floating"
+    },
+    {
+      "tag": "div",
+      "id": "request-nav-collapse",
+      "cls": "collapse navbar-collapse"
+    },
+    {
+      "tag": "div",
+      "id": "request-intake-object",
+      "cls": "card border-secondary-subtle bg-body-tertiary"
+    },
+    {
+      "tag": "form",
+      "id": "direct-request-form",
+      "cls": ""
+    },
+    {
+      "tag": "input",
+      "id": "req-pickup-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "input",
+      "id": "req-dropoff-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "input",
+      "id": "req-phone-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "input",
+      "id": "req-items-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "textarea",
+      "id": "req-notes-input",
+      "cls": "form-control form-control-sm"
+    },
+    {
+      "tag": "span",
+      "id": "req-est-food",
+      "cls": "text-dark fw-bold"
+    },
+    {
+      "tag": "button",
+      "id": "submit-ticket-btn",
+      "cls": "btn btn-primary btn-sm px-4 fw-semibold flex-grow-1"
+    },
+    {
+      "tag": "button",
+      "id": "btn-request-escrow",
+      "cls": "btn btn-success btn-sm px-3 fw-semibold"
+    },
+    {
+      "tag": "footer",
+      "id": "request-footer-object",
+      "cls": "py-3 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto"
+    }
+  ],
+  "track.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "header",
+      "id": "track-nav-object",
+      "cls": "navbar-floating"
+    },
+    {
+      "tag": "div",
+      "id": "track-nav-collapse",
+      "cls": "collapse navbar-collapse"
+    },
+    {
+      "tag": "div",
+      "id": "track-card-object",
+      "cls": "card border-secondary-subtle bg-body-tertiary mb-3"
+    },
+    {
+      "tag": "h1",
+      "id": "track-ticket-id",
+      "cls": "h6 fw-bold text-dark font-mono mb-0"
+    },
+    {
+      "tag": "span",
+      "id": "track-pin-badge",
+      "cls": "badge bg-dark border border-warning text-warning px-2 py-1 font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "track-status-badge",
+      "cls": "badge bg-success-subtle text-success px-2 py-1 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "live-telemetry-map",
+      "cls": "ratio ratio-16x9 border border-secondary-subtle rounded-2 mb-3"
+    },
+    {
+      "tag": "div",
+      "id": "track-step-1",
+      "cls": "list-group-item bg-body d-flex align-items-center gap-2 py-2"
+    },
+    {
+      "tag": "span",
+      "id": "track-step-1-icon",
+      "cls": "badge bg-primary rounded-circle p-1 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "track-step-1-sub",
+      "cls": "text-body-secondary small"
+    },
+    {
+      "tag": "span",
+      "id": "track-step-1-badge",
+      "cls": "badge bg-success-subtle text-success font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "track-step-2",
+      "cls": "list-group-item bg-body d-flex align-items-center gap-2 py-2"
+    },
+    {
+      "tag": "span",
+      "id": "track-step-2-icon",
+      "cls": "badge bg-primary rounded-circle p-1 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "track-step-2-sub",
+      "cls": "text-body-secondary small"
+    },
+    {
+      "tag": "span",
+      "id": "track-step-2-badge",
+      "cls": "badge bg-warning-subtle text-warning font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "track-step-3",
+      "cls": "list-group-item bg-body d-flex align-items-center gap-2 py-2"
+    },
+    {
+      "tag": "span",
+      "id": "track-step-3-icon",
+      "cls": "badge bg-secondary rounded-circle p-1 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "track-step-3-sub",
+      "cls": "text-body-secondary small"
+    },
+    {
+      "tag": "span",
+      "id": "track-step-3-badge",
+      "cls": "badge bg-secondary-subtle text-secondary font-mono"
+    },
+    {
+      "tag": "strong",
+      "id": "track-origin-text",
+      "cls": "text-dark"
+    },
+    {
+      "tag": "strong",
+      "id": "track-dest-text",
+      "cls": "text-dark"
+    },
+    {
+      "tag": "strong",
+      "id": "track-ask-text",
+      "cls": "text-dark"
+    },
+    {
+      "tag": "strong",
+      "id": "track-courier-text",
+      "cls": "text-success"
+    },
+    {
+      "tag": "a",
+      "id": "track-view-receipt-btn",
+      "cls": "btn btn-sm btn-outline-light font-mono flex-grow-1"
+    },
+    {
+      "tag": "footer",
+      "id": "track-footer-object",
+      "cls": "py-3 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto"
+    }
+  ],
+  "driver.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "input",
+      "id": "cockpit-duty-switch",
+      "cls": "form-check-input"
+    },
+    {
+      "tag": "label",
+      "id": "cockpit-duty-label",
+      "cls": "form-check-label small fw-bold text-success font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "driver-map",
+      "cls": ""
+    },
+    {
+      "tag": "div",
+      "id": "hud-wallet-total",
+      "cls": "hud-chip text-success fw-bold"
+    },
+    {
+      "tag": "div",
+      "id": "hud-trip-status",
+      "cls": "hud-chip text-warning fw-semibold"
+    },
+    {
+      "tag": "button",
+      "id": "btn-recenter-driver-map",
+      "cls": "btn btn-sm btn-dark border border-secondary font-mono px-3 py-1 shadow"
+    },
+    {
+      "tag": "div",
+      "id": "driver-cockpit-accordion",
+      "cls": "accordion"
+    },
+    {
+      "tag": "h2",
+      "id": "heading-active-trip",
+      "cls": "accordion-header"
+    },
+    {
+      "tag": "span",
+      "id": "accordion-trip-title",
+      "cls": ""
+    },
+    {
+      "tag": "div",
+      "id": "collapse-active-trip",
+      "cls": "accordion-collapse collapse show"
+    },
+    {
+      "tag": "span",
+      "id": "trip-payout-val",
+      "cls": "text-success fw-bold fs-5 ms-1"
+    },
+    {
+      "tag": "div",
+      "id": "trip-original-ask",
+      "cls": "customer-ask-box font-monospace small"
+    },
+    {
+      "tag": "div",
+      "id": "trip-pickup-name",
+      "cls": "fw-bold text-light"
+    },
+    {
+      "tag": "div",
+      "id": "trip-pickup-addr",
+      "cls": "small text-secondary mb-2"
+    },
+    {
+      "tag": "a",
+      "id": "btn-bike-nav-pickup",
+      "cls": "btn btn-sm btn-nav-bicycle w-100 py-2 d-flex align-items-center justify-content-center gap-2"
+    },
+    {
+      "tag": "div",
+      "id": "trip-customer-name",
+      "cls": "fw-bold text-light"
+    },
+    {
+      "tag": "a",
+      "id": "trip-customer-phone",
+      "cls": "text-info text-decoration-none font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "trip-dropoff-addr",
+      "cls": "small text-secondary mb-2"
+    },
+    {
+      "tag": "a",
+      "id": "btn-bike-nav-dropoff",
+      "cls": "btn btn-sm btn-nav-bicycle w-100 py-2 d-flex align-items-center justify-content-center gap-2"
+    },
+    {
+      "tag": "span",
+      "id": "trip-food-subtotal",
+      "cls": "text-warning"
+    },
+    {
+      "tag": "div",
+      "id": "trip-items-list",
+      "cls": "text-light"
+    },
+    {
+      "tag": "span",
+      "id": "trip-pin-hint",
+      "cls": "small text-warning"
+    },
+    {
+      "tag": "input",
+      "id": "handshake-pin-input",
+      "cls": "form-control font-mono fw-bold letter-spacing-1"
+    },
+    {
+      "tag": "button",
+      "id": "btn-nfc-fistbump",
+      "cls": "btn btn-sm btn-outline-info w-100 font-mono py-1"
+    },
+    {
+      "tag": "div",
+      "id": "driver-step-feedback",
+      "cls": "small mt-2 d-none"
+    },
+    {
+      "tag": "button",
+      "id": "btn-step-pickup",
+      "cls": "btn btn-sm btn-outline-primary font-mono py-2 px-3 flex-grow-1"
+    },
+    {
+      "tag": "button",
+      "id": "btn-step-collected",
+      "cls": "btn btn-sm btn-outline-warning font-mono py-2 px-3 flex-grow-1"
+    },
+    {
+      "tag": "button",
+      "id": "btn-step-delivered",
+      "cls": "btn btn-sm btn-success font-mono py-2 px-3 flex-grow-1 fw-bold"
+    },
+    {
+      "tag": "h2",
+      "id": "heading-dispatch-queue",
+      "cls": "accordion-header"
+    },
+    {
+      "tag": "span",
+      "id": "queue-count-badge",
+      "cls": "badge bg-primary ms-2 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "collapse-dispatch-queue",
+      "cls": "accordion-collapse collapse"
+    },
+    {
+      "tag": "button",
+      "id": "btn-refresh-queue",
+      "cls": "btn btn-xs btn-outline-secondary font-mono py-0 px-2"
+    },
+    {
+      "tag": "div",
+      "id": "dispatch-queue-container",
+      "cls": ""
+    },
+    {
+      "tag": "h2",
+      "id": "heading-alliance",
+      "cls": "accordion-header"
+    },
+    {
+      "tag": "div",
+      "id": "collapse-alliance",
+      "cls": "accordion-collapse collapse"
+    },
+    {
+      "tag": "input",
+      "id": "input-driver-invite",
+      "cls": "form-control font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-copy-driver-link",
+      "cls": "btn btn-outline-success font-mono"
+    },
+    {
+      "tag": "h2",
+      "id": "heading-card",
+      "cls": "accordion-header"
+    },
+    {
+      "tag": "div",
+      "id": "collapse-card",
+      "cls": "accordion-collapse collapse"
+    },
+    {
+      "tag": "a",
+      "id": "trip-customer-phone",
+      "cls": "text-info text-decoration-none font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "${t.id}",
+      "cls": "btn btn-sm ${settled ? "
+    }
+  ],
+  "driver-settings.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "span",
+      "id": "navDriverStatusDot",
+      "cls": "status-dot"
+    },
+    {
+      "tag": "span",
+      "id": "navDriverStatusText",
+      "cls": "small fw-semibold text-light"
+    },
+    {
+      "tag": "button",
+      "id": "driverSignOutBtn",
+      "cls": "btn btn-sm btn-outline-secondary font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "driverAuthGate",
+      "cls": "container-xl"
+    },
+    {
+      "tag": "button",
+      "id": "googleSignInBtn",
+      "cls": "btn btn-light d-flex align-items-center justify-content-center gap-2 fw-bold text-dark py-2"
+    },
+    {
+      "tag": "form",
+      "id": "passcodeForm",
+      "cls": "mt-1"
+    },
+    {
+      "tag": "input",
+      "id": "passcodeInput",
+      "cls": "form-control font-mono"
+    },
+    {
+      "tag": "small",
+      "id": "authErrorMsg",
+      "cls": "text-secondary d-block mt-2 font-mono"
+    },
+    {
+      "tag": "main",
+      "id": "settingsMainContent",
+      "cls": "py-4 d-none"
+    },
+    {
+      "tag": "button",
+      "id": "topSaveBtn",
+      "cls": "btn btn-primary font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "availabilityBadge",
+      "cls": "badge bg-success px-3 py-2 font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "settingsOnlineSwitch",
+      "cls": "form-check-input ms-0"
+    },
+    {
+      "tag": "span",
+      "id": "settingsGpsPill",
+      "cls": "badge bg-secondary px-3 py-2 font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "settingsGpsToggle",
+      "cls": "form-check-input ms-0"
+    },
+    {
+      "tag": "div",
+      "id": "settingsGpsTelemetryInfo",
+      "cls": "small text-secondary font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "settingsGpsCoords",
+      "cls": "text-light"
+    },
+    {
+      "tag": "span",
+      "id": "settingsGpsAccuracy",
+      "cls": "text-light"
+    },
+    {
+      "tag": "select",
+      "id": "settingsCapacitySelect",
+      "cls": "form-select font-mono"
+    },
+    {
+      "tag": "strong",
+      "id": "settingsActiveCount",
+      "cls": "fs-5 text-light"
+    },
+    {
+      "tag": "input",
+      "id": "settingsAreaInput",
+      "cls": "form-control font-mono"
+    },
+    {
+      "tag": "input",
+      "id": "checkBattery",
+      "cls": "form-check-input fs-5 m-0 preflight-check"
+    },
+    {
+      "tag": "input",
+      "id": "checkBag",
+      "cls": "form-check-input fs-5 m-0 preflight-check"
+    },
+    {
+      "tag": "input",
+      "id": "checkMount",
+      "cls": "form-check-input fs-5 m-0 preflight-check"
+    },
+    {
+      "tag": "input",
+      "id": "checkHelmet",
+      "cls": "form-check-input fs-5 m-0 preflight-check"
+    },
+    {
+      "tag": "input",
+      "id": "checkLocks",
+      "cls": "form-check-input fs-5 m-0 preflight-check"
+    },
+    {
+      "tag": "button",
+      "id": "saveSettingsBtn",
+      "cls": "btn btn-primary btn-lg fw-bold font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "settingsToast",
+      "cls": "toast align-items-center text-bg-dark border border-info shadow-lg"
+    },
+    {
+      "tag": "div",
+      "id": "settingsToastMessage",
+      "cls": "toast-body fw-bold font-mono"
+    }
+  ],
+  "restaurant.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "header",
+      "id": "kitchen-nav-object",
+      "cls": "navbar-floating"
+    },
+    {
+      "tag": "div",
+      "id": "kitchen-nav-collapse",
+      "cls": "collapse navbar-collapse"
+    },
+    {
+      "tag": "button",
+      "id": "btn-sound-chime",
+      "cls": "btn btn-sm btn-outline-warning"
+    },
+    {
+      "tag": "section",
+      "id": "kitchen-metrics-object",
+      "cls": "row g-2 mb-3"
+    },
+    {
+      "tag": "div",
+      "id": "kpi-active-prep",
+      "cls": "h4 fw-bold text-warning font-mono mb-0"
+    },
+    {
+      "tag": "div",
+      "id": "kpi-courier-name",
+      "cls": "h4 fw-bold text-success font-mono mb-0"
+    },
+    {
+      "tag": "div",
+      "id": "kpi-courier-eta",
+      "cls": "small text-secondary font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "kpi-station-inventory",
+      "cls": "h4 fw-bold text-dark font-mono mb-0"
+    },
+    {
+      "tag": "div",
+      "id": "kitchen-queue-object",
+      "cls": "card border-secondary-subtle"
+    },
+    {
+      "tag": "div",
+      "id": "kitchen-stock-object",
+      "cls": "card border-secondary-subtle"
+    },
+    {
+      "tag": "footer",
+      "id": "kitchen-footer-object",
+      "cls": "py-3 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto"
+    },
+    {
+      "tag": "button",
+      "id": "${ticket.id}",
+      "cls": "${btnClass}"
+    }
+  ],
+  "admin.html": [
+    {
+      "tag": "html",
+      "id": "html-root",
+      "cls": ""
+    },
+    {
+      "tag": "body",
+      "id": "admin-body",
+      "cls": "bg-body text-body"
+    },
+    {
+      "tag": "header",
+      "id": "admin-nav-object",
+      "cls": "navbar-floating"
+    },
+    {
+      "tag": "div",
+      "id": "admin-nav-collapse",
+      "cls": "collapse navbar-collapse"
+    },
+    {
+      "tag": "button",
+      "id": "btn-open-fullscreen-tracker",
+      "cls": "btn btn-sm btn-outline-warning font-mono"
+    },
+    {
+      "tag": "section",
+      "id": "admin-metrics-object",
+      "cls": "border-bottom border-secondary-subtle bg-body-tertiary py-2"
+    },
+    {
+      "tag": "div",
+      "id": "admin-gmv-val",
+      "cls": "fs-6 fw-bold text-light font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "admin-passthrough-val",
+      "cls": "fs-6 fw-bold text-success font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "admin-fleet-val",
+      "cls": "fs-6 fw-bold text-warning font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "admin-escrow-val",
+      "cls": "fs-6 fw-bold text-light font-mono"
+    },
+    {
+      "tag": "span",
+      "id": "admin-escrow-badge",
+      "cls": "badge bg-secondary-subtle text-secondary font-mono"
+    },
+    {
+      "tag": "main",
+      "id": "admin-viewport-object",
+      "cls": "flex-grow-1 p-2 d-flex flex-column"
+    },
+    {
+      "tag": "input",
+      "id": "ai-pickup-input",
+      "cls": "form-control bg-body border-secondary text-light font-mono"
+    },
+    {
+      "tag": "button",
+      "id": "btn-ai-query-closest",
+      "cls": "btn btn-primary font-mono fw-bold"
+    },
+    {
+      "tag": "div",
+      "id": "ai-match-result",
+      "cls": "mt-2 p-2 border border-secondary rounded bg-body font-mono small d-none"
+    },
+    {
+      "tag": "span",
+      "id": "ai-match-driver",
+      "cls": "text-light fw-bold"
+    },
+    {
+      "tag": "strong",
+      "id": "ai-match-dist",
+      "cls": "text-warning"
+    },
+    {
+      "tag": "strong",
+      "id": "ai-match-eta",
+      "cls": "text-success"
+    },
+    {
+      "tag": "strong",
+      "id": "ai-match-batt",
+      "cls": "text-light"
+    },
+    {
+      "tag": "span",
+      "id": "ai-deadhead-tag",
+      "cls": "badge bg-primary-subtle text-primary border border-primary-subtle"
+    },
+    {
+      "tag": "button",
+      "id": "btn-instant-dispatch-match",
+      "cls": "btn btn-xs btn-success font-mono py-1 px-3 fw-bold"
+    },
+    {
+      "tag": "button",
+      "id": "btn-recenter-comptroller",
+      "cls": "btn btn-sm btn-outline-light py-0 px-2 font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "comptroller-fleet-map",
+      "cls": "w-100 h-100 position-absolute top-0 start-0"
+    },
+    {
+      "tag": "span",
+      "id": "dossier-count-badge",
+      "cls": "badge bg-secondary-subtle text-secondary font-mono"
+    },
+    {
+      "tag": "div",
+      "id": "dossier-cards-container",
+      "cls": "card-body p-2 flex-grow-1 overflow-y-auto"
+    },
+    {
+      "tag": "div",
+      "id": "DRV-104",
+      "cls": "card border-secondary-subtle bg-body mb-2 p-2 font-mono driver-stick-card border-success"
+    },
+    {
+      "tag": "div",
+      "id": "DRV-101",
+      "cls": "card border-secondary-subtle bg-body mb-2 p-2 font-mono driver-stick-card"
+    },
+    {
+      "tag": "div",
+      "id": "DRV-102",
+      "cls": "card border-secondary-subtle bg-body mb-2 p-2 font-mono driver-stick-card"
+    },
+    {
+      "tag": "div",
+      "id": "DRV-103",
+      "cls": "card border-secondary-subtle bg-body mb-2 p-2 font-mono driver-stick-card"
+    },
+    {
+      "tag": "footer",
+      "id": "admin-footer-object",
+      "cls": "py-2 border-top border-secondary-subtle bg-body-tertiary text-body-secondary mt-auto"
+    },
+    {
+      "tag": "div",
+      "id": "adminToast",
+      "cls": "toast align-items-center text-bg-dark border border-warning shadow-lg"
+    },
+    {
+      "tag": "div",
+      "id": "adminToastBody",
+      "cls": "toast-body fw-bold font-mono"
+    }
+  ]
+}

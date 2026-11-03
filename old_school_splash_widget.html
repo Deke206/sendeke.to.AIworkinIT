@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SenDeke Old-School Dispatch Splash Widget</title>
+  
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  
+  <style>
+    /* Fixed Marble Table Surface */
+    body {
+      background-color: #09090b !important;
+      background-image: url('assets/img/Gemini_Generated_Image_w54rklw54rklw54r.jfif') !important;
+      background-size: cover !important;
+      background-position: center top !important;
+      background-attachment: fixed !important;
+      background-repeat: no-repeat !important;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 0.75rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* Floating Transparent Dispatch Widget Stage */
+    .old-school-card {
+      width: 100%;
+      max-width: 580px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid rgba(4, 28, 36, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Manifest Header & Old-School Creed */
+    .manifesto-header {
+      background: linear-gradient(135deg, #09090B 0%, #18181B 100%);
+      color: #F4F4F5;
+      padding: 1.25rem 1.25rem 1rem 1.25rem;
+      border-bottom: 2px solid #D97706;
+    }
+
+    .ticker-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.75rem;
+    }
+
+    .ticker-pill {
+      font-family: monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ticker-pill-store {
+      background: rgba(255, 255, 255, 0.12);
+      color: #E4E4E7;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .ticker-pill-courier {
+      background: rgba(217, 119, 6, 0.2);
+      color: #FCD34D;
+      border: 1px solid rgba(217, 119, 6, 0.5);
+    }
+
+    .ticker-pill-server {
+      background: rgba(59, 130, 246, 0.2);
+      color: #93C5FD;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    /* Floating Navigation Controls */
+    .sticky-controls {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0.75rem 1.25rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .category-pills-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .category-pills-bar::-webkit-scrollbar { display: none; }
+
+    .nav-pill-btn {
+      white-space: nowrap;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 20px;
+      padding: 5px 12px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: #FFFFFF;
+      color: #27272A;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .nav-pill-btn:hover, .nav-pill-btn.active {
+      background: #09090B;
+      color: #FFFFFF;
+      border-color: #09090B;
+    }
+
+    /* Mini Search Bar */
+    .mini-search-wrap {
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+
+    .mini-search-input {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      background: #F4F4F5;
+      padding: 6px 12px 6px 32px;
+      font-size: 0.85rem;
+      color: #18181B;
+      outline: none;
+    }
+
+    .mini-search-input:focus {
+      background: #FFFFFF;
+      border-color: #D97706;
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.18);
+    }
+
+    .mini-search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8rem;
+      color: #71717A;
+    }
+
+    /* Contained Miniature Scroll Stage */
+    .mini-scroll-stage {
+      max-height: 380px;
+      overflow-y: auto;
+      padding: 0.75rem 1.25rem;
+      scrollbar-width: thin;
+      scrollbar-color: #D97706 rgba(0, 0, 0, 0.05);
+    }
+
+    .mini-scroll-stage::-webkit-scrollbar {
+      width: 4px;
+    }
+    .mini-scroll-stage::-webkit-scrollbar-thumb {
+      background: #D97706;
+      border-radius: 4px;
+    }
+
+    /* Compact Menu Item Row */
+    .compact-item-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #FFFFFF;
+      margin-bottom: 8px;
+      transition: transform 0.1s ease, border-color 0.1s ease;
+    }
+
+    .compact-item-row:hover {
+      border-color: rgba(217, 119, 6, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .compact-item-thumb {
+      width: 58px;
+      height: 58px;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #18181B;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .compact-item-info {
+      flex-grow: 1;
+      min-width: 0;
+    }
+
+    .compact-item-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #09090B;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .compact-item-sub {
+      font-size: 0.74rem;
+      color: #52525B;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: 2px;
+    }
+
+    .compact-item-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .compact-price {
+      font-family: monospace;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: #B45309;
+    }
+
+    .btn-quick-order {
+      background: linear-gradient(180deg, #FBBF24 0%, #D97706 100%);
+      color: #09090B;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(217, 119, 6, 0.6);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-quick-order:hover {
+      background: linear-gradient(180deg, #FCD34D 0%, #F59E0B 100%);
+      color: #000;
+    }
+
+    /* Live Mini Tray Footer */
+    .mini-tray-footer {
+      background: #F4F4F5;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tray-counter {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #18181B;
+    }
+
+    .tray-subtext {
+      font-size: 0.7rem;
+      color: #71717A;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       THE OLD-SCHOOL DISPATCH SPLASH WIDGET (IN-THREAD / EMBED COMPACT STAGE)
+       ========================================================================= -->
+  <div class="old-school-card">
+
+    <!-- 1. MANIFESTO HEADER & SPLASH TICKER -->
+    <div class="manifesto-header">
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-warning text-dark font-mono fw-bold" style="font-size: 0.7rem;">SENDEKE 2.0</span>
+          <span class="fw-bold font-mono" style="font-size: 0.82rem; letter-spacing: 0.05em; color: #FCD34D;">OLD-SCHOOL DISPATCH</span>
+        </div>
+        <span class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #A1A1AA; font-size: 0.65rem;">🔒 ZERO-SURVEILLANCE</span>
+      </div>
+
+      <p class="small mb-1 text-light" style="font-size: 0.82rem; line-height: 1.35;">
+        <strong>Back to the Old School.</strong> You make an order, it goes straight to the restaurant. You pay what they ask—<strong>zero food markup</strong>. No fake driver tips. You pay your courier <strong>$12.50</strong> to stand in line and bring it fresh. The app gets a flat <strong>$1.00</strong> server token. 100% community-driven.
+      </p>
+
+      <!-- 3-PILL PRICING TICKER -->
+      <div class="ticker-pill-row">
+        <span class="ticker-pill ticker-pill-store">🏪 100% STORE PRICE</span>
+        <span class="ticker-pill ticker-pill-courier">⚡ $12.50 COURIER WAGE</span>
+        <span class="ticker-pill ticker-pill-server">⚙️ $1.00 SERVER TOKEN</span>
+      </div>
+    </div>
+
+    <!-- 2. STICKY CONTROLS: SEARCH + FLOATING CATEGORY PILLS -->
+    <div class="sticky-controls">
+      <div class="mini-search-wrap">
+        <span class="mini-search-icon">🔍</span>
+        <input type="text" id="widget-search" class="mini-search-input" placeholder="Search tacos, burritos, poke, banh mi...">
+      </div>
+      
+      <div class="category-pills-bar" id="category-pills">
+        <button class="nav-pill-btn active" data-cat="ALL">All Items</button>
+        <button class="nav-pill-btn" data-cat="TACOS">Taquería El Cachetón</button>
+        <button class="nav-pill-btn" data-cat="SWEETFIN">Sweetfin Bowls</button>
+        <button class="nav-pill-btn" data-cat="SANDWICHES">Lokal Banh Mi</button>
+        <button class="nav-pill-btn" data-cat="DRINKS">Cold Drinks</button>
+      </div>
+    </div>
+
+    <!-- 3. CONTAINED MINIATURE SCROLL STAGE -->
+    <div class="mini-scroll-stage" id="items-scroll-stage">
+
+      <!-- ITEM 1: TACO TRIO -->
+      <div class="compact-item-row" data-cat="TACOS" data-name="street taco asada pastor pollo carnitas">
+        <img src="assets/img/elcacheton/item_01_tacos.jpg" alt="Street Tacos" class="compact-item-thumb">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">Street Tacos (Asada / Pastor / Pollo)</h3>
+          <div class="compact-item-sub">Double warm corn tortilla, fresh cilantro, onions, lime, salsa.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$3.00</span>
+          <button class="btn-quick-order add-btn" data-name="Street Taco" data-price="3.00">+ Add</button>
+        </div>
+      </div>
+
+      <!-- ITEM 2: CLASSIC BURRITO -->
+      <div class="compact-item-row" data-cat="TACOS" data-name="classic burrito carne asada el cacheton">
+        <img src="assets/img/elcacheton/item_02_burritos.jpg" alt="Classic Burrito" class="compact-item-thumb">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">El Cachetón Classic Burrito</h3>
+          <div class="compact-item-sub">Warm flour tortilla, refried pinto beans, Mexican rice, choice of meat.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$14.00</span>
+          <button class="btn-quick-order add-btn" data-name="Classic Burrito" data-price="14.00">+ Add</button>
+        </div>
+      </div>
+
+      <!-- ITEM 3: QUESATACO -->
+      <div class="compact-item-row" data-cat="TACOS" data-name="quesataco melted cheese carne asada">
+        <img src="assets/img/elcacheton/item_03_quesadillas.jpg" alt="Quesataco" class="compact-item-thumb">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">Crispy Quesataco</h3>
+          <div class="compact-item-sub">Griddled corn tortilla, melted jack cheese, carne asada, guacamole.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$6.00</span>
+          <button class="btn-quick-order add-btn" data-name="Quesataco" data-price="6.00">+ Add</button>
+        </div>
+      </div>
+
+      <!-- ITEM 4: SPICY SALMON POKE BOWL -->
+      <div class="compact-item-row" data-cat="SWEETFIN" data-name="spicy yuzu salmon poke bowl gluten free">
+        <img src="assets/img/sweetfin/gochujang_salmon_poke_bowl.jpg" alt="Spicy Salmon" class="compact-item-thumb">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">Spicy Yuzu Salmon Poke Bowl</h3>
+          <div class="compact-item-sub">Sustainably sourced salmon, spicy yuzu kosho marinade, avocado, edamame.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$16.90</span>
+          <button class="btn-quick-order add-btn" data-name="Spicy Yuzu Salmon" data-price="16.90">+ Add</button>
+        </div>
+      </div>
+
+      <!-- ITEM 5: CLASSIC TUNA POKE -->
+      <div class="compact-item-row" data-cat="SWEETFIN" data-name="classic tuna poke bowl sweetfin">
+        <img src="assets/img/sweetfin/classic_tuna_poke_bowl.jpg" alt="Classic Tuna" class="compact-item-thumb">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">Classic Tuna Poke Bowl</h3>
+          <div class="compact-item-sub">Wild sashimi-grade yellowfin, classic shoyu sesame glaze, scallions, sesame.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$16.90</span>
+          <button class="btn-quick-order add-btn" data-name="Classic Tuna Poke" data-price="16.90">+ Add</button>
+        </div>
+      </div>
+
+      <!-- ITEM 6: OLD SKOOL BANH MI -->
+      <div class="compact-item-row" data-cat="SANDWICHES" data-name="old skool banh mi sandwich pork loaf pate baguette">
+        <img src="assets/brand/sendeke-food-bag-icon.svg" alt="Banh Mi" class="compact-item-thumb" style="padding: 10px; background: rgba(0,0,0,0.5);">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">Old Skool Banh Mi (Lokal)</h3>
+          <div class="compact-item-sub">Cold cut Vietnamese pork loaf, head cheese, pate, cucumber, pickled daikon.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$14.45</span>
+          <button class="btn-quick-order add-btn" data-name="Old Skool Banh Mi" data-price="14.45">+ Add</button>
+        </div>
+      </div>
+
+      <!-- ITEM 7: MEXICAN COCA-COLA -->
+      <div class="compact-item-row" data-cat="DRINKS" data-name="mexican coca-cola glass bottle real cane sugar">
+        <img src="assets/brand/sendeke-food-bag-icon.svg" alt="Coke" class="compact-item-thumb" style="padding: 10px; background: rgba(0,0,0,0.5);">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">Mexican Coca-Cola (Glass Bottle)</h3>
+          <div class="compact-item-sub">Imported real cane sugar Mexican Coca-Cola in 12oz glass bottle.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$3.50</span>
+          <button class="btn-quick-order add-btn" data-name="Mexican Coke" data-price="3.50">+ Add</button>
+        </div>
+      </div>
+
+      <!-- ITEM 8: FRESH HORCHATA -->
+      <div class="compact-item-row" data-cat="DRINKS" data-name="fresh horchata cinnamon rice milk">
+        <img src="assets/brand/sendeke-food-bag-icon.svg" alt="Horchata" class="compact-item-thumb" style="padding: 10px; background: rgba(0,0,0,0.5);">
+        <div class="compact-item-info">
+          <h3 class="compact-item-title">Fresh Agua de Horchata</h3>
+          <div class="compact-item-sub">Authentic house-made cinnamon vanilla rice milk, cold and refreshing.</div>
+        </div>
+        <div class="compact-item-action">
+          <span class="compact-price">$3.50</span>
+          <button class="btn-quick-order add-btn" data-name="Horchata" data-price="3.50">+ Add</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4. LIVE MINI TRAY FOOTER -->
+    <div class="mini-tray-footer">
+      <div>
+        <div class="tray-counter" id="tray-summary">Cart Empty • $0.00</div>
+        <div class="tray-subtext">+ $12.50 Courier Wage + $1.00 Server Token</div>
+      </div>
+      <a href="checkout.html" class="btn btn-sm btn-dark font-mono fw-bold px-3 py-1.5 shadow-sm" id="checkout-direct-btn">
+        Dispatch Courier ➔
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    // Live Search & Category Filter Engine
+    const searchInput = document.getElementById('widget-search');
+    const categoryBtns = document.querySelectorAll('.nav-pill-btn');
+    const itemRows = document.querySelectorAll('.compact-item-row');
+    const traySummary = document.getElementById('tray-summary');
+
+    let currentCategory = 'ALL';
+    let currentSearch = '';
+    let cartTotal = 0;
+    let itemCount = 0;
+
+    function filterItems() {
+      itemRows.forEach(row => {
+        const itemCat = row.getAttribute('data-cat');
+        const itemName = row.getAttribute('data-name');
+        
+        const matchesCat = (currentCategory === 'ALL' || itemCat === currentCategory);
+        const matchesSearch = itemName.includes(currentSearch);
+
+        if (matchesCat && matchesSearch) {
+          row.style.display = 'flex';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Category Tabs
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.getAttribute('data-cat');
+        filterItems();
+      });
+    });
+
+    // Search Input
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.toLowerCase().trim();
+      filterItems();
+    });
+
+    // 1-Tap Add Handlers
+    document.querySelectorAll('.add-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const price = parseFloat(btn.getAttribute('data-price')) || 0;
+        cartTotal += price;
+        itemCount += 1;
+        
+        btn.textContent = '✓ Added';
+        btn.style.background = '#10B981';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.textContent = '+ Add';
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 800);
+
+        traySummary.textContent = `${itemCount} item${itemCount > 1 ? 's' : ''} • $${cartTotal.toFixed(2)}`;
+        try {
+          localStorage.setItem('sendeke_pending_subtotal', cartTotal.toFixed(2));
+          localStorage.setItem('sendeke_pending_fee', '12.50');
+          localStorage.setItem('sendeke_pending_server', '1.00');
+        } catch(err) {}
+      });
+    });
+  </script>
+</body>
+</html>

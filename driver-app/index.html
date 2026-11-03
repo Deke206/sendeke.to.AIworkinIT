@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>SenDeke.to Driver App</title><meta content="noindex,nofollow" name="robots"/><link href="assets/css/operations-core.css" rel="stylesheet"/><link href="assets/css/driver-dashboard.css" rel="stylesheet"/></head>
+<body>
+<div class="driver-page">
+<header class="appbar"><div class="appbar-inner">
+<div class="driver-profile"><button class="icon-btn" id="menuBtn">☰</button><div class="avatar" id="driverAvatar">SD</div><div><strong id="driverName">SenDeke Courier</strong><span class="small">● Online</span></div></div>
+<div class="notification-wrap"><button class="icon-btn" id="noticeBtn">🔔</button><span class="notification-dot" id="noticeCount">0</span><div class="notification-pop" id="noticePop"></div></div>
+</div></header>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="drawer">
+<div class="heading"><strong>Driver navigation</strong><button class="icon-btn" id="drawerClose">×</button></div>
+<button class="btn btn-dark" data-view="trip">Current trip <span>›</span></button>
+<button class="btn btn-dark" data-view="requests">Requests <span>›</span></button>
+<button class="btn btn-dark" data-view="preferences">Preferences <span>›</span></button>
+<button class="btn btn-dark hidden" id="ownerSwitch">Owner / Admin <span>›</span></button>
+<a class="btn btn-dark" href="../index.html">Public website ›</a></aside>
+<main class="shell">
+<div class="quickbar" id="quickbar"></div>
+<section class="display-window" id="displayWindow"></section>
+<section class="panel" style="margin-top:9px">
+<div class="heading"><div><div class="eyebrow">Current assignment</div><h2 style="margin:.15em 0" id="currentAssignmentTitle">No Active Assignment</h2></div><span class="badge good" id="tripStatus">Standby</span></div>
+<div class="progress-actions">
+<button class="btn btn-primary" data-progress="Accepted">Accept</button>
+<button class="btn" data-progress="En route">En route</button>
+<button class="btn" data-progress="Arrived">Arrived</button>
+<button class="btn" data-progress="Onboard">Picked Up</button>
+<button class="btn" data-progress="Completed">Complete</button>
+</div>
+</section>
+</main>
+</div>
+<div class="modalbg" id="modalBg"><div class="modal" id="modalContent"></div></div>
+<div class="tooltip" id="tooltip"></div>
+<div class="driver-note" id="driverNote"></div>
+<script src="assets/js/driver-dashboard-v4.js"></script></body></html>

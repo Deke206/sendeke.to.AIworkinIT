@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick Picture Clipper | SenDeke.to</title>
+  <link rel="icon" type="image/svg+xml" href="assets/brand/sendeketo-icon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #09090b;
+      color: #f4f4f5;
+      font-family: system-ui, sans-serif;
+      padding: 15px;
+      user-select: none;
+    }
+    .stage-box {
+      position: relative;
+      display: inline-block;
+      border: 2px solid #3f3f46;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      max-width: 100%;
+    }
+    #sourceImg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      pointer-events: none;
+    }
+    #clipCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+    }
+    .selection-rect {
+      position: absolute;
+      border: 2px solid #f59e0b;
+      background: rgba(245, 158, 11, 0.25);
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+    .clip-card {
+      background: #18181b;
+      border: 1px solid #3f3f46;
+      border-radius: 6px;
+      padding: 6px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .clip-card img {
+      height: 75px;
+      width: auto;
+      border-radius: 4px;
+      border: 1px solid #27272a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DEAD SIMPLE TOOLBAR -->
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3 pb-2 border-bottom border-secondary">
+    <div class="d-flex align-items-center gap-2">
+      <a href="tacos.html" class="btn btn-sm btn-outline-secondary">&larr; tacos.html</a>
+      <span class="fw-bold text-warning font-monospace fs-6">QUICK CLIPPER</span>
+      
+      <!-- Source Toggle -->
+      <div class="btn-group btn-group-sm ms-2">
+        <button id="btnBanner" class="btn btn-warning active">elcacheton-banner.jpg</button>
+        <button id="btnPlatter" class="btn btn-outline-warning">tacos-platter.jpg</button>
+      </div>
+
+      <label class="btn btn-sm btn-outline-secondary mb-0" style="cursor:pointer;">
+        Load Other Image...
+        <input type="file" id="filePicker" accept="image/*" style="display:none;">
+      </label>
+    </div>
+
+    <!-- MAIN ACTION: CLIP BUTTON -->
+    <div class="d-flex align-items-center gap-2">
+      <input type="text" id="customNameInput" class="form-control form-control-sm font-monospace bg-dark text-light border-secondary" style="width: 170px;" placeholder="Optional Name">
+      <button id="btnClipNow" class="btn btn-warning fw-bold px-4 shadow">✂ Clip This Out</button>
+      <button id="btnClearBox" class="btn btn-outline-danger btn-sm">Clear Box</button>
+    </div>
+  </div>
+
+  <!-- THE PHOTO WORKBENCH -->
+  <div class="text-center mb-3">
+    <div class="stage-box" id="stage">
+      <img src="assets/img/elcacheton-banner.jpg" id="sourceImg" alt="El Cachetón">
+      <div id="selectionRect" class="selection-rect" style="display:none;"></div>
+      <canvas id="clipCanvas"></canvas>
+    </div>
+    <div class="text-secondary small font-monospace mt-1">
+      Drag a box over what you want &bull; Hit <strong>"✂ Clip This Out"</strong> (or press Enter) &bull; Next box
+    </div>
+  </div>
+
+  <!-- CLIPS SHELF -->
+  <div class="border-top border-secondary pt-2">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <span class="fw-bold font-monospace text-warning small" id="clipCountLabel">CLIPS COMPLETED: 0 / 8</span>
+      <button id="btnDownloadAll" class="btn btn-sm btn-outline-warning font-monospace" style="display:none;">Download All Clips (ZIP/Batch)</button>
+    </div>
+    <div id="clipsShelf" class="d-flex flex-wrap gap-2 align-items-center">
+      <span class="text-secondary small font-monospace" id="emptyNotice">No clips yet. Drag a box on the photo and hit "Clip This Out".</span>
+    </div>
+  </div>
+
+  <canvas id="offscreenCanvas" style="display:none;"></canvas>
+
+  <script>
+    (function() {
+      const img = document.getElementById('sourceImg');
+      const canvas = document.getElementById('clipCanvas');
+      const selectionRect = document.getElementById('selectionRect');
+      const offscreen = document.getElementById('offscreenCanvas');
+      const offCtx = offscreen.getContext('2d');
+      const btnClipNow = document.getElementById('btnClipNow');
+      const btnClearBox = document.getElementById('btnClearBox');
+      const customNameInput = document.getElementById('customNameInput');
+      const clipsShelf = document.getElementById('clipsShelf');
+      const clipCountLabel = document.getElementById('clipCountLabel');
+      const emptyNotice = document.getElementById('emptyNotice');
+
+      let isDrawing = false;
+      let startX = 0, startY = 0;
+      let currentBox = null; // { x, y, w, h } in natural px
+      let clipCounter = 1;
+      const allClips = [];
+
+      function setupCanvas() {
+        canvas.width = img.clientWidth;
+        canvas.height = img.clientHeight;
+      }
+
+      img.onload = setupCanvas;
+      window.addEventListener('resize', () => {
+        setupCanvas();
+        updateSelectionRect();
+      });
+
+      function getScale() {
+        const natW = img.naturalWidth || 1024;
+        const natH = img.naturalHeight || 768;
+        const dispW = img.clientWidth || natW;
+        const dispH = img.clientHeight || natH;
+        return {
+          scaleX: dispW / natW,
+          scaleY: dispH / natH,
+          natW, natH
+        };
+      }
+
+      function updateSelectionRect() {
+        if (!currentBox || currentBox.w <= 0 || currentBox.h <= 0) {
+          selectionRect.style.display = 'none';
+          return;
+        }
+        const s = getScale();
+        selectionRect.style.display = 'block';
+        selectionRect.style.left = (currentBox.x * s.scaleX) + 'px';
+        selectionRect.style.top = (currentBox.y * s.scaleY) + 'px';
+        selectionRect.style.width = (currentBox.w * s.scaleX) + 'px';
+        selectionRect.style.height = (currentBox.h * s.scaleY) + 'px';
+      }
+
+      // Drag to select box
+      canvas.addEventListener('mousedown', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        startX = e.clientX - rect.left;
+        startY = e.clientY - rect.top;
+        isDrawing = true;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDrawing) return;
+        const rect = canvas.getBoundingClientRect();
+        const curX = Math.max(0, Math.min(canvas.width, e.clientX - rect.left));
+        const curY = Math.max(0, Math.min(canvas.height, e.clientY - rect.top));
+
+        const dispX = Math.min(startX, curX);
+        const dispY = Math.min(startY, curY);
+        const dispW = Math.abs(curX - startX);
+        const dispH = Math.abs(curY - startY);
+
+        const s = getScale();
+        currentBox = {
+          x: Math.round(dispX / s.scaleX),
+          y: Math.round(dispY / s.scaleY),
+          w: Math.round(dispW / s.scaleX),
+          h: Math.round(dispH / s.scaleY)
+        };
+        updateSelectionRect();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (isDrawing) {
+          isDrawing = false;
+          if (currentBox && (currentBox.w < 15 || currentBox.h < 15)) {
+            clearCurrentBox();
+          }
+        }
+      });
+
+      function clearCurrentBox() {
+        currentBox = null;
+        updateSelectionRect();
+      }
+
+      btnClearBox.addEventListener('click', clearCurrentBox);
+
+      // Perform the Clip
+      function performClip() {
+        if (!currentBox || currentBox.w < 10 || currentBox.h < 10) {
+          alert('Please drag a box over the food first.');
+          return;
+        }
+
+        const b = currentBox;
+        offscreen.width = b.w;
+        offscreen.height = b.h;
+        offCtx.clearRect(0, 0, b.w, b.h);
+        offCtx.drawImage(img, b.x, b.y, b.w, b.h, 0, 0, b.w, b.h);
+
+        const dataUrl = offscreen.toDataURL('image/jpeg', 0.95);
+        const customName = customNameInput.value.trim();
+        const fileName = customName 
+          ? `${customName.toLowerCase().replace(/[^a-z0-9_-]/g, '_')}.jpg`
+          : `elcacheton_clip_0${clipCounter}.jpg`;
+
+        // Direct Download
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = fileName;
+        a.click();
+
+        // Add to Shelf
+        if (emptyNotice) emptyNotice.style.display = 'none';
+        const card = document.createElement('div');
+        card.className = 'clip-card';
+        card.innerHTML = `
+          <img src="${dataUrl}">
+          <span class="small font-monospace text-warning">#${clipCounter}</span>
+          <span class="small text-secondary font-monospace" style="font-size:10px;">${fileName}</span>
+        `;
+        clipsShelf.appendChild(card);
+
+        allClips.push({ id: clipCounter, name: fileName, dataUrl });
+        clipCountLabel.textContent = `CLIPS COMPLETED: ${clipCounter} / 8`;
+        clipCounter++;
+
+        // Reset Box & Input for instant next clip
+        clearCurrentBox();
+        customNameInput.value = '';
+        customNameInput.placeholder = `Clip ${clipCounter} Name (optional)`;
+      }
+
+      btnClipNow.addEventListener('click', performClip);
+
+      // Enter key shortcut to clip
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          performClip();
+        }
+      });
+
+      // Picture Toggles
+      document.getElementById('btnBanner').addEventListener('click', () => {
+        img.src = 'assets/img/elcacheton-banner.jpg';
+        document.getElementById('btnBanner').className = 'btn btn-warning active';
+        document.getElementById('btnPlatter').className = 'btn btn-outline-warning';
+        clearCurrentBox();
+      });
+
+      document.getElementById('btnPlatter').addEventListener('click', () => {
+        img.src = 'assets/img/tacos-platter.jpg';
+        document.getElementById('btnPlatter').className = 'btn btn-warning active';
+        document.getElementById('btnBanner').className = 'btn btn-outline-warning';
+        clearCurrentBox();
+      });
+
+      // File Picker for other clearer images
+      document.getElementById('filePicker').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            img.src = ev.target.result;
+            document.getElementById('btnBanner').className = 'btn btn-outline-warning';
+            document.getElementById('btnPlatter').className = 'btn btn-outline-warning';
+            clearCurrentBox();
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

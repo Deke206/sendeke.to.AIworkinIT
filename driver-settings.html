@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#09090b">
+  <title>Driver Operations &amp; Fleet Settings | SenDeke.to</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <style>
+    .driver-auth-card {
+      max-width: 440px;
+      margin: 3.5rem auto;
+      border-radius: 16px;
+      padding: 2.25rem 1.75rem;
+    }
+    .eyebrow, .card-kicker {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: #10B981;
+      box-shadow: 0 0 8px #10B981;
+    }
+    .status-dot.offline {
+      background-color: #71717A;
+      box-shadow: none;
+    }
+    .gear-checklist-item {
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .gear-checklist-item:hover {
+      background: rgba(255, 255, 255, 0.04) !important;
+    }
+  </style>
+</head>
+<body class="bg-body text-body">
+
+  
+
+  <!-- Login Gate Container -->
+  <div id="driverAuthGate" class="container-xl">
+    <div class="card driver-auth-card text-center">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="eyebrow text-primary">OPERATIONS CONSOLE</span>
+        <span class="d-inline-flex align-items-center gap-2 px-2 py-1 rounded bg-body-tertiary border border-secondary-subtle font-mono">
+          <span class="status-dot" id="navDriverStatusDot" aria-hidden="true"></span>
+          <span class="small fw-semibold text-dark" id="navDriverStatusText">ONLINE</span>
+        </span>
+      </div>
+      <h1 class="h4 fw-bold mb-2 text-dark">Courier Verification</h1>
+      <p class="text-secondary small mb-4">Authorized access for Courier #04 (Deke) and dispatch team. Authenticate to modify capacity, GPS broadcasts, and payout rails.</p>
+
+      <div class="d-grid gap-3">
+        <button id="googleSignInBtn" class="btn btn-light d-flex align-items-center justify-content-center gap-2 fw-bold text-dark py-2" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+          <span>Quick Operator Unlock (Courier #04)</span>
+        </button>
+
+        <form id="passcodeForm" class="mt-1">
+          <div class="input-group">
+            <input type="password" id="passcodeInput" class="form-control font-mono" placeholder="Driver PIN (90034)" value="90034" required>
+            <button class="btn btn-primary fw-bold font-mono" type="submit">Unlock</button>
+          </div>
+          <small class="text-secondary d-block mt-2 font-mono" id="authErrorMsg">Authorized Zone PIN: 90034</small>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Console Content -->
+  <main id="settingsMainContent" class="py-4 d-none">
+    <div class="container-xl">
+
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 pb-3 border-bottom border-secondary-subtle">
+        <div>
+          <div class="eyebrow text-info mb-1">COMMAND CONSOLE &bull; 2026 SPEC</div>
+          <h1 class="h3 fw-bold text-dark mb-0">Fleet &amp; Driver Operations</h1>
+          <p class="text-secondary small mb-0 mt-1">Configure live capacity throttles, GPS map broadcasts, and payment rails for SenDeke.to.</p>
+        </div>
+        <div class="d-flex align-items-center flex-wrap gap-2">
+          <a href="driver.html" class="btn btn-outline-light font-mono">
+            ◀ Back to Flight Deck
+          </a>
+          <button type="button" class="btn btn-primary font-mono" id="topSaveBtn">
+            💾 Save All Changes
+          </button>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Left Column: Core Dispatch Controls -->
+        <div class="col-lg-6">
+
+          <!-- 1. Driver Availability & Shift Status -->
+          <div class="card p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div>
+                <div class="card-kicker text-info">STATUS &amp; DISPATCH BROADCAST</div>
+                <h2 class="h5 fw-bold text-dark mt-1 mb-0">Driver Availability</h2>
+              </div>
+              <span id="availabilityBadge" class="badge bg-success px-3 py-2 font-mono">ONLINE</span>
+            </div>
+            <p class="small text-secondary mb-3">Controls whether customers can place immediate delivery tickets on sendeketo.com.</p>
+
+            <div class="p-3 rounded-3 bg-body-tertiary border border-secondary-subtle mb-3">
+              <div class="form-check form-switch fs-5 mb-0 d-flex align-items-center justify-content-between">
+                <label class="form-check-label fw-bold text-dark fs-6" for="settingsOnlineSwitch">
+                  Accept Live Delivery Requests
+                </label>
+                <input class="form-check-input ms-0" type="checkbox" role="switch" id="settingsOnlineSwitch" checked>
+              </div>
+            </div>
+
+            <div class="small text-secondary font-mono">
+              <strong class="text-dark">Scheduled Chrono-Strike Shifts:</strong><br>
+              🍱 Lunch Runs: 11:30 AM – 2:00 PM (Palms / Culver City)<br>
+              🌙 Prime Dinner Drops: 5:30 PM – 9:30 PM
+            </div>
+          </div>
+
+          <!-- 2. GPS Radar & Location Broadcast -->
+          <div class="card p-4 mb-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div>
+                <div class="card-kicker text-info">LIVE GPS RADAR</div>
+                <h2 class="h5 fw-bold text-dark mt-1 mb-0">Customer Map Broadcast</h2>
+              </div>
+              <span id="settingsGpsPill" class="badge bg-secondary px-3 py-2 font-mono">STANDBY</span>
+            </div>
+            <p class="small text-secondary mb-3">Broadcasts your live Synch-2 e-bike icon to the customer tracking map when you are en route.</p>
+
+            <div class="p-3 rounded-3 bg-body-tertiary border border-secondary-subtle mb-3">
+              <div class="form-check form-switch fs-5 mb-0 d-flex align-items-center justify-content-between">
+                <label class="form-check-label fw-bold text-dark fs-6" for="settingsGpsToggle">
+                  Transmit Geolocation to Maps
+                </label>
+                <input class="form-check-input ms-0" type="checkbox" role="switch" id="settingsGpsToggle">
+              </div>
+            </div>
+
+            <div class="small text-secondary font-mono" id="settingsGpsTelemetryInfo">
+              📍 Current Location: <span class="text-dark" id="settingsGpsCoords">Standby (Zone 90034 Anchor)</span><br>
+              ⚡ Accuracy: <span class="text-dark" id="settingsGpsAccuracy">—</span>
+            </div>
+          </div>
+
+          <!-- 3. Capacity & Queue Throttle -->
+          <div class="card p-4 mb-4">
+            <div class="card-kicker text-info">QUEUE CAPACITY THROTTLE</div>
+            <h2 class="h5 fw-bold text-dark mt-1 mb-2">Max Concurrent Trips</h2>
+            <p class="small text-secondary mb-3">When maximum capacity is hit, the site automatically displays 'QUEUE FULL' to prevent dispatch overload.</p>
+
+            <div class="row g-3 align-items-center">
+              <div class="col-sm-6">
+                <label for="settingsCapacitySelect" class="form-label small text-secondary font-mono">MAX ACTIVE RUNS</label>
+                <select class="form-select font-mono" id="settingsCapacitySelect">
+                  <option value="1">1 Trip (Solo Focus)</option>
+                  <option value="2">2 Trips (Light Batch)</option>
+                  <option value="3" selected>3 Trips (Standard Capacity)</option>
+                  <option value="4">4 Trips (Heavy Demand)</option>
+                  <option value="5">5 Trips (Maximum Surge)</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <div class="p-3 rounded bg-body-tertiary border border-secondary-subtle font-mono">
+                  <div class="small text-secondary">Current Active Load:</div>
+                  <strong class="fs-5 text-dark" id="settingsActiveCount">0 Trips Active</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Service Territory & Message -->
+          <div class="card p-4">
+            <div class="card-kicker text-info">GEOGRAPHIC ZONE</div>
+            <h2 class="h5 fw-bold text-dark mt-1 mb-2">Operating Territory Message</h2>
+            <p class="small text-secondary mb-3">Displayed across the customer home page, tracker, and dispatch cockpit.</p>
+
+            <div class="mb-3">
+              <label for="settingsAreaInput" class="form-label small text-secondary font-mono">SERVICE AREA LABEL</label>
+              <input type="text" class="form-control font-mono" id="settingsAreaInput" value="90034 Palms / Culver City / West Adams">
+            </div>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <span class="badge bg-info text-dark font-mono">SYNCH-2 E-BIKE RADIUS</span>
+              <span class="small text-secondary">Optimized for 1.5 – 2.5 mi flat valley corridor runs.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Payouts & Pre-Flight Checklist -->
+        <div class="col-lg-6">
+
+          <!-- 5. Payouts & Payment Gateway Configuration -->
+          <div class="card p-4 mb-4">
+            <div class="card-kicker text-info">PAYMENT RAILS &amp; CASHOUTS</div>
+            <h2 class="h5 fw-bold text-dark mt-1 mb-2">Payout Profiles &amp; Issuing</h2>
+            <p class="small text-secondary mb-3">Manage Cash App instant client tips and Stripe Connect live escrow settlements.</p>
+
+            <!-- Cash App Box -->
+            <div class="p-3 rounded-3 bg-body-tertiary border border-success mb-3">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="fs-4">📲</span>
+                  <div>
+                    <strong class="text-success font-mono">Cash App ($senDeketo310)</strong>
+                    <div class="small text-secondary">1-Tap direct customer tip &amp; courier settlement rail</div>
+                  </div>
+                </div>
+                <a href="https://cash.app/$senDeketo310" target="_blank" rel="noopener" class="btn btn-sm btn-success fw-bold font-mono px-3">
+                  Test Link ↗
+                </a>
+              </div>
+              <div class="small text-secondary font-mono">
+                Linked CashTag: <strong class="text-dark">$senDeketo310</strong>
+              </div>
+            </div>
+
+            <!-- Stripe Box -->
+            <div class="p-3 rounded-3 bg-body-tertiary border border-primary">
+              <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="fs-4">💳</span>
+                  <div>
+                    <strong class="text-info font-mono">Stripe Connect &amp; Issuing</strong>
+                    <div class="small text-secondary font-mono">Account: <code class="text-dark">acct_1UMDqqI2soUb8x6t</code> (Live)</div>
+                  </div>
+                </div>
+                <span class="badge bg-success font-mono">CONNECTED</span>
+              </div>
+              <div class="d-flex gap-2 mt-2">
+                <a href="https://dashboard.stripe.com" target="_blank" rel="noopener" class="btn btn-sm btn-primary w-50 fw-bold font-mono">
+                  Stripe Dashboard ↗
+                </a>
+                <a href="https://dashboard.stripe.com/issuing" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light w-50 font-mono">
+                  Virtual Card ↗
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. E-Bike Courier Pre-Flight Inspection Checklist -->
+          <div class="card p-4 mb-4">
+            <div class="card-kicker text-info">EQUIPMENT READINESS</div>
+            <h2 class="h5 fw-bold text-dark mt-1 mb-2">Pre-Flight Synch-2 Checklist</h2>
+            <p class="small text-secondary mb-3">Verify gear readiness before launching live corridor runs.</p>
+
+            <div class="list-group list-group-flush bg-transparent">
+              <label class="list-group-item bg-transparent text-dark border-secondary-subtle px-2 py-2 d-flex align-items-center gap-3 gear-checklist-item">
+                <input class="form-check-input fs-5 m-0 preflight-check" type="checkbox" id="checkBattery" checked>
+                <div>
+                  <strong class="d-block">Dual 48V E-Bike Batteries 100% Charged</strong>
+                  <span class="small text-secondary">Primary &amp; auxiliary packs ready for 40+ mile corridor range.</span>
+                </div>
+              </label>
+              <label class="list-group-item bg-transparent text-dark border-secondary-subtle px-2 py-2 d-flex align-items-center gap-3 gear-checklist-item">
+                <input class="form-check-input fs-5 m-0 preflight-check" type="checkbox" id="checkBag" checked>
+                <div>
+                  <strong class="d-block">Insulated Thermal Delivery Cargo Box</strong>
+                  <span class="small text-secondary">Clean interior, poke bowl dividers &amp; drink stabilizer installed.</span>
+                </div>
+              </label>
+              <label class="list-group-item bg-transparent text-dark border-secondary-subtle px-2 py-2 d-flex align-items-center gap-3 gear-checklist-item">
+                <input class="form-check-input fs-5 m-0 preflight-check" type="checkbox" id="checkMount" checked>
+                <div>
+                  <strong class="d-block">Handlebar Phone Mount &amp; USB Power Line</strong>
+                  <span class="small text-secondary">Continuous power for real-time bicycle navigation and radar.</span>
+                </div>
+              </label>
+              <label class="list-group-item bg-transparent text-dark border-secondary-subtle px-2 py-2 d-flex align-items-center gap-3 gear-checklist-item">
+                <input class="form-check-input fs-5 m-0 preflight-check" type="checkbox" id="checkHelmet" checked>
+                <div>
+                  <strong class="d-block">WS2812B Frame LEDs &amp; Safety Strobes</strong>
+                  <span class="small text-secondary">Front headlight, rear brake strobes &amp; frame accents active.</span>
+                </div>
+              </label>
+              <label class="list-group-item bg-transparent text-dark border-secondary-subtle px-2 py-2 d-flex align-items-center gap-3 gear-checklist-item">
+                <input class="form-check-input fs-5 m-0 preflight-check" type="checkbox" id="checkLocks" checked>
+                <div>
+                  <strong class="d-block">Kryptonite Heavy-Duty U-Lock &amp; Cable</strong>
+                  <span class="small text-secondary">Rapid pickup security at storefront counters.</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- 7. Save Action Card -->
+          <div class="card p-4 text-center">
+            <h3 class="h5 fw-bold text-dark mb-2">Ready to Launch Shift?</h3>
+            <p class="small text-secondary mb-3">Saving updates immediately broadcasts your availability, capacity, and zone across all tabs.</p>
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-primary btn-lg fw-bold font-mono" id="saveSettingsBtn">
+                💾 Save &amp; Broadcast Settings
+              </button>
+              <a href="driver.html" class="btn btn-outline-light font-mono">
+                Open Flight Deck Command Board ↗
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Interactive Toast Notification -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+    <div id="settingsToast" class="toast align-items-center text-bg-body-tertiary border border-info shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body fw-bold font-mono" id="settingsToastMessage">
+          Settings synchronized.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script>
+    (function () {
+      const engine = window.SenDekeEngine;
+      const gate = document.getElementById('driverAuthGate');
+      const main = document.getElementById('settingsMainContent');
+      const authMsg = document.getElementById('authErrorMsg');
+      let gpsWatchId = null;
+
+      function showToast(msg) {
+        const msgEl = document.getElementById('settingsToastMessage');
+        const toastEl = document.getElementById('settingsToast');
+        if (msgEl) msgEl.textContent = msg;
+        if (toastEl && window.bootstrap) {
+          bootstrap.Toast.getOrCreateInstance(toastEl, { delay: 3000 }).show();
+        }
+      }
+
+      function unlockConsole() {
+        try { sessionStorage.setItem('sendeke_driver_unlocked', '1'); } catch (e) {}
+        if (gate) gate.classList.add('d-none');
+        if (main) main.classList.remove('d-none');
+        hydrateControls();
+      }
+
+      function lockConsole() {
+        try { sessionStorage.removeItem('sendeke_driver_unlocked'); } catch (e) {}
+        if (main) main.classList.add('d-none');
+        if (gate) gate.classList.remove('d-none');
+        showToast('Operations console locked.');
+      }
+
+      if (sessionStorage.getItem('sendeke_driver_unlocked') === '1') {
+        unlockConsole();
+      }
+
+      document.getElementById('googleSignInBtn')?.addEventListener('click', function () {
+        unlockConsole();
+        showToast('✓ Authenticated as Courier #04 (Deke Alexander).');
+      });
+
+      document.getElementById('passcodeForm')?.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const pin = (document.getElementById('passcodeInput')?.value || '').trim();
+        if (['90034', '3745787', '374374', '04'].includes(pin)) {
+          unlockConsole();
+          showToast('✓ Zone 90034 PIN verified.');
+        } else if (authMsg) {
+          authMsg.className = 'text-danger d-block mt-2 font-mono fw-bold';
+          authMsg.textContent = 'Invalid PIN. Enter 90034.';
+        }
+      });
+
+      document.getElementById('driverSignOutBtn')?.addEventListener('click', lockConsole);
+
+      function updateStatusVisuals(isOnline) {
+        const badge = document.getElementById('availabilityBadge');
+        const navDot = document.getElementById('navDriverStatusDot');
+        const navTxt = document.getElementById('navDriverStatusText');
+        if (badge) {
+          badge.className = isOnline ? 'badge bg-success px-3 py-2 font-mono' : 'badge bg-secondary px-3 py-2 font-mono';
+          badge.textContent = isOnline ? 'ONLINE' : 'OFFLINE';
+        }
+        if (navDot) {
+          navDot.className = isOnline ? 'status-dot' : 'status-dot offline';
+        }
+        if (navTxt) {
+          navTxt.textContent = isOnline ? 'ONLINE' : 'OFFLINE';
+        }
+      }
+
+      function hydrateControls() {
+        if (!engine) return;
+        const st = engine.getDriverStatus();
+        const onlineSw = document.getElementById('settingsOnlineSwitch');
+        const capSel = document.getElementById('settingsCapacitySelect');
+        const areaInp = document.getElementById('settingsAreaInput');
+        const activeCountEl = document.getElementById('settingsActiveCount');
+
+        if (onlineSw) onlineSw.checked = st.isOnline !== false;
+        updateStatusVisuals(st.isOnline !== false);
+        if (capSel && st.capacity) capSel.value = String(st.capacity);
+        if (areaInp && st.zone) areaInp.value = st.zone;
+
+        const openRuns = engine.getTickets().filter(t => t.status !== 'DELIVERED_AND_CAPTURED').length;
+        if (activeCountEl) activeCountEl.textContent = `${openRuns} ${openRuns === 1 ? 'Trip' : 'Trips'} Active`;
+
+        // Restore pre-flight checklist
+        try {
+          const savedChecks = JSON.parse(localStorage.getItem('sendeke_preflight_checks') || '{}');
+          document.querySelectorAll('.preflight-check').forEach(chk => {
+            if (typeof savedChecks[chk.id] === 'boolean') {
+              chk.checked = savedChecks[chk.id];
+            }
+          });
+        } catch (e) {}
+      }
+
+      document.getElementById('settingsOnlineSwitch')?.addEventListener('change', function () {
+        updateStatusVisuals(this.checked);
+      });
+
+      document.getElementById('settingsGpsToggle')?.addEventListener('change', function () {
+        const pill = document.getElementById('settingsGpsPill');
+        const coordsEl = document.getElementById('settingsGpsCoords');
+        const accEl = document.getElementById('settingsGpsAccuracy');
+
+        if (this.checked && navigator.geolocation) {
+          if (pill) { pill.className = 'badge bg-info text-dark px-3 py-2 font-mono'; pill.textContent = 'ACQUIRING...'; }
+          gpsWatchId = navigator.geolocation.watchPosition(
+            function (pos) {
+              const lat = pos.coords.latitude;
+              const lng = pos.coords.longitude;
+              const acc = Math.round(pos.coords.accuracy || 10);
+              if (pill) { pill.className = 'badge bg-success px-3 py-2 font-mono'; pill.textContent = 'BROADCASTING'; }
+              if (coordsEl) coordsEl.textContent = `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+              if (accEl) accEl.textContent = `±${acc}m`;
+              if (engine) engine.setDriverStatus({ lat, lng, gpsBroadcast: true });
+            },
+            function () {
+              if (pill) { pill.className = 'badge bg-warning text-dark px-3 py-2 font-mono'; pill.textContent = 'ANCHOR MODE'; }
+              if (coordsEl) coordsEl.textContent = '34.02590, -118.39650 (Zone 90034 Anchor)';
+              if (accEl) accEl.textContent = 'Corridor Preset';
+            },
+            { enableHighAccuracy: true, timeout: 10000 }
+          );
+        } else {
+          if (gpsWatchId !== null && navigator.geolocation) {
+            navigator.geolocation.clearWatch(gpsWatchId);
+            gpsWatchId = null;
+          }
+          if (pill) { pill.className = 'badge bg-secondary px-3 py-2 font-mono'; pill.textContent = 'STANDBY'; }
+          if (coordsEl) coordsEl.textContent = 'Standby (Zone 90034 Anchor)';
+          if (accEl) accEl.textContent = '—';
+        }
+      });
+
+      function saveAllSettings() {
+        const isOnline = document.getElementById('settingsOnlineSwitch')?.checked !== false;
+        const capacity = parseInt(document.getElementById('settingsCapacitySelect')?.value || '3', 10) || 3;
+        const zone = (document.getElementById('settingsAreaInput')?.value || '90034 Palms / Culver City').trim();
+
+        const checks = {};
+        document.querySelectorAll('.preflight-check').forEach(chk => {
+          checks[chk.id] = chk.checked;
+        });
+        try { localStorage.setItem('sendeke_preflight_checks', JSON.stringify(checks)); } catch (e) {}
+
+        if (engine) {
+          engine.setDriverStatus({ isOnline, capacity, zone });
+          engine.playDispatchAlertSound();
+        }
+        updateStatusVisuals(isOnline);
+        showToast(`✓ Saved & Broadcast: ${isOnline ? 'ONLINE' : 'OFFLINE'} • Max ${capacity} Runs • ${zone}`);
+      }
+
+      document.getElementById('topSaveBtn')?.addEventListener('click', saveAllSettings);
+      document.getElementById('saveSettingsBtn')?.addEventListener('click', saveAllSettings);
+    })();
+  </script>
+</body>
+</html>

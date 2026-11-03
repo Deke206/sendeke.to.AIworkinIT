@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SenDeke In-Chat Generative Ad & Card Simulator | Agent Ad Daddy</title>
+  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+  <style>
+    :root {
+      --chat-bg: #09090b;
+      --bubble-user: #27272a;
+      --bubble-ai: #18181b;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+    }
+    body {
+      background-color: var(--chat-bg);
+      color: #f4f4f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-header {
+      background: #121214;
+      border-bottom: 1px solid #27272a;
+      padding: 12px 20px;
+    }
+    .chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 16px;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .message-row {
+      display: flex;
+      margin-bottom: 24px;
+      gap: 14px;
+    }
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .avatar-user {
+      background: #3f3f46;
+      color: #ffffff;
+    }
+    .avatar-ai {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #ffffff;
+    }
+    .message-content {
+      flex: 1;
+    }
+    .message-bubble {
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .user-bubble {
+      background: var(--bubble-user);
+      color: #f4f4f5;
+      display: inline-block;
+    }
+    .ai-bubble {
+      background: transparent;
+      color: #e4e4e7;
+    }
+    .generative-overlay-card {
+      background: #18181b;
+      border: 1px solid #3b82f6;
+      border-radius: 14px;
+      padding: 18px;
+      max-width: 440px;
+      margin-top: 14px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.7);
+      animation: popIn 0.25s ease-out;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.96) translateY(6px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .prompt-quick-pill {
+      background: #27272a;
+      border: 1px solid #3f3f46;
+      color: #d4d4d8;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .prompt-quick-pill:hover {
+      background: #3b82f6;
+      color: #ffffff;
+      border-color: #3b82f6;
+    }
+    .input-bar-area {
+      background: #121214;
+      border-top: 1px solid #27272a;
+      padding: 14px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HUD -->
+  <div class="chat-header d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center gap-2">
+      <span class="avatar avatar-ai">SDK</span>
+      <div>
+        <div class="fw-bold fs-6">SenDeke In-Chat Generative Overlay Simulator</div>
+        <div class="text-secondary small font-monospace">Agent Ad Daddy // WebMCP & Headless Commerce Feeds</div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">● WebMCP Ready</span>
+      <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1">Palms 90034 / Culver City 90232</span>
+    </div>
+  </div>
+
+  <!-- QUICK TEST PILLS -->
+  <div class="bg-dark border-bottom border-secondary-subtle py-2 px-3">
+    <div class="container-xl d-flex align-items-center gap-2 flex-wrap">
+      <span class="small text-secondary fw-semibold">Simulate Client In-Chat Search:</span>
+      <button class="prompt-quick-pill" onclick="simulateSearch('I need a protein bowl from Sweetfin in Palms')">
+        🥗 Sweetfin Palms Protein Bowl
+      </button>
+      <button class="prompt-quick-pill" onclick="simulateSearch('Can I get a Chinese Chicken Salad from Health Nut?')">
+        🥢 Health Nut Chinese Chicken Salad
+      </button>
+      <button class="prompt-quick-pill" onclick="simulateSearch('What high protein lunch can I get delivered to Culver City with no DoorDash fees?')">
+        ⚡ Clean Macro Lunch (Zero App Markup)
+      </button>
+    </div>
+  </div>
+
+  <!-- CHAT STREAM CONTAINER -->
+  <div class="chat-container" id="chat-stream">
+    <!-- Intro greeting -->
+    <div class="message-row">
+      <div class="avatar avatar-ai">AI</div>
+      <div class="message-content">
+        <div class="ai-bubble">
+          <p class="mb-1"><strong>ChatGPT / In-Browser Agent:</strong></p>
+          <p class="text-secondary mb-0">I can find food, local retail, or courier deliveries across Westside LA. Tap any simulated search pill above or type below to see how SenDeke's headless cards appear right inside this chat conversation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUT BAR -->
+  <div class="input-bar-area">
+    <div class="container-xl" style="max-width: 860px;">
+      <form id="chat-form" onsubmit="handleFormSubmit(event)" class="d-flex gap-2">
+        <input type="text" id="chat-input" class="form-control bg-dark border-secondary text-light" placeholder="Type prompt: e.g. 'Order salmon poke from Sweetfin' or 'Health Nut protein bowl'..." autocomplete="off">
+        <button type="submit" class="btn btn-primary px-4 fw-semibold">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module">
+    import WebMCP from './assets/js/webmcp.js';
+
+    window.WebMCP = WebMCP;
+
+    window.simulateSearch = function(promptText) {
+      document.getElementById('chat-input').value = promptText;
+      processPrompt(promptText);
+    };
+
+    window.handleFormSubmit = function(e) {
+      e.preventDefault();
+      const val = document.getElementById('chat-input').value.trim();
+      if (!val) return;
+      processPrompt(val);
+      document.getElementById('chat-input').value = '';
+    };
+
+    async function processPrompt(text) {
+      const container = document.getElementById('chat-stream');
+
+      // 1. Render User Message
+      const userHtml = `
+        <div class="message-row">
+          <div class="avatar avatar-user">You</div>
+          <div class="message-content">
+            <div class="user-bubble">${escapeHtml(text)}</div>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', userHtml);
+      container.scrollTop = container.scrollHeight;
+
+      // 2. Render Temporary "Searching SenDeke WebMCP..." pill
+      const aiLoadingId = 'ai-loading-' + Date.now();
+      const loadingHtml = `
+        <div class="message-row" id="${aiLoadingId}">
+          <div class="avatar avatar-ai">AI</div>
+          <div class="message-content">
+            <div class="ai-bubble">
+              <span class="spinner-border spinner-border-sm text-primary me-2" role="status"></span>
+              <span class="text-secondary font-monospace small">Invoking SenDeke WebMCP tools (lookup_menu)...</span>
+            </div>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', loadingHtml);
+      container.scrollTop = container.scrollHeight;
+
+      // 3. Query WebMCP
+      let queryMerchant = 'all';
+      let searchKeyword = '';
+      const lower = text.toLowerCase();
+      if (lower.includes('sweetfin')) queryMerchant = 'sweetfin';
+      if (lower.includes('health nut') || lower.includes('healthnut')) queryMerchant = 'healthnut';
+      if (lower.includes('salad') || lower.includes('chinese chicken')) searchKeyword = 'chicken';
+      else if (lower.includes('salmon')) searchKeyword = 'salmon';
+      else if (lower.includes('protein')) searchKeyword = 'protein';
+      else if (lower.includes('tuna')) searchKeyword = 'tuna';
+
+      try {
+        const result = await WebMCP.executeTool('lookup_menu', {
+          merchant: queryMerchant,
+          query: searchKeyword
+        });
+
+        const loadingElem = document.getElementById(aiLoadingId);
+        if (loadingElem) loadingElem.remove();
+
+        const topItem = (result.items && result.items[0]) ? result.items[0] : null;
+
+        let replyText = `I found direct availability through the **SenDeke Sovereign Courier Network** in Palms/Culver City. Rather than redirecting you to DoorDash with a 30% markup, you can order directly below at in-store retail with flat $10 local e-bike delivery:`;
+
+        let cardHtml = result.cardHtml || '';
+
+        const aiResponseHtml = `
+          <div class="message-row">
+            <div class="avatar avatar-ai">AI</div>
+            <div class="message-content">
+              <div class="ai-bubble">
+                <p class="mb-2">${replyText}</p>
+                <div class="d-flex justify-content-start">
+                  ${cardHtml}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', aiResponseHtml);
+        container.scrollTop = container.scrollHeight;
+
+      } catch (err) {
+        console.error(err);
+        const loadingElem = document.getElementById(aiLoadingId);
+        if (loadingElem) {
+          loadingElem.innerHTML = `
+            <div class="avatar avatar-ai">AI</div>
+            <div class="message-content">
+              <div class="ai-bubble text-danger">Failed to execute WebMCP lookup: ${err.message}</div>
+            </div>
+          `;
+        }
+      }
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>

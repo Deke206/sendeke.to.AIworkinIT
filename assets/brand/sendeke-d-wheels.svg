@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="42 56 142 134" width="32" height="30" style="display:inline-block; vertical-align:middle;">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z" fill="currentColor"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M72 150 A17 17 0 1 0 72 184 A17 17 0 1 0 72 150 Z M72 159 A8 8 0 1 1 72 175 A8 8 0 1 1 72 159 Z" fill="currentColor"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M148 150 A17 17 0 1 0 148 184 A17 17 0 1 0 148 150 Z M148 159 A8 8 0 1 1 148 175 A8 8 0 1 1 148 159 Z" fill="currentColor"/>
+</svg>

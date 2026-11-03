@@ -1,0 +1,93 @@
+const fs = require('fs');
+const path = require('path');
+
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Base Phosphate Mineral Gradients -->
+    <linearGradient id="phosphate-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2EFE9" />
+      <stop offset="25%" stop-color="#E8E5DF" />
+      <stop offset="50%" stop-color="#F5F3ED" />
+      <stop offset="75%" stop-color="#E5E2DC" />
+      <stop offset="100%" stop-color="#EFECE6" />
+    </linearGradient>
+
+    <!-- Deep Magnesium Graphite Mineral Gradient -->
+    <linearGradient id="magnesium-graphite" x1="0%" y1="10%" x2="100%" y2="90%">
+      <stop offset="0%" stop-color="#141518" stop-opacity="0.95" />
+      <stop offset="20%" stop-color="#24262B" stop-opacity="0.90" />
+      <stop offset="45%" stop-color="#3A3D45" stop-opacity="0.85" />
+      <stop offset="70%" stop-color="#1F2024" stop-opacity="0.92" />
+      <stop offset="90%" stop-color="#4B4E56" stop-opacity="0.80" />
+      <stop offset="100%" stop-color="#121316" stop-opacity="0.95" />
+    </linearGradient>
+
+    <!-- Secondary Granite Silt Gradient -->
+    <linearGradient id="granite-silt" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#6B6F7A" stop-opacity="0.55" />
+      <stop offset="35%" stop-color="#40434A" stop-opacity="0.45" />
+      <stop offset="70%" stop-color="#8A8F9B" stop-opacity="0.40" />
+      <stop offset="100%" stop-color="#2E3036" stop-opacity="0.50" />
+    </linearGradient>
+
+    <!-- Mineral Glint Reflection Filter -->
+    <filter id="mineral-grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035 0.025" numOctaves="4" seed="42" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.18 0" result="coloredNoise" />
+      <feBlend mode="multiply" in="SourceGraphic" in2="coloredNoise" />
+    </filter>
+
+    <!-- Fine Mica Shimmer Sparkle Filter -->
+    <filter id="mica-shimmer" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="turbulence" baseFrequency="0.15" numOctaves="2" seed="99" result="specks" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0.9  0 0 0 0 0.92  0 0 0 0 0.95  0 0 0 0.45 0" result="glintSpecks" />
+      <feComposite operator="in" in2="SourceGraphic" />
+    </filter>
+  </defs>
+
+  <!-- 1. Foundation: Phosphate White Mineral Slab -->
+  <rect width="1920" height="1080" fill="url(#phosphate-base)" />
+  <rect width="1920" height="1080" fill="#EDE9E2" filter="url(#mineral-grain)" opacity="0.65" />
+
+  <!-- 2. Primary River 1: Flowing from Top-Left to Bottom-Right -->
+  <g filter="url(#mica-shimmer)">
+    <!-- Broad Granite Bed Silt -->
+    <path d="M-50,120 Q320,180 640,420 T1280,690 Q1600,820 2000,980 L2000,1050 Q1550,880 1220,740 T600,470 Q280,230 -50,190 Z" fill="url(#granite-silt)" />
+    
+    <!-- Deep Core Magnesium Graphite River -->
+    <path d="M-50,140 Q340,200 660,440 T1300,705 Q1620,835 2000,995 L2000,1025 Q1580,865 1250,725 T630,455 Q300,210 -50,165 Z" fill="url(#magnesium-graphite)" />
+
+    <!-- River 2: Crossing Northern Swirl -->
+    <path d="M120,-40 Q450,120 920,190 T1680,310 Q1820,340 2000,420 L2000,445 Q1790,365 1650,335 T890,210 Q420,140 100,-20 Z" fill="url(#magnesium-graphite)" opacity="0.85" />
+    <path d="M90,-50 Q430,110 900,180 T1660,300 Q1800,330 2000,410 L2000,430 Q1780,350 1640,320 T870,200 Q400,130 80,-30 Z" fill="url(#granite-silt)" opacity="0.5" />
+
+    <!-- River 3: Southern Deep Canyon Vein -->
+    <path d="M-20,680 Q310,620 720,780 T1450,880 Q1720,940 2000,1120 L2000,1140 Q1700,960 1420,900 T690,800 Q280,640 -20,710 Z" fill="url(#magnesium-graphite)" opacity="0.75" />
+
+    <!-- Delicate Dendritic Branching Veins (Fine Mineral Lightning) -->
+    <path d="M660,440 Q820,380 980,410 T1320,380" fill="none" stroke="url(#magnesium-graphite)" stroke-width="6" stroke-linecap="round" opacity="0.6" />
+    <path d="M720,430 Q880,470 1050,440 T1380,490" fill="none" stroke="url(#granite-silt)" stroke-width="4" stroke-linecap="round" opacity="0.5" />
+    <path d="M1300,705 Q1450,650 1620,660 T1880,620" fill="none" stroke="url(#magnesium-graphite)" stroke-width="5" stroke-linecap="round" opacity="0.7" />
+    <path d="M340,200 Q420,290 560,320" fill="none" stroke="url(#magnesium-graphite)" stroke-width="3" stroke-linecap="round" opacity="0.65" />
+    <path d="M1220,740 Q1120,830 1020,890 T880,980" fill="none" stroke="url(#granite-silt)" stroke-width="5" stroke-linecap="round" opacity="0.55" />
+  </g>
+
+  <!-- Specular High-Luster Mica Specks -->
+  <g fill="#FFFFFF" opacity="0.75">
+    <circle cx="360" cy="210" r="1.8" />
+    <circle cx="480" cy="280" r="1.4" />
+    <circle cx="650" cy="435" r="2.2" />
+    <circle cx="780" cy="410" r="1.6" />
+    <circle cx="950" cy="195" r="2.0" />
+    <circle cx="1120" cy="560" r="1.5" />
+    <circle cx="1290" cy="710" r="2.4" />
+    <circle cx="1440" cy="670" r="1.7" />
+    <circle cx="1630" cy="840" r="2.1" />
+    <circle cx="1780" cy="350" r="1.9" />
+    <circle cx="1890" cy="950" r="2.3" />
+  </g>
+</svg>`;
+
+const targetPath = path.join(__dirname, '..', 'bootstrap.sendeketo.com', 'assets', 'img', 'phosphate-magnesium-granite.svg');
+fs.writeFileSync(targetPath, svg, 'utf8');
+console.log('Successfully written phosphate-magnesium-granite.svg to:', targetPath);

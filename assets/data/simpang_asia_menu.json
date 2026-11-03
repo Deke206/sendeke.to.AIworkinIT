@@ -1,0 +1,72 @@
+[
+  {
+    "category": "Street Bites & Starters",
+    "name": "Roti Paratha with Curry Dip",
+    "description": "Flaky, multi-layered buttery Indonesian flatbread served with hot aromatic chicken coconut curry dip.",
+    "diet": "Indonesian Street Classic",
+    "price": 7.50
+  },
+  {
+    "category": "Street Bites & Starters",
+    "name": "Martabak Telor",
+    "description": "Crispy pan-fried stuffed flatbread with spiced ground beef, scrambled eggs, green scallions, side sweet chili dip.",
+    "diet": "Jakarta Specialty",
+    "price": 15.95
+  },
+  {
+    "category": "Street Bites & Starters",
+    "name": "Chicken Sate (4 Skewers)",
+    "description": "Char-grilled marinated chicken skewers glazed in sweet kecap manis and served with thick spiced peanut sauce.",
+    "diet": "Gluten-Free Option",
+    "price": 15.95
+  },
+  {
+    "category": "Noodles & Soups",
+    "name": "Mie Tek Tek Street Noodles",
+    "description": "Wok-fried egg noodles with tender chicken breast, eggs, shredded cabbage, bok choy, and savory street sauce.",
+    "diet": "Indonesian Street Noodles",
+    "price": 18.95
+  },
+  {
+    "category": "Noodles & Soups",
+    "name": "Kwetiau Goreng (Flat Rice Noodles)",
+    "description": "Wok-charred wide flat rice noodles with bean sprouts, Chinese greens, fried eggs, and sweet soy reduction.",
+    "diet": "Halal / Chicken",
+    "price": 19.95
+  },
+  {
+    "category": "Tradition Rice Platters",
+    "name": "Nasi Goreng Fried Rice",
+    "description": "Fragrant Indonesian wok fried rice with chicken, scallions, fried shallots, sunny-side egg, and krupuk shrimp chips.",
+    "diet": "National Dish",
+    "price": 17.95
+  },
+  {
+    "category": "Tradition Rice Platters",
+    "name": "Nasi Bungkus Rendang (Banana Leaf Wrap)",
+    "description": "Slow-braised Sumatran beef rendang in toasted coconut spices, vegetable curry, sambal egg, wrapped in banana leaf.",
+    "diet": "Sumatran Specialty",
+    "price": 25.95
+  },
+  {
+    "category": "Tradition Rice Platters",
+    "name": "Hainanese Poached Chicken",
+    "description": "Aromatic chicken poached in ginger and broth, served over jasmine chicken rice with garlic ginger and chili sambal.",
+    "diet": "Aromatic Rice Platter",
+    "price": 19.95
+  },
+  {
+    "category": "Beverages",
+    "name": "Teh Botol Sosro",
+    "description": "Legendary Indonesian sweet jasmine iced tea in glass bottle.",
+    "diet": "Imported Cold Drink",
+    "price": 3.00
+  },
+  {
+    "category": "Beverages",
+    "name": "Es Cendol",
+    "description": "Iced dessert beverage with green pandan jelly ribbons, coconut milk, and shaved palm sugar syrup.",
+    "diet": "Cold Dessert Drink",
+    "price": 7.50
+  }
+]

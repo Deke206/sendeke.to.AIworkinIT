@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Sweetfin Menu | SenDeke 2</title>
+  
+  <!-- Authentic SenDeke Favicons & Manifest -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/sendeketo-icon.svg">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  
+  <!-- AI Agentic & WebMCP Discovery Links -->
+  <link rel="help" type="text/plain" href="llms.txt" title="LLM Agent Directives">
+  <link rel="alternate" type="application/json" href="assets/data/agent-feed.json" title="Machine-Readable Agent Feed">
+  <link rel="model-context-protocol" href="assets/js/webmcp.js" title="WebMCP Tool Registry">
+
+  <!-- Schema.org Semantic Structured Data for AI Crawlers & Scrapers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Sweetfin Ivy Station 34-Item Poke & Plant-Based Catalog",
+    "description": "100% Certified Gluten-Free poke bowls, high-protein chicken bowls, and vegan plant bowls at Sweetfin Ivy Station (8900 Venice Blvd #107, Los Angeles, CA 90232, next door to Health Nut) delivered by SenDeke direct courier across all Los Angeles zip codes.",
+    "url": "https://sendeketo.com/menu.html",
+    "inLanguage": "en-US",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Signature Bowls",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Spicy Yuzu Salmon Poke Bowl",
+            "description": "Scottish salmon, yuzu kosho ponzu, avocado, edamame, cilantro, crispy garlic over bamboo rice. 100% Gluten-free.",
+            "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+            "offers": { "@type": "Offer", "price": "16.90", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Spicy Tuna Poke Bowl",
+            "description": "Sashimi tuna, sriracha ponzu, avocado, asparagus, sundried tomatoes, scallions, crispy onions.",
+            "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+            "offers": { "@type": "Offer", "price": "16.90", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Truffled Yuzu Albacore Poke Bowl",
+            "description": "Wild albacore, white truffle oil, yuzu ponzu, avocado, shimeji mushrooms, pickled ginger, daikon sprouts.",
+            "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+            "offers": { "@type": "Offer", "price": "16.90", "priceCurrency": "USD" }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Chicken & Protein Bowls",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Chicken Banh Mi Protein Bowl",
+            "description": "Grilled marinated chicken breast, spicy garlic lemongrass ponzu, pickled carrots, cucumber, jalapenos, truffle sriracha drizzle. 44g protein.",
+            "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+            "offers": { "@type": "Offer", "price": "15.95", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Sesame Crunch Chicken Salad",
+            "description": "Grilled chicken, sesame dressing, crunchy chow mein noodles, napa cabbage, red cabbage, oranges, carrots.",
+            "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+            "offers": { "@type": "Offer", "price": "13.50", "priceCurrency": "USD" }
+          }
+        ]
+      }
+    ],
+    "potentialAction": {
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://sendeketo.com/checkout.html",
+        "inLanguage": "en-US",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      }
+    }
+  }
+  </script>
+  
+  <!-- Compiled Bootstrap 5.3.3 and Site Standards Stylesheets -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/courier-ebike.css">
+  <style>
+    /* Root Viewport Mobile Clamping & Overflow Prevention */
+    html, #html-root, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    .container-xl, .container {
+      max-width: 100%;
+    }
+
+    /* Courier Rider Viewport Centering & Banner Clamping */
+    .courier-hero-wrap,
+    .rider-graphic {
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .courier-hero-wrap,
+      .rider-graphic {
+        margin: 0 auto !important;
+        text-align: center !important;
+        display: block !important;
+        float: none !important;
+      }
+      .sweetfin-hero-banner {
+        padding: 1.25rem 1rem !important;
+      }
+    }
+
+    .menu-item-card {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+      background: linear-gradient(145deg, rgba(30, 27, 34, 0.92) 0%, rgba(18, 16, 20, 0.96) 100%) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 0, 127, 0.2) !important;
+      border-radius: 12px !important;
+      overflow: hidden;
+    }
+    .menu-item-card:hover {
+      transform: translateY(-3px);
+      border-color: #ff007f !important;
+      box-shadow: 0 10px 25px -5px rgba(255, 0, 127, 0.3), 0 0 15px rgba(255, 230, 0, 0.15) !important;
+    }
+    .item-num-badge {
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+    .fuchsia-num-badge {
+      background-color: #ff007f !important;
+      color: #ffe600 !important;
+      font-weight: 800 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.2 !important;
+      padding: 0.35rem 0.65rem !important;
+      border-radius: 6px !important;
+      letter-spacing: 0.05em;
+      box-shadow: 0 2px 4px rgba(255, 0, 127, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .price-num-badge {
+      font-size: 0.95rem !important;
+      line-height: 1.2 !important;
+      padding: 0.35rem 0.65rem !important;
+      border-radius: 6px !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .item-thumbnail {
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 4px;
+      background: #27272A;
+      flex-shrink: 0;
+    }
+    .sweetfin-hero-banner {
+      border-radius: 12px;
+      max-width: 100%;
+    }
+
+    /* Menu Item Card Button & Minute Prep Badge Flex Layout */
+    .menu-item-action-row {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 0.5rem !important;
+    }
+    .menu-item-action-row .add-to-cart-btn {
+      flex: 1 1 auto;
+      min-width: 110px;
+    }
+    .menu-item-action-row .minute-prep-badge {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    @media print {
+      body * { visibility: hidden; }
+      #printable-receipt-card, #printable-receipt-card * { visibility: visible; }
+      #printable-receipt-card { position: absolute; left: 0; top: 0; width: 100%; }
+    }
+  </style>
+</head>
+<body class="bg-body text-body">
+
+  <!-- OBJECT 1: TOP NAVIGATION PERMANENTLY REMOVED PER COMPTROLLER DIRECTIVE -->
+
+  <!-- =========================================================================
+       MAIN MENU VIEWPORT
+       ========================================================================= -->
+  <main class="py-3">
+    <div class="container-xl">
+
+
+      <!-- OBJECT 2: CATALOG HERO BANNER -->
+      <section class="p-4 p-md-5 mb-4 rounded-3 hero-pane-glass sweetfin-hero-banner text-center" id="menu-hero-object">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis mb-2 font-mono">SWEETFIN IVY STATION &bull; 8900 VENICE BLVD #107 (NEXT TO HEALTH NUT) &bull; 100% GLUTEN-FREE</span>
+        <h1 class="display-6 fw-bold text-dark mb-2" aria-label="SenDeke 2 Sweetfin Menu">
+          <span class="sendeke-brand-lockup">Sen<svg class="brand-d-wheels-svg" xmlns="http://www.w3.org/2000/svg" viewBox="42 56 142 134" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M48 62 H117 C153 62 177 83 177 111 C177 138 153 151 117 151 H48 V62 Z M72 83 H113 C132 83 148 94 148 110 C148 124 132 131 113 131 H72 V83 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M72 150 A17 17 0 1 0 72 184 A17 17 0 1 0 72 150 Z M72 159 A8 8 0 1 1 72 175 A8 8 0 1 1 72 159 Z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M148 150 A17 17 0 1 0 148 184 A17 17 0 1 0 148 150 Z M148 159 A8 8 0 1 1 148 175 A8 8 0 1 1 148 159 Z"/></svg>eke 2</span>
+          <span class="text-secondary fw-normal mx-1">|</span>
+          <span>Sweetfin Palms 🍱</span>
+        </h1>
+        <p class="text-body-secondary small mx-auto mb-3" style="max-width: 680px;">
+          Chef-driven 100% gluten-free poke, albacore, salmon, and high-protein bowls. Flat $10 courier pass-through &bull; Direct Kitchen Dispatch.
+        </p>
+        <div class="d-flex justify-content-center">
+          <div class="dropdown hero-menu-dropdown">
+            <button class="btn btn-primary dropdown-toggle fw-bold font-mono px-4 py-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              MENU
+            </button>
+            <ul class="dropdown-menu text-center start-50 translate-middle-x">
+              <li><a class="dropdown-item text-center font-mono" href="index.html">Home</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item active text-center font-mono" href="menu.html">Sweetfin Menu</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="tacos.html">Taquería El Cachetón</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="sandwiches.html">Lokal Sandwich Shop</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="doughroom.html">The Doughroom</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="simpang.html">Simpang Asia</a></li>
+              <li><a class="dropdown-item text-center font-mono" href="mizlala.html">Mizlala West Adams</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- OBJECT 3: CATEGORY FILTER BAR & CART TRIGGER -->
+      <section class="d-flex flex-wrap align-items-center gap-2 mb-3 p-2 border border-secondary-subtle rounded-2 bg-body-tertiary" id="menu-filters-object">
+        <button class="btn btn-sm active filter-tab-btn" data-category="ALL">All</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Signature Bowls">Signature Bowls</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Sides & Salads">Sides &amp; Salads</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Plant-Based Bowls">Plant-Based Bowls</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Beverages">Beverages</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Chicken Bowls">Chicken Bowls</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Taro Chips">Taro Chips</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Kids' Bowls">Kids' Bowls</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Health Goal Bowls">Health Goal Bowls</button>
+        <button class="btn btn-sm filter-tab-btn" data-category="Burritos">Burritos</button>
+        <div class="ms-auto d-flex flex-wrap align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-warning font-mono fw-semibold px-3" type="button" data-bs-toggle="modal" data-bs-target="#phone-dialer-modal">
+            📞 Call in Order
+          </button>
+          <button class="btn btn-sm btn-primary text-white fw-bold px-3 d-flex align-items-center gap-2 shadow-sm" type="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <img src="assets/brand/sendeke-food-bag-icon.svg" alt="Cart" width="16" height="16">
+            <span>Cart (<span id="nav-cart-counter-badge">0 items</span>)</span>
+          </button>
+        </div>
+      </section>
+
+            <!-- OBJECT 4: DYNAMIC 34-ITEM PRODUCT CATALOG GRID (BOOTSTRAP ALBUM GRID) -->
+      <section id="menu-catalog-grid-object" class="mb-4">
+        <div class="album py-2">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="menu-items-grid">
+            <!-- Rendered dynamically by Bootstrap Album Grid Engine -->
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER: ADDRESS & SENDEKETO.COM (WHITE BACKGROUND STANDARD) -->
+      <footer class="mt-4 p-3 bg-white border border-secondary-subtle rounded-3 text-center text-dark small shadow-sm" style="background-color: #ffffff !important; color: #111113 !important;">
+        <div class="fw-bold text-dark mb-1" style="color: #111113 !important; font-size: 0.95rem;">Sweetfin Ivy Station</div>
+        <div class="text-secondary font-mono mb-1" style="font-size: 0.85rem;">8900 Venice Blvd #107 (Next to Health Nut #108) • Culver City / Palms Corridor</div>
+        <div class="text-secondary" style="font-size: 0.8rem;">
+          Powered by SenDeke • Direct Hyperlocal Livery &amp; Courier Dispatch
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       OBJECT 5: CONSOLIDATED SCROLLABLE ORDER & DELIVERY MODAL (#cartModal)
+       ========================================================================= -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content border border-secondary-subtle bg-body">
+        <div class="modal-header border-secondary-subtle py-2">
+          <div class="d-flex align-items-center gap-2">
+            <span class="fs-4">🛒</span>
+            <div>
+              <h2 class="modal-title h6 fw-bold mb-0 text-dark" id="cartModalTitle">Your Sweetfin Cart</h2>
+              <div class="small text-secondary" id="cartModalSubtitle">Consolidated order for direct 90034 courier delivery</div>
+            </div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3 p-md-4">
+
+          <!-- Branded Express Delivery Status Banner with food-delivery-animated.gif -->
+          <div class="d-flex align-items-center flex-wrap gap-3 p-3 rounded-3 bg-body-tertiary border border-secondary-subtle mb-3" style="max-width: 100%;">
+            <img src="assets/brand/food-delivery-animated.gif" alt="SenDeke Express Courier" width="48" height="48" style="border-radius: 8px;">
+            <div class="flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+                <span class="badge bg-info-subtle text-info border border-info-subtle small fw-bold font-mono">90034 PALMS / CULVER CITY</span>
+                <span class="badge bg-success-subtle text-success small fw-bold">Direct Counter-to-Door</span>
+              </div>
+              <div class="fw-bold text-dark small">Flat $10 Delivery • Real In-Store Menu Prices</div>
+              <div class="text-secondary small">Consolidated 1-text order to Deke • Zero app markups or hidden service fees</div>
+            </div>
+          </div>
+
+          <!-- Text Allotment Notice -->
+          <div class="alert alert-warning py-2 px-3 border border-warning-subtle rounded-2 mb-3">
+            <div class="d-flex align-items-start gap-2">
+              <span class="fs-5">⚠️</span>
+              <div>
+                <div class="fw-bold small">TEXT ORDER ALLOTMENT: <span id="cartModalAllotmentCount">5 of 5</span> REMAINING</div>
+                <div class="small text-body-secondary" style="font-size: 0.8rem;">
+                  To prevent carrier spam, texting fees, and duplicate $10 delivery charges, you are limited to <strong>5 text orders/updates per courier call</strong>. Consolidate your items into this single cart before texting Deke!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cart Items Container -->
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="small fw-semibold text-body-secondary mb-0">CART ITEMS (<span id="cartItemsCountText">0</span>)</div>
+            <button type="button" class="btn btn-sm btn-outline-danger py-0 px-2 small font-mono" id="clearCartBtn">🗑️ Clear Cart</button>
+          </div>
+          
+          <div id="cart-items-container" class="mb-3">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Cumulative Price Breakdown & Tip Jar -->
+          <div class="p-3 rounded-3 bg-body-tertiary border border-secondary-subtle mb-3">
+            <div class="d-flex justify-content-between small text-body-secondary mb-1">
+              <span>Food Subtotal</span>
+              <span class="text-dark fw-semibold font-mono" id="cart-val-subtotal">$0.00</span>
+            </div>
+            <div class="d-flex justify-content-between small text-body-secondary mb-2">
+              <span>Courier Pass-Through Fee</span>
+              <span class="text-dark fw-semibold font-mono" id="cart-val-delivery">$10.00</span>
+            </div>
+            
+            <!-- Tip Jar Selector -->
+            <div class="mt-2 pt-2 border-top border-secondary-subtle">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="small fw-bold text-uppercase text-info font-mono mb-0">🌟 Courier Tip Jar</label>
+                <span class="small text-secondary font-mono" id="cartTipTakeHomeLabel">Courier gets: $15.00</span>
+              </div>
+              <div class="row g-2 mb-2">
+                <div class="col-3">
+                  <button type="button" class="btn btn-sm btn-outline-secondary w-100 font-mono cart-tip-btn" data-tip="3.00">+$3</button>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn btn-sm btn-outline-secondary w-100 font-mono cart-tip-btn active" data-tip="5.00">+$5</button>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn btn-sm btn-outline-secondary w-100 font-mono cart-tip-btn" data-tip="7.00">+$7</button>
+                </div>
+                <div class="col-3">
+                  <button type="button" class="btn btn-sm btn-outline-secondary w-100 font-mono cart-tip-btn" data-tip="10.00">+$10</button>
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-secondary-subtle my-2">
+            <div class="d-flex justify-content-between fw-bold text-dark fs-6">
+              <span>Total Due</span>
+              <span class="text-success font-mono" id="cart-val-total">$15.00</span>
+            </div>
+          </div>
+
+          <!-- Destination Address Input -->
+          <div class="mb-3">
+            <label for="cart-delivery-address" class="form-label small fw-semibold text-body-secondary">Delivery Destination Address (Palms / Culver City):</label>
+            <input type="text" class="form-control form-control-sm border-secondary font-mono" id="cart-delivery-address" value="3645 Overland Ave, Los Angeles, CA 90034">
+          </div>
+
+        </div>
+        <div class="modal-footer border-secondary-subtle py-2 d-flex justify-content-between flex-wrap gap-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Keep Browsing</button>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-outline-primary btn-sm px-3 fw-semibold font-mono" type="button" id="btn-generate-receipt">🖨️ Receipt &amp; Voucher</button>
+            <button class="btn btn-success btn-sm px-3 fw-semibold font-mono" type="button" id="btn-text-order-deke">📱 1-Text Order</button>
+            <button class="btn btn-primary btn-sm px-3 fw-bold font-mono" type="button" id="btn-stripe-pay-sweetfin">🔒 Stripe Escrow Checkout &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       OBJECT 6: CALL-IN PHONE ORDER SIMULATOR / AI CONCIERGE MODAL
+       ========================================================================= -->
+  <div class="modal fade" id="phone-dialer-modal" tabindex="-1" aria-labelledby="dialer-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border border-secondary-subtle">
+        <div class="modal-header border-secondary-subtle py-2">
+          <h2 class="h6 modal-title fw-bold text-dark mb-0 d-flex align-items-center gap-2" id="dialer-title">
+            <span class="badge bg-warning text-dark font-mono">AI CONCIERGE</span>
+            <span>Call-In Phone Order Simulator</span>
+          </h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3">
+          <div class="p-2 border border-secondary-subtle rounded bg-body text-center mb-3">
+            <div class="small text-secondary font-mono">DEDICATED DISPATCH NUMBER</div>
+            <div class="h5 fw-bold text-success font-mono mb-0">(323) 374-5787</div>
+            <div class="small text-body-secondary">Palms • Culver City • 90034</div>
+          </div>
+
+          <p class="small text-body-secondary mb-2">
+            Customers can dial in and state item numbers directly: <em>"Give me item #01 and #04 to 3645 Overland Ave."</em>
+          </p>
+
+          <div class="mb-3">
+            <label for="dialer-item-input" class="form-label small fw-semibold text-body-secondary">Enter Item Numbers (e.g. #01, #04, #12):</label>
+            <input type="text" class="form-control form-control-sm border-secondary font-mono" id="dialer-item-input" placeholder="#01, #04">
+          </div>
+
+          <div class="mb-3">
+            <label for="dialer-address-input" class="form-label small fw-semibold text-body-secondary">Delivery Destination Address:</label>
+            <input type="text" class="form-control form-control-sm border-secondary" id="dialer-address-input" value="3645 Overland Ave, Los Angeles, CA 90034">
+          </div>
+
+          <div id="dialer-preview-box" class="p-2 border border-secondary-subtle rounded bg-body small font-mono d-none mb-2">
+            <div class="text-secondary mb-1">Recognized Items:</div>
+            <div id="dialer-preview-list"></div>
+          </div>
+        </div>
+        <div class="modal-footer border-secondary-subtle py-2 d-flex justify-content-between">
+          <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-sm btn-success px-3 font-mono" id="btn-submit-phone-order">
+            📞 Place Call-In Order &amp; Get Receipt
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       OBJECT 7: DIGITAL & PRINTABLE RECEIPT MODAL
+       ========================================================================= -->
+  <div class="modal fade" id="receipt-modal" tabindex="-1" aria-labelledby="receipt-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border border-secondary-subtle">
+        <div class="modal-header border-secondary-subtle py-2">
+          <h2 class="h6 modal-title fw-bold text-dark mb-0" id="receipt-title">Order Receipt &amp; Voucher</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3">
+          
+          <!-- Printable Receipt Card -->
+          <div class="p-3 border border-secondary-subtle rounded bg-body font-mono small" id="printable-receipt-card">
+            <div class="text-center border-bottom border-secondary-subtle pb-2 mb-2">
+              <div class="fw-bold text-dark fs-6">SENDEKETO.COM DIRECT LOCAL COURIER</div>
+              <div class="text-secondary small">Sweetfin Palms • Direct Livery Pass-Through</div>
+              <div class="text-secondary small" id="receipt-timestamp"></div>
+              <div class="text-warning fw-bold small" id="receipt-number-display">RECEIPT #SDK-2026-90034</div>
+            </div>
+
+            <div class="mb-2">
+              <div class="text-secondary">Destination: <span class="text-dark fw-bold" id="receipt-dest-display">3645 Overland Ave, 90034</span></div>
+              <div class="text-secondary">Dispatch: <span class="text-dark">Direct Courier (Deke / Fleet #04)</span></div>
+            </div>
+
+            <table class="table table-sm mb-2" style="font-size: 0.75rem;">
+              <thead>
+                <tr class="border-secondary-subtle">
+                  <th>#</th>
+                  <th>Item</th>
+                  <th class="text-end">Price</th>
+                </tr>
+              </thead>
+              <tbody id="receipt-items-table-body">
+                <!-- Dynamically filled -->
+              </tbody>
+            </table>
+
+            <div class="border-top border-secondary-subtle pt-2">
+              <div class="d-flex justify-content-between">
+                <span>Food Subtotal:</span>
+                <span class="text-dark fw-bold" id="receipt-food-subtotal">$0.00</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>Courier Pass-Through Fee:</span>
+                <span class="text-dark fw-bold">$10.00</span>
+              </div>
+              <div class="d-flex justify-content-between text-success fw-bold fs-6 mt-1 border-top border-secondary-subtle pt-1">
+                <span>Total Paid:</span>
+                <span id="receipt-grand-total">$10.00</span>
+              </div>
+            </div>
+
+            <div class="mt-3 p-2 border border-secondary-subtle rounded text-center small text-secondary">
+              100% direct courier pass-through in Palms &amp; Culver City.<br>
+              Zero app commission markups. Thank you for supporting local!
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer border-secondary-subtle py-2 d-flex justify-content-between flex-wrap gap-2">
+          <button type="button" class="btn btn-sm btn-outline-light font-mono" onclick="window.print()">
+            🖨️ Print / Save PDF
+          </button>
+          <div class="d-flex gap-2">
+            <a href="track.html" class="btn btn-sm btn-outline-success px-3 font-mono" id="receipt-track-btn">
+              Track Live &rarr;
+            </a>
+            <a href="checkout.html" class="btn btn-sm btn-primary px-3 font-mono fw-bold">
+              🔒 Stripe Escrow Hold &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Official Local Bootstrap Bundle & Sovereign Engines -->
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/dispatch-engine.js"></script>
+  <script src="assets/js/in-chat-context-window.js"></script>
+  <script src="assets/js/webmcp.js"></script>
+
+  <!-- Complete Menu Engine, Cart, Phone Parser & Receipt Generator -->
+  <script>
+    (function() {
+      var engine = window.SenDekeEngine;
+      var catalogData = [];
+      var cart = (engine && typeof engine.getCart === 'function') ? engine.getCart() : [];
+      var courierFee = 10.00;
+      var tipAmount = 5.00;
+      var activeFilter = 'ALL';
+
+      function persistCart() {
+        var addrEl = document.getElementById('cart-delivery-address');
+        var addr = addrEl ? addrEl.value : '3645 Overland Ave, Los Angeles, CA 90034';
+        if (engine && typeof engine.syncCart === 'function') {
+          engine.syncCart(cart, 'Sweetfin Palms', tipAmount, addr);
+        } else {
+          localStorage.setItem('sendeke_cart', JSON.stringify(cart));
+          localStorage.setItem('sendeke_cart_items', JSON.stringify(cart));
+        }
+      }
+
+      // Inlined Authentic Sweetfin 34-Item Catalog (100% Offline & file:/// CORS immune)
+      var DEFAULT_CATALOG_DATA = [
+  {
+    "category": "Sides & Salads",
+    "name": "Sesame Crunch Chicken  Salad",
+    "description": "Grilled chicken, sesame dressing, crunchy chow mein noodles, napa cabbage, red cabbage, chili, oranges, almonds, carrots, scallions and sesame seeds.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/652566c918beed7e5ed09da0_Sesame%20Crunch%201%20(1).jpg",
+    "local_image": "assets/img/sweetfin/sesame_crunch_chicken_salad.jpg",
+    "price": 13.5
+  },
+  {
+    "category": "Chicken Bowls",
+    "name": "Chicken Banh Mi Bowl",
+    "description": "Grilled chicken, spicy garlic lemongrass ponzu, pickled carrots, cucumbers, cilantro, market radish, sliced jalapenos, topped with truffle sriracha mayo drizzle and daikon sprouts over sushi rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/677d531db6cc167e4b06d86f_Untitled%20design%20(19).jpg",
+    "local_image": "assets/img/sweetfin/chicken_banh_mi_bowl.jpg",
+    "price": 15.95
+  },
+  {
+    "category": "Chicken Bowls",
+    "name": "B.Y.O.B Chicken Bowl",
+    "description": "Build your own chicken bowl with your choice of base, sauce and toppings.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/652566e29553563a85ce6448_BYOB%20Chicken%201%20(1).jpg",
+    "local_image": "assets/img/sweetfin/b_y_o_b_chicken_bowl.jpg",
+    "price": 15.95
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Yuzu Salmon Poke Bowl",
+    "description": "Salmon, yuzu kosho sauce, avocado, edamame, cilantro, jicama, cucumber.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5bf7414541a57d63ae7d_d8494730-b6bf-4d6f-b236-2525585fd3cb.jpg",
+    "local_image": "assets/img/sweetfin/yuzu_salmon_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Truffled Yuzu Albacore Poke Bowl",
+    "description": "Albacore, yuzu kosho sauce, white truffle oil, avocado, shimeji mushrooms, pickled ginger, daikon sprouts.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5bbee332fcdec6da18ab_054963ea-f53f-44c0-9851-d6b0f38672ec%20(1).jpg",
+    "local_image": "assets/img/sweetfin/truffled_yuzu_albacore_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Sriracha Tuna Poke Bowl",
+    "description": "Yellowfin tuna, sriracha ponzu sauce, avocado, asparagus, cilantro, sundried tomatoes, crispy onions.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5b9e1b05cabfbf5ca869_750e23a8-4997-4c73-a728-392150583d14.jpg",
+    "local_image": "assets/img/sweetfin/sriracha_tuna_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Spicy Tuna Poke Bowl",
+    "description": "Yellowfin tuna, spicy mayo sauce, hijiki, avocado, edamame, cucumber, crispy onion.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5b61414541a57d631b59_fb4e6f40-c30f-4846-b266-06960557a283.jpg",
+    "local_image": "assets/img/sweetfin/spicy_tuna_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Mango Albacore Poke Bowl",
+    "description": "Albacore, mango, ponzu lime sauce, macadamia nuts, pickled ginger, napa cabbage, edamame.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5b2b3380ca2a900a83ad_Mango%20Albacore%20Poke%20Bowl%20.jpg",
+    "local_image": "assets/img/sweetfin/mango_albacore_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Gochujang Salmon Poke Bowl",
+    "description": "Salmon, black garlic gochujang sauce, asparagus, shiitake, bean sprouts, crispy garlic.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5ade2fb7788f6dfa338a_e943d83e-658a-4e73-9d4c-06d4b6060342.jpg",
+    "local_image": "assets/img/sweetfin/gochujang_salmon_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "Classic Tuna Poke Bowl",
+    "description": "Yellowfin tuna, miso sesame shoyu sauce, red onion, togarashi, avocado, seaweed salad, bean sprouts, and pickled ginger.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5a95d039b3516292878e_07e09f8b-691a-4ca8-9027-d419cc4e1eb6%20(1).jpg",
+    "local_image": "assets/img/sweetfin/classic_tuna_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "Sweet Potato Ponzu Lime Poke Bowl",
+    "description": "Sweet potato, ponzu lime sauce, avocado, carrots, edamame, cucumbers, napa cabbage.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5d4f54fb51d9e80f31b4_4caf89d7-8eaf-4d35-9317-66b7f88e5230.jpg",
+    "local_image": "assets/img/sweetfin/sweet_potato_ponzu_lime_poke_bowl.jpg",
+    "price": 14.25
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "Shiitake Chile Tofu Poke Bowl",
+    "description": "Classic sauce, chile oil, cilantro, sautéed kale, tofu, shiitake mushrooms, pickled Fresno.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/66c397d816589a453e489e98_shiitake%20chili%20tofu.jpg",
+    "local_image": "assets/img/sweetfin/shiitake_chile_tofu_poke_bowl.jpg",
+    "price": 14.5
+  },
+  {
+    "category": "Health Goal Bowls",
+    "name": "Keto Bowl",
+    "description": "Salmon, avocado, cucumber, jicama, kale, cilantro, macadamia nuts, creamy togarashi sauce over cauliflower rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5fca292d78dafb44428a_5f90b9c4-f943-41ef-9c1a-aa8ac4b6f297.jpg",
+    "local_image": "assets/img/sweetfin/keto_bowl.jpg",
+    "price": 16.95
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "High Protein Plant-Based Bowl",
+    "description": "Sweet potato, edamame, asparagus, bean sprouts, avocado, sautéed kale, carrots, crispy garlic, miso sesame shoyu sauce with forbidden rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/66c397ea53fb0ae2281b0d3a_high%20protein%20plant%20based.jpg",
+    "local_image": "assets/img/sweetfin/high_protein_plant_based_bowl.jpg",
+    "price": 14.95
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "B.Y.O.B. - Tofu",
+    "description": "Build your own tofu bowl.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af608a38da68a9fe9f44e3_b7fd1a95-1343-43a3-9592-475a73aabab0.jpg",
+    "local_image": "assets/img/sweetfin/b_y_o_b_tofu.jpg",
+    "price": 14.25
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "B.Y.O.B Poke Bowl",
+    "description": "Build your own bowl.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af60541b05cabfbf6159fe_5993f6fd-d7e6-4f16-bfb4-d4a5b5a25ec0%20(1).jpg",
+    "local_image": "assets/img/sweetfin/b_y_o_b_poke_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Burritos",
+    "name": "Spicy Tuna Burrito",
+    "description": "Yellowfin tuna, bamboo rice, avocado, cucumber, cilantro, crispy onions, seaweed salad, and spicy mayo wrapped in a tortilla. Served with a side of crunchy garlic chili oil.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/6476c6e36421f487198c66c1_e587b43a-5078-4c22-b202-a27431ed34a8.webp",
+    "local_image": "assets/img/sweetfin/spicy_tuna_burrito.webp",
+    "price": 13.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Citrus Kale Salad",
+    "description": "Citrus kale salad, avocado, carrots, sesame seeds, topped with pepitas.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af62a11e0b9ad3d9199fbb_13a7fbab-3d2b-4d1f-ad68-5ac5de86c795.jpg",
+    "local_image": "assets/img/sweetfin/citrus_kale_salad.jpg",
+    "price": 6.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Seaweed Salad",
+    "description": "Seaweed, sesame oil, seasoning.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af62cb38da68a9fea1764c_acffff0a-3123-43d0-9d4e-9c1cc1b2969b.jpg",
+    "local_image": "assets/img/sweetfin/seaweed_salad.jpg",
+    "price": 5.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Kelp Noodles Slaw",
+    "description": "Kelp noodles, carrots, cucumbers, sesame seeds, napa cabbage, salt, with sesame mayo sauce.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64b7837592eeacec8df9525d_3c1e87d7-09c1-419b-aac5-10d7035cc982.jpg",
+    "local_image": "assets/img/sweetfin/kelp_noodles_slaw.jpg",
+    "price": 5.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Surimi Salad",
+    "description": "100% gluten-free \"krab salad\".",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/66ba3ec799ef336a6a2af22b_surimi%20salad.jpg",
+    "local_image": "assets/img/sweetfin/surimi_salad.jpg",
+    "price": 6.5
+  },
+  {
+    "category": "Taro Chips",
+    "name": "BBQ Flavored Taro Chips",
+    "description": "Taro root, BBQ seasoning, coconut oil.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/688cd3db1f3801d9bc24984a_Final3%20(1).jpg",
+    "local_image": "assets/img/sweetfin/bbq_flavored_taro_chips.jpg",
+    "price": 4.25
+  },
+  {
+    "category": "Taro Chips",
+    "name": "Chili Lime Taro Chips",
+    "description": "Taro root, chili lime seasoning, coconut oil.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/6a32960636d8d40bbb489766_chili-lime-taro-chips-image.png",
+    "local_image": "assets/img/sweetfin/chili_lime_taro_chips.png",
+    "price": 4.25
+  },
+  {
+    "category": "Kids' Bowls",
+    "name": "Kid's - Grasshopper",
+    "description": "Ponzu lime, edamame, carrot, avocado.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af611c638d6df28705ca6a_968c5b7e-7b6f-4724-a0bd-d3929e530353.jpg",
+    "local_image": "assets/img/sweetfin/kid_s_grasshopper.jpg",
+    "price": 8.95
+  },
+  {
+    "category": "Kids' Bowls",
+    "name": "Kid's - Lil' Fish",
+    "description": "Miso sesame shoyu sauce, tuna or salmon, mango, pickled ginger.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af60efe18409b82f3031f6_83969ff3-255f-4e90-a748-a1a0ce665a91.jpg",
+    "local_image": "assets/img/sweetfin/kid_s_lil_fish.jpg",
+    "price": 9.5
+  },
+  {
+    "category": "Taro Chips",
+    "name": "Taro Chips",
+    "description": "Taro root, wasabi furikake, coconut oil",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/66ba3e8e4ad73a58b857fe76_taro%20chip%20bag.jpg",
+    "local_image": "assets/img/sweetfin/taro_chips.jpg",
+    "price": 4.25
+  },
+  {
+    "category": "Beverages",
+    "name": "Hibiscus Iced Tea",
+    "description": "Hibiscus tea",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/65efceb1be708dfe9ef606be_hibiscus%20tea.jpg",
+    "local_image": "assets/img/sweetfin/hibiscus_iced_tea.jpg",
+    "price": 3.95
+  },
+  {
+    "category": "Beverages",
+    "name": "Sparkling Water",
+    "description": "None",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af68033380ca2a9018a324_f131a7bc-0d5d-4e83-96a0-dd9ad57490bb.jpg",
+    "local_image": "assets/img/sweetfin/sparkling_water.jpg",
+    "price": 3.5
+  },
+  {
+    "category": "Beverages",
+    "name": "Bottled Water",
+    "description": "None",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/677d5017f70cb794a1013130_bottled%20water.png",
+    "local_image": "assets/img/sweetfin/bottled_water.png",
+    "price": 2.95
+  },
+  {
+    "category": "Beverages",
+    "name": "Guava Lemonade",
+    "description": "Guava, lemon.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/65efd047c0bc587c3c1d35b4_guava%20lemonade.jpg",
+    "local_image": "assets/img/sweetfin/guava_lemonade.jpg",
+    "price": 4.5
+  },
+  {
+    "category": "Chicken Bowls",
+    "name": "Spicy Chicken Grain Bowl",
+    "description": "Grilled chicken, forbidden rice base, spicy garlic lemongrass ponzu, sliced jalapenos, carrots, crunchy cashews, mint, chili oil, and sesame seeds.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/652566b252f7acbb92d717f4_Spicy%20grain%201%20(1).jpg",
+    "local_image": "assets/img/sweetfin/spicy_chicken_grain_bowl.jpg",
+    "price": 15.95
+  },
+  {
+    "category": "Sides & Salads",
+    "name": "Sesame Crunch Chicken Salad",
+    "description": "Grilled chicken, sesame dressing, crunchy chow mein noodles, napa cabbage, red cabbage, chili, oranges, almonds, carrots, scallions, and sesame seeds.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/652566c918beed7e5ed09da0_Sesame%20Crunch%201%20(1).jpg",
+    "local_image": "assets/img/sweetfin/sesame_crunch_chicken_salad.jpg",
+    "price": 13.5
+  },
+  {
+    "category": "Signature Bowls",
+    "name": "The Brooke Schofield Bowl",
+    "description": "Line-caught yellowfin, Persian cucumbers, edamame, fresh mango, sliced jalapeños, avocado, Zab's Hot Honey Ponzu, Hot Honey Wasabi Mayo drizzle, and crispy onions over sushi rice.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/6adacc00a61c2015b4f9f332_modifier%20images%201%20(35).jpg",
+    "local_image": "assets/img/sweetfin/the_brooke_schofield_bowl.jpg",
+    "price": 16.9
+  },
+  {
+    "category": "Plant-Based Bowls",
+    "name": "Miso Eggplant and Mushroom Poke Bowl",
+    "description": "Miso sesame shoyu sauce, Japanese eggplant, shimeji mushroom, sundried tomato, and market radish.",
+    "diet": "100% Gluten-Free",
+    "image_url": "https://cdn.prod.website-files.com/64609a35ba26bca451e78a8b/64af5d8a69fbb855ee81234e_e47cad4a-e6d2-45af-b2de-c26ba880591e.jpg",
+    "local_image": "assets/img/sweetfin/miso_eggplant_and_mushroom_poke_bowl.jpg",
+    "price": 14.5
+  }
+];
+      var catalogData = DEFAULT_CATALOG_DATA;
+
+      // Render immediately with 0ms delay & 0 network dependency
+      renderCatalog();
+
+      // Attempt live background sync over HTTP/HTTPS; gracefully ignore on file:///
+      if (window.location.protocol !== 'file:') {
+        fetch('assets/data/sweetfin_menu_clean.json')
+          .then(function(res) { if (!res.ok) throw new Error('HTTP ' + res.status); return res.json(); })
+          .then(function(data) {
+            if (Array.isArray(data) && data.length > 0) {
+              catalogData = data;
+              renderCatalog();
+            }
+          })
+          .catch(function(err) {
+            console.log('Using inlined authentic 34-item catalog fallback:', err);
+          });
+      }
+
+      function renderCatalog() {
+        var grid = document.getElementById('menu-items-grid');
+        if (!grid) return;
+
+        var filtered = catalogData.filter(function(item) {
+          if (activeFilter === 'ALL') return true;
+          return item.category === activeFilter;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = '<div class="col-12 text-center text-body-secondary py-5 font-mono small">No items found in this category.</div>';
+          return;
+        }
+
+        var html = '';
+        for (var i = 0; i < filtered.length; i++) {
+          var item = filtered[i];
+          var itemIndex = catalogData.indexOf(item) + 1;
+          var itemNumStr = (itemIndex < 10 ? '0' : '') + itemIndex;
+
+          html += '<div class="col">' +
+            '<div class="card shadow-sm h-100 border-secondary-subtle bg-body-tertiary menu-item-card">' +
+              '<div class="card-header bg-transparent border-bottom-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">' +
+                '<span class="badge font-mono fuchsia-num-badge">#' + itemNumStr + '</span>' +
+                '<span class="badge bg-success-subtle text-success-emphasis border border-success-subtle font-mono fw-bold price-num-badge">$' + item.price.toFixed(2) + '</span>' +
+              '</div>' +
+              '<div class="card-body d-flex flex-column p-3">' +
+                '<div class="d-flex align-items-start gap-2 mb-2">' +
+                  '<span class="fs-4 flex-shrink-0 mt-1">🍱</span>' +
+                  '<div>' +
+                    '<h3 class="h6 fw-bold text-dark mb-1">' + item.name + '</h3>' +
+                    '<div class="d-flex flex-wrap gap-1">' +
+                      '<span class="badge bg-info-subtle text-info-emphasis border border-info-subtle" style="font-size:0.65rem;">' + item.category + '</span>' +
+                      '<span class="badge bg-light text-dark-emphasis border border-secondary-subtle" style="font-size:0.65rem;">' + (item.diet || '100% GF') + '</span>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+                '<p class="card-text small text-body-secondary flex-grow-1 mb-3" style="font-size: 0.82rem; line-height: 1.4;">' + (item.description || '') + '</p>' +
+                '<div class="menu-item-action-row pt-2 border-top border-secondary-subtle">' +
+                  '<button type="button" class="btn btn-sm btn-primary fw-bold text-white px-3 py-1.5 add-to-cart-btn shadow-sm text-nowrap" data-item-idx="' + (itemIndex - 1) + '" data-name="' + item.name.replace(/"/g, '&quot;') + '" data-price="' + item.price.toFixed(2) + '" data-emoji="🍱">+ Add to Cart</button>' +
+                  '<span class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle font-mono minute-prep-badge">⚡ 15-25 min</span>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        }
+        grid.innerHTML = html;
+      }
+
+      // phone-dial-preview-btn click listener (Auto-fills #dialer-item-input)
+      document.addEventListener('click', function(e) {
+        var dialBtn = e.target.closest('.phone-dial-preview-btn');
+        if (dialBtn) {
+          var itemNum = dialBtn.getAttribute('data-item-num');
+          var input = document.getElementById('dialer-item-input');
+          if (input && itemNum) {
+            input.value = '#' + itemNum;
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+          }
+        }
+      });
+
+      // Filter tabs
+      document.querySelectorAll('.filter-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.filter-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeFilter = btn.getAttribute('data-category');
+          renderCatalog();
+        });
+      });
+
+      // Cart logic
+      function renderCart() {
+        var container = document.getElementById('cart-items-container');
+        var counter = document.getElementById('nav-cart-counter-badge');
+        var countText = document.getElementById('cartItemsCountText');
+        var subtotalEl = document.getElementById('cart-val-subtotal');
+        var totalEl = document.getElementById('cart-val-total');
+
+        if (!container) return;
+        var totalQty = cart.reduce(function(sum, it) { return sum + it.qty; }, 0);
+        var subtotal = cart.reduce(function(sum, it) { return sum + (it.price * it.qty); }, 0);
+        var grandTotal = subtotal > 0 ? (subtotal + courierFee + tipAmount) : 0;
+
+        if (counter) counter.textContent = totalQty + (totalQty === 1 ? ' item' : ' items');
+        if (countText) countText.textContent = totalQty;
+        if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+        if (totalEl) totalEl.textContent = '$' + grandTotal.toFixed(2);
+
+        if (cart.length === 0) {
+          container.innerHTML = '<div class="text-center text-body-secondary py-4 font-mono small"><p class="mb-0">Your cart is currently empty.</p><span class="text-secondary">Click "+ Add to Cart" on any bowl above.</span></div>';
+          return;
+        }
+
+        var html = '<ul class="list-group list-group-flush mb-0">';
+        cart.forEach(function(item, idx) {
+          html += '<li class="list-group-item bg-transparent text-dark border-secondary-subtle px-0 py-2 d-flex justify-content-between align-items-center">' +
+            '<div>' +
+              '<div class="small fw-semibold"><span class="badge bg-secondary font-mono me-1">#' + item.num + '</span>' + item.name + '</div>' +
+              '<div class="small text-body-secondary font-mono">$' + item.price.toFixed(2) + ' &times; ' + item.qty + '</div>' +
+            '</div>' +
+            '<div class="btn-group btn-group-sm">' +
+              '<button class="btn btn-outline-secondary py-0 px-2 btn-cart-dec" data-idx="' + idx + '">-</button>' +
+              '<button class="btn btn-outline-secondary py-0 px-2 btn-cart-inc" data-idx="' + idx + '">+</button>' +
+            '</div>' +
+          '</li>';
+        });
+        html += '</ul>';
+        container.innerHTML = html;
+
+        container.querySelectorAll('.btn-cart-inc').forEach(function(b) {
+          b.addEventListener('click', function() {
+            var i = parseInt(b.getAttribute('data-idx'));
+            cart[i].qty = (cart[i].qty || cart[i].quantity || 1) + 1;
+            cart[i].quantity = cart[i].qty;
+            persistCart();
+            renderCart();
+          });
+        });
+
+        container.querySelectorAll('.btn-cart-dec').forEach(function(b) {
+          b.addEventListener('click', function() {
+            var i = parseInt(b.getAttribute('data-idx'));
+            var q = cart[i].qty || cart[i].quantity || 1;
+            if (q > 1) { cart[i].qty = q - 1; cart[i].quantity = cart[i].qty; } else { cart.splice(i, 1); }
+            persistCart();
+            renderCart();
+          });
+        });
+      }
+
+      // cart-tip-btn click listener
+      document.addEventListener('click', function(e) {
+        var tipBtn = e.target.closest('.cart-tip-btn');
+        if (tipBtn) {
+          document.querySelectorAll('.cart-tip-btn').forEach(function(b) { b.classList.remove('active'); });
+          tipBtn.classList.add('active');
+          tipAmount = parseFloat(tipBtn.getAttribute('data-tip')) || 0;
+          var takeHome = document.getElementById('cartTipTakeHomeLabel');
+          if (takeHome) takeHome.textContent = 'Courier gets: $' + (courierFee + tipAmount).toFixed(2);
+          renderCart();
+        }
+      });
+
+      // Clear cart button
+      var clearBtn = document.getElementById('clearCartBtn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+          cart = [];
+          if (engine && typeof engine.clearCart === 'function') engine.clearCart();
+          renderCart();
+        });
+      }
+
+      // Live Stripe Escrow Checkout Bridge
+      var stripeBtn = document.getElementById('btn-stripe-pay-sweetfin');
+      if (stripeBtn) {
+        stripeBtn.addEventListener('click', function() {
+          if (cart.length === 0) return;
+          persistCart();
+          window.location.href = 'checkout.html';
+        });
+      }
+
+      // Send 1-Text Order to Deke
+      var textOrderBtn = document.getElementById('btn-text-order-deke');
+      if (textOrderBtn) {
+        textOrderBtn.addEventListener('click', function() {
+          if (cart.length === 0) {
+            alert('Your cart is empty. Add items first!');
+            return;
+          }
+          var addr = document.getElementById('cart-delivery-address').value || '3645 Overland Ave, Los Angeles, CA 90034';
+          var lines = cart.map(function(it) { return '#' + it.num + ' ' + it.name + ' x' + it.qty + ' ($' + (it.price * it.qty).toFixed(2) + ')'; });
+          var subtotal = cart.reduce(function(s, i) { return s + (i.price * i.qty); }, 0);
+          var total = subtotal + courierFee + tipAmount;
+
+          // Dispatch real-time event to kitchen & admin
+          var ticket = {
+            id: 'SDK-' + Math.floor(100000 + Math.random() * 900000),
+            source: 'Sweetfin Menu',
+            items: cart.slice(),
+            subtotal: subtotal,
+            courierFee: courierFee,
+            tip: tipAmount,
+            total: total,
+            destination: addr,
+            timestamp: new Date().toISOString()
+          };
+          try {
+            var existingTickets = JSON.parse(localStorage.getItem('sendeke_active_tickets') || '[]');
+            existingTickets.unshift(ticket);
+            localStorage.setItem('sendeke_active_tickets', JSON.stringify(existingTickets));
+            if (window.BroadcastChannel) {
+              var bus = new BroadcastChannel('sendeke_dispatch_network');
+              bus.postMessage({ type: 'TICKET_UPDATED', ticket: ticket });
+            }
+          } catch (e) {}
+
+          var msg = 'SENDEKE DIRECT ORDER:\n' + lines.join('\n') + '\nFood: $' + subtotal.toFixed(2) + '\nCourier Fee: $10.00\nTip: $' + tipAmount.toFixed(2) + '\nTotal: $' + total.toFixed(2) + '\nDestination: ' + addr;
+          window.location.href = 'sms:13233745787?body=' + encodeURIComponent(msg);
+        });
+      }
+
+      // Add to cart click
+      document.addEventListener('click', function(e) {
+        var addBtn = e.target.closest('.add-to-cart-btn');
+        if (addBtn) {
+          var idx = parseInt(addBtn.getAttribute('data-item-idx'));
+          var item = catalogData[idx];
+          if (!item) return;
+
+          var numStr = (idx + 1 < 10 ? '0' : '') + (idx + 1);
+          var existing = cart.find(function(it) { return it.name === item.name; });
+          if (existing) {
+            existing.qty = (existing.qty || existing.quantity || 1) + 1;
+            existing.quantity = existing.qty;
+          } else {
+            cart.push({ id: 'sweetfin-' + numStr, num: numStr, name: item.name, price: item.price, qty: 1, quantity: 1, merchant: 'Sweetfin Palms', image: item.local_image || '' });
+          }
+          persistCart();
+          renderCart();
+        }
+      });
+
+      // Phone order simulator input parser
+      var dialerInput = document.getElementById('dialer-item-input');
+      var dialerPreviewBox = document.getElementById('dialer-preview-box');
+      var dialerPreviewList = document.getElementById('dialer-preview-list');
+
+      if (dialerInput) {
+        dialerInput.addEventListener('input', function() {
+          var val = dialerInput.value;
+          var matches = val.match(/#?(\d+)/g);
+          if (!matches || matches.length === 0 || catalogData.length === 0) {
+            dialerPreviewBox.classList.add('d-none');
+            return;
+          }
+
+          var foundItems = [];
+          matches.forEach(function(m) {
+            var num = parseInt(m.replace('#', ''), 10);
+            if (num >= 1 && num <= catalogData.length) {
+              foundItems.push({ num: num, item: catalogData[num - 1] });
+            }
+          });
+
+          if (foundItems.length > 0) {
+            dialerPreviewBox.classList.remove('d-none');
+            var previewHtml = '';
+            foundItems.forEach(function(f) {
+              previewHtml += '<div>#' + (f.num < 10 ? '0' : '') + f.num + ' &bull; ' + f.item.name + ' ($' + f.item.price.toFixed(2) + ')</div>';
+            });
+            dialerPreviewList.innerHTML = previewHtml;
+          } else {
+            dialerPreviewBox.classList.add('d-none');
+          }
+        });
+      }
+
+      // Submit Phone Order
+      var submitPhoneBtn = document.getElementById('btn-submit-phone-order');
+      if (submitPhoneBtn) {
+        submitPhoneBtn.addEventListener('click', function() {
+          var val = dialerInput.value;
+          var matches = val.match(/#?(\d+)/g);
+          if (!matches || matches.length === 0) {
+            alert('Please enter at least one item number (e.g. #01)');
+            return;
+          }
+
+          cart = [];
+          matches.forEach(function(m) {
+            var num = parseInt(m.replace('#', ''), 10);
+            if (num >= 1 && num <= catalogData.length) {
+              var it = catalogData[num - 1];
+              var numStr = (num < 10 ? '0' : '') + num;
+              var existing = cart.find(function(c) { return c.name === it.name; });
+              if (existing) { existing.qty++; } else { cart.push({ num: numStr, name: it.name, price: it.price, qty: 1 }); }
+            }
+          });
+
+          renderCart();
+          var dialerModalEl = document.getElementById('phone-dialer-modal');
+          if (dialerModalEl && window.bootstrap) {
+            bootstrap.Modal.getInstance(dialerModalEl).hide();
+          }
+
+          showReceiptModal(document.getElementById('dialer-address-input').value);
+        });
+      }
+
+      // Show receipt modal
+      function showReceiptModal(address) {
+        var receiptModalEl = document.getElementById('receipt-modal');
+        var receiptTable = document.getElementById('receipt-items-table-body');
+        var subtotalEl = document.getElementById('receipt-food-subtotal');
+        var totalEl = document.getElementById('receipt-grand-total');
+        var destEl = document.getElementById('receipt-dest-display');
+        var timeEl = document.getElementById('receipt-timestamp');
+        var numEl = document.getElementById('receipt-number-display');
+
+        if (timeEl) timeEl.textContent = new Date().toLocaleString();
+        if (destEl) destEl.textContent = address || '3645 Overland Ave, Los Angeles, CA 90034';
+        if (numEl) numEl.textContent = 'RECEIPT #SDK-' + Math.floor(100000 + Math.random() * 900000);
+
+        var subtotal = 0;
+        var tableHtml = '';
+        cart.forEach(function(it) {
+          var lineTotal = it.price * it.qty;
+          subtotal += lineTotal;
+          tableHtml += '<tr>' +
+            '<td>#' + (it.num || '01') + '</td>' +
+            '<td>' + it.name + ' &times; ' + it.qty + '</td>' +
+            '<td class="text-end font-mono">$' + (it.price * it.qty).toFixed(2) + '</td>' +
+          '</tr>';
+        });
+
+        if (receiptTable) receiptTable.innerHTML = tableHtml;
+        if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+        if (totalEl) totalEl.textContent = '$' + (subtotal + courierFee).toFixed(2);
+
+        if (receiptModalEl && window.bootstrap) {
+          bootstrap.Modal.getOrCreateInstance(receiptModalEl).show();
+        }
+      }
+
+      // Checkout button in cart generates receipt
+      var checkoutBtn = document.getElementById('btn-generate-receipt');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function() {
+          if (cart.length === 0) {
+            return;
+          }
+          persistCart();
+          var addrVal = document.getElementById('cart-delivery-address')?.value || '3645 Overland Ave, Los Angeles, CA 90034';
+          if (engine && typeof engine.createTicket === 'function') {
+            var sub = cart.reduce(function(s, it) { return s + (it.price * (it.qty || 1)); }, 0);
+            var t = engine.createTicket({
+              customerName: 'Sweetfin Menu Customer',
+              pickupLocation: 'Sweetfin Palms (3110 Main St)',
+              dropoffAddress: addrVal,
+              rawOrderText: cart.map(function(i) { return '#' + i.num + ' ' + i.name + ' x' + (i.qty || 1); }).join(', '),
+              matchedItems: cart,
+              foodSubtotal: sub,
+              tipAmount: tipAmount
+            });
+            var rtBtn = document.getElementById('receipt-track-btn');
+            if (rtBtn && t) rtBtn.href = 'track.html?receipt=' + encodeURIComponent(t.id);
+          }
+          var cartModalEl = document.getElementById('cartModal');
+          if (cartModalEl && window.bootstrap) {
+            bootstrap.Modal.getOrCreateInstance(cartModalEl).hide();
+          }
+          showReceiptModal(addrVal);
+        });
+      }
+
+      if (engine && typeof engine.onMessage === 'function') {
+        engine.onMessage(function(msg) {
+          if (msg.type === 'CART_UPDATED' && Array.isArray(msg.cart)) {
+            cart = msg.cart;
+            renderCart();
+          }
+        });
+      }
+
+      renderCart();
+
+    })();
+  </script>
+  <script src="assets/js/courier-ebike.js"></script>
+</body>
+</html>

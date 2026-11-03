@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14151C"/>
+      <stop offset="100%" stop-color="#060709"/>
+    </linearGradient>
+    <linearGradient id="warmOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF3B1D"/>
+      <stop offset="100%" stop-color="#FF9500"/>
+    </linearGradient>
+    <linearGradient id="fryGold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="100%" stop-color="#FFB300"/>
+    </linearGradient>
+    <linearGradient id="drinkSoda" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#2E9EFF"/>
+    </linearGradient>
+    <linearGradient id="ledCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#2E9EFF"/>
+    </linearGradient>
+    <filter id="speedGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <clipPath id="bagInnerClip">
+      <rect x="146" y="141" width="228" height="173" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <!-- Dark Squircle Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect x="6" y="6" width="500" height="500" rx="106" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="4"/>
+
+  <!-- MOTION: Speed & Airflow Streaks Down Left Side (Grey, Blue, White) -->
+  <g stroke-linecap="round">
+    <line x1="38" y1="172" x2="108" y2="172" stroke="#8E94A5" stroke-width="4" opacity="0.6"/>
+    <line x1="18" y1="198" x2="128" y2="198" stroke="#00F0FF" stroke-width="5" opacity="0.85" filter="url(#speedGlow)"/>
+    <line x1="48" y1="222" x2="118" y2="222" stroke="#FFFFFF" stroke-width="4.5" opacity="0.7"/>
+    <line x1="28" y1="250" x2="112" y2="250" stroke="#717686" stroke-width="4" opacity="0.5"/>
+    <line x1="58" y1="274" x2="132" y2="274" stroke="#2E9EFF" stroke-width="5" opacity="0.75"/>
+    <line x1="22" y1="298" x2="105" y2="298" stroke="#FFFFFF" stroke-width="4" opacity="0.8"/>
+    <line x1="14" y1="340" x2="98" y2="340" stroke="#00F0FF" stroke-width="6" opacity="0.9" filter="url(#speedGlow)"/>
+    <line x1="42" y1="365" x2="114" y2="365" stroke="#8E94A5" stroke-width="4.5" opacity="0.55"/>
+    <line x1="28" y1="416" x2="108" y2="416" stroke="#FFFFFF" stroke-width="4" opacity="0.4"/>
+  </g>
+
+  <!-- HEAT WAVES: Whipped & Dragged Fully to Left of Handle -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M78 72 C125 72 155 96 205 106" stroke="url(#warmOrange)" stroke-width="7"/>
+    <path d="M102 94 C146 94 175 114 220 120" stroke="#FFFFFF" stroke-width="6"/>
+    <path d="M128 116 C166 116 195 132 232 136" stroke="url(#warmOrange)" stroke-width="7"/>
+  </g>
+
+  <!-- MAIN SENDEKETO DELIVERY BAG & COURIER CHASSIS (Centered) -->
+  <g transform="translate(16, 8) skewX(-8)">
+
+    <!-- Square Bag Top Handle -->
+    <path d="M225 130 V98 C225 80 305 80 305 98 V130" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" fill="none"/>
+
+    <!-- Square Insulated Restaurant Bag Outer Shell -->
+    <rect x="135" y="130" width="250" height="195" rx="26" fill="#FFFFFF"/>
+    
+    <!-- Recessed Cargo Interior Face (Base Dark) -->
+    <rect x="146" y="141" width="228" height="173" rx="18" fill="#0C0D12"/>
+
+    <!-- ============================================================ -->
+    <!-- FOOD ITEMS: POSITIONED DOWN AT THE BOTTOM FLOOR OF THE BAG -->
+    <!-- (Opacity increased slightly to 0.42 so details show through) -->
+    <!-- ============================================================ -->
+    <g clip-path="url(#bagInnerClip)" opacity="0.42">
+
+      <!-- 1. BURGER BOX (Bottom left) -->
+      <g transform="translate(154, 258)">
+        <polygon points="0,24 60,24 54,48 5,48" fill="#D87820" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
+        <polygon points="-4,22 64,22 58,4 2,4" fill="#F09030" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="24" y="18" width="12" height="7" rx="1.5" fill="#FFFFFF"/>
+        <line x1="8" y1="12" x2="52" y2="12" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"/>
+      </g>
+
+      <!-- 2. CRISPY FRIES (Bottom center - fries peak up through the translucent badge) -->
+      <g transform="translate(230, 246)">
+        <g stroke="#E5A000" stroke-width="1.2">
+          <rect x="6" y="-24" width="5.5" height="32" rx="1.5" fill="url(#fryGold)"/>
+          <rect x="13" y="-36" width="6" height="44" rx="1.5" fill="url(#fryGold)"/>
+          <rect x="21" y="-28" width="5.5" height="36" rx="1.5" fill="url(#fryGold)"/>
+          <rect x="28" y="-40" width="6" height="48" rx="1.5" fill="url(#fryGold)"/>
+          <rect x="36" y="-26" width="5.5" height="34" rx="1.5" fill="url(#fryGold)"/>
+          <rect x="43" y="-32" width="6" height="40" rx="1.5" fill="url(#fryGold)"/>
+          <rect x="50" y="-20" width="5" height="28" rx="1.5" fill="url(#fryGold)"/>
+        </g>
+        <path d="M4 6 H58 L52 56 H10 Z" fill="#E02424" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M4 6 C16 16 46 16 58 6" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+        <polygon points="31,24 34,32 42,32 35,37 38,45 31,40 24,45 27,37 20,32 28,32" fill="#FFD700" opacity="0.9"/>
+      </g>
+
+      <!-- 3. DRINK IN MOLDED CARRIER HOLDER (Bottom right) -->
+      <g transform="translate(305, 226)">
+        <path d="M30 -16 L25 -2 L25 18" stroke="#00F0FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <ellipse cx="25" cy="18" rx="20" ry="7" fill="rgba(255,255,255,0.6)" stroke="#FFFFFF" stroke-width="2"/>
+        <ellipse cx="25" cy="15" rx="11" ry="4" fill="#FFFFFF"/>
+        <polygon points="9,20 41,20 36,65 14,65" fill="#1A2840" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+        <polygon points="12,32 38,32 34,62 16,62" fill="url(#drinkSoda)" opacity="0.6"/>
+        <rect x="13" y="36" width="24" height="10" rx="2" fill="#FFFFFF" opacity="0.8"/>
+        <path d="M-2 65 H52 L47 80 H3 Z" fill="#7A5636" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round"/>
+        <ellipse cx="25" cy="65" rx="16" ry="5" fill="#4A321E" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="8" y1="73" x2="42" y2="73" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+      </g>
+
+    </g>
+    <!-- ============================================================ -->
+
+    <!-- Bag Top Zip / Seal Trim Accent -->
+    <path d="M146 162 H374" stroke="url(#warmOrange)" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- FOREGROUND BRANDING -->
+    <!-- LINE 1: Sendeketo.com -->
+    <text x="260" y="196" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Impact', sans-serif" font-size="24" font-weight="900" font-style="italic" letter-spacing="1" fill="#FFFFFF">
+      Sendeketo<tspan fill="#00F0FF">.com</tspan>
+    </text>
+
+    <!-- LINE 2: YUMM! (Translucent Warm Orange Badge Pill so Fries show through) -->
+    <g transform="translate(260, 240) skewX(-12)">
+      <!-- Translucent orange capsule (0.75 opacity + subtle glass highlight) -->
+      <rect x="-70" y="-28" width="140" height="38" rx="19" fill="url(#warmOrange)" fill-opacity="0.76" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1.5"/>
+      
+      <!-- Action Text: Heavy Italic with Crisp Contrast -->
+      <text x="2" y="-3" text-anchor="middle" font-family="'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif" font-size="26" font-weight="900" font-style="italic" letter-spacing="3" fill="#661000" opacity="0.6">
+        YUMM!
+      </text>
+      <text x="0" y="-5" text-anchor="middle" font-family="'Arial Black', -apple-system, BlinkMacSystemFont, sans-serif" font-size="26" font-weight="900" font-style="italic" letter-spacing="3" fill="#FFFFFF">
+        YUMM!
+      </text>
+    </g>
+
+    <!-- Base Runner Bar (Laser Beam Foundation) -->
+    <rect x="95" y="333" width="330" height="18" rx="9" fill="#FFFFFF"/>
+    <line x1="65" y1="342" x2="445" y2="342" stroke="url(#ledCyan)" stroke-width="14" stroke-linecap="round" filter="url(#speedGlow)"/>
+
+    <!-- HIGH-SPEED WHEELS IN MOTION -->
+    <!-- Rear Wheel (Left) -->
+    <g transform="translate(172, 408)">
+      <circle cx="0" cy="0" r="46" fill="#FFFFFF"/>
+      <circle cx="0" cy="0" r="26" fill="#0C0D12"/>
+      <line x1="-22" y1="-14" x2="22" y2="14" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="-14" y1="22" x2="14" y2="-22" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="10" fill="#00F0FF"/>
+    </g>
+
+    <!-- Front Wheel (Right) -->
+    <g transform="translate(348, 408)">
+      <circle cx="0" cy="0" r="46" fill="#FFFFFF"/>
+      <circle cx="0" cy="0" r="26" fill="#0C0D12"/>
+      <line x1="-22" y1="-14" x2="22" y2="14" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+      <line x1="-14" y1="22" x2="14" y2="-22" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="10" fill="#00F0FF"/>
+    </g>
+
+  </g>
+</svg>

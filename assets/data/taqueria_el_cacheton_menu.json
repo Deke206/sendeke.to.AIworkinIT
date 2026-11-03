@@ -1,0 +1,79 @@
+[
+  {
+    "category": "Street Tacos",
+    "name": "Street Taco (Asada, Pastor, Pollo, Carnitas)",
+    "description": "Double warm corn tortilla, fresh cilantro, diced onions, lime, radishes, and house salsa.",
+    "diet": "Authentic Street Taco",
+    "price": 3.00
+  },
+  {
+    "category": "Street Tacos",
+    "name": "Quesataco",
+    "description": "Crispy griddled corn tortilla with melted cheese, choice of meat, guacamole, and salsa.",
+    "diet": "House Specialty",
+    "price": 6.00
+  },
+  {
+    "category": "Street Tacos",
+    "name": "Vampirito",
+    "description": "Crunchy toasted corn tortilla, melted jack cheese, carne asada, cilantro, onions, and avocado salsa.",
+    "diet": "Crispy Specialty",
+    "price": 3.50
+  },
+  {
+    "category": "Street Tacos",
+    "name": "Mulita",
+    "description": "Two crispy corn tortillas sandwiched with melted cheese, choice of meat, cilantro, onion, and guacamole.",
+    "diet": "Cheese Sandwich Taco",
+    "price": 8.00
+  },
+  {
+    "category": "Burritos & Tortas",
+    "name": "El Cachetón Classic Burrito",
+    "description": "Large flour tortilla packed with choice of seasoned meat, Mexican rice, refried pinto beans, onions, and cilantro.",
+    "diet": "Handheld Burrito",
+    "price": 14.00
+  },
+  {
+    "category": "Burritos & Tortas",
+    "name": "Burrito Mojado (Wet Burrito)",
+    "description": "Classic meat and bean burrito smothered in rich red enchilada sauce, melted cheese, and crema.",
+    "diet": "Wet Platter",
+    "price": 15.00
+  },
+  {
+    "category": "Burritos & Tortas",
+    "name": "Torta Tradicional",
+    "description": "Toasted Mexican telera roll, choice of meat, smashed avocado, refried beans, pickled jalapenos, tomato, and crema.",
+    "diet": "Mexican Sandwich",
+    "price": 15.00
+  },
+  {
+    "category": "Quesadillas & Plates",
+    "name": "Quesadilla Gigante",
+    "description": "Large griddled flour tortilla stuffed with melted Monterrey jack cheese, choice of meat, and avocado salsa.",
+    "diet": "Large Quesadilla",
+    "price": 15.00
+  },
+  {
+    "category": "Quesadillas & Plates",
+    "name": "Fajitas Mixtas Platter",
+    "description": "Sizzling seasoned steak and chicken strips with bell peppers and onions, served with rice, beans, and warm tortillas.",
+    "diet": "Dinner Platter",
+    "price": 17.00
+  },
+  {
+    "category": "Beverages",
+    "name": "Horchata Casera (32oz)",
+    "description": "Authentic house-made cinnamon vanilla rice milk, cold and refreshing.",
+    "diet": "Fresh Agua Fresca",
+    "price": 4.50
+  },
+  {
+    "category": "Beverages",
+    "name": "Mexican Coca-Cola (Glass Bottle)",
+    "description": "Imported real cane sugar Mexican Coca-Cola in classic 12oz glass bottle.",
+    "diet": "Cold Drink",
+    "price": 3.50
+  }
+]

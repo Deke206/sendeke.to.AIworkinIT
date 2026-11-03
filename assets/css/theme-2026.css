@@ -1,0 +1,762 @@
+/**
+ * SenDeke 2 - 2026 3D Tactile Design System & Palette Engine
+ * Identity: Windows Azure Blue • Navy Midshipman Gray • Liquid Obsidian (Chromed Pearl Black) • Ash Gray
+ */
+
+:root {
+  /* Surface Palette */
+  --obsidian-bg: #07090E;
+  --obsidian-surface: #0E121A;
+  --obsidian-elevated: #151B26;
+  --navy-chassis: #1F2836;
+  --navy-midshipman: #253041;
+  --navy-border: rgba(255, 255, 255, 0.12);
+  --windows-blue: #0078D4;
+  --windows-blue-hover: #1E90FF;
+  --windows-blue-glow: rgba(0, 120, 212, 0.45);
+  --ash-gray: #8F9CAE;
+  --specular-rim: rgba(255, 255, 255, 0.16);
+
+  /* Overrides for existing legacy variables */
+  --bg: #07090E;
+  --card: #0E121A;
+  --card-elevated: #151B26;
+  --panel: #0E121A;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #0078D4;
+  --text-muted: #8F9CAE;
+}
+
+/* ==========================================================================
+   2026 4K CHROMED OBSIDIAN CANVAS & CONTINUOUS WAVING GLASS GLINT
+   ========================================================================== */
+body {
+  background-color: #030508 !important;
+  color: #F0F4F8;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Ambient Radial Obsidian Chromatic Depth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background: 
+    radial-gradient(circle at 50% 0%, #0E1726 0%, #05080E 40%, #020306 100%),
+    radial-gradient(circle at 85% 60%, rgba(0, 120, 212, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(0, 240, 255, 0.05) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Continuous Waving Glass Sheen / Specular Light Glint */
+body::after {
+  content: "";
+  position: fixed;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  z-index: -2;
+  background: linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 42%,
+    rgba(255, 255, 255, 0.015) 45%,
+    rgba(56, 162, 255, 0.06) 48%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(0, 240, 255, 0.07) 52%,
+    rgba(255, 255, 255, 0.015) 55%,
+    transparent 58%,
+    transparent 100%
+  );
+  animation: liquidGlassGlintWave 15s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.88;
+  filter: blur(10px);
+}
+
+@keyframes liquidGlassGlintWave {
+  0% {
+    transform: translate(-25%, -25%) rotate(0deg);
+  }
+  50% {
+    transform: translate(12%, 12%) rotate(4deg);
+  }
+  100% {
+    transform: translate(-25%, -25%) rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    animation: none;
+    transform: none;
+    opacity: 0.5;
+  }
+}
+
+/* Allow native browser address bar swipe-down on mobile touch viewports */
+@media (max-width: 768px) {
+  body::before, body::after {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Nav Bar - Machined Obsidian Glass with Specular Edge */
+.navbar.app-nav {
+  background: rgba(5, 7, 12, 0.88) !important;
+  backdrop-filter: blur(24px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* 3D Tactile Card (Machined Bevel + Chrome Top Specular Highlight) */
+.app-card, .tactile-card, .menu-card, .dashboard-control, .customer-auth-card, .driver-auth-card {
+  background: linear-gradient(165deg, rgba(20, 26, 38, 0.85) 0%, rgba(8, 11, 17, 0.96) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-top: 1px solid var(--specular-rim) !important;
+  box-shadow: 
+    0 20px 40px -15px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(18px);
+  border-radius: 16px !important;
+}
+
+/* Step Cards */
+.step-card {
+  background: linear-gradient(170deg, rgba(20, 27, 38, 0.9) 0%, rgba(9, 12, 18, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+}
+
+/* ==========================================================================
+   2.5D TACTILE GLASSY BUTTONS & PHYSICAL INTERACTION SYSTEM
+   ========================================================================== */
+
+/* 2.5D Glass Push Button - Windows Azure Blue */
+.btn-3d-azure, .btn-info, .btn-primary {
+  position: relative;
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 40%, rgba(0, 0, 0, 0.15) 100%),
+    linear-gradient(180deg, #1E90FF 0%, #0066CC 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid #60A5FA !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid #003870 !important;
+  box-shadow: 
+    0 5px 0 #004C99,
+    0 12px 24px rgba(0, 120, 212, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(8px);
+  font-weight: 800 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.btn-3d-azure:hover, .btn-info:hover, .btn-primary:hover {
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(0, 0, 0, 0.1) 100%),
+    linear-gradient(180deg, #38A2FF 0%, #0073E6 100%) !important;
+  box-shadow: 
+    0 6px 0 #004C99,
+    0 16px 30px rgba(0, 120, 212, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+.btn-3d-azure:active, .btn-info:active, .btn-primary:active {
+  transform: translateY(4px) !important;
+  box-shadow: 
+    0 1px 0 #004C99,
+    0 4px 10px rgba(0, 120, 212, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* 2.5D Glass Push Button - Crisp Light Sheen */
+.btn-light {
+  position: relative;
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 244, 250, 0.92) 100%) !important;
+  color: #07090E !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-top: 1px solid #FFFFFF !important;
+  border-bottom: 1px solid #94A3B8 !important;
+  box-shadow: 
+    0 5px 0 #7C8BA1,
+    0 12px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 #FFFFFF,
+    inset 0 -1px 2px rgba(0, 0, 0, 0.12) !important;
+  backdrop-filter: blur(12px);
+  font-weight: 800 !important;
+  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.btn-light:hover {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E8EEF5 100%) !important;
+  box-shadow: 
+    0 6px 0 #7C8BA1,
+    0 16px 30px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 #FFFFFF !important;
+  transform: translateY(-2px);
+}
+
+.btn-light:active {
+  transform: translateY(4px) !important;
+  box-shadow: 
+    0 1px 0 #7C8BA1,
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    inset 0 2px 4px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 2.5D Glass Push Button - Navy Midshipman Gray */
+.btn-3d-navy, .btn-outline-light, .btn-secondary, .btn-outline-secondary {
+  position: relative;
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 40%, rgba(0, 0, 0, 0.25) 100%),
+    linear-gradient(180deg, #202937 0%, #111620 100%) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-bottom: 1px solid #080B10 !important;
+  box-shadow: 
+    0 5px 0 #0B0E14,
+    0 10px 20px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(12px);
+  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  font-weight: 700 !important;
+}
+
+.btn-3d-navy:hover, .btn-outline-light:hover, .btn-secondary:hover {
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 40%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(180deg, #2D3A4E 0%, #171E2B 100%) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 
+    0 6px 0 #0B0E14,
+    0 14px 26px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+.btn-3d-navy:active, .btn-outline-light:active, .btn-secondary:active {
+  transform: translateY(4px) !important;
+  box-shadow: 
+    0 1px 0 #0B0E14,
+    0 3px 8px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 2.5D Glass Push Button - Outline Info */
+.btn-outline-info {
+  position: relative;
+  background: 
+    linear-gradient(180deg, rgba(0, 240, 255, 0.12) 0%, rgba(0, 240, 255, 0.02) 40%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(180deg, #0A1E2E 0%, #06111C 100%) !important;
+  color: #38A2FF !important;
+  border: 1px solid rgba(56, 162, 255, 0.45) !important;
+  border-top: 1px solid rgba(147, 197, 253, 0.7) !important;
+  border-bottom: 1px solid #030A12 !important;
+  box-shadow: 
+    0 5px 0 #020910,
+    0 10px 20px rgba(0, 120, 212, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px);
+  font-weight: 700 !important;
+  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.btn-outline-info:hover {
+  background: 
+    linear-gradient(180deg, rgba(0, 240, 255, 0.22) 0%, rgba(0, 240, 255, 0.05) 40%, rgba(0, 0, 0, 0.15) 100%),
+    linear-gradient(180deg, #102B42 0%, #091929 100%) !important;
+  border-color: #38A2FF !important;
+  color: #FFFFFF !important;
+  box-shadow: 
+    0 6px 0 #020910,
+    0 14px 26px rgba(0, 120, 212, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+.btn-outline-info:active {
+  transform: translateY(4px) !important;
+  box-shadow: 0 1px 0 #020910, inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 2.5D Push Button - Direct Cash App Emerald */
+.btn-success {
+  position: relative;
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 40%, rgba(0, 0, 0, 0.15) 100%),
+    linear-gradient(180deg, #00D632 0%, #009B24 100%) !important;
+  border: 1px solid #5CFF82 !important;
+  border-top: 1px solid #A3FFB9 !important;
+  border-bottom: 1px solid #005213 !important;
+  box-shadow: 
+    0 5px 0 #006618,
+    0 12px 20px rgba(0, 214, 50, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3) !important;
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+.btn-success:hover {
+  background: 
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(0, 0, 0, 0.1) 100%),
+    linear-gradient(180deg, #05E539 0%, #00AA27 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #006618, 0 16px 28px rgba(0, 214, 50, 0.5), inset 0 1px 0 #FFFFFF !important;
+}
+.btn-success:active {
+  transform: translateY(4px) !important;
+  box-shadow: 0 1px 0 #006618, inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Tactile Form Inputs & Selects */
+.form-control, .form-select {
+  background: #090D14 !important;
+  color: #F0F4F8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+.form-control:focus, .form-select:focus {
+  border-color: #0078D4 !important;
+  box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+  outline: none !important;
+}
+.input-group-text {
+  background: #141B26 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #8F9CAE !important;
+}
+
+/* Custom Radio Selector Cards */
+.custom-radio-card {
+  background: linear-gradient(165deg, rgba(22, 28, 40, 0.6) 0%, rgba(10, 13, 19, 0.9) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+.custom-radio-card.active, .custom-radio-card:hover {
+  border-color: #0078D4 !important;
+  box-shadow: 0 8px 20px rgba(0, 120, 212, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Modals - Machined Glass */
+.modal-content {
+  background: linear-gradient(165deg, #161D29 0%, #0A0D13 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Diorama Micro-Story Dispatch Window */
+.diorama-button-stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #090D14 0%, #030406 100%);
+  border: 1px solid rgba(0, 120, 212, 0.35);
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  height: 94px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+.diorama-button-stage:hover {
+  border-color: #0078D4;
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(0, 120, 212, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.mini-street {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: #141822;
+  border-top: 2px dashed rgba(255, 255, 255, 0.15);
+}
+.mini-store {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 48px;
+  background: rgba(31, 40, 54, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.mini-store-sign {
+  position: absolute;
+  top: -12px;
+  background: #0078D4;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 1px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(0, 120, 212, 0.8);
+}
+.mini-door {
+  width: 30px;
+  height: 32px;
+  background: rgba(0, 120, 212, 0.2);
+  border: 1px solid rgba(0, 120, 212, 0.5);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.courier-sprite {
+  position: absolute;
+  bottom: 12px;
+  left: -70px;
+  font-size: 26px;
+  filter: drop-shadow(0 0 10px rgba(0, 120, 212, 0.85));
+  z-index: 5;
+}
+
+@keyframes eBikeCourierRun {
+  0% { left: -70px; transform: scaleX(1); }
+  25% { left: calc(50% - 35px); transform: scaleX(1); }
+  30% { left: calc(50% - 35px); transform: scaleX(1) scale(1.08); }
+  50% { left: calc(50% - 15px); transform: scaleX(1); }
+  55% { left: calc(50% - 15px); transform: scaleX(1) rotate(-5deg); }
+  100% { left: 105%; transform: scaleX(1) rotate(0deg); }
+}
+
+.animating-courier {
+  animation: eBikeCourierRun 2.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Subtle Pulsing Status Dot */
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #00D632;
+  box-shadow: 0 0 10px #00D632;
+  display: inline-block;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.7; }
+}
+
+/* Text Accent Overrides */
+.text-info {
+  color: #38A2FF !important;
+}
+.border-info {
+  border-color: #0078D4 !important;
+}
+
+/* 2026 Non-Intrusive AI Concierge Helper */
+.ai-concierge-container {
+  z-index: 1060;
+  transition: all 0.3s ease;
+}
+.ai-concierge-bubble {
+  animation: fadeInBubble 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+@keyframes fadeInBubble {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+#aiConciergePill {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 120, 212, 0.35);
+}
+#aiConciergePill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0, 120, 212, 0.6);
+  border-color: #38A2FF !important;
+}
+
+/* Grocery Staple Quick Chips */
+.staple-chip {
+  font-size: 0.74rem !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #D1D9E6 !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  transition: all 0.18s ease;
+}
+.staple-chip:hover {
+  background: rgba(0, 120, 212, 0.22) !important;
+  border-color: #38A2FF !important;
+  color: #FFF !important;
+  transform: translateY(-1px);
+}
+
+/* In-Store Courier Checklist & Progress */
+.shopping-checklist-wrap {
+  background: linear-gradient(175deg, rgba(14, 20, 30, 0.95) 0%, rgba(8, 11, 17, 0.98) 100%);
+  border: 1px solid rgba(56, 162, 255, 0.25);
+}
+.checklist-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.15s ease;
+}
+.checklist-item-row.in-cart {
+  background: rgba(0, 214, 50, 0.12);
+  border-color: rgba(0, 214, 50, 0.35);
+}
+.checklist-item-row.out-of-stock {
+  background: rgba(255, 77, 77, 0.12);
+  border-color: rgba(255, 77, 77, 0.35);
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   TRANSLUCENT HERO GLASS & ANIMATED COMMUNITY MEMORY CACOPHONY
+   ========================================================================== */
+.hero-section {
+  position: relative !important;
+  overflow: hidden !important;
+  background: rgba(6, 10, 17, 0.72) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.hero-memory-cacophony {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-glass-chassis {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(165deg, rgba(18, 25, 38, 0.6) 0%, rgba(8, 11, 18, 0.82) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  box-shadow: 
+    0 24px 60px -15px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px);
+  padding: 1.5rem 1.75rem;
+}
+
+@media (min-width: 992px) {
+  .hero-glass-chassis {
+    padding: 2.5rem 3rem;
+  }
+}
+
+/* Translucent Scribed Memory Doodles (Scribed memory cartoon tapestry) */
+.memory-doodle {
+  position: absolute;
+  opacity: 0.18;
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+  transition: opacity 0.4s ease;
+  user-select: none;
+}
+
+.memory-doodle:hover {
+  opacity: 0.35;
+}
+
+.memory-doodle.doodle-bike {
+  top: 8%;
+  left: 4%;
+  width: 140px;
+  animation: floatMemoryDoodle1 14s ease-in-out infinite;
+}
+
+.memory-doodle.doodle-bodega {
+  top: 52%;
+  left: 1%;
+  width: 135px;
+  animation: floatMemoryDoodle2 18s ease-in-out infinite reverse;
+}
+
+.memory-doodle.doodle-coffee {
+  top: 14%;
+  left: 46%;
+  width: 90px;
+  animation: floatMemoryDoodle3 12s ease-in-out infinite;
+}
+
+.memory-doodle.doodle-taco {
+  bottom: 8%;
+  left: 42%;
+  width: 125px;
+  animation: floatMemoryDoodle1 16s ease-in-out infinite 2s;
+}
+
+.memory-doodle.doodle-signs {
+  top: 6%;
+  right: 4%;
+  width: 135px;
+  animation: floatMemoryDoodle2 15s ease-in-out infinite;
+}
+
+.memory-doodle.doodle-groceries {
+  bottom: 12%;
+  right: 3%;
+  width: 115px;
+  animation: floatMemoryDoodle3 17s ease-in-out infinite reverse;
+}
+
+.memory-doodle.doodle-palms {
+  bottom: 4%;
+  left: 20%;
+  width: 95px;
+  animation: swayMemoryPalms 10s ease-in-out infinite;
+}
+
+.memory-doodle.doodle-notes {
+  top: 36%;
+  right: 22%;
+  width: 75px;
+  animation: floatMemoryDoodle1 11s ease-in-out infinite 1s;
+}
+
+@keyframes floatMemoryDoodle1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(2deg); }
+}
+
+@keyframes floatMemoryDoodle2 {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  50% { transform: translateY(-18px) rotate(-3deg) scale(1.03); }
+}
+
+@keyframes floatMemoryDoodle3 {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(12px) scale(0.97); }
+}
+
+@keyframes swayMemoryPalms {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-doodle {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   4-DAYPART TIME-DATED ROTATION HUB & BUSINESS ACQUISITIONING CARDS
+   ========================================================================== */
+.daypart-nav-pills {
+  background: rgba(10, 14, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 4px;
+  display: inline-flex;
+  gap: 4px;
+  backdrop-filter: blur(12px);
+}
+
+.daypart-pill-btn {
+  background: transparent;
+  border: none;
+  color: #8F9CAE;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.daypart-pill-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.daypart-pill-btn.active {
+  background: linear-gradient(180deg, #1E90FF 0%, #0066CC 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 120, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.daypart-pill-btn .station-badge {
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Business Acquisitioning Hero Card */
+.business-acquisition-card {
+  background: linear-gradient(165deg, rgba(20, 30, 48, 0.85) 0%, rgba(9, 13, 20, 0.95) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(0, 120, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.business-acquisition-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00F0FF, #1E90FF, transparent);
+}
+
+/* 4K High-Resolution Media Query */
+@media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+

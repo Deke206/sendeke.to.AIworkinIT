@@ -1,0 +1,5 @@
+{
+    "livePreview.customExternalBrowser": "Chrome",
+    "livePreview.openPreviewTarget": "External Browser",
+    "liveServer.settings.port": 5501
+}

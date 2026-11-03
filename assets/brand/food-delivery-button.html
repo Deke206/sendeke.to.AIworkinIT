@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SenDeke Food Delivery Animated Button Showcase</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800;900&family=Space+Grotesk:wght@500;700&display=swap">
+  <style>
+    :root {
+      --bg-dark: #0A0B0E;
+      --card-bg: #12141A;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-cyan: #00F0FF;
+      --accent-orange: #FF3B1D;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .showcase-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    /* 1. ANIMATED GIF BUTTON */
+    .btn-sendeke-gif {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(135deg, #1A1D26, #0D0E14);
+      border: 2px solid rgba(0, 240, 255, 0.3);
+      border-radius: 20px;
+      padding: 10px 24px 10px 14px;
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    }
+    .btn-sendeke-gif:hover {
+      border-color: #00F0FF;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 240, 255, 0.25), 0 5px 15px rgba(0, 0, 0, 0.6);
+      color: #FFFFFF;
+    }
+    .btn-sendeke-gif .gif-thumb {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      object-fit: contain;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+    .btn-sendeke-gif .btn-label {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .btn-sendeke-gif .btn-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      font-weight: 800;
+    }
+    .btn-sendeke-gif .btn-main-text {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .btn-sendeke-gif .btn-sub {
+      font-size: 0.75rem;
+      color: #8E94A5;
+      margin-top: 2px;
+    }
+
+    /* 2. PURE CSS/SVG ANIMATED VECTOR BUTTON */
+    .vector-stage {
+      width: 140px;
+      height: 140px;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #060709;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .animated-bag-group {
+      animation: deliverySwishLoop 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      transform-origin: center;
+    }
+    @keyframes deliverySwishLoop {
+      /* 0% - 25%: Loaded at Center */
+      0%, 25% {
+        transform: translate(0px, 0px) skewX(-8deg);
+        opacity: 1;
+      }
+      /* 26% - 40%: Swish Out Fast to Right */
+      38% {
+        transform: translate(280px, 0px) skewX(-18deg);
+        opacity: 0.8;
+      }
+      40% {
+        transform: translate(450px, 0px) skewX(-20deg);
+        opacity: 0;
+      }
+      /* 41% - 48%: Offscreen reset */
+      41%, 48% {
+        transform: translate(-320px, 0px) skewX(-14deg);
+        opacity: 0;
+      }
+      /* 49% - 62%: Roll in empty from left and stop */
+      50% {
+        opacity: 1;
+      }
+      62% {
+        transform: translate(0px, 0px) skewX(-8deg);
+        opacity: 1;
+      }
+      /* 63% - 100%: Stopped at center, foods load, brand fires up */
+      100% {
+        transform: translate(0px, 0px) skewX(-8deg);
+        opacity: 1;
+      }
+    }
+
+    /* Food loading inside the bag */
+    .bag-foods {
+      animation: foodLoadLoop 4.6s ease infinite;
+    }
+    @keyframes foodLoadLoop {
+      0%, 35% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      38%, 62% {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      68% {
+        opacity: 0.5;
+        transform: translateY(-20px);
+      }
+      74%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Brand glow pulse */
+    .brand-glow {
+      animation: brandPulse 4.6s ease infinite;
+    }
+    @keyframes brandPulse {
+      0%, 36% { opacity: 1; filter: drop-shadow(0 0 6px #00F0FF); }
+      40%, 65% { opacity: 0; }
+      75%, 100% { opacity: 1; filter: drop-shadow(0 0 6px #00F0FF); }
+    }
+
+    /* Wheel spinning */
+    .wheel-rotate {
+      animation: spinLoop 4.6s linear infinite;
+      transform-origin: center;
+    }
+    @keyframes spinLoop {
+      0%, 25% { transform: rotate(0deg); }
+      38% { transform: rotate(720deg); }
+      40%, 48% { transform: rotate(720deg); }
+      62% { transform: rotate(1440deg); }
+      63%, 100% { transform: rotate(1440deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-lg">
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-secondary-subtle">
+      <div>
+        <div class="text-uppercase small fw-bold text-info">SenDeke Brand Assets</div>
+        <h1 class="h3 fw-black mb-0">Fast Food Delivery Animated Icon &amp; Action Button</h1>
+      </div>
+      <a href="../../index.html" class="btn btn-outline-light btn-sm fw-bold">← Back to SenDeke.to</a>
+    </div>
+
+    <!-- ROW 1: LIVE INTERACTIVE BUTTONS -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-6">
+        <div class="showcase-card h-100">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h2 class="h5 fw-bold mb-0">1. Instant Animated GIF CTA Button</h2>
+            <span class="badge bg-success-subtle text-success border border-success-subtle">Plug &amp; Play</span>
+          </div>
+          <p class="text-secondary small mb-4">
+            A high-speed animated button widget using our compiled <code>food-delivery-animated.gif</code>. Perfect for landing pages, dispatch triggers, and mobile bottom bars.
+          </p>
+
+          <!-- Interactive Button Example -->
+          <div class="p-4 rounded-4 bg-black border border-secondary-subtle text-center mb-3">
+            <a href="../../index.html#request" class="btn-sendeke-gif">
+              <img src="food-delivery-animated.gif" alt="SenDeke Food Delivery" class="gif-thumb">
+              <div class="btn-label">
+                <span class="btn-eyebrow">Direct Local Courier</span>
+                <span class="btn-main-text">Order Fast Food Delivery</span>
+                <span class="btn-sub">90034 Palms • Culver City • $15 Base</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="d-flex gap-2">
+            <a href="food-delivery-animated.gif" download="food-delivery-animated.gif" class="btn btn-outline-info btn-sm fw-bold">
+              ⬇ Download .GIF (214 KB)
+            </a>
+            <button class="btn btn-outline-secondary btn-sm" onclick="navigator.clipboard.writeText('<a href=\"/request\" class=\"btn-sendeke-gif\"><img src=\"food-delivery-animated.gif\" class=\"gif-thumb\"><span>Order Food Delivery</span></a>')">
+              📋 Copy HTML Snippet
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROW 2: PURE VECTOR ANIMATION -->
+      <div class="col-md-6">
+        <div class="showcase-card h-100">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h2 class="h5 fw-bold mb-0">2. Pure SVG Vector Animated Badge</h2>
+            <span class="badge bg-info-subtle text-info border border-info-subtle">Crisp 4K Vector</span>
+          </div>
+          <p class="text-secondary small mb-4">
+            Rendered natively in CSS keyframes with zero pixelation at any resolution. Bag swishes out, rolls in empty, foods load, and lights fire up.
+          </p>
+
+          <div class="p-4 rounded-4 bg-black border border-secondary-subtle d-flex align-items-center justify-content-center gap-4 mb-3">
+            <div class="vector-stage">
+              <svg viewBox="0 0 512 512" width="100%" height="100%">
+                <rect width="512" height="512" fill="#0A0B0E"/>
+                <!-- Trails -->
+                <g stroke-linecap="round" opacity="0.8">
+                  <line x1="28" y1="198" x2="138" y2="198" stroke="#00F0FF" stroke-width="5"/>
+                  <line x1="18" y1="274" x2="142" y2="274" stroke="#2E9EFF" stroke-width="5"/>
+                  <line x1="32" y1="340" x2="118" y2="340" stroke="#00F0FF" stroke-width="6"/>
+                </g>
+                <!-- Animated Bag Group -->
+                <g class="animated-bag-group">
+                  <!-- Handle -->
+                  <path d="M225 130 V98 C225 80 305 80 305 98 V130" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" fill="none"/>
+                  <!-- Bag Shell -->
+                  <rect x="135" y="130" width="250" height="195" rx="26" fill="#FFFFFF"/>
+                  <rect x="146" y="141" width="228" height="173" rx="18" fill="#0C0D12"/>
+
+                  <!-- Loading Food -->
+                  <g class="bag-foods">
+                    <!-- Burger Box -->
+                    <rect x="156" y="270" width="58" height="34" rx="4" fill="#D87820" stroke="#FFFFFF" stroke-width="2"/>
+                    <!-- Fries -->
+                    <path d="M234 260 H284 L278 305 H240 Z" fill="#E02424" stroke="#FFFFFF" stroke-width="2"/>
+                    <!-- Drink -->
+                    <path d="M312 245 H348 L342 305 H318 Z" fill="#1A2840" stroke="#FFFFFF" stroke-width="2"/>
+                  </g>
+
+                  <!-- Brand Text -->
+                  <g class="brand-glow">
+                    <text x="260" y="196" text-anchor="middle" font-size="24" font-weight="900" font-style="italic" fill="#FFFFFF">
+                      Sendeketo<tspan fill="#00F0FF">.com</tspan>
+                    </text>
+                    <rect x="190" y="214" width="140" height="36" rx="18" fill="#FF3B1D" fill-opacity="0.8" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+                    <text x="260" y="240" text-anchor="middle" font-size="24" font-weight="900" font-style="italic" fill="#FFFFFF">
+                      YUMM!
+                    </text>
+                  </g>
+
+                  <!-- Runner & Wheels -->
+                  <rect x="95" y="333" width="330" height="18" rx="9" fill="#FFFFFF"/>
+                  <line x1="65" y1="342" x2="445" y2="342" stroke="#00F0FF" stroke-width="14" stroke-linecap="round"/>
+                  <!-- Wheel 1 -->
+                  <g transform="translate(172, 408)">
+                    <g class="wheel-rotate">
+                      <circle cx="0" cy="0" r="46" fill="#FFFFFF"/>
+                      <circle cx="0" cy="0" r="26" fill="#0C0D12"/>
+                      <line x1="-22" y1="-14" x2="22" y2="14" stroke="#FFFFFF" stroke-width="4.5"/>
+                      <line x1="-14" y1="22" x2="14" y2="-22" stroke="#FFFFFF" stroke-width="4.5"/>
+                      <circle cx="0" cy="0" r="10" fill="#00F0FF"/>
+                    </g>
+                  </g>
+                  <!-- Wheel 2 -->
+                  <g transform="translate(348, 408)">
+                    <g class="wheel-rotate">
+                      <circle cx="0" cy="0" r="46" fill="#FFFFFF"/>
+                      <circle cx="0" cy="0" r="26" fill="#0C0D12"/>
+                      <line x1="-22" y1="-14" x2="22" y2="14" stroke="#FFFFFF" stroke-width="4.5"/>
+                      <line x1="-14" y1="22" x2="14" y2="-22" stroke="#FFFFFF" stroke-width="4.5"/>
+                      <circle cx="0" cy="0" r="10" fill="#00F0FF"/>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div>
+              <div class="fw-bold fs-5 text-white">Full Loop Story</div>
+              <div class="small text-secondary">
+                1. Full bag rolls fast<br>
+                2. Swishes out right at speed<br>
+                3. Rolls back empty from left<br>
+                4. Brakes &amp; foods load in<br>
+                5. Brand lights up &amp; launches!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROW 3: ALL FORMAT DOWNLOADS -->
+    <div class="showcase-card">
+      <h3 class="h5 fw-bold mb-3">SenDeke Delivery Icon Asset Suite</h3>
+      <div class="row g-3 text-center">
+        <div class="col-6 col-md-3">
+          <div class="p-3 bg-black rounded-3 border border-secondary-subtle">
+            <img src="food-delivery-animated.gif" style="width: 80px; height: 80px; object-fit: contain;" class="mb-2">
+            <div class="fw-bold small">Animated GIF</div>
+            <div class="text-secondary small">256x256 • 214 KB</div>
+            <a href="food-delivery-animated.gif" download class="btn btn-outline-light btn-sm mt-2 w-100">Download</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="p-3 bg-black rounded-3 border border-secondary-subtle">
+            <img src="sendeke-food-bag-icon.svg" style="width: 80px; height: 80px; object-fit: contain;" class="mb-2">
+            <div class="fw-bold small">Vector SVG</div>
+            <div class="text-secondary small">Lossless • Centered</div>
+            <a href="sendeke-food-bag-icon.svg" download class="btn btn-outline-light btn-sm mt-2 w-100">Download</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="p-3 bg-black rounded-3 border border-secondary-subtle">
+            <img src="food-bag-512.png" style="width: 80px; height: 80px; object-fit: contain;" class="mb-2">
+            <div class="fw-bold small">512x512 PNG</div>
+            <div class="text-secondary small">Retina Static</div>
+            <a href="food-bag-512.png" download class="btn btn-outline-light btn-sm mt-2 w-100">Download</a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="p-3 bg-black rounded-3 border border-secondary-subtle">
+            <img src="food-bag-1024.png" style="width: 80px; height: 80px; object-fit: contain;" class="mb-2">
+            <div class="fw-bold small">1024x1024 PNG</div>
+            <div class="text-secondary small">App Store / Print</div>
+            <a href="food-bag-1024.png" download class="btn btn-outline-light btn-sm mt-2 w-100">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
